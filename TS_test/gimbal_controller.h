@@ -563,7 +563,7 @@ void CGimbalController::modbusLoop() {
         if (millis() > u32wait) u8state++; // wait state
         break;
     case 1:
-
+        
         if(u8query==1)//send status over modbus
         {
           
@@ -595,8 +595,9 @@ void CGimbalController::modbusLoop() {
         if (mbMaster.getState() == COM_IDLE) {
             u8state = 0;
             u32wait = millis() + 10;
-            setCT(au16data[0],au16data[1],au16data[2],au16data[3]);//update data after modbus communication done
+            //update data after modbus communication done
         }
+        setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
         break;
     }
 
