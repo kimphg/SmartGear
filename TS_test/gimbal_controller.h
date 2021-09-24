@@ -597,6 +597,7 @@ void CGimbalController::modbusLoop() {
             u32wait = millis() + 10;
             //update data after modbus communication done
         }
+        Serial.print(getSensors());
         setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
         break;
     }
