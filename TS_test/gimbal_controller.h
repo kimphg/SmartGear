@@ -37,19 +37,19 @@ void modbusSetup()
     telegram[0].u8id = 1; // slave address
     telegram[0].u8fct = MB_FC_READ_REGISTERS; // function code (this one is registers read)
     telegram[0].u16RegAdd = 0; // start address in slave
-    telegram[0].u16CoilsNo = 20; // number of elements (coils or registers) to read
+    telegram[0].u16CoilsNo = 16; // number of elements (coils or registers) to read
     telegram[0].au16reg = au16data; // pointer to a memory array in the Arduino
 
     // telegram 1: write a single register
     telegram[1].u8id = 1; // slave address
     telegram[1].u8fct = MB_FC_WRITE_MULTIPLE_REGISTERS; // function code (this one is write a single register)
-    telegram[1].u16RegAdd = 20; // start address in slave
-    telegram[1].u16CoilsNo = 20; // number of elements (coils or registers) to write
+    telegram[1].u16RegAdd = 16; // start address in slave
+    telegram[1].u16CoilsNo = 16; // number of elements (coils or registers) to write
     telegram[1].au16reg = output16data; // pointer to a memory array in the Arduino
 
     MODBUS_PORT.begin( 38400 ); // baud-rate
     mbMaster.start();
-    mbMaster.setTimeOut( 20 ); // if there is no answer in 5000 ms, roll over
+    mbMaster.setTimeOut( 1000 ); // if there is no answer in 5000 ms, roll over
     u32wait = millis() + 1000;
     u8state = u8query = 0;
 }
@@ -102,14 +102,8 @@ public:
     bool isStimConnected;
     int ct11,ct12,ct21,ct22;
     void reportStat();
-    int getSensors()
-    {
-          return ct11*8+ct12*4+ct21*2+ct22;
-    }
     CGimbalController()
     {
-
-
     }
     void setMaxAcc(float hvalue,float vvalue)
     {
@@ -123,7 +117,9 @@ public:
     {
       initKalmanZ(pn,sn);
       }
-    
+    int getSensors(){
+      return ct11*8+ct12*4+ct21*2+ct22;
+      }
     void controlerReport();
     void setControlSpeed(float hspeed,float vspeed);
     bool ps1,ps2;
@@ -317,7 +313,6 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 }
 double eh,ev;
 int timeSec=0; 
-
 void CGimbalController::controlerReport()
 {
 //    int sensorValue = getSensors();
@@ -563,27 +558,23 @@ void CGimbalController::modbusLoop() {
         if (millis() > u32wait) u8state++; // wait state
         break;
     case 1:
-        
+
         if(u8query==1)//send status over modbus
         {
-          
             output16data[ 0] = fov*100;
-            output16data[ 1] = abs(hPulseBuff*100);
-            output16data[ 2] = abs(vPulseBuff*100);
+            output16data[ 1] = abs(hPulseBuff);
+            output16data[ 2] = abs(vPulseBuff);
             output16data[ 3] = abs(float(h_abs_pos)/(float)h_ppr*36000);
             output16data[ 4] = abs(float(v_abs_pos)/(float)v_ppr*36000);
-            output16data[ 5] = abs(h_ppr/2000*100);
-            output16data[ 6] = abs(v_ppr/2000*100);
+            output16data[ 5] = abs(h_ppr);
+            output16data[ 6] = abs(v_ppr);
             output16data[ 7] = abs(pelco_count*100);
-            pelco_count=0;
             output16data[ 8] = abs(mStimSPS*100);    mStimSPS=0;
             output16data[ 9] = abs(param_h_p*100);
             output16data[10] = abs(param_h_i*100);
             output16data[11] = abs(param_h_d*100);
-            output16data[12] = abs(mStabMode*100);
-            output16data[13] = getSensors()*100;
-            output16data[14] = 255;
-            output16data[15] = 255;
+            output16data[12] = abs(mStabMode);
+            output16data[13] = abs(getSensors());
         }
         mbMaster.query( telegram[u8query] ); // send query (only once)
         u8state++;
@@ -595,10 +586,8 @@ void CGimbalController::modbusLoop() {
         if (mbMaster.getState() == COM_IDLE) {
             u8state = 0;
             u32wait = millis() + 10;
-            //update data after modbus communication done
+            gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);//update data after modbus communication done
         }
-        Serial.print(getSensors());
-        setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
         break;
     }
 
