@@ -562,19 +562,19 @@ void CGimbalController::modbusLoop() {
         if(u8query==1)//send status over modbus
         {
             output16data[ 0] = fov*100;
-            output16data[ 1] = abs(hPulseBuff);
-            output16data[ 2] = abs(vPulseBuff);
+            output16data[ 1] = abs(hPulseBuff*100);
+            output16data[ 2] = abs(vPulseBuff*100);
             output16data[ 3] = abs(float(h_abs_pos)/(float)h_ppr*36000);
             output16data[ 4] = abs(float(v_abs_pos)/(float)v_ppr*36000);
-            output16data[ 5] = abs(h_ppr);
-            output16data[ 6] = abs(v_ppr);
-            output16data[ 7] = abs(pelco_count*100);
+            output16data[ 5] = abs(h_ppr/2000*100);
+            output16data[ 6] = abs(v_ppr/2000*100);
+            output16data[ 7] = abs(pelco_count*100);pelco_count=0;
             output16data[ 8] = abs(mStimSPS*100);    mStimSPS=0;
             output16data[ 9] = abs(param_h_p*100);
             output16data[10] = abs(param_h_i*100);
             output16data[11] = abs(param_h_d*100);
-            output16data[12] = abs(mStabMode);
-            output16data[13] = abs(getSensors());
+            output16data[12] = abs(mStabMode*100);
+            output16data[13] = abs(getSensors()*100);
         }
         mbMaster.query( telegram[u8query] ); // send query (only once)
         u8state++;
