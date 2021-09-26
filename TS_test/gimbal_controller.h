@@ -186,6 +186,7 @@ void CGimbalController::setCalib(float hcalib, float vcalib)
 void CGimbalController::reportStat()
 {
     controlerReport();
+    if(getSensors())setStimMode(0);
     if(!isSetupChanged)return;
     isSetupChanged = false;
     mPrint("$MSGS,");
@@ -714,10 +715,7 @@ void CGimbalController::setCT(int c11,int c12,int c21,int c22)
     ct12 = c12;
     ct21 = c21;
     ct22 = c22;
-//    if(ct11)S_CONTROL.println("$MGS,Left limit");
-//    if(ct12)S_CONTROL.println("$MGS,Right limit");
-//    if(ct21)S_CONTROL.println("$MGS,Down limit");
-//    if(ct22)S_CONTROL.println("$MGS,Up limit");
+  
 }
 void CGimbalController::setPARAM_P(float valueh,float valuev)
 {
