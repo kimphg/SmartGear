@@ -74,8 +74,8 @@ private:
     int mStabMode;
     int h_abs_pos,v_abs_pos;
     int userAlive;
-    float h_user_speed;
-    float v_user_speed;
+    double h_user_speed,h_user_acc;
+    double v_user_speed,h_user_acc;
     int h_ppr,v_ppr;
     int pelco_count;
     //     float h_speed_pps,v_speed_pps;
