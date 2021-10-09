@@ -75,9 +75,11 @@ private:
     int h_abs_pos,v_abs_pos;
     int userAlive;
     double h_user_speed,h_user_acc;
-    double v_user_speed,h_user_acc;
+    double v_user_speed,v_user_acc;
     int h_ppr,v_ppr;
     int pelco_count;
+    float controlDtime = 0;
+    long int lastControlTime = 0;
     //     float h_speed_pps,v_speed_pps;
     float vSpeedFeedback ;
     double hSpeedFeedback ;
@@ -379,8 +381,19 @@ void CGimbalController::controlerReport()
 void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
     pelco_count++;
-    h_user_speed = hspeed * mUserMaxspdH;
-    v_user_speed = vspeed * mUserMaxSpdV;
+    long int newTime = millis();
+    float oldDtime = controlDtime;
+    controlDtime = newTime - lastControlTime;
+    lastControlTime = newTime;
+    if(controlDtime<20)controlDtime=20;
+    if(controlDtime>100)controlDtime=100;
+    controlDtime = controlDtime*0.2+oldDtime*0.8;
+    double new_h_sp = hspeed * mUserMaxspdH;
+    double new_v_sp = vspeed * mUserMaxSpdV;
+    h_user_acc = (new_h_sp-h_user_speed)*1000.0/controlDtime;
+    v_user_acc = (new_v_sp-v_user_speed)*1000.0/controlDtime;
+//    h_user_speed = ;
+//    v_user_speed = vspeed * mUserMaxSpdV;
     userAlive =1.0/CONTROL_TIME_STAMP;
 
 }
@@ -470,6 +483,9 @@ void CGimbalController::motorUpdate()
 void CGimbalController::UserUpdate()//
 {
     modbusLoop();
+
+    h_user_speed = h_user_speed+h_user_acc*CONTROL_TIME_STAMP;
+    v_user_speed = v_user_speed+v_user_acc*CONTROL_TIME_STAMP;
     if(userAlive>0)userAlive--;
     else
     {
@@ -483,6 +499,7 @@ void CGimbalController::UserUpdate()//
     if(interupt>0)interupt--;
     if(mStabMode==0)
     {
+
         // horizontal control value
         outputSpeedH(h_user_speed);
         // vertical control value
@@ -576,6 +593,7 @@ void CGimbalController::modbusLoop() {
             output16data[11] = abs(param_h_d*100);
             output16data[12] = abs(mStabMode*100);
             output16data[13] = abs(getSensors()*100);
+            output16data[14] = controlDtime*100;
         }
         mbMaster.query( telegram[u8query] ); // send query (only once)
         u8state++;
