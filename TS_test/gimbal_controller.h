@@ -394,7 +394,7 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
     v_user_acc = (new_v_sp-v_user_speed)*1000.0/controlDtime;
 //    h_user_speed = ;
 //    v_user_speed = vspeed * mUserMaxSpdV;
-    userAlive =1.0/CONTROL_TIME_STAMP;
+    userAlive =0.3/CONTROL_TIME_STAMP;
 
 }
 
@@ -489,6 +489,8 @@ void CGimbalController::UserUpdate()//
     if(userAlive>0)userAlive--;
     else
     {
+      h_user_acc = 0;
+      v_user_acc = 0
         h_user_speed*=0.6;
         v_user_speed*=0.6;
     }
