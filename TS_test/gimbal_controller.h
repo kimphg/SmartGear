@@ -482,7 +482,7 @@ void CGimbalController::motorUpdate()
 
 void CGimbalController::UserUpdate()//
 {
-    modbusLoop();
+    
 
     h_user_speed = h_user_speed+h_user_acc*CONTROL_TIME_STAMP;
     v_user_speed = v_user_speed+v_user_acc*CONTROL_TIME_STAMP;
@@ -549,26 +549,8 @@ void CGimbalController::UserUpdate()//
         outputSpeedV(output_value);
 
     }
+    modbusLoop();
 
-
-    //        float outputVal = h_user_speed;
-    //        Serial.println(outputVal);
-    //        stim_data.z_angle+=outputVal;
-
-
-    //        Serial.print(output_value);
-    //        Serial.print(" ");
-
-    //        v_control   [control_newID] = v_user_speed - stimrate_v;
-    //        v_control_d [control_newID] = v_control[control_newID]-v_control[control_oldID];
-    //        v_control_i [control_newID] = v_control[control_newID]+v_control[control_oldID];
-    //        output_value =   v_control    [control_newID]*PARAM_P
-    //                + v_control_i[control_newID]*PARAM_I
-    //                + v_control_d[control_newID]*PARAM_D;
-
-    //        Serial.print(output_value);
-    //        Serial.print("\n");
-    //        status_report(stim_data.x_rate,stim_data.y_rate,stim_data.z_rate,stim_data.msgCount,h_abs_pos,v_abs_pos);
 
 }
 
@@ -606,7 +588,7 @@ void CGimbalController::modbusLoop() {
         mbMaster.poll(); // check incoming messages
         if (mbMaster.getState() == COM_IDLE) {
             u8state = 0;
-            u32wait = millis() + 10;
+            u32wait = millis() + 500;
             gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);//update data after modbus communication done
         }
         break;
