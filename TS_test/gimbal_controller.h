@@ -387,7 +387,7 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
     lastControlTime = newTime;
     if(controlDtime<20)controlDtime=20;
     if(controlDtime>100)controlDtime=100;
-    controlDtime = controlDtime*0.2+oldDtime*0.8;
+    controlDtime = controlDtime*0.05+oldDtime*0.95;
     double new_h_sp = hspeed * mUserMaxspdH;
     double new_v_sp = vspeed * mUserMaxSpdV;
     h_user_acc = (new_h_sp-h_user_speed)*1000.0/controlDtime;
