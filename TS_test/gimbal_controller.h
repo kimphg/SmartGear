@@ -490,7 +490,7 @@ void CGimbalController::UserUpdate()//
     else
     {
       h_user_acc = 0;
-      v_user_acc = 0
+      v_user_acc = 0;
         h_user_speed*=0.6;
         v_user_speed*=0.6;
     }
