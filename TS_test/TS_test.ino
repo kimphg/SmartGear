@@ -10,9 +10,11 @@ extern int com_mode;
 int msg_count=0;
 int generalState = 1;
 int buzz = 0;
+int idleCount = 0;
 void stateReport()
 {
-    gimbal.reportStat(idleCount);
+    gimbal.reportStat(idleCount/1000  );
+    Serial.println(idleCount/1000.0);
     idleCount = 0;
     if((com_mode==3)&&(!s3_count))
     {
@@ -60,7 +62,7 @@ void setup() {
 
 }
 int time_stamp_old;
-int idleCount = 0;
+
 void loop() {
     //  modbusino_slave.loop(tab_reg, 20);
     idleCount++;
@@ -233,6 +235,12 @@ bool processPelco(){
         int ct22 = pelco_input_buff[5];
         gimbal.setCT(ct11,ct12,ct21,ct22);
         //        reportDebug("Calib set");
+    }
+    else if(pelco_input_buff[1]==0x0D) //work mode set
+    {
+        int workmode = pelco_input_buff[2];
+        gimbal.setWorkmode(workmode);
+         reportDebug("work mode set");
     }
     else {
         //reportDebug("msge");

@@ -26,6 +26,7 @@
 #define MODBUS_PORT Serial1
 Modbus mbMaster(0,MODBUS_PORT,0); 
 modbus_t telegram[2];
+
 unsigned long u32wait;
 uint16_t au16data[16]; 
 uint16_t output16data[16];
@@ -49,8 +50,8 @@ void modbusSetup()
 
     MODBUS_PORT.begin( 38400 ); // baud-rate
     mbMaster.start();
-    mbMaster.setTimeOut( 1000 ); // if there is no answer in 5000 ms, roll over
-    u32wait = millis() + 1000;
+    mbMaster.setTimeOut( 50 ); // if there is no answer in 50 ms, roll over
+    u32wait = millis() + 50;
     u8state = u8query = 0;
 }
 
@@ -98,6 +99,7 @@ private:
     bool isSetupChanged;
     float vSpeedCalib = 0,hSpeedCalib = 0;
     double sumEv=0,sumEh=0;
+    int workMode=0;
 public:
     void setCalib(float hcalib,float vcalib);
     void setCT(int c11,int c12,int c21,int c22);
@@ -113,6 +115,10 @@ public:
       maxAccV=vvalue;
       isSetupChanged = true;
       }
+      void setWorkmode(int mode)
+      {
+        workMode = mode;
+        }
     void initGimbal();
     void setPPR(unsigned int hppr,unsigned int vppr);
     void setKalmanZ(double pn,double sn)
@@ -188,9 +194,24 @@ void CGimbalController::setCalib(float hcalib, float vcalib)
 void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
+    output16data[ 3] = abs(stim_data.z_angle*100);
+    output16data[ 4] = abs(stim_data.y_angle*100);
+    output16data[ 5] = abs(param_v_p*100);
+    output16data[ 6] = abs(param_v_i*100);
+    output16data[ 7] = abs(pelco_count*100);
+    output16data[ 8] = abs(mStimSPS);
+    output16data[ 9] = abs(param_h_p*100);
+    output16data[10] = abs(param_h_i*100);
+    output16data[11] = abs(param_h_d*100);
+    output16data[12] = abs(mStabMode*100);
     output16data[15] = idleCount;
+      
+    
+    pelco_count=0;
+    mStimSPS=0;
     if(!isSetupChanged)return;
     isSetupChanged = false;
+    return;
     mPrint("$MSGS,");
 
     mPrint(",azi:");
@@ -283,6 +304,7 @@ void CGimbalController::initGimbal()
     sensorTimer.begin(callbackSensorUpdate,200);
     Serial.println("gimbal test done");
     modbusSetup();
+    workMode=1;
     reportDebug("Firmware version: 2.1");
     h_user_speed = 0;
     v_user_speed = 0;
@@ -354,12 +376,12 @@ void CGimbalController::motorUpdate()
             if(hPulseBuff>0)
             {
                 hPulseBuff--;
-                h_abs_pos++;
+//                h_abs_pos++;
             }
             else
             {
                 hPulseBuff++;
-                h_abs_pos--;
+//                h_abs_pos--;
             }
             if(pulseMode==1)
             {
@@ -391,12 +413,12 @@ void CGimbalController::motorUpdate()
             if(vPulseBuff>0)
             {
                 vPulseBuff--;
-                v_abs_pos++;
+//                v_abs_pos++;
             }
             else
             {
                 vPulseBuff++;
-                v_abs_pos--;
+//                v_abs_pos--;
             }
 
             if(pulseMode==1)
@@ -509,16 +531,7 @@ void CGimbalController::modbusLoop() {
             output16data[ 0] = fov*100;
             output16data[ 1] = abs(hPulseBuff*100);
             output16data[ 2] = abs(vPulseBuff*100);
-            output16data[ 3] = abs(float(h_abs_pos)/(float)h_ppr*36000);
-            output16data[ 4] = abs(float(v_abs_pos)/(float)v_ppr*36000);
-            output16data[ 5] = abs(h_ppr/2000*100);
-            output16data[ 6] = abs(v_ppr/2000*100);
-            output16data[ 7] = abs(pelco_count*100);pelco_count=0;
-            output16data[ 8] = abs(mStimSPS*100);    mStimSPS=0;
-            output16data[ 9] = abs(param_h_p*100);
-            output16data[10] = abs(param_h_i*100);
-            output16data[11] = abs(param_h_d*100);
-            output16data[12] = abs(mStabMode*100);
+
             output16data[13] = abs(getSensors()*100);
             output16data[14] = controlDtime*100;
         }
@@ -551,11 +564,7 @@ void CGimbalController::readSensorData()//200 microseconds
         {
             mStimMsgCount++;
             mStimSPS++;
-            //                stim_v_speed += stim_data.y_rate;
-            //                stim_h_speed += stim_data.z_rate;
-            //              outputSpeedH(-(0.8*stim_data.z_angle
-            //                              +0.0*stim_data.z_rate
-            //                              +0.0*stim_data.z_acc));
+            if(workMode==0)Serial2.println(stim_data.z_angle);
         }
         lastStimByteTime = timeMicros;
     }
@@ -582,7 +591,6 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
     {
         h_freq_devider=1+CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(hPulseBuff);
         if(h_freq_devider<minPulsePeriodh)h_freq_devider=minPulsePeriodh;
-
  
     }
     if(pulseMode==1)
