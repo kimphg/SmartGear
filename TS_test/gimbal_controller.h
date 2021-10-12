@@ -564,7 +564,7 @@ void CGimbalController::readSensorData()//200 microseconds
         {
             mStimMsgCount++;
             mStimSPS++;
-            if(workMode==0)Serial2.println(stim_data.z_angle);
+            if(workMode==0)E_CONTROL.println(stim_data.z_rate);
         }
         lastStimByteTime = timeMicros;
     }

@@ -103,8 +103,8 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
               abs(y_rate1>400))
               {
 //                resetStimState(stim_data);
-                reportDebug("Stim VE:");
-//                return false;
+//                reportDebug("Stim VE:");
+                return false;
               }
 //            Serial.println(z_rate1);
             stim_data->x_acc = x_rate1 - stim_data->x_rate;
@@ -113,12 +113,17 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             
 //            stim_data->x_anglei+=stim_data->x_angle;
             
-            stim_data->y_acc = y_rate1 - stim_data->y_rate;
+            double acc = (y_rate1 - stim_data->y_rate)*1000;
+            if(abs(acc)>1000)return false;
+            acc = (z_rate1 - stim_data->z_rate)*1000;
+            if(abs(acc)>1000)return false;
+            
             stim_data->y_rate = kalmanY.getFilteredValue(y_rate1);
             stim_data->y_angle += (stim_data->y_rate/1000.0);
 //            stim_data->y_anglei+=stim_data->y_angle;
             
-            stim_data->z_acc = z_rate1 - stim_data->z_rate;
+            
+;
             stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1);
             stim_data->z_angle += (stim_data->z_rate/1000.0);
 //            stim_data->z_kangle = kalmanZ.getAngle(stim_data->z_angle,stim_data->z_rate,0.001);
