@@ -114,9 +114,9 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
 //            stim_data->x_anglei+=stim_data->x_angle;
             
             double acc = (y_rate1 - stim_data->y_rate)*1000;
-            if(abs(acc)>1000)return false;
+            if(abs(acc)>2000)return false;
             acc = (z_rate1 - stim_data->z_rate)*1000;
-            if(abs(acc)>1000)return false;
+            if(abs(acc)>2000)return false;
             
             stim_data->y_rate = kalmanY.getFilteredValue(y_rate1);
             stim_data->y_angle += (stim_data->y_rate/1000.0);
