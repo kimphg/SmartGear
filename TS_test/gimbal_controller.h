@@ -4,7 +4,7 @@
 
 #define CTRL_DATA_BUF_LEN 50
 #define CONTROL_DELAY_FILTER
-#define MOTOR_PULSE_CLOCK 500000
+#define MOTOR_PULSE_CLOCK 1000000
 #define PD1 16
 #define PS1 17
 #define PD2 18
@@ -560,7 +560,8 @@ void CGimbalController::readSensorData()//200 microseconds
         {
             mStimMsgCount++;
             mStimSPS++;
-            if(workMode==0)E_CONTROL.println(stim_data.z_rate);
+            if(workMode==0)E_CONTROL.println(stim_data.y_rate);
+            if(workMode==2)E_CONTROL.println(stim_data.z_rate);
         }
         lastStimByteTime = timeMicros;
     }

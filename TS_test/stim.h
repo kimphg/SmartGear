@@ -5,12 +5,12 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(10,0.005,60,0); // Create the Kalman instances
+Kalman kalmanZ(30,0.01,60,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
   }
-Kalman kalmanY(10,0.005,60,0); // Create the Kalman instances
+Kalman kalmanY(30,0.01,60,0); // Create the Kalman instances
 void initKalmanY(double pn,double sn)
 {
   kalmanY.initParams(pn,sn,100,0);
@@ -114,9 +114,9 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
 //            stim_data->x_anglei+=stim_data->x_angle;
             
             double acc = (y_rate1 - stim_data->y_rate)*1000;
-            if(abs(acc)>2000)return false;
+            if(abs(acc)>5000)return false;
             acc = (z_rate1 - stim_data->z_rate)*1000;
-            if(abs(acc)>2000)return false;
+            if(abs(acc)>5000)return false;
             
             stim_data->y_rate = kalmanY.getFilteredValue(y_rate1);
             stim_data->y_angle += (stim_data->y_rate/1000.0);
