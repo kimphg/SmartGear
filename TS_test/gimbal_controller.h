@@ -330,10 +330,9 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
     h_ppr = hppr;
     v_ppr = vppr;
-    minPulsePeriodh = 4;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 4;//MOTOR_PULSE_CLOCK/(v_ppr);
-    if(minPulsePeriodh<4)minPulsePeriodh=4;
-    if(minPulsePeriodv<4)minPulsePeriodv=4;
+    minPulsePeriodh = 5;//MOTOR_PULSE_CLOCK/(h_ppr);
+    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
+
     isSetupChanged =true;
 }
 double eh,ev;
@@ -346,19 +345,19 @@ void CGimbalController::controlerReport()
 void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
     pelco_count++;
-    long int newTime = millis();
-    float oldDtime = controlDtime;
-    controlDtime = newTime - lastControlTime;
-    lastControlTime = newTime;
-    if(controlDtime<20)controlDtime=20;
-    if(controlDtime>100)controlDtime=100;
-    controlDtime = controlDtime*0.05+oldDtime*0.95;
-    double new_h_sp = hspeed * mUserMaxspdH;
-    double new_v_sp = vspeed * mUserMaxSpdV;
-    h_user_acc = (new_h_sp-h_user_speed)*1000.0/controlDtime;
-    v_user_acc = (new_v_sp-v_user_speed)*1000.0/controlDtime;
-//    h_user_speed = ;
-//    v_user_speed = vspeed * mUserMaxSpdV;
+//    long int newTime = millis();
+//    float oldDtime = controlDtime;
+//    controlDtime = newTime - lastControlTime;
+//    lastControlTime = newTime;
+//    if(controlDtime<20)controlDtime=20;
+//    if(controlDtime>100)controlDtime=100;
+//    controlDtime = controlDtime*0.05+oldDtime*0.95;
+//    double new_h_sp = hspeed * mUserMaxspdH;
+//    double new_v_sp = vspeed * mUserMaxSpdV;
+//    h_user_acc = (new_h_sp-h_user_speed)*1000.0/controlDtime;
+//    v_user_acc = (new_v_sp-v_user_speed)*1000.0/controlDtime;
+    h_user_speed = hspeed * mUserMaxspdH;
+    v_user_speed = vspeed * mUserMaxSpdV;
     userAlive =0.3/CONTROL_TIME_STAMP;
 
 }
@@ -449,13 +448,10 @@ void CGimbalController::UserUpdate()//
 {
     
 
-    h_user_speed = h_user_speed+h_user_acc*CONTROL_TIME_STAMP;
-    v_user_speed = v_user_speed+v_user_acc*CONTROL_TIME_STAMP;
+
     if(userAlive>0)userAlive--;
     else
     {
-      h_user_acc = 0;
-      v_user_acc = 0;
         h_user_speed*=0.6;
         v_user_speed*=0.6;
     }
