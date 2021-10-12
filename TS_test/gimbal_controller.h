@@ -103,7 +103,7 @@ public:
     void setCT(int c11,int c12,int c21,int c22);
     bool isStimConnected;
     int ct11,ct12,ct21,ct22;
-    void reportStat();
+    void reportStat(int idleCount);
     CGimbalController()
     {
     }
@@ -185,10 +185,10 @@ void CGimbalController::setCalib(float hcalib, float vcalib)
 
 }
 
-void CGimbalController::reportStat()
+void CGimbalController::reportStat(int idleCount)
 {
-    controlerReport();
     if(getSensors())setStimMode(0);
+    output16data[15] = idleCount;
     if(!isSetupChanged)return;
     isSetupChanged = false;
     mPrint("$MSGS,");
@@ -283,7 +283,7 @@ void CGimbalController::initGimbal()
     sensorTimer.begin(callbackSensorUpdate,200);
     Serial.println("gimbal test done");
     modbusSetup();
-    Serial.println("Firmware version: 7.0");
+    reportDebug("Firmware version: 2.1");
     h_user_speed = 0;
     v_user_speed = 0;
     setPPR(PPR1*GEAR1,PPR2*GEAR2);
@@ -318,64 +318,7 @@ double eh,ev;
 int timeSec=0; 
 void CGimbalController::controlerReport()
 {
-//    int sensorValue = getSensors();
-//    if(sensorValue) reportDebug("Angle limit");
-   // float abs_pos_h = h_abs_pos*360.0/h_ppr;
-   // float abs_pos_v = v_abs_pos*360.0/v_ppr;
-/*
-    S_CONTROL.print("$TGC,");
-    S_CONTROL.print(h_user_speed);
-    S_CONTROL.print(",");
-    S_CONTROL.print(v_user_speed);
-    S_CONTROL.print(",ct:");
-    S_CONTROL.print(ct11);
-    S_CONTROL.print(ct12);
-    S_CONTROL.print(ct21);
-    S_CONTROL.print(ct12);
-    S_CONTROL.print(mStimSPS);
-    mStimSPS=0;
-    S_CONTROL.print(",");
-    S_CONTROL.print(pelco_count);
-    pelco_count=0;
-    S_CONTROL.print(",");
-//    S_CONTROL.print(sensorValue);
-//    S_CONTROL.print(",");
-    S_CONTROL.print(abs_pos_h);
-    S_CONTROL.print(",");
-    S_CONTROL.print(abs_pos_v);
-    S_CONTROL.print(",");
-    timeSec++;
-    if(timeSec>10)
-    {
-      timeSec=0;
-      eh = sumEh;
-      sumEh=0;
-      ev=sumEv;
-      sumEv=0;
-    }
-    S_CONTROL.print(eh);
-    S_CONTROL.print(",");
-    S_CONTROL.print(ev);
-    S_CONTROL.print("\n");
 
-    Serial.print("$TGC,");
-    Serial.print(h_user_speed);
-    Serial.print(",");
-    Serial.print(v_user_speed);
-    Serial.print(",");
-    Serial.print(hSpeedFeedback);
-    Serial.print(",");
-    Serial.print(vSpeedFeedback);
-    Serial.print(",");
-    Serial.print(stimCount);
-//    Serial.print(",");
-//    Serial.print(sensorValue);
-    Serial.print(",");
-    Serial.print(abs_pos_h);
-    Serial.print(",");
-    Serial.print(abs_pos_v);
-    Serial.print("\n");
-*/
 }
 
 void CGimbalController::setControlSpeed(float hspeed, float vspeed)
@@ -515,7 +458,7 @@ void CGimbalController::UserUpdate()//
         //            if(control_newID>=CTRL_DATA_BUF_LEN)control_newID=0;
         double h_control = stim_data.z_angle+userAngleh;
         if(interupt>0){
-        h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
+            h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
         }
         sumEh+=abs(h_control);
         double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//h_control[control_newID] - h_control[control_oldID];

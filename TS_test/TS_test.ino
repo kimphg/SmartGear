@@ -3,16 +3,17 @@
 
 extern CGimbalController gimbal;
 IntervalTimer  reportTimer;
-int s1_count = 0;
-int s2_count = 0;
-int s3_count = 0;
+int             s1_count = 0;
+int             s2_count = 0;
+int             s3_count = 0;
 extern int com_mode;
 int msg_count=0;
 int generalState = 1;
 int buzz = 0;
 void stateReport()
 {
-    gimbal.reportStat();
+    gimbal.reportStat(idleCount);
+    idleCount = 0;
     if((com_mode==3)&&(!s3_count))
     {
         com_mode = 2;
@@ -59,9 +60,10 @@ void setup() {
 
 }
 int time_stamp_old;
+int idleCount = 0;
 void loop() {
     //  modbusino_slave.loop(tab_reg, 20);
-    
+    idleCount++;
     int time_stamp = millis()%2000;
     time_stamp_old = time_stamp;
     if(time_stamp<250)
