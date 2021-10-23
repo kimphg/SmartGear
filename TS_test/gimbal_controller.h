@@ -5,7 +5,7 @@
 //int resultArrayId=0;
 #define CTRL_DATA_BUF_LEN 50
 #define CONTROL_DELAY_FILTER
-#define MOTOR_PULSE_CLOCK 500000
+#define MOTOR_PULSE_CLOCK 1000000
 #define PD1 16
 #define PS1 17
 #define PD2 18
@@ -33,6 +33,7 @@ uint16_t au16data[16];
 uint16_t output16data[16];
 uint8_t u8state = 0; //!< machine state
 uint8_t u8query = 0; //!< pointer to message query
+double max_stab_spd = 90;
 void modbusSetup()
 {
     // telegram 0: read registers
@@ -581,6 +582,8 @@ void CGimbalController::readSensorData()//200 microseconds
 
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
+    if(speeddps>max_stab_spd)speeddps=max_stab_spd;
+    else if(speeddps<-max_stab_spd)speeddps=-max_stab_spd;
     if(ct11>0){
         hPulseBuff=h_ppr/360.0*CONTROL_TIME_STAMP;
     }
@@ -618,6 +621,8 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 }
 void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
 {
+    if(speeddps>max_stab_spd)speeddps=max_stab_spd;
+    else if(speeddps<-max_stab_spd)speeddps=-max_stab_spd;
     if(ct21>0){
         vPulseBuff=v_ppr/360.0*CONTROL_TIME_STAMP;
     }
