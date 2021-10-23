@@ -5,12 +5,12 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(30,0.01,60,0); // Create the Kalman instances
+Kalman kalmanZ(0.1,0.3,10,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
   }
-Kalman kalmanY(30,0.01,60,0); // Create the Kalman instances
+Kalman kalmanY(0.1,0.3,10,0); // Create the Kalman instances
 void initKalmanY(double pn,double sn)
 {
   kalmanY.initParams(pn,sn,100,0);
@@ -22,10 +22,8 @@ struct StimData{
   float x_angle,y_angle,z_angle;
   float x_kangle,y_kangle,z_kangle;
   float x_temp,y_temp,z_temp;
-  float x_acc,y_acc,z_acc;
+  float x_bias,y_bias,z_bias;
   unsigned long msgCount;
-
-  
   bool alive;
 } ;
 int crc_fail = 0;
@@ -42,7 +40,9 @@ stim_data->z_angle = 0;
 stim_data->x_rate = 0;
 stim_data->y_rate = 0;
 stim_data->z_rate = 0;
-
+stim_data->x_bias = 0.03;
+stim_data->y_bias = 0.03;
+stim_data->z_bias = 0.03;
 //stim_data->x_anglei = 0;
 //stim_data->y_anglei = 0;
 //stim_data->x_anglei = 0;
@@ -67,8 +67,6 @@ uint8_t gencrc(uint8_t *data, size_t len)
 //unsigned long lastDGMillis = 0;
 bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *stim_data)
 {
-//    Serial.println(lastDGMillis);
-//    return false;
     if(lastDGMillis>400)
     {
       mStimByteIndex = 0;
@@ -99,35 +97,40 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             x_rate1/=16384.0;
             y_rate1/=16384.0;
             z_rate1/=16384.0;
-            if(abs(x_rate1>400)||abs(z_rate1>400)||
-              abs(y_rate1>400))
+            if(abs(x_rate1>=390)||abs(z_rate1>=390)||
+              abs(y_rate1>=390))
               {
 //                resetStimState(stim_data);
-//                reportDebug("Stim VE:");
+                reportDebug("Stim VE:");
                 return false;
               }
 //            Serial.println(z_rate1);
-            stim_data->x_acc = x_rate1 - stim_data->x_rate;
-            stim_data->x_rate = x_rate1;
-            stim_data->x_angle += (stim_data->x_rate/1000.0);
+//            stim_data->x_acc = x_rate1 - stim_data->x_rate;
+            
             
 //            stim_data->x_anglei+=stim_data->x_angle;
             
-            double acc = (y_rate1 - stim_data->y_rate)*1000;
-            if(abs(acc)>5000)return false;
-            acc = (z_rate1 - stim_data->z_rate)*1000;
-            if(abs(acc)>5000)return false;
+//            double acc = (y_rate1 - stim_data->y_rate)*1000;
+//            if(abs(acc)>1000)return false;
+//            acc = (z_rate1 - stim_data->z_rate)*1000;
+//            if(abs(acc)>1000)return false;
+
             
-            stim_data->y_rate = kalmanY.getFilteredValue(y_rate1);
+            stim_data->x_rate = x_rate1;
+            stim_data->x_angle += (stim_data->x_rate/1000.0);
+            
+            stim_data->y_rate = kalmanY.getFilteredValue(y_rate1)-stim_data->y_bias;
             stim_data->y_angle += (stim_data->y_rate/1000.0);
-//            stim_data->y_anglei+=stim_data->y_angle;
+//            Serial.print(y_rate1+1); 
+//            Serial.print(' '); 
+//            Serial.println(stim_data->y_rate);
+//            Serial.print(' ');
+//            Serial.println(kalmanY.getSensorNoise());
+           
             
             
-;
-            stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1);
+            stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
             stim_data->z_angle += (stim_data->z_rate/1000.0);
-//            stim_data->z_kangle = kalmanZ.getAngle(stim_data->z_angle,stim_data->z_rate,0.001);
-//            stim_data->z_anglei+=stim_data->z_angle;
             
             stim_data->msgCount++;
           if(crc_fail>0)crc_fail--;

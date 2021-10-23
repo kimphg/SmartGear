@@ -16,14 +16,12 @@ void reportDebug(const char* msg)
 //  Serial.print("$MSG,");
 //  Serial.println(msg);
 }
-void reportDebug(int msgcount)
+void reportDebug(const char* msg,float value)
 {
-  //S_CONTROL.print("$MSG,");
-  //S_CONTROL.println(msgcount);
-//  E_CONTROL.print("$MSG,");
-//  E_CONTROL.println(msgcount);
-//  Serial.print("$MSG,");
-//  Serial.println(msgcount);
+  E_CONTROL.print("$MSG,");
+  E_CONTROL.print(msg);
+  E_CONTROL.print(":");
+  E_CONTROL.println(value);
 }
 void reportDebug(float fov)
 {

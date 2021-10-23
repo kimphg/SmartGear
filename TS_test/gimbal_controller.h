@@ -1,10 +1,11 @@
 #ifndef GIMBAL_CONTROLLER_H
 #define GIMBAL_CONTROLLER_H
 
-
+//float resultArray[2000];
+//int resultArrayId=0;
 #define CTRL_DATA_BUF_LEN 50
 #define CONTROL_DELAY_FILTER
-#define MOTOR_PULSE_CLOCK 1000000
+#define MOTOR_PULSE_CLOCK 500000
 #define PD1 16
 #define PS1 17
 #define PD2 18
@@ -16,7 +17,7 @@
 #define PPR1 1000
 #define GEAR1 400
 #define PPR2 1000
-#define GEAR2 1000
+#define GEAR2 400
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
@@ -26,7 +27,7 @@
 #define MODBUS_PORT Serial1
 Modbus mbMaster(0,MODBUS_PORT,0); 
 modbus_t telegram[2];
-
+int modbus_idle_t =50;
 unsigned long u32wait;
 uint16_t au16data[16]; 
 uint16_t output16data[16];
@@ -40,14 +41,12 @@ void modbusSetup()
     telegram[0].u16RegAdd = 0; // start address in slave
     telegram[0].u16CoilsNo = 16; // number of elements (coils or registers) to read
     telegram[0].au16reg = au16data; // pointer to a memory array in the Arduino
-
     // telegram 1: write a single register
     telegram[1].u8id = 1; // slave address
     telegram[1].u8fct = MB_FC_WRITE_MULTIPLE_REGISTERS; // function code (this one is write a single register)
     telegram[1].u16RegAdd = 16; // start address in slave
     telegram[1].u16CoilsNo = 16; // number of elements (coils or registers) to write
     telegram[1].au16reg = output16data; // pointer to a memory array in the Arduino
-
     MODBUS_PORT.begin( 38400 ); // baud-rate
     mbMaster.start();
     mbMaster.setTimeOut( 50 ); // if there is no answer in 50 ms, roll over
@@ -75,8 +74,8 @@ private:
     int mStabMode;
     int h_abs_pos,v_abs_pos;
     int userAlive;
-    double h_user_speed,h_user_acc;
-    double v_user_speed,v_user_acc;
+    double h_user_speed,h_user_acc=0;
+    double v_user_speed,v_user_acc=0;
     int h_ppr,v_ppr;
     int pelco_count;
     float controlDtime = 0;
@@ -101,7 +100,7 @@ private:
     double sumEv=0,sumEh=0;
     int workMode=0;
 public:
-    void setCalib(float hcalib,float vcalib);
+    void setCalib(double hcalib,double vcalib);
     void setCT(int c11,int c12,int c21,int c22);
     bool isStimConnected;
     int ct11,ct12,ct21,ct22;
@@ -118,6 +117,7 @@ public:
       void setWorkmode(int mode)
       {
         workMode = mode;
+        
         }
     void initGimbal();
     void setPPR(unsigned int hppr,unsigned int vppr);
@@ -148,6 +148,18 @@ public:
     int interupt = 0;
     void setStimMode(int value)
     {
+      if(value==0&&mStabMode!=0&&workMode==0)
+        {
+          mStabMode = value;
+          stim_data.z_angle = 0;
+//          int n=0;
+//          for(int i = resultArrayId;;i++)
+//          {
+//            if(i>=2000)i=0;
+//            n++;if(n>=1000)break;
+//            E_CONTROL.println(stim_data.y_rate);
+//          }
+        }
         mStabMode = value;
         stim_data.z_angle = 0;
         stim_data.y_angle = 0;
@@ -159,6 +171,7 @@ public:
         isSetupChanged =true;
         userAngleh = 0;
         userAnglev = 0;
+        
     }
     void setFov(float value);
 
@@ -184,27 +197,27 @@ private:
 } gimbal;
 
 
-void CGimbalController::setCalib(float hcalib, float vcalib)
+void CGimbalController::setCalib(double hcalib, double
+vcalib)
 {
     vSpeedCalib =vcalib;
     hSpeedCalib = hcalib;
-
+    stim_data.y_bias = vSpeedCalib;
+    stim_data.z_bias = hSpeedCalib;
 }
 
 void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
-    output16data[ 3] = abs(stim_data.z_angle*100);
-    output16data[ 4] = abs(stim_data.y_angle*100);
-    output16data[ 5] = abs(param_v_p*100);
-    output16data[ 6] = abs(param_v_i*100);
+    output16data[ 5] = abs(stim_data.z_bias*100+500);
+    output16data[ 6] = abs(stim_data.y_bias*100+500);
     output16data[ 7] = abs(pelco_count*100);
     output16data[ 8] = abs(mStimSPS);
     output16data[ 9] = abs(param_h_p*100);
     output16data[10] = abs(param_h_i*100);
     output16data[11] = abs(param_h_d*100);
     output16data[12] = abs(mStabMode*100);
-    output16data[15] = idleCount;
+//    output16data[15] = idleCount;
       
     
     pelco_count=0;
@@ -330,8 +343,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
     h_ppr = hppr;
     v_ppr = vppr;
-    minPulsePeriodh = 5;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
+    minPulsePeriodv = 3;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -345,19 +358,11 @@ void CGimbalController::controlerReport()
 void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
     pelco_count++;
-//    long int newTime = millis();
-//    float oldDtime = controlDtime;
-//    controlDtime = newTime - lastControlTime;
-//    lastControlTime = newTime;
-//    if(controlDtime<20)controlDtime=20;
-//    if(controlDtime>100)controlDtime=100;
-//    controlDtime = controlDtime*0.05+oldDtime*0.95;
-//    double new_h_sp = hspeed * mUserMaxspdH;
-//    double new_v_sp = vspeed * mUserMaxSpdV;
-//    h_user_acc = (new_h_sp-h_user_speed)*1000.0/controlDtime;
-//    v_user_acc = (new_v_sp-v_user_speed)*1000.0/controlDtime;
-    h_user_speed = hspeed * mUserMaxspdH;
-    v_user_speed = vspeed * mUserMaxSpdV;
+    
+    double nh_user_speed = hspeed * mUserMaxspdH;
+    double nv_user_speed = vspeed * mUserMaxSpdV;
+    h_user_acc = (nh_user_speed-h_user_speed)/0.05;
+    v_user_acc = (nv_user_speed-v_user_speed)/0.05;
     userAlive =0.3/CONTROL_TIME_STAMP;
 
 }
@@ -449,9 +454,16 @@ void CGimbalController::UserUpdate()//
     
 
 
-    if(userAlive>0)userAlive--;
+    if(userAlive>0)
+    {
+      userAlive--;
+      h_user_speed += h_user_acc*CONTROL_TIME_STAMP;
+      v_user_speed += v_user_acc*CONTROL_TIME_STAMP;
+    }
     else
     {
+        h_user_acc = 0;
+        v_user_acc = 0;
         h_user_speed*=0.6;
         v_user_speed*=0.6;
     }
@@ -521,13 +533,13 @@ void CGimbalController::modbusLoop() {
         if (millis() > u32wait) u8state++; // wait state
         break;
     case 1:
-
         if(u8query==1)//send status over modbus
         {
             output16data[ 0] = fov*100;
             output16data[ 1] = abs(hPulseBuff*100);
             output16data[ 2] = abs(vPulseBuff*100);
-
+            output16data[ 3] = abs(stim_data.y_angle*100+18000);
+            output16data[ 4] = abs(stim_data.y_rate*100+18000);
             output16data[13] = abs(getSensors()*100);
             output16data[14] = controlDtime*100;
         }
@@ -540,7 +552,7 @@ void CGimbalController::modbusLoop() {
         mbMaster.poll(); // check incoming messages
         if (mbMaster.getState() == COM_IDLE) {
             u8state = 0;
-            u32wait = millis() + 500;
+            u32wait = millis() + modbus_idle_t;
             gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);//update data after modbus communication done
         }
         break;
@@ -561,7 +573,6 @@ void CGimbalController::readSensorData()//200 microseconds
             mStimMsgCount++;
             mStimSPS++;
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
-            if(workMode==2)E_CONTROL.println(stim_data.z_rate);
         }
         lastStimByteTime = timeMicros;
     }
@@ -608,10 +619,10 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
 {
     if(ct21>0){
-        vPulseBuff=v_ppr/360*CONTROL_TIME_STAMP;
+        vPulseBuff=v_ppr/360.0*CONTROL_TIME_STAMP;
     }
     else if(ct22>0){
-        vPulseBuff=-v_ppr/360*CONTROL_TIME_STAMP;
+        vPulseBuff=-v_ppr/360.0*CONTROL_TIME_STAMP;
     }
     else{
         double speed_pps = speeddps/360.0*v_ppr;

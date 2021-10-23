@@ -2,7 +2,7 @@
 #include "gimbal_controller.h"
 
 extern CGimbalController gimbal;
-IntervalTimer  reportTimer;
+//IntervalTimer  reportTimer;
 int             s1_count = 0;
 int             s2_count = 0;
 int             s3_count = 0;
@@ -13,8 +13,9 @@ int buzz = 0;
 int idleCount = 0;
 void stateReport()
 {
-    gimbal.reportStat(idleCount/1000  );
-    Serial.println(idleCount/1000.0);
+    gimbal.reportStat(idleCount/1000);
+    if(idleCount<1000000)
+      reportDebug("CPU overload",idleCount/1000.0);
     idleCount = 0;
     if((com_mode==3)&&(!s3_count))
     {
@@ -56,34 +57,22 @@ void setup() {
     pinMode(13,OUTPUT);
     reportDebug("Controller start up");
     S_STIM.print("stim test msg");
-    reportTimer.begin(stateReport, 1000000);
+//    reportTimer.begin(stateReport, 1000000);
     //    modbusino_slave.setup(38400);
     //MODBUS_PORT.begin(38400);
 
 }
 int time_stamp_old;
-
+int times = 0;
 void loop() {
-    //  modbusino_slave.loop(tab_reg, 20);
+    int newtimes = millis()/1000;
+    if(newtimes!=times)
+    {
+      times = newtimes;
+      stateReport();
+    }
     idleCount++;
-    int time_stamp = millis()%2000;
-    time_stamp_old = time_stamp;
-    if(time_stamp<250)
-    {
-        //      digitalWrite(20,LOW);
-        //        digitalWrite (BT1,HIGH);
-        //        digitalWrite(13, HIGH);
-    }
-    else
-    {
-        
-        //        digitalWrite (BT1,LOW);
-        
-        //        digitalWrite(13, LOW);
-    }
     readSerialdata();
-    
-    //delayMicroseconds(50);
 }
 void readSerialdata()
 {
@@ -216,8 +205,8 @@ bool processPelco(){
     }
     else if(pelco_input_buff[1]==0x09) //gyro bias set
     {
-        float hpos = ( ( ((unsigned char)pelco_input_buff[2])<<8) + (unsigned char)pelco_input_buff[3])/65535.0*10-5;
-        float vpos = ( ( ((unsigned char)pelco_input_buff[4])<<8) + (unsigned char)pelco_input_buff[5])/65535.0*10-5;
+        double hpos = ( ( ((unsigned char)pelco_input_buff[2])<<8) + (unsigned char)pelco_input_buff[3])/65535.0*2.0-1.0;
+        double vpos = ( ( ((unsigned char)pelco_input_buff[4])<<8) + (unsigned char)pelco_input_buff[5])/65535.0*2.0-1.0;
         gimbal.setCalib(hpos,vpos);
         reportDebug("Calib set");
     }else if(pelco_input_buff[1]==0x0A) //gyro bias set
