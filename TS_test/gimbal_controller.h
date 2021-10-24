@@ -21,7 +21,7 @@
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
-
+#define MAX_ACC 0.01
 #include "stim.h"
 #include "ModbusRtu.h"
 #define MODBUS_PORT Serial1
@@ -453,8 +453,6 @@ void CGimbalController::motorUpdate()
 void CGimbalController::UserUpdate()//
 {
     
-
-
     if(userAlive>0)
     {
       userAlive--;
@@ -475,7 +473,6 @@ void CGimbalController::UserUpdate()//
     if(interupt>0)interupt--;
     if(mStabMode==0)
     {
-
         // horizontal control value
         outputSpeedH(h_user_speed);
         // vertical control value
@@ -579,16 +576,26 @@ void CGimbalController::readSensorData()//200 microseconds
     }
 
 }
+double oldSpeeddpsH = 0;
 
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
-    if(speeddps>max_stab_spd)speeddps=max_stab_spd;
-    else if(speeddps<-max_stab_spd)speeddps=-max_stab_spd;
+  double acc = (speeddps - oldSpeeddpsH);
+  if(abs(acc)>MAX_ACC)
+  {
+    if(acc>MAX_ACC)acc=MAX_ACC;
+    else if(acc<-MAX_ACC)acc=-MAX_ACC;
+    
+    }
+  speeddps = oldSpeeddpsH+acc;
+  oldSpeeddpsV =  speeddps;
+    if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
+    else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
     if(ct11>0){
-        hPulseBuff=h_ppr/360.0*CONTROL_TIME_STAMP;
+        hPulseBuff = h_ppr/360.0*CONTROL_TIME_STAMP;
     }
     else if(ct12>0){
-        hPulseBuff=-h_ppr/360.0*CONTROL_TIME_STAMP;
+        hPulseBuff = -h_ppr/360.0*CONTROL_TIME_STAMP;
     }
     else{
         double h_speed_pps = speeddps/360.0*h_ppr;
@@ -619,8 +626,18 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
         digitalWrite(PD1, dir);
     }
 }
+double oldSpeeddpsV = 0;
 void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
 {
+  double acc = (speeddps - oldSpeeddpsV);
+  if(abs(acc)>MAX_ACC)
+  {
+    if(acc>MAX_ACC)acc=MAX_ACC;
+    else if(acc<-MAX_ACC)acc=-MAX_ACC;
+    
+    }
+  speeddps = oldSpeeddpsV+acc;
+  oldSpeeddpsV =  speeddps;
     if(speeddps>max_stab_spd)speeddps=max_stab_spd;
     else if(speeddps<-max_stab_spd)speeddps=-max_stab_spd;
     if(ct21>0){
