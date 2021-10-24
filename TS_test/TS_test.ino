@@ -163,8 +163,8 @@ bool processPelco(){
     }
     else if(pelco_input_buff[1]==0x03) //P setup
     {
-        float ph = ( ( ((unsigned char)pelco_input_buff[2])<<8) + (unsigned char)pelco_input_buff[3])/65535.0*400.0-200.0;
-        float pv = ( ( ((unsigned char)pelco_input_buff[4])<<8) + (unsigned char)pelco_input_buff[5])/65535.0*400.0-200.0;
+        float ph = ( ( ((unsigned char)pelco_input_buff[2])<<8) + (unsigned char)pelco_input_buff[3])/65535.0*800.0-400.0;
+        float pv = ( ( ((unsigned char)pelco_input_buff[4])<<8) + (unsigned char)pelco_input_buff[5])/65535.0*800.0-400.0;
         gimbal.setPARAM_P(ph,pv);
         reportDebug("P set");
     }

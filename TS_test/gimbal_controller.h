@@ -21,7 +21,7 @@
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
-#define MAX_ACC 0.01
+#define MAX_ACC 0.15
 #include "stim.h"
 #include "ModbusRtu.h"
 #define MODBUS_PORT Serial1
@@ -87,9 +87,9 @@ private:
     int   control_oldID;
     int stimCount;
     unsigned long lastStimByteTime;
-    int pulseMode ;
+    int   pulseMode ;
     float fov;
-    int mStimSPS;
+    int   mStimSPS;
     float param_h_p ,param_v_p;
     float param_h_i ,param_v_i;
     float param_h_d ,param_v_d;
@@ -551,7 +551,8 @@ void CGimbalController::modbusLoop() {
         if (mbMaster.getState() == COM_IDLE) {
             u8state = 0;
             u32wait = millis() + modbus_idle_t;
-            gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);//update data after modbus communication done
+            //update data after modbus communication done
+            //gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
         }
         break;
     }
@@ -588,7 +589,7 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
     
     }
   speeddps = oldSpeeddpsH+acc;
-  oldSpeeddpsV =  speeddps;
+  oldSpeeddpsH =  speeddps;
     if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
     else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
     if(ct11>0){
