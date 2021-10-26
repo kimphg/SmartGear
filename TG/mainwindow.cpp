@@ -15,7 +15,7 @@
 #define SCR_H 1024
 
 #include "UsbDevice.h"
-#include "UsbDevice.h"
+//#include "UsbDevice.h"
 HANDLE deviceHandle ;
 #define USBMSG_LEN 33
 DWORD msgLen =USBMSG_LEN;
@@ -783,8 +783,8 @@ void MainWindow::timer30ms()
 //        for (int i = 0; i < msgLen; ++i) {
 //            msg += to_string(usbBuf[i]) + ",";
 //        }
-        double  vvalue = ((usbBuf[1]+usbBuf[2]*256)-511.0)/400.0;
-        double hvalue = ((usbBuf[3]+usbBuf[4]*256)-511.0)/400.0;
+        double  hvalue = ((usbBuf[1]+usbBuf[2]*256)-511.0)/400.0;
+        double vvalue = ((usbBuf[3]+usbBuf[4]*256)-511.0)/400.0;
         if(hvalue>1.0)hvalue=1.0;
         if(hvalue<-1.0)hvalue = -1.0;
         if(vvalue>1.0)vvalue=1.0;
@@ -792,7 +792,7 @@ void MainWindow::timer30ms()
         //        h_speed_control += (key_ad*255-h_speed_control)/5;
         //        v_speed_control += (key_ws*255-v_speed_control)/5;
         h_speed_control = hvalue*255+12;
-        v_speed_control = vvalue*255;
+        v_speed_control = -vvalue*255;
         mControl.outputPelco(h_speed_control,v_speed_control);
 
     }
