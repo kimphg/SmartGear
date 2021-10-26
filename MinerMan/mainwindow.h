@@ -18,13 +18,17 @@ public:
     void runProcess();
 public slots:
     void readOutputMiner();
+    void readOutputOC();
 protected slots:
     void timerEvent(QTimerEvent *event);
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_oc_clicked();
+
 private:
     Ui::MainWindow *ui;
     void updateInfo();
+
 };
 #endif // MAINWINDOW_H

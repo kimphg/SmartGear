@@ -32,7 +32,7 @@
      <widget class="QPlainTextEdit" name="plainTextEdit"/>
     </item>
     <item row="2" column="2">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton_oc">
       <property name="text">
        <string>Set OC</string>
       </property>
@@ -51,6 +51,9 @@
        <string>Mem clock offset:</string>
       </property>
      </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPlainTextEdit" name="plainTextEdit_oc"/>
     </item>
    </layout>
   </widget>

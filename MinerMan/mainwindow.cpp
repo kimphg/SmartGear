@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // in constructor
-    connect(&process_miner, &QProcess::readyReadStandardOutput, this, &MainWindow::readOutputMiner);
+
     runProcess();
     startTimer(1000);
 
@@ -20,6 +20,16 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::timerEvent(QTimerEvent *event)
 {
     if(!process_miner.isOpen())process_miner.start();
+    if(!process_oc.isOpen())
+    {
+        process_oc.setArguments(QStringList());
+        process_oc.start();
+    }
+}
+void MainWindow::readOutputOC()
+{
+    QString output = process_oc.readAllStandardOutput();
+    ui->plainTextEdit_oc->setPlainText(output);
 }
 void MainWindow::runProcess()
 {
@@ -28,7 +38,12 @@ void MainWindow::runProcess()
     args.append(" -epsw x -mode 1 -log 0 -mport 0 -etha 0 -ftime 55 -retrydelay 1 -tt 79 -tstop 89 -coin eth");
     process_miner.setProgram(sh);
     process_miner.setArguments(args.split(" "));
-    process_miner.start();//sh,QStringList() << "-i");
+    sh = QString("nvoc.exe");
+    args = QString();
+    process_oc.setArguments(args.split(" "));
+    connect(&process_miner, &QProcess::readyReadStandardOutput, this, &MainWindow::readOutputMiner);
+    connect(&process_oc, &QProcess::readyReadStandardOutput, this, &MainWindow::readOutputOC);
+//    process_miner.start();//sh,QStringList() << "-i");
 
 //    process.write("dir"); // first test
     // process.execute("ls"); // second test
@@ -59,6 +74,8 @@ void MainWindow::updateInfo()
 }
 MainWindow::~MainWindow()
 {
+    process_miner.terminate();
+    process_miner.waitForFinished();
     delete ui;
 }
 
@@ -68,4 +85,13 @@ void MainWindow::on_pushButton_clicked()
     if(process_miner.isOpen())process_miner.kill();
 
 //    process.write("dir"); // first test
+}
+
+void MainWindow::on_pushButton_oc_clicked()
+{
+    QStringList args;
+    args.append(ui->lineEdit_core->text());
+    args.append(ui->lineEdit_mem->text());
+    process_oc.setArguments(args);
+    process_oc.start();
 }

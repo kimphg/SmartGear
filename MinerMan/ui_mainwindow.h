@@ -13,7 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
@@ -27,8 +30,15 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPlainTextEdit *plainTextEdit;
+    QGridLayout *gridLayout;
+    QLineEdit *lineEdit_mem;
+    QLineEdit *lineEdit_core;
     QPushButton *pushButton;
+    QPlainTextEdit *plainTextEdit;
+    QPushButton *pushButton_oc;
+    QLabel *label;
+    QLabel *label_2;
+    QPlainTextEdit *plainTextEdit_oc;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,15 +46,51 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(800, 629);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        plainTextEdit = new QPlainTextEdit(centralwidget);
-        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(50, 60, 691, 441));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        lineEdit_mem = new QLineEdit(centralwidget);
+        lineEdit_mem->setObjectName(QStringLiteral("lineEdit_mem"));
+
+        gridLayout->addWidget(lineEdit_mem, 1, 2, 1, 1);
+
+        lineEdit_core = new QLineEdit(centralwidget);
+        lineEdit_core->setObjectName(QStringLiteral("lineEdit_core"));
+
+        gridLayout->addWidget(lineEdit_core, 0, 2, 1, 1);
+
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(50, 20, 93, 28));
+
+        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+
+        plainTextEdit = new QPlainTextEdit(centralwidget);
+        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
+
+        gridLayout->addWidget(plainTextEdit, 3, 0, 1, 1);
+
+        pushButton_oc = new QPushButton(centralwidget);
+        pushButton_oc->setObjectName(QStringLiteral("pushButton_oc"));
+
+        gridLayout->addWidget(pushButton_oc, 2, 2, 1, 1);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 0, 1, 1, 1);
+
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 1, 1, 1);
+
+        plainTextEdit_oc = new QPlainTextEdit(centralwidget);
+        plainTextEdit_oc->setObjectName(QStringLiteral("plainTextEdit_oc"));
+
+        gridLayout->addWidget(plainTextEdit_oc, 3, 2, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -63,6 +109,9 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "Restart", Q_NULLPTR));
+        pushButton_oc->setText(QApplication::translate("MainWindow", "Set OC", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "Core clock offset:", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "Mem clock offset:", Q_NULLPTR));
     } // retranslateUi
 
 };
