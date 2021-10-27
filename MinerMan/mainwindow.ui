@@ -39,7 +39,7 @@
     <item row="7" column="0" colspan="2">
      <widget class="QCheckBox" name="checkBox_2">
       <property name="text">
-       <string>Autoreset OC settings</string>
+       <string>Force OC settings(reapply if crashed)</string>
       </property>
      </widget>
     </item>
@@ -101,7 +101,11 @@
      </widget>
     </item>
     <item row="4" column="1" colspan="2">
-     <widget class="QPlainTextEdit" name="plainTextEdit_oc_2"/>
+     <widget class="QPlainTextEdit" name="plainTextEdit_params">
+      <property name="plainText">
+       <string> -epsw x -mode 1 -log 0 -mport 0 -etha 0 -ftime 55 -retrydelay 1 -tt 79 -tstop 89 -coin eth</string>
+      </property>
+     </widget>
     </item>
     <item row="4" column="0" alignment="Qt::AlignTop">
      <widget class="QLabel" name="label_5">

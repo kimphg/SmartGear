@@ -31,5 +31,6 @@ private:
     Ui::MainWindow *ui;
     void updateInfo();
 
+    void StartMiner();
 };
 #endif // MAINWINDOW_H

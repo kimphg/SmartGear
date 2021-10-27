@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 #include <QProcess>
@@ -41,7 +42,9 @@ void MainWindow::StartMiner()
 {
     //miner process
     QString sh = "PhoenixMiner/PhoenixMiner.exe" ;
-    QString args = "-pool ssl://asia1.ethermine.org:5555 -pool2 asia2.ethermine.org:5555 -wal 0x8f3ef62b3ce472ffe7999dc52701a6957efc6e45.g5phuong";
+    QString args = " -pool " +ui->lineEdit_pool1->text()+" -pool2 "+ ui->lineEdit_pool2->text();//asia2.ethermine.org:5555 -wal 0x8f3ef62b3ce472ffe7999dc52701a6957efc6e45.g5phuong";
+    args.append(" -wal "+ ui->lineEdit_wallet->text());
+    args.append(" "+ui->plainTextEdit_params->)
 }
 void MainWindow::runProcess()
 {
