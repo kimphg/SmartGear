@@ -19,6 +19,7 @@ public:
 public slots:
     void readOutputMiner();
     void readOutputOC();
+    void readOutputWatcher();
 protected slots:
     void timerEvent(QTimerEvent *event);
 private slots:
