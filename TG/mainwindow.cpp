@@ -791,8 +791,16 @@ void MainWindow::timer30ms()
         if(vvalue<-1.0)vvalue = -1.0;
         //        h_speed_control += (key_ad*255-h_speed_control)/5;
         //        v_speed_control += (key_ws*255-v_speed_control)/5;
-        h_speed_control = hvalue*255+12;
-        v_speed_control = -vvalue*255;
+        h_speed_control = -hvalue*255;
+        v_speed_control = vvalue*255+13;
+        int zeroZone = 3;
+        if(h_speed_control>zeroZone)h_speed_control-=zeroZone;
+        else if(h_speed_control<-zeroZone)h_speed_control+=zeroZone;
+        else h_speed_control=0;
+        if(v_speed_control>zeroZone)v_speed_control-=zeroZone;
+        else if(v_speed_control<-zeroZone)v_speed_control+=zeroZone;
+        else v_speed_control=0;
+
         mControl.outputPelco(h_speed_control,v_speed_control);
 
     }
