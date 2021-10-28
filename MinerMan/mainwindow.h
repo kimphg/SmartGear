@@ -27,6 +27,10 @@ private slots:
 
     void on_pushButton_oc_clicked();
 
+    void on_pushButton_4_clicked(bool checked);
+
+    void on_pushButton_3_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
     void updateInfo();
