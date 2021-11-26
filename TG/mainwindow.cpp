@@ -163,24 +163,27 @@ void MainWindow::usbInit()
 
     usbDevHandle = UsbDevice::getDeviceHandle(vendorID, productID,0);
 
-    if (!usbDevHandle) {
-
-        usbDevHandle = UsbDevice::getDeviceHandle(vendorID1, productID1,0);
-    }
-    else{
+    if (usbDevHandle) {
         usbDevMode = 1;
         showMessage(QString::fromUtf8("USB control 1"));//
+
+
     }
-    if (!usbDevHandle) {
-        usbDevMode = 0;
-        showMessage(QString::fromUtf8("Không có kết nối thiết bị USB"));//
-        return ;
+    else{
+        usbDevHandle = UsbDevice::getDeviceHandle(vendorID1, productID1,0);
+        if (!usbDevHandle) {
+            usbDevMode = 2;
+            showMessage(QString::fromUtf8("USB control 2"));//
+
+        }
+        else
+        {
+            usbDevMode = 0;
+            showMessage(QString::fromUtf8("Không có kết nối thiết bị USB"));//
+            return ;
+        }
     }
-    else
-    {
-        usbDevMode = 2;
-        showMessage(QString::fromUtf8("USB control 2"));//
-    }
+
     if(usbDevMode){
 
         osReader.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
@@ -797,6 +800,7 @@ void MainWindow::timer30ms()
     else if(mControl.joystickMode==2){
         if(usbDevMode==1){
             UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
+
             double  hvalue = ((usbBuf[1]+usbBuf[2]*256)-511.0)/400.0;
             double vvalue = ((usbBuf[3]+usbBuf[4]*256)-511.0)/400.0;
             if(hvalue>1.0)hvalue=1.0;
