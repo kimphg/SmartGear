@@ -5,12 +5,12 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(0.1,0.3,10,0); // Create the Kalman instances
+Kalman kalmanZ(0.5,0.9,100,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
   }
-Kalman kalmanY(0.1,0.3,10,0); // Create the Kalman instances
+Kalman kalmanY(0.5,0.9,100,0); // Create the Kalman instances
 void initKalmanY(double pn,double sn)
 {
   kalmanY.initParams(pn,sn,100,0);
@@ -97,11 +97,11 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             x_rate1/=16384.0;
             y_rate1/=16384.0;
             z_rate1/=16384.0;
-            if(abs(x_rate1>=390)||abs(z_rate1>=390)||
-              abs(y_rate1>=390))
+            if(abs(x_rate1)>=400||abs(z_rate1)>=400||
+              abs(y_rate1)>=400)
               {
 //                resetStimState(stim_data);
-                reportDebug("Stim VE:");
+                reportDebug("SVE:",z_rate1);
                 return false;
               }
 //            Serial.println(z_rate1);
@@ -121,16 +121,21 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             
             stim_data->y_rate = kalmanY.getFilteredValue(y_rate1)-stim_data->y_bias;
             stim_data->y_angle += (stim_data->y_rate/1000.0);
-//            Serial.print(y_rate1+1); 
-//            Serial.print(' '); 
-//            Serial.println(stim_data->y_rate);
-//            Serial.print(' ');
-//            Serial.println(kalmanY.getSensorNoise());
-           
+            
             
             
             stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
             stim_data->z_angle += (stim_data->z_rate/1000.0);
+//            Serial.print(60); 
+//            Serial.print(' '); 
+//            Serial.print(-60); 
+//            Serial.print(' '); 
+//            Serial.print(stim_data->z_angle); 
+//            Serial.print(' '); 
+//            Serial.println(stim_data->z_rate);
+//            Serial.print(' ');
+//            Serial.println(kalmanY.getSensorNoise());
+           
             
             stim_data->msgCount++;
           if(crc_fail>0)crc_fail--;

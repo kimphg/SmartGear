@@ -22,6 +22,7 @@
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
 #define MAX_ACC 0.15
+#define MAX_ACC_H 0.3
 #include "stim.h"
 #include "ModbusRtu.h"
 #define MODBUS_PORT Serial1
@@ -489,8 +490,8 @@ void CGimbalController::UserUpdate()//
             h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
         }
         sumEh+=abs(h_control);
-        double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//h_control[control_newID] - h_control[control_oldID];
-        h_control_old = h_control;
+        double h_control_dif = stim_data.z_rate;//h_control[control_newID] - h_control[control_oldID];
+//        h_control_old = h_control;
         //            double h_control_i = -stim_data.z_angle;
         //            h_control_i [control_newID] = 0;
 //        if(abs(h_control)<2)
@@ -504,20 +505,16 @@ void CGimbalController::UserUpdate()//
         v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
         }
         sumEv+=abs(v_control);
-        double v_control_dif= (v_control - v_control_old)/CONTROL_TIME_STAMP;//h_control[control_newID] - h_control[control_oldID];
-        v_control_old = v_control;
+        double v_control_dif= stim_data.y_rate;//h_control[control_newID] - h_control[control_oldID];
+//        v_control_old = v_control;
         //            double h_control_i = -stim_data.z_angle;
         //            h_control_i [control_newID] = 0;
 //        if(abs(v_control)<5)
         vinteg += v_control ;
 //        else vinteg+=5;
-        double output_value =   h_control *param_h_p+ h_control_dif*param_h_d+ hinteg*param_h_i;
-        
-        outputSpeedH(output_value);
+        double output_value =   h_control *param_h_p+ h_control_dif*param_h_d+ hinteg*param_h_i;outputSpeedH(output_value);
 
-        output_value =   v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i;
-        
-        outputSpeedV(output_value);
+        output_value =   v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i; outputSpeedV(output_value);
 
     }
     modbusLoop();
@@ -582,10 +579,10 @@ double oldSpeeddpsH = 0;
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
   double acc = (speeddps - oldSpeeddpsH);
-  if(abs(acc)>MAX_ACC)
+  if(abs(acc)>MAX_ACC_H)
   {
-    if(acc>MAX_ACC)acc=MAX_ACC;
-    else if(acc<-MAX_ACC)acc=-MAX_ACC;
+    if(acc>MAX_ACC_H)acc=MAX_ACC_H;
+    else if(acc<-MAX_ACC_H)acc=-MAX_ACC_H;
     
     }
   speeddps = oldSpeeddpsH+acc;
