@@ -207,6 +207,7 @@ private:
     void sendFrame();
     std::vector<VideoTarget> vTargetList;
     double sight_x,sight_y;
+    double trackpoint_x,trackpoint_y;
     int trackSize = 90;
     int trackermode = 0;
     int frame_process_W = 720.0;
@@ -229,6 +230,7 @@ private:
     int msgTime=0;
     void trackerShutdown();
     void usbInit();
+    void draw_trackpoint(QPainter *p, int posx, int posy);
 };
 
 #endif // MAINWINDOW_H

@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Admin\\Downloads\\VideoGrab\\icon.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Users\\Phuong\\Documents\\GitHub\\SmartGear\\TG\\icon.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

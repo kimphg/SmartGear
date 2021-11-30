@@ -245,31 +245,52 @@ void MainWindow::updateInfo()
 
 void MainWindow::processKeyBoardEvent(int key)
 {
-    if(key == Qt::Key_Left)
+    if(trackermode==0)
     {
-        key_ad = -1;
+        if(key == Qt::Key_Left)
+        {
+            key_ad = -1;
+        }
+        else if(key == Qt::Key_Right)
+        {
+            key_ad = 1;
+        }
+        else if(key == Qt::Key_Down)
+        {
+            key_ws=-1;
+        }
+        else if(key == Qt::Key_Up)
+        {
+            key_ws = 1;
+            //        unsigned char *packet = mControl.outputPelco(0,100);
+            //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
+        }
+
     }
-    else if(key == Qt::Key_Right)
+    else
     {
-        key_ad = 1;
+        if(key == Qt::Key_Left)
+        {
+            if(trackpoint_x>50)trackpoint_x-=5;
+        }
+        else if(key == Qt::Key_Right)
+        {
+            if(trackpoint_x<frame_process_W-50)trackpoint_x+=5;
+        }
+        else if(key == Qt::Key_Up)
+        {
+            if(trackpoint_y>50)trackpoint_y-=5;
+        }
+        else if(key == Qt::Key_Down)
+        {
+            if(trackpoint_y<frame_process_H-50)trackpoint_y+=5;
+            //        unsigned char *packet = mControl.outputPelco(0,100);
+            //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
+        }
     }
-    else if(key == Qt::Key_Down)
-    {
-        key_ws=-1;
-    }
-    else if(key == Qt::Key_Up)
-    {
-        key_ws = 1;
-        //        unsigned char *packet = mControl.outputPelco(0,100);
-        //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
-    }
-    else if(key == Qt::Key_L)
+    if(key == Qt::Key_L)// start tracking at selected target
     {
 
-        //        trackrect.x = frame.cols*0.4;
-        //        trackrect.y = frame.rows*0.4;
-        //        trackrect.width = frame.cols*0.2;
-        //        trackrect.height = frame.rows*0.2;
         if(trackermode == 0)
         {
             if(selectVTargetIndex>=0&&selectVTargetIndex<vTargetList.size())
@@ -293,6 +314,8 @@ void MainWindow::processKeyBoardEvent(int key)
                     trackrect.height = trackH;//frame.rows*vTargetList[selectVTargetIndex].h*0.8;
                     if(kcf_tracker.Init(frame,trackrect))ui->textBrowser_msg->append("target too big");;
                     trackermode = 1;
+                    trackpoint_x=sight_x;
+                    trackpoint_y=sight_y;
 
                 }
             }
@@ -324,11 +347,14 @@ void MainWindow::processKeyBoardEvent(int key)
         {
 
 
+
             kcf_tracker.trackLostSens = CConfig::getDouble("trackLostSens",2.5);
             if(kcf_tracker.Init(frame,trackrect))ui->textBrowser_msg->append("target too big");
             kcf_tracker.setLearning_rate(CConfig::getDouble("track_learn_rate",0.025));
             trackermode = 1;
             showMessage("Bắt đầu bám");
+            trackpoint_x=sight_x;
+            trackpoint_y=sight_y;
 
         }
         else trackerShutdown();
@@ -359,6 +385,16 @@ void MainWindow::processKeyBoardEvent(int key)
 
         cap = VideoCapture(0);//(filename.toStdString().data());
         camAvailable = true;
+    }
+    else if(key==Qt::Key_End)
+    {
+
+        on_bt_control_file_3_pressed();
+    }
+    else if(key==Qt::Key_Home)
+    {
+
+        on_bt_control_file_2_pressed();
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -493,10 +529,10 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     cv::line(frame, cv::Point(posx+size*3,  posy),     cv::Point(posx+gap,  posy  )  , color,0.5);//  #crosshair horizontal
     cv::line(frame, cv::Point(posx,       posy-size), cv::Point( posx,       posy-gap ), color,0.5);//  #crosshair vertical
     cv::line(frame, cv::Point(posx,       posy+size*3), cv::Point( posx,       posy+gap ), color,0.5);//  #crosshair vertical
-    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
-    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
-    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
-    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
+//    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
+//    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
+//    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
+//    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
@@ -508,6 +544,21 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     double fallVideo = fallAngle/PI*180.0/mControl.fov*frame.rows;
     cv::line(frame, cv::Point(posx-size/3,  posy+fallVideo),     cv::Point(posx+size/3,  posy+fallVideo  )  , cv::Scalar(255, 0, 0),1);//  #crosshair horizontal
 }
+void MainWindow::draw_trackpoint(QPainter* p,int  posx, int posy)
+{
+    int size = vRect.height()/20;
+    int gap = int(size/4);
+    QColor color(255, 255, 0);
+    QPen pen(color);
+    QColor color2(255, 0, 0);
+    QPen pen2(color2);
+    pen2.setWidth(1);
+    p->setPen(pen);
+    p->drawLine(posx-size,posy,   posx-gap,  posy);
+    p->drawLine(posx+size,posy,   posx+gap,  posy );
+    p->drawLine(posx,posy-size,     posx,      posy-gap);
+    p->drawLine(posx,posy+size,   posx,      posy+gap);
+}
 void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
 {
     int size = vRect.height()/8;
@@ -518,13 +569,13 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
     QPen pen2(color2);
     pen2.setWidth(1);
     p->setPen(pen);
-    p->drawLine(posx-size*3,posy,   posx-gap,  posy);
-    p->drawLine(posx+size*3,posy,   posx+gap,  posy );
+    p->drawLine(posx-size,posy,   posx-gap,  posy);
+    p->drawLine(posx+size,posy,   posx+gap,  posy );
     p->drawLine(posx,posy-size,     posx,      posy-gap);
-    p->drawLine(posx,posy+size*3,   posx,      posy+gap);
-    p->drawEllipse(QPoint(posx,posy),size,size);
-    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
-    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
+    p->drawLine(posx,posy+size,   posx,      posy+gap);
+//    p->drawEllipse(QPoint(posx,posy),size,size);
+//    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
+//    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
@@ -615,7 +666,9 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
         }
     }
+    draw_trackpoint(&p,vRect.x()+trackpoint_x*vRect.width()/frame_process_W,vRect.y()+trackpoint_y*vRect.height()/frame_process_H);
     draw_sight_paint(&p,vRect.x()+sight_x*vRect.width()/frame_process_W,vRect.y()+sight_y*vRect.height()/frame_process_H);
+
     if(mControl.joystickMode==1)
     {
         QColor color2(255, 0, 0);
@@ -647,7 +700,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     }
     int meanValue = kcf_tracker.trackmean*100;
     p.drawLine(plotRect.x(),plotRect.y()+plotRect.height()-meanValue,plotRect.x()+TRACK_MEM_SIZE,plotRect.y()+plotRect.height()-meanValue);
-    if(1)
+    if(1)//draw graphg
     {
         for(int i=0;i<dataPlot.size();i++)
         {
@@ -712,7 +765,7 @@ void MainWindow::timer30ms()
     if(msgTime>0)
     {
         msgTime--;
-        repaint();
+//        update();
     }
     if(mControl.modbusDevice->state()==QModbusDevice::ConnectedState)
     {
