@@ -19,6 +19,7 @@
 //#include "UsbDevice.h"
 HANDLE usbDevHandle ;
 int usbDevMode = 0;
+int cuconcount = 0;
 #define USBMSG_LEN 33
 DWORD msgLen =USBMSG_LEN;
 // for FILE_FLAG_OVERLAPPED mode
@@ -144,8 +145,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->showFullScreen();
     ui->groupBox_setup->setHidden(true);
     //    ui->plot_tracker->addGraph();
-    track_p = CConfig::getDouble("track_p",6);//=0,track_d=0;
-    track_i = CConfig::getDouble("track_i",0.06);
+    track_p = CConfig::getDouble("track_p",3);//=0,track_d=0;
+    track_i = CConfig::getDouble("track_i",0.02);
     track_d = CConfig::getDouble("track_d",0);
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
@@ -165,15 +166,18 @@ void MainWindow::usbInit()
 
     if (usbDevHandle) {
         usbDevMode = 1;
-        showMessage(QString::fromUtf8("USB control 1"));//
+        showMessage(QString::fromUtf8("USB control default"));//
 
 
     }
     else{
+        showMessage(QString::fromUtf8("USB not found"));//
+        mControl.joystickMode = 0;
+        return;
         usbDevHandle = UsbDevice::getDeviceHandle(vendorID1, productID1,0);
         if (!usbDevHandle) {
             usbDevMode = 2;
-            showMessage(QString::fromUtf8("USB control 2"));//
+            showMessage(QString::fromUtf8("USB control gamepad"));//
 
         }
         else
@@ -196,8 +200,8 @@ void MainWindow::usbInit()
 }
 void MainWindow::reloadConfigParams()
 {
-    track_p =CConfig::getDouble("track_p",6);//=0,track_d=0;
-    track_i =CConfig::getDouble("track_i",0.06);
+    track_p =CConfig::getDouble("track_p",3);//=0,track_d=0;
+    track_i =CConfig::getDouble("track_i",0.02);
     track_d =CConfig::getDouble("track_d",0);
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
@@ -219,7 +223,7 @@ void MainWindow::sendFrame()
 void MainWindow::updateInfo()
 {
     CConfig::SaveToFile();
-
+//    mControl.sendSetupPacket(2);
     ui->label_video_fps->setText(QString::number(frameCount));
     frameCount = 0;
     // remove old targets
@@ -238,7 +242,7 @@ void MainWindow::updateInfo()
     //    else ui->label_cu_connection->setText(QString::fromUtf8("Mất kết nối"));
     //    if(mControl.isStimAlive)ui->label_stim_stat->setText("OK");
     //    else ui->label_stim_stat->setText(QString::fromUtf8("Mất kết nối"));
-    ui->label_cu_connection->setText(QString::number(mControl.isCuAlive));
+    ui->label_cu_connection->setText(QString::number(cuconcount));
     ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
 
 }
@@ -271,22 +275,26 @@ void MainWindow::processKeyBoardEvent(int key)
     {
         if(key == Qt::Key_Left)
         {
-            if(trackpoint_x>50)trackpoint_x-=5;
+            trackpoint_x-=5;
         }
         else if(key == Qt::Key_Right)
         {
-            if(trackpoint_x<frame_process_W-50)trackpoint_x+=5;
+            trackpoint_x+=5;
         }
         else if(key == Qt::Key_Up)
         {
-            if(trackpoint_y>50)trackpoint_y-=5;
+            trackpoint_y-=5;
         }
         else if(key == Qt::Key_Down)
         {
-            if(trackpoint_y<frame_process_H-50)trackpoint_y+=5;
+            trackpoint_y+=5;
             //        unsigned char *packet = mControl.outputPelco(0,100);
             //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
         }
+        if(trackpoint_x<sight_x-100)trackpoint_x = sight_x-100;
+        if(trackpoint_x>sight_x+100)trackpoint_x = sight_x+100;
+        if(trackpoint_y<sight_y-100)trackpoint_y = sight_y-100;
+        if(trackpoint_y>sight_y+100)trackpoint_y = sight_y+100;
     }
     if(key == Qt::Key_L)// start tracking at selected target
     {
@@ -395,6 +403,33 @@ void MainWindow::processKeyBoardEvent(int key)
     {
 
         on_bt_control_file_2_pressed();
+    }
+    else if(key==Qt::Key_Delete)
+    {
+        on_bt_tracksizeup_2_clicked();
+//        on_bt_control_file_5_pressed();
+    }
+    else if(key==Qt::Key_Insert)
+    {
+        on_bt_tracksizeup_clicked();
+//        on_bt_control_file_4_pressed();
+    }
+    else if(key==Qt::Key_M)
+    {
+
+        if(mControl.stabMode==1){
+            mControl.setStimMode(0);
+//             ui->bt_video_thermal_3->setChecked(false);
+            ui->bt_video_test_2->setChecked(true);
+
+        }
+        else{
+
+            mControl.setStimMode(1);
+//            ui->bt_video_test_2->setChecked(false);
+            ui->bt_video_thermal_3->setChecked(true);
+        }
+        mControl.reloadConfig();
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -621,6 +656,26 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     {
         key_ws = 0;
     }
+    else if(key==Qt::Key_End)
+    {
+
+        on_bt_control_file_3_released();
+    }
+    else if(key==Qt::Key_Home)
+    {
+
+        on_bt_control_file_2_released();
+    }
+    else if(key==Qt::Key_Delete)
+    {
+
+        on_bt_control_file_5_released();
+    }
+    else if(key==Qt::Key_Insert)
+    {
+
+        on_bt_control_file_4_released();
+    }
 
 }
 //bool AddGaussianNoise_Opencv(const Mat mSrc, Mat &mDst,double Mean=0.0, double StdDev=40.0)
@@ -767,13 +822,17 @@ void MainWindow::timer30ms()
         msgTime--;
 //        update();
     }
-    if(mControl.modbusDevice->state()==QModbusDevice::ConnectedState)
+    if(mControl.modbusDeviceCam!=nullptr)
     {
 
-        int ct11 = mControl.getPLCInput(0);
-        int ct12 = mControl.getPLCInput(1);
-        int ct21 = mControl.getPLCInput(2);
-        int ct22 = mControl.getPLCInput(3);
+    }
+    if(mControl.modbusDeviceCU!=nullptr)
+    {
+
+        int ct11 = mControl.getPLCInput(0,1);
+        int ct12 = mControl.getPLCInput(1,1);
+        int ct21 = mControl.getPLCInput(2,1);
+        int ct22 = mControl.getPLCInput(3,1);
         int ctValue = ct11+ct12*2+ct21*4+ct22*8;
         ui->radioButton_leftlimit->setChecked(ct11>0);
         ui->radioButton_rightlimit->setChecked(ct12>0);
@@ -786,15 +845,16 @@ void MainWindow::timer30ms()
         }
         isCtActivated = ctValue;
 
-        int azi_int = mControl.getPLCInput(4);
-        double azi_float = azi_int/1000.0*360.0;
+        int azi_int = mControl.getPLCInput(4,1);
+
+        double azi_float = (azi_int/1000.0*360.0)*CConfig::getDouble("scale_azi",0.5)+CConfig::getDouble("scale_azi_abs",180);
         while (azi_float>=180)azi_float-=360;
         while (azi_float<=-180)azi_float+=360;
         ui->view_azi->setValue(azi_float);
 
         //ele cal
-        int ele_int = mControl.getPLCInput(5);
-        double ele_float = ele_int/1000.0*360.0;
+        int ele_int = mControl.getPLCInput(5,1);
+        double ele_float = ele_int/1000.0*360.0*CConfig::getDouble("scale_ele",0.5)+CConfig::getDouble("scale_ele_abs",7);
         while (ele_float>=180)ele_float-=360;
         while (ele_float<=-180)ele_float+=360;
         //        ui->statusbar->showMessage(QString::number(ele_int));
@@ -804,8 +864,8 @@ void MainWindow::timer30ms()
         {
             trackerShutdown();
         }
-        ui->label_plc2->setText("OK "+QString::number(mControl.modbusCount));
-
+        ui->label_plc2->setText("CU "+QString::number(mControl.modbusCount));
+        ui->label_plc_1->setText("CAM " +QString::number(int(mControl.modbusCountCam)));
     }
     else
     {
@@ -819,7 +879,7 @@ void MainWindow::timer30ms()
         //(singleTrackTarget.x+singleTrackTarget.width/2)
 
         trackxo = trackx;
-        trackx = (singleTrackTarget.x+singleTrackTarget.width/2.0-sight_x)/frame_process_W;
+        trackx = (singleTrackTarget.x+singleTrackTarget.width/2.0-trackpoint_x)/frame_process_W;
         if(abs(trackx)<0.1)trackxi += trackx;
         //        if(trackxi>frame_process_W/2)trackxi = frame_process_W/2;
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
@@ -827,7 +887,7 @@ void MainWindow::timer30ms()
         if(xcontrol>0.9)xcontrol=0.9;
         if(xcontrol<-0.9)xcontrol=-0.9;
         trackyo=tracky;
-        tracky = -(singleTrackTarget.y+singleTrackTarget.height/2.0-sight_y)/frame_process_H;
+        tracky = -(singleTrackTarget.y+singleTrackTarget.height/2.0-trackpoint_y)/frame_process_H;
         if(abs(tracky)<0.1)trackyi += tracky;
         float ycontrol = track_p*tracky+track_i*trackyi+track_d*(tracky-trackyo);
         if(ycontrol>0.9)ycontrol=0.9;
@@ -864,16 +924,27 @@ void MainWindow::timer30ms()
             //        v_speed_control += (key_ws*255-v_speed_control)/5;
             h_speed_control = -hvalue*255;
             v_speed_control = vvalue*255+13;
-            int zeroZone = 3;
+            int zeroZone = 10;
             if(h_speed_control>zeroZone)h_speed_control-=zeroZone;
             else if(h_speed_control<-zeroZone)h_speed_control+=zeroZone;
             else h_speed_control=0;
             if(v_speed_control>zeroZone)v_speed_control-=zeroZone;
             else if(v_speed_control<-zeroZone)v_speed_control+=zeroZone;
             else v_speed_control=0;
-            mControl.outputPelco(h_speed_control,v_speed_control);
+            if(trackermode==1)
+            {
+                trackpoint_x+=h_speed_control/30;
+                trackpoint_y-=v_speed_control/30;
+                if(trackpoint_x<sight_x-150)trackpoint_x = sight_x-150;
+                if(trackpoint_x>sight_x+150)trackpoint_x = sight_x+150;
+                if(trackpoint_y<sight_y-150)trackpoint_y = sight_y-150;
+                if(trackpoint_y>sight_y+150)trackpoint_y = sight_y+150;
+
+            }
+            else mControl.outputPelco(h_speed_control,v_speed_control);
         }
         else if(usbDevMode==2){
+            if(trackermode)
             UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
             double  vvalue = -(usbBuf[2])*2+255;
             double  hvalue = (usbBuf[3])*2-255;
@@ -884,8 +955,8 @@ void MainWindow::timer30ms()
             if(v_speed_control>zeroZone)v_speed_control-=zeroZone;
             else if(v_speed_control<-zeroZone)v_speed_control+=zeroZone;
             else v_speed_control=0;
-            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
-            flushall();
+//            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
+//            flushall();
 //            showMessage(QString::number(hvalue));
             //        ui->label_track_y->setText(QString::number(vvalue));
             mControl.outputPelco(hvalue,vvalue);
@@ -996,6 +1067,8 @@ QByteArray dataFrameBuff;
 
 void MainWindow::processDatagram(QByteArray data)
 {
+    if( cuconcount <99)cuconcount ++;
+    else  cuconcount = 0;
     if(mControl.getWorkMode()==0)
     {
         float scale  =CConfig::getDouble("plotScale");

@@ -69,7 +69,7 @@ bool KCF::Init(cv::Mat image, cv::Rect rect_init) {
     cos_window_ = CalculateHann(yf_.size());
 
     cv::Mat patch = GetSubwindow(image, pos_, window_sz_);
-    //    cv::imshow("pp",patch);
+//    cv::imshow("pp",patch);
     Learn(patch, 1.);
     trackmean = 0.3;
     return resize_image_;
@@ -105,8 +105,7 @@ cv::Rect KCF::Update(cv::Mat image) {
         kzf = LinearCorrelation(zf_vector,model_xf_);
 
     cv::idft(ComplexMul(model_alphaf_, kzf), response, cv::DFT_SCALE | cv::DFT_REAL_OUTPUT); // Applying IDFT
-    //  cv::imshow("response",response);
-    //  cv::waitKey();
+
     cv::minMaxLoc(response, NULL, &maxVal, NULL, &maxLoc);
     if(trackerMode==1)
     {

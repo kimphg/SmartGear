@@ -52,7 +52,8 @@ class c_gimbal_control: public QObject
     Q_OBJECT
 public:
 //    QQueue<double> dataPlot;
-    QModbusClient *modbusDevice=nullptr;
+    QModbusClient *modbusDeviceCam=nullptr;
+    QModbusClient *modbusDeviceCU = nullptr;
     double fov;
     int mPan,mTil;
     int pulseMode;
@@ -61,6 +62,7 @@ public:
     int isCuAlive      = 0;
     int isStimAlive    = 0;
     int modbusCount = 0;
+    int modbusCountCam = 0;
     bool plcValueChanged = false;
     QUdpSocket *socket;
     c_gimbal_control();
@@ -89,8 +91,8 @@ public:
     void modbusInit();
     void modbusReadRequest();
     bool getPLCReg(int id);
-    void setplc(int addr, int value);
-    int getPLCInput(int id);
+    void setplc(int addr, int value, int plci=0);
+    int getPLCInput(int id, int plcid=0);
     int mBTDM =0;
     int mBTZoom =0;
     int mBTRed =0;
@@ -115,9 +117,12 @@ private:
     bool processPelco();
     bool readPelco(unsigned char databyte);
 
+
+    void modbusReadRequestCam();
 private slots:
     void onStateChanged(int state);
-    void modbusInputRead();
+    void modbusInputReadCU();
+    void modbusInputReadCam();
     void timerEvent(QTimerEvent *event);
 };
 

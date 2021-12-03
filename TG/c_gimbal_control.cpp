@@ -12,6 +12,7 @@ static QSerialPort *serial ;
 //static int old_bt_red=1,old_bt_white=1;
 static int plcReg[PLC_REG_SIZE];
 static int plcInput[PLC_REG_SIZE];
+static int plcInputCam[PLC_REG_SIZE];
 static int plcout[PLC_REG_SIZE];
 static c_lowpass *filterPan;//(CConfig::getDouble("control_LPF",2),0.03);
 static c_lowpass *filterTilt;//(CConfig::getDouble("control_LPF",2),0.03);
@@ -19,8 +20,9 @@ bool c_gimbal_control::getPLCReg(int id)
 {
     return plcReg[id];
 }
-int c_gimbal_control::getPLCInput(int id)
+int c_gimbal_control::getPLCInput(int id,int plcid)
 {
+    if(plcid==0)return plcInputCam[id];
     return plcInput[id];
 }
 bool c_gimbal_control::processPelco(){
@@ -202,7 +204,7 @@ c_gimbal_control::c_gimbal_control()
     pulseMode = 1;
     stabMode = 0;
     openSerialPort();
-    startTimer(30);
+    startTimer(50);
     for (int i=0;i<PLC_REG_SIZE;i++)
     {
         plcReg[i] = 0;
@@ -212,9 +214,13 @@ c_gimbal_control::c_gimbal_control()
     modbusInit();
 
 }
+int requestCount=0;
 void c_gimbal_control::timerEvent(QTimerEvent *event)
 {
-    if(modbusDevice->state()==QModbusDevice::ConnectedState)modbusReadRequest();
+
+        modbusReadRequest();
+        requestCount++;
+        if((requestCount%5==0))modbusReadRequestCam();
     if(plcValueChanged)
     {
         plcValueChanged = false;
@@ -225,70 +231,161 @@ void c_gimbal_control::timerEvent(QTimerEvent *event)
 void  c_gimbal_control::modbusInit()
 {
 
-    if (modbusDevice) {
-        modbusDevice->disconnectDevice();
-        delete modbusDevice;
-        modbusDevice = nullptr;
+    if (modbusDeviceCam) {
+        modbusDeviceCam->disconnectDevice();
+        delete modbusDeviceCam;
+        modbusDeviceCam = nullptr;
     }
-    modbusDevice = new QModbusTcpClient(this);//
+    modbusDeviceCam = new QModbusTcpClient(this);//
 
-    if (!modbusDevice)
+    if (!modbusDeviceCam)
         return ;
 
 
-    if (modbusDevice->state() != QModbusDevice::ConnectedState) {
-        const QUrl url = QUrl::fromUserInput(CConfig::getString("plc_cu","192.168.0.2:502"));
-        modbusDevice->setConnectionParameter(QModbusDevice::NetworkPortParameter, url.port());
-        modbusDevice->setConnectionParameter(QModbusDevice::NetworkAddressParameter, url.host());
+    if (modbusDeviceCam->state() != QModbusDevice::ConnectedState) {
+        const QUrl url = QUrl::fromUserInput(CConfig::getString("plc_cam","192.168.0.5:502"));
+        modbusDeviceCam->setConnectionParameter(QModbusDevice::NetworkPortParameter, url.port());
+        modbusDeviceCam->setConnectionParameter(QModbusDevice::NetworkAddressParameter, url.host());
 
-        modbusDevice->setTimeout(50);
-        modbusDevice->setNumberOfRetries(3);
-        if (!modbusDevice->connectDevice()) {
+        modbusDeviceCam->setTimeout(200);
+        modbusDeviceCam->setNumberOfRetries(3);
+        if (!modbusDeviceCam->connectDevice()) {
             //            CConfig::appendLog("Modbus connect failed");
         }
     }else{
-        modbusDevice->disconnectDevice();
+        modbusDeviceCam->disconnectDevice();
+    }
+    if (modbusDeviceCU) {
+        modbusDeviceCU->disconnectDevice();
+        delete modbusDeviceCU;
+        modbusDeviceCU = nullptr;
+    }
+    modbusDeviceCU = new QModbusTcpClient(this);//
+
+    if (!modbusDeviceCU)
+        return ;
+
+
+    if (modbusDeviceCU->state() != QModbusDevice::ConnectedState) {
+        const QUrl url = QUrl::fromUserInput(CConfig::getString("plc_cu","192.168.0.2:502"));
+        modbusDeviceCU->setConnectionParameter(QModbusDevice::NetworkPortParameter, url.port());
+        modbusDeviceCU->setConnectionParameter(QModbusDevice::NetworkAddressParameter, url.host());
+
+        modbusDeviceCU->setTimeout(200);
+        modbusDeviceCU->setNumberOfRetries(3);
+        if (!modbusDeviceCU->connectDevice()) {
+            //            CConfig::appendLog("Modbus connect failed");
+        }
+    }else{
+        modbusDeviceCU->disconnectDevice();
     }
     return ;
 }
 void c_gimbal_control::modbusReadRequest()
 {
-    if (!modbusDevice)
-        return ;
-    modbusCount = 0;
-    QModbusDataUnit readUnit(QModbusDataUnit::HoldingRegisters,0,32);
-    if (auto *reply = modbusDevice->sendReadRequest(readUnit, 2)) {
-        if (!reply->isFinished())
-            connect(reply, &QModbusReply::finished, this, &c_gimbal_control::modbusInputRead);
-        else
-            delete reply; // broadcast replies return immediately
-    } else {
-        //        CConfig::appendLog("Request modbus error: " + modbusDevice->errorString());
-//        printf("Request modbus error: ");
-        modbusDevice->disconnect();
+    if (modbusDeviceCU)
+    {
+        modbusCount = 0;
+        QModbusDataUnit readUnit(QModbusDataUnit::HoldingRegisters,0,32);
+        if (auto *reply = modbusDeviceCU->sendReadRequest(readUnit, 2)) {
+            if (!reply->isFinished())
+                connect(reply, &QModbusReply::finished, this, &c_gimbal_control::modbusInputReadCU);
+            else
+                delete reply; // broadcast replies return immediately
+        } else {
+            //        CConfig::appendLog("Request modbus error: " + modbusDevice->errorString());
+            //        printf("Request modbus error: ");
+            modbusDeviceCU->disconnect();
+        }
     }
+
     return ;
+}
+void c_gimbal_control::modbusReadRequestCam()
+{
+    if (modbusDeviceCam)
+    {
+        modbusCountCam = 0;
+        QModbusDataUnit readUnit(QModbusDataUnit::HoldingRegisters,0,32);
+        if (auto *reply = modbusDeviceCam->sendReadRequest(readUnit, 2)) {
+            if (!reply->isFinished())
+                connect(reply, &QModbusReply::finished, this, &c_gimbal_control::modbusInputReadCam);
+            else
+                delete reply; // broadcast replies return immediately
+        } else {
+            //        CConfig::appendLog("Request modbus error: " + modbusDevice->errorString());
+            //        printf("Request modbus error: ");
+            modbusDeviceCam->disconnect();
+        }
+    }
 }
 void c_gimbal_control::onStateChanged(int state)
 {
 
 }
 
-void c_gimbal_control::setplc(int addr, int value)
+void c_gimbal_control::setplc(int addr, int value,int plci)
 {
-    if(addr<16)plcout[addr] = value;
-    QModbusDataUnit writeUnit(QModbusDataUnit::Coils,0,32);
-    for(int i = 16;i<32;i++)
-    {
-        writeUnit.setValue(i,plcout[i-16]);
+    if(plci==0){
+        if(addr<16)plcout[addr] = value;
+        QModbusDataUnit writeUnit(QModbusDataUnit::Coils,0,32);
+        for(int i = 16;i<32;i++)
+        {
+            writeUnit.setValue(i,plcout[i-16]);
+        }
+
+        modbusDeviceCam->sendWriteRequest(writeUnit,2);
+    }
+    else {
+        if(addr<16)plcout[addr] = value;
+        QModbusDataUnit writeUnit(QModbusDataUnit::Coils,0,32);
+        for(int i = 16;i<32;i++)
+        {
+            writeUnit.setValue(i,plcout[i-16]);
+        }
+
+        modbusDeviceCU->sendWriteRequest(writeUnit,2);
     }
 
-    modbusDevice->sendWriteRequest(writeUnit,2);
-
 }
-int cuconcount = 0;
+void c_gimbal_control::modbusInputReadCam()
+{
+    QString msg;
+
+    auto reply = qobject_cast<QModbusReply *>(sender());//
+    if (!reply)
+        return;
+
+    if (reply->error() == QModbusDevice::NoError) {
+        const QModbusDataUnit unit = reply->result();
+        plcValueChanged =true;
+        for (uint i = 0; i < unit.valueCount(); i++) {
+            if(i<PLC_REG_SIZE)
+            {
+                plcInputCam[i] = unit.value(i);
+                //                if(plcInput[i])sendSetupPacket(12);
+                modbusCountCam++;
+            }
+
+
+        }
+        //        dataPlot.push_back((plcInput[20]-18000)/5.0);
+        //        while(dataPlot.size()>=500)dataPlot.pop_front();
+    } else if (reply->error() == QModbusDevice::ProtocolError) {
+        msg =  QString("Read response error: %1 (Mobus exception: 0x%2)").
+                arg(reply->errorString()).
+                arg(reply->rawResult().exceptionCode(), -1, 16);
+    } else {
+        msg =  QString("Read response error: %1 (code: 0x%2)").
+                arg(reply->errorString()).
+                arg(reply->error(), -1, 16);
+    }
+
+    reply->deleteLater();
+}
+
 int stimconcount = 0;
-void c_gimbal_control::modbusInputRead()
+void c_gimbal_control::modbusInputReadCU()
 {
     QString msg;
 
@@ -303,14 +400,14 @@ void c_gimbal_control::modbusInputRead()
             if(i<PLC_REG_SIZE)
             {
                 plcInput[i] = unit.value(i);
-//                if(plcInput[i])sendSetupPacket(12);
+                //                if(plcInput[i])sendSetupPacket(12);
                 modbusCount++;
             }
 
 
         }
-//        dataPlot.push_back((plcInput[20]-18000)/5.0);
-//        while(dataPlot.size()>=500)dataPlot.pop_front();
+        //        dataPlot.push_back((plcInput[20]-18000)/5.0);
+        //        while(dataPlot.size()>=500)dataPlot.pop_front();
     } else if (reply->error() == QModbusDevice::ProtocolError) {
         msg =  QString("Read response error: %1 (Mobus exception: 0x%2)").
                 arg(reply->errorString()).
@@ -485,19 +582,19 @@ void c_gimbal_control::sendSetupPacket(int index)
     else if(index==12)//cong tac hanh trinh
     {
 
-//        int data = getPLCInput(0);
-//        data = data>>12;
-        packet2[2] =  getPLCInput(0);//data&0x01;
-        packet2[3] =  getPLCInput(1);//data&0x02;
-        packet2[4] =  getPLCInput(2);//data&0x04;
-        packet2[5] =  getPLCInput(3);//data&0x08;
+        //        int data = getPLCInput(0);
+        //        data = data>>12;
+        packet2[2] =  getPLCInput(0,1);//data&0x01;
+        packet2[3] =  getPLCInput(1,1);//data&0x02;
+        packet2[4] =  getPLCInput(2,1);//data&0x04;
+        packet2[5] =  getPLCInput(3,1);//data&0x08;
         packet2[6] = (unsigned char) (packet2[1]+packet2[2]+packet2[3]+packet2[4]+packet2[5]);
 
     }
     else if(index==13)//workmode
     {
 
-        int data = getPLCInput(0);
+        int data = getPLCInput(0,1);
         data = data>>12;
         packet2[2] = workMode;
         packet2[3] = 0;
