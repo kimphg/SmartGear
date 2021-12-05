@@ -58,6 +58,7 @@ public:
     int mPan,mTil;
     int pulseMode;
     int stabMode;
+    int lastPing;
     int joystickMode    = 0;
     int isCuAlive      = 0;
     int isStimAlive    = 0;

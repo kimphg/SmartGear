@@ -603,6 +603,17 @@ void c_gimbal_control::sendSetupPacket(int index)
         packet2[6] = (unsigned char) (packet2[1]+packet2[2]+packet2[3]+packet2[4]+packet2[5]);
 
     }
+    else if(index==14)//ping
+    {
+
+        lastPing = clock();
+        packet2[2] = lastPing;
+        packet2[3] = lastPing>>8;
+        packet2[4] = lastPing>>16;
+        packet2[5] = lastPing>>24;
+        packet2[6] = (unsigned char) (packet2[1]+packet2[2]+packet2[3]+packet2[4]+packet2[5]);
+
+    }
     QByteArray ba((char*)&packet2[0],7);
     send(ba);
     send(ba);

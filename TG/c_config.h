@@ -65,11 +65,11 @@ public:
     static void     appendLog(const char *error);
 //    static void     AddMessage(QString warning);
     //static QXmlStreamReader xml;
-    static QHash<QString, QString> readFile();
+    static void readFile();
     static bool    isChanged;
     static void backup();
 private:
-    static QHash<QString, QString> readFile(QString fileName);
+    static void readFile(QString fileName);
 };
 
 #endif

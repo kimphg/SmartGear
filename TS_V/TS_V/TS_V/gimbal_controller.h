@@ -15,7 +15,7 @@
 #define CT3 3
 #define CT4 2
 #define PPR1 1000
-#define GEAR1 400
+#define GEAR1 160
 #define PPR2 1000
 #define GEAR2 400
 #define PULSE_MAX_FREQ 30000

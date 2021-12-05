@@ -9,7 +9,7 @@ using namespace std;
 //double CConfig::shipSpeed=0;
 //double CConfig::antennaAziDeg=0;
 bool CConfig::isChanged = false;
-QHash<QString, QString> CConfig::mHashData = CConfig::readFile();
+QHash<QString, QString> CConfig::mHashData;
 volatile long long int CConfig::time_now_ms = 0;
 double  CConfig::mLat = DEFAULT_LAT,CConfig::mLon=DEFAULT_LONG;
 
@@ -170,7 +170,7 @@ void CConfig::SaveAndSetConfigAsDefault()
     QFile::copy( HR_CONFIG_FILE,HR_CONFIG_FILE_DF);
 
 }
-QHash<QString, QString> CConfig::readFile(QString fileName)
+void CConfig::readFile(QString fileName)
 {
     QFile xmlFile(fileName);
     bool isError = !(xmlFile.open(QIODevice::ReadOnly));
@@ -178,7 +178,7 @@ QHash<QString, QString> CConfig::readFile(QString fileName)
     QXmlStreamReader xml;
     xml.setDevice(&xmlFile);
     int nElement = 0;
-    QHash<QString, QString> hashData;
+//    QHash<QString, QString> hashData;
     while (xml.readNextStartElement())
     {
 
@@ -189,7 +189,7 @@ QHash<QString, QString> CConfig::readFile(QString fileName)
             {
                 nElement++;
                 QXmlStreamAttribute attr = xml.attributes().at(i);
-                hashData.insert( attr.name().toString(),
+                CConfig::mHashData.insert( attr.name().toString(),
                                  attr.value().toString());
             }
         }
@@ -202,13 +202,13 @@ QHash<QString, QString> CConfig::readFile(QString fileName)
             isError = true;
         }
     }
-    if(isError||(hashData.size()<5))
+    if(isError||(CConfig::mHashData.size()<5))
     {
         if(fileName==HR_CONFIG_FILE)                return readFile(HR_CONFIG_FILE_BACKUP_1);
         else if(fileName==HR_CONFIG_FILE_BACKUP_1)  return readFile(HR_CONFIG_FILE_BACKUP_2);
         else if(fileName==HR_CONFIG_FILE_DF) {
 
-            return hashData;
+            return ;
         }
         else
         {
@@ -219,11 +219,12 @@ QHash<QString, QString> CConfig::readFile(QString fileName)
     }
 
     xmlFile.close();
-    return hashData;
+//    CConfig::mHashData = hashData;
+//    return hashData;
 }
-QHash<QString, QString> CConfig::readFile() {
+void CConfig::readFile() {
 
-    return readFile(HR_CONFIG_FILE);
+     readFile(HR_CONFIG_FILE);
 }
 
 //std::queue<WarningMessage>* CConfig::getWarningList()

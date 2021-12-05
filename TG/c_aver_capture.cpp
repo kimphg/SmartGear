@@ -61,9 +61,9 @@ BOOL WINAPI CaptureVideoAnalog(VIDEO_SAMPLE_INFO VideoInfo, BYTE *pbData, LONG l
 bool c_aver_capture::getFrame(cv::Mat *frame)
 {
     if(frameBusy)return false;
-    if(bGetData)
-    {
-        printf("start Cap aver");flushall();
+    if(bGetData){
+
+        printf("sCap - ");flushall();
         bGetData = false;
         try {
             if(!frameAver.empty())
@@ -77,7 +77,7 @@ bool c_aver_capture::getFrame(cv::Mat *frame)
         }
 
 //        frameBusy = false;
-        printf("done Cap aver\n");flushall();
+        printf("dCap \n");flushall();
         return true;
     }
     else

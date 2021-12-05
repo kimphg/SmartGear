@@ -105,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->statusBar()->setStyleSheet("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)");
     socket = new QUdpSocket(this);
     mControl.setSocket(socket);
-
+    CConfig::readFile();
     //    trackrect.x = frame.rows*0.45;
     //    trackrect.y = frame.cols*0.45;
     //    trackrect.width = frame.rows*0.1;
@@ -223,7 +223,7 @@ void MainWindow::sendFrame()
 void MainWindow::updateInfo()
 {
     CConfig::SaveToFile();
-//    mControl.sendSetupPacket(2);
+    mControl.sendSetupPacket(14);
     ui->label_video_fps->setText(QString::number(frameCount));
     frameCount = 0;
     // remove old targets
@@ -242,7 +242,7 @@ void MainWindow::updateInfo()
     //    else ui->label_cu_connection->setText(QString::fromUtf8("Mất kết nối"));
     //    if(mControl.isStimAlive)ui->label_stim_stat->setText("OK");
     //    else ui->label_stim_stat->setText(QString::fromUtf8("Mất kết nối"));
-    ui->label_cu_connection->setText(QString::number(cuconcount));
+//    ui->label_cu_connection->setText(QString::number(cuconcount));
     ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
 
 }
@@ -986,8 +986,24 @@ void MainWindow::updateData()
         quint16 port;
         QByteArray data;
         data.resize(len);
-        socket->readDatagram(data.data(),len,&host,&port);
 
+        socket->readDatagram(data.data(),len,&host,&port);
+        if(len==2){//ping msg
+            int byte = (unsigned char)data.at(0);
+            int stimCon = (unsigned char)data.at(1);
+            int a = mControl.lastPing;
+            int b = mControl.lastPing>>8;
+            int c = mControl.lastPing>>16;
+            int d = mControl.lastPing>>24;
+            int res = (unsigned char)((a*b)+(c*d));
+            if(byte==(res))
+            {
+                int curTime = clock();
+                int pingtime = curTime-mControl.lastPing;
+                ui->label_cu_connection->setText(QString::number(pingtime));
+                ui->label_stim_stat->setText(QString::number(stimCon));
+            }
+        }
         if(port==4002)//joystick port
         {
             //            mControl.send(data);
