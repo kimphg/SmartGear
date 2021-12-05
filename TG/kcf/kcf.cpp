@@ -69,7 +69,7 @@ bool KCF::Init(cv::Mat image, cv::Rect rect_init) {
     cos_window_ = CalculateHann(yf_.size());
 
     cv::Mat patch = GetSubwindow(image, pos_, window_sz_);
-//    cv::imshow("pp",patch);
+    cv::imshow("pp",patch);
     Learn(patch, 1.);
     trackmean = 0.3;
     return resize_image_;
