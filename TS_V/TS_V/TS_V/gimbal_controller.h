@@ -21,8 +21,8 @@
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
-float MAX_ACC = 0.15;
-float MAX_ACC_H = 0.4;
+float MAX_ACC = 0.5;
+float MAX_ACC_H = 0.5;
 #include "stim.h"
 #include "ModbusRtu.h"
 #define MODBUS_PORT Serial1
@@ -154,18 +154,7 @@ public:
     int interupt = 0;
     void setStimMode(int value)
     {
-      if(value==0&&mStabMode!=0&&workMode==0)
-        {
-          mStabMode = value;
-          stim_data.z_angle = 0;
-//          int n=0;
-//          for(int i = resultArrayId;;i++)
-//          {
-//            if(i>=2000)i=0;
-//            n++;if(n>=1000)break;
-//            E_CONTROL.println(stim_data.y_rate);
-//          }
-        }
+      
         mStabMode = value;
         stim_data.z_angle = 0;
         stim_data.y_angle = 0;
@@ -509,6 +498,36 @@ void CGimbalController::UserUpdate()//
         outputSpeedV(v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i);
 
     }
+	else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
+	{
+		//h control calculation
+		h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
+		double h_control_dif = h_control - h_control_old;//
+		h_control_old = h_control;
+		if (interupt>0){
+			h_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
+		}
+		sumEh += abs(h_control);
+
+		hinteg += h_control;
+		if (hinteg>5)hinteg = 5;
+		if (hinteg<-5)hinteg = -5;
+		//v control calculation
+		v_control = v_user_speed + stim_data.y_rate *param_v_p;
+		/*double v_control_dif = v_control - v_control_old;
+		v_control_old = v_control;
+		if (interupt>0){
+			v_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
+		}
+		sumEv += abs(v_control);
+		vinteg += v_control;
+		if (vinteg>5)vinteg = 5;
+		if (vinteg<-5)vinteg = -5;*/
+		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
+
+		outputSpeedV(v_control);
+
+	}
 //    modbusLoop();
 
 
