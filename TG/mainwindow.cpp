@@ -884,6 +884,7 @@ void MainWindow::timer30ms()
         //        if(trackxi>frame_process_W/2)trackxi = frame_process_W/2;
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
         float xcontrol = track_p*trackx+track_i*trackxi+track_d*(trackx-trackxo);
+        xcontrol*=1.7;
         if(xcontrol>0.9)xcontrol=0.9;
         if(xcontrol<-0.9)xcontrol=-0.9;
         trackyo=tracky;
