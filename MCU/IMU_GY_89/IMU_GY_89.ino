@@ -40,9 +40,10 @@ void setup()
 int oldtime=0;
 int count = 0;
 void loop() {
-//  int newtime = millis();
+  int newtime = millis();
 //  Serial.println(newtime-oldtime);
-//  oldtime = newtime;
+if(newtime-oldtime<2&&newtime-oldtime>0)return;
+  oldtime = newtime;
 //  Serial.print(",  ");
   // put your main code here, to run repeatedly:
   
@@ -122,8 +123,8 @@ void GY89_Setup()
   getSensConst('m', 4);
   getSensConst('T', 0);
    delay(100);
-//  SetSensor(L3G4200D_ADDRESS ,0x20 ,0x8F ); // CTRL_REG1   400Hz ODR, 20hz filter, run!
-  SetSensor(L3G4200D_ADDRESS ,0x20 ,0xCF ); // CTRL_REG1   800Hz ODR, 30hz filter, run!
+  SetSensor(L3G4200D_ADDRESS ,0x20 ,0x8F ); // CTRL_REG1   400Hz ODR, 20hz filter, run!
+//  SetSensor(L3G4200D_ADDRESS ,0x20 ,0xCF ); // CTRL_REG1   800Hz ODR, 30hz filter, run!
   delay(5);
   SetSensor(L3G4200D_ADDRESS ,0x24 ,0x02 ); // CTRL_REG5   low pass filter enable
   delay(5);

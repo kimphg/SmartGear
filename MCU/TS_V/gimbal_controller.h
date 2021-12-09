@@ -311,11 +311,11 @@ void CGimbalController::initGimbal()
     delay(200);
     motorTimer.begin(callbackMotorUpdate,1000000.0/MOTOR_PULSE_CLOCK);
     controlTimer.begin(callbackUserUpdate,1000000*CONTROL_TIME_STAMP);
-    sensorTimer.begin(callbackSensorUpdate,200);
+    sensorTimer.begin(callbackSensorUpdate,400);
     Serial.println("gimbal test done");
 //    modbusSetup();
     workMode=1;
-    reportDebug("Firmware version: 2.1");
+    reportDebug("Firmware version: 2.1.2");
     h_user_speed = 0;
     v_user_speed = 0;
     setPPR(PPR1*GEAR1,PPR2*GEAR2);
@@ -340,8 +340,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
     h_ppr = hppr;
     v_ppr = vppr;
-    minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodh = 1;//MOTOR_PULSE_CLOCK/(h_ppr);
+    minPulsePeriodv = 1;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -367,6 +367,7 @@ void CGimbalController::motorUpdate()
 {
     h_pulse_clock_counter++;
     v_pulse_clock_counter++;
+    
     if(hPulseBuff!=0)
     {
         if(h_pulse_clock_counter>h_freq_devider)
@@ -386,19 +387,19 @@ void CGimbalController::motorUpdate()
             if(pulseMode==1)
             {
                 ps1=!ps1;
-                digitalWrite(PS1,ps1);
+                digitalWriteFast(PS1,ps1);
             }
             else if(pulseMode==2)
             {
                 if(hPulseBuff<0){
-                    if(hPulseBuff%2)digitalWrite(PS1,HIGH);
-                    else digitalWrite(PS1,LOW);
-                    digitalWrite(PD1,HIGH);
+                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
+                    else digitalWriteFast(PS1,LOW);
+                    digitalWriteFast(PD1,HIGH);
                 }
                 else{
-                    if(hPulseBuff%2)digitalWrite(PD1,HIGH);
-                    else digitalWrite(PD1,LOW);
-                    digitalWrite(PS1,HIGH);
+                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
+                    else digitalWriteFast(PD1,LOW);
+                    digitalWriteFast(PS1,HIGH);
                 }
             }
 
@@ -426,19 +427,19 @@ void CGimbalController::motorUpdate()
                 //                    if(vPulseBuff%2)digitalWrite(PS2,HIGH);
                 //                    else digitalWrite(PS2,LOW);
                 ps2=!ps2;
-                digitalWrite(PS2,ps2);
+                digitalWriteFast(PS2,ps2);
             }
             else if(pulseMode==2)
             {
                 if(vPulseBuff<0){
-                    if(int(vPulseBuff)%2)digitalWrite(PS2,HIGH);
-                    else digitalWrite(PS2,LOW);
-                    digitalWrite(PD2,HIGH);
+                    if(int(vPulseBuff)%2)digitalWriteFast(PS2,HIGH);
+                    else digitalWriteFast(PS2,LOW);
+                    digitalWriteFast(PD2,HIGH);
                 }
                 else{
-                    if(int(vPulseBuff)%2)digitalWrite(PD2,HIGH);
-                    else digitalWrite(PD2,LOW);
-                    digitalWrite(PS2,HIGH);
+                    if(int(vPulseBuff)%2)digitalWriteFast(PD2,HIGH);
+                    else digitalWriteFast(PD2,LOW);
+                    digitalWriteFast(PS2,HIGH);
                 }
             }
         }
@@ -519,7 +520,7 @@ void CGimbalController::UserUpdate()//
 		//v control calculation
    //double angleDiff = stim_data.y_angle - t_ele;
 //		v_control = v_user_speed - stim_data.y_rate *param_v_p;
-		v_control = v_user_speed - gyroX*param_v_p;
+		v_control = v_user_speed - gyroX*param_v_p ;
     //t_ele += v_user_speed*CONTROL_TIME_STAMP;
     
 		/*double v_control_dif = v_control - v_control_old;
@@ -533,7 +534,7 @@ void CGimbalController::UserUpdate()//
 		if (vinteg<-5)vinteg = -5;*/
 		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
 
-		outputSpeedV(v_control);
+		outputSpeedV(v_control + stim_data.y_angle*param_v_i);
 
 	}
 //    modbusLoop();
@@ -580,20 +581,23 @@ unsigned char rawgyro[15];
 unsigned char lastbyteGyro;
 int gyroIndex = -1;
 int rawgyroX=0;
+double sumGyroX=0;
+int countGyroX=0;
+float biasGyroX = 0.25;
 void CGimbalController::readSensorData()//200 microseconds
 {
     //      controlerReport();
-//    while (S_STIM.available() > 0) {
-//        unsigned long timeMicros = micros();
-//        unsigned char databyte = S_STIM.read();
-//        if(readStim(databyte,(timeMicros-lastStimByteTime), &stim_data))// one packet per millisencond
-//        {
-//            mStimMsgCount++;
-//            mStimSPS++;
-//            if(workMode==0)E_CONTROL.println(stim_data.y_rate);
-//        }
-//        lastStimByteTime = timeMicros;
-//    }
+    while (S_STIM.available() > 0) {
+        unsigned long timeMicros = micros();
+        unsigned char databyte = S_STIM.read();
+        if(readStim(databyte,(timeMicros-lastStimByteTime), &stim_data))// one packet per millisencond
+        {
+            mStimMsgCount++;
+            mStimSPS++;
+            if(workMode==0)E_CONTROL.println(stim_data.y_rate);
+        }
+        lastStimByteTime = timeMicros;
+    }
     while (Serial1.available() > 0) {
         unsigned char databyte = Serial1.read();
         if(databyte == 0x7f)
@@ -617,11 +621,13 @@ void CGimbalController::readSensorData()//200 microseconds
               }  
              if (checksumbyte==databyte)//true msg received
              {
-                mStimMsgCount++;
                 
+                
+                mStimMsgCount++;
                 int newgyroX = rawgyro[1]+rawgyro[2]*256;
                 if(newgyroX>=32768)
                 newgyroX-=65536;
+                
                 if(abs(newgyroX-rawgyroX)>100)
                 {
                   if(newgyroX>240&&newgyroX<256)
@@ -633,10 +639,25 @@ void CGimbalController::readSensorData()//200 microseconds
                     newgyroX+=256;
                    }
                   }
+                  if(abs(newgyroX)>=256)return;
                   rawgyroX = newgyroX;
                   gyroX = rawgyroX/16.384;
+                  sumGyroX+=gyroX;
+                  countGyroX++;
+                  if(countGyroX>=10000)
+                  {
+                    biasGyroX += 0.2*(sumGyroX/countGyroX-biasGyroX);
+                    countGyroX=0;
+                    sumGyroX = 0;
+                    reportDebug("auto calib: ",biasGyroX);
+                  }
+                  gyroX-=biasGyroX;
+                  
+//                  Serial.print(newgyroX);
+//                  Serial.print(' ');
 //                Serial.println(gyroX);
-              }
+                }
+              
             }
           rawgyro[gyroIndex] = databyte;
           gyroIndex++;
@@ -694,7 +715,7 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
             dir = HIGH;
         }
 
-        digitalWrite(PD1, dir);
+        digitalWriteFast(PD1, dir);
     }
 }
 double oldSpeeddpsV = 0;
@@ -731,7 +752,7 @@ void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
         {
             dir = HIGH;
         }
-        digitalWrite(PD2, dir);
+        digitalWriteFast(PD2, dir);
     }
 
 }
@@ -765,7 +786,6 @@ void CGimbalController::setPARAM_P(float valueh,float valuev)
 {
     param_h_p = valueh;
     param_v_p = valuev;
-//    reportDebug("param p updated");
     isSetupChanged =true;
 }
 

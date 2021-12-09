@@ -1,3 +1,4 @@
+
 #ifndef COMMON
 #define COMMON
 #define S_STIM Serial2
