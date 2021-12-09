@@ -1,7 +1,7 @@
 #include "c_aver_capture.h"
 #include "opencv2/opencv.hpp"
 static cv::Mat frameAver;
-static bool bGetData = false;
+
 void ErrorMsg(DWORD ErrorCode)
 {
     printf("ErrorCode = %d\n", ErrorCode);
@@ -47,47 +47,27 @@ void ErrorMsg(DWORD ErrorCode)
     }
 }
 static bool frameBusy = false;
+c_aver_capture* thiscapture = nullptr;
 BOOL WINAPI CaptureVideoAnalog(VIDEO_SAMPLE_INFO VideoInfo, BYTE *pbData, LONG lLength, __int64 tRefTime, LONG lUserData)
 {
     frameBusy = true;
     frameAver = cv::Mat(VideoInfo.dwHeight, VideoInfo.dwWidth, CV_8UC3, (uchar*)pbData).clone();//single capture image
     //ans2 = Mat(VideoInfo.dwHeight, VideoInfo.dwWidth, CV_8UC3, (uchar*)pbData); //sequence capture image
-    bGetData = true;
-    frameBusy = false;
-//    imshow("frame", frame);
-//    cv::waitKey(1);
+    if(thiscapture!=nullptr){
+    frameAver.copyTo(thiscapture->output);
+    thiscapture->bGetData=true;
+    }
+//    bGetData = true;
     return TRUE;
 }
-bool c_aver_capture::getFrame(cv::Mat *frame)
-{
-    if(frameBusy)return false;
-    if(bGetData){
 
-        printf("sCap - ");flushall();
-        bGetData = false;
-        try {
-            if(!frameAver.empty())
-            {
-//                printf(" frame size:%d\n",frame->cols);flushall();
-                 frameAver.copyTo(*frame);
-            }
-        } catch (...) {
-//            printf(" frame error\n");flushall();
-
-        }
-
-//        frameBusy = false;
-        printf("dCap \n");flushall();
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
-}
 c_aver_capture::c_aver_capture()
 {
+    init();
+}
+void c_aver_capture::init()
+{
+    thiscapture = this;
     LONG lRetVal;
     DWORD dwDeviceNum;
     DWORD dwDeviceIndex = 0;
@@ -164,5 +144,13 @@ c_aver_capture::c_aver_capture()
     if (FAILED(lRetVal))
     {
         return ;
+    }
+}
+void c_aver_capture::run()
+{
+
+    while(1)
+    {
+
     }
 }

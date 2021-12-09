@@ -7,11 +7,16 @@
 #include "opencv2/core/core.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
-class c_aver_capture
+#include <QThread>
+class c_aver_capture: public QThread
 {
 public:
     c_aver_capture();
-    bool getFrame(cv::Mat *frame);
+    void run();
+    cv::Mat output;
+    bool bGetData ;
+private:
+    void init();
 };
 
 #endif // C_AVER_CAPTURE_H

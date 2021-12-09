@@ -121,8 +121,8 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             stim_data->x_angle += (stim_data->x_rate/1000.0);
             
             float newval = kalmanY.getFilteredValue(y_rate1)-stim_data->y_bias;
-			stim_data->y_acc = newval - stim_data->y_rate;
-			stim_data->y_rate = newval;
+			      stim_data->y_acc = newval - stim_data->y_rate;
+			       stim_data->y_rate = newval;
             stim_data->y_angle += (stim_data->y_rate/1000.0);
             
             

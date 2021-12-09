@@ -21,13 +21,13 @@
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
-float MAX_ACC = 0.5;
-float MAX_ACC_H = 0.5;
+float MAX_ACC = 5;
+float MAX_ACC_H = 1;
 #include "stim.h"
-#include "ModbusRtu.h"
-#define MODBUS_PORT Serial1
-Modbus mbMaster(0,MODBUS_PORT,0); 
-modbus_t telegram[2];
+//#include "ModbusRtu.h"
+//#define MODBUS_PORT Serial1
+//Modbus mbMaster(0,MODBUS_PORT,0); 
+//modbus_t telegram[2];
 int modbus_idle_t =100;
 unsigned long u32wait;
 uint16_t au16data[16]; 
@@ -35,26 +35,26 @@ uint16_t output16data[16];
 uint8_t u8state = 0; //!< machine state
 uint8_t u8query = 0; //!< pointer to message query
 double max_stab_spd = 90;
-void modbusSetup()
-{
-    // telegram 0: read registers
-    telegram[0].u8id = 1; // slave address
-    telegram[0].u8fct = MB_FC_READ_REGISTERS; // function code (this one is registers read)
-    telegram[0].u16RegAdd = 0; // start address in slave
-    telegram[0].u16CoilsNo = 16; // number of elements (coils or registers) to read
-    telegram[0].au16reg = au16data; // pointer to a memory array in the Arduino
-    // telegram 1: write a single register
-    telegram[1].u8id = 1; // slave address
-    telegram[1].u8fct = MB_FC_WRITE_MULTIPLE_REGISTERS; // function code (this one is write a single register)
-    telegram[1].u16RegAdd = 16; // start address in slave
-    telegram[1].u16CoilsNo = 16; // number of elements (coils or registers) to write
-    telegram[1].au16reg = output16data; // pointer to a memory array in the Arduino
-    MODBUS_PORT.begin( 38400 ); // baud-rate
-    mbMaster.start();
-    mbMaster.setTimeOut( 50 ); // if there is no answer in 50 ms, roll over
-    u32wait = millis() + 50;
-    u8state = u8query = 0;
-}
+//void modbusSetup()
+//{
+//    // telegram 0: read registers
+//    telegram[0].u8id = 1; // slave address
+//    telegram[0].u8fct = MB_FC_READ_REGISTERS; // function code (this one is registers read)
+//    telegram[0].u16RegAdd = 0; // start address in slave
+//    telegram[0].u16CoilsNo = 16; // number of elements (coils or registers) to read
+//    telegram[0].au16reg = au16data; // pointer to a memory array in the Arduino
+//    // telegram 1: write a single register
+//    telegram[1].u8id = 1; // slave address
+//    telegram[1].u8fct = MB_FC_WRITE_MULTIPLE_REGISTERS; // function code (this one is write a single register)
+//    telegram[1].u16RegAdd = 16; // start address in slave
+//    telegram[1].u16CoilsNo = 16; // number of elements (coils or registers) to write
+//    telegram[1].au16reg = output16data; // pointer to a memory array in the Arduino
+//    MODBUS_PORT.begin( 38400 ); // baud-rate
+//    mbMaster.start();
+//    mbMaster.setTimeOut( 50 ); // if there is no answer in 50 ms, roll over
+//    u32wait = millis() + 50;
+//    u8state = u8query = 0;
+//}
 
 
 IntervalTimer controlTimer;
@@ -180,7 +180,7 @@ public:
 
 private:
     int hPulseBuff ;
-    int vPulseBuff ;
+    double vPulseBuff ;
     int h_pulse_clock_counter;
     int v_pulse_clock_counter;
     int h_freq_devider=100;
@@ -312,7 +312,7 @@ void CGimbalController::initGimbal()
     controlTimer.begin(callbackUserUpdate,1000000*CONTROL_TIME_STAMP);
     sensorTimer.begin(callbackSensorUpdate,200);
     Serial.println("gimbal test done");
-    modbusSetup();
+//    modbusSetup();
     workMode=1;
     reportDebug("Firmware version: 2.1");
     h_user_speed = 0;
@@ -340,7 +340,7 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
     h_ppr = hppr;
     v_ppr = vppr;
     minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 3;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -357,6 +357,7 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
     
 	h_user_speed = hspeed * mUserMaxspdH;
 	v_user_speed = vspeed * mUserMaxSpdV;
+  
     userAlive =0.3/CONTROL_TIME_STAMP;
 
 }
@@ -403,19 +404,19 @@ void CGimbalController::motorUpdate()
         }
     }
     //vPulse;
-    if(vPulseBuff!=0)
+    if(abs(vPulseBuff)>=1)
     {
         if(v_pulse_clock_counter>v_freq_devider)
         {
             v_pulse_clock_counter=0;
             if(vPulseBuff>0)
             {
-                vPulseBuff--;
+                vPulseBuff-=1;
 //                v_abs_pos++;
             }
             else
             {
-                vPulseBuff++;
+                vPulseBuff+=1;
 //                v_abs_pos--;
             }
 
@@ -429,12 +430,12 @@ void CGimbalController::motorUpdate()
             else if(pulseMode==2)
             {
                 if(vPulseBuff<0){
-                    if(vPulseBuff%2)digitalWrite(PS2,HIGH);
+                    if(int(vPulseBuff)%2)digitalWrite(PS2,HIGH);
                     else digitalWrite(PS2,LOW);
                     digitalWrite(PD2,HIGH);
                 }
                 else{
-                    if(vPulseBuff%2)digitalWrite(PD2,HIGH);
+                    if(int(vPulseBuff)%2)digitalWrite(PD2,HIGH);
                     else digitalWrite(PD2,LOW);
                     digitalWrite(PS2,HIGH);
                 }
@@ -455,7 +456,7 @@ void CGimbalController::UserUpdate()//
         h_user_speed*=0.6;
         v_user_speed*=0.6;
     }
-
+    
     isStimConnected = (mStimMsgCount>0);
     stimCount = mStimMsgCount;
     mStimMsgCount=0;
@@ -484,6 +485,7 @@ void CGimbalController::UserUpdate()//
 		//v control calculation
         //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
         v_control = v_user_speed - stim_data.y_rate;
+//       ele_b1 += v_user_speed/
         double v_control_dif = v_control-v_control_old;
         v_control_old = v_control;
         if(interupt>0){
@@ -502,6 +504,7 @@ void CGimbalController::UserUpdate()//
 	{
 		//h control calculation
 		h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
+    
 		double h_control_dif = h_control - h_control_old;//
 		h_control_old = h_control;
 		if (interupt>0){
@@ -513,7 +516,10 @@ void CGimbalController::UserUpdate()//
 		if (hinteg>5)hinteg = 5;
 		if (hinteg<-5)hinteg = -5;
 		//v control calculation
-		v_control = v_user_speed + stim_data.y_rate *param_v_p;
+   //double angleDiff = stim_data.y_angle - t_ele;
+		v_control = v_user_speed - stim_data.y_rate *param_v_p;
+    //t_ele += v_user_speed*CONTROL_TIME_STAMP;
+    
 		/*double v_control_dif = v_control - v_control_old;
 		v_control_old = v_control;
 		if (interupt>0){
@@ -533,42 +539,45 @@ void CGimbalController::UserUpdate()//
 
 }
 
-void CGimbalController::modbusLoop() {
-    switch( u8state ) {
-    case 0:
-        if (millis() > u32wait) u8state++; // wait state
-        break;
-    case 1:
-        if(u8query==1)//send status over modbus
-        {
-            output16data[ 0] = fov*100;
-            output16data[ 1] = abs(hPulseBuff*100);
-            output16data[ 2] = abs(vPulseBuff*100);
-            output16data[ 3] = abs(stim_data.y_angle*100+18000);
-            output16data[ 4] = abs(stim_data.y_rate*100+18000);
-            output16data[13] = abs(getSensors()*100);
-            output16data[14] = controlDtime*100;
-        }
-        mbMaster.query( telegram[u8query] ); // send query (only once)
-        u8state++;
-        u8query++;
-        if (u8query >= 2) u8query = 0;
-        break;
-    default:
-        mbMaster.poll(); // check incoming messages
-        if (mbMaster.getState() == COM_IDLE) {
-            u8state = 0;
-            u32wait = millis() + modbus_idle_t;
-            //update data after modbus communication done
-            //gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
-        }
-        break;
-    }
-
-    //analogRead( 0 );
-
-}
-
+//void CGimbalController::modbusLoop() {
+//    switch( u8state ) {
+//    case 0:
+//        if (millis() > u32wait) u8state++; // wait state
+//        break;
+//    case 1:
+//        if(u8query==1)//send status over modbus
+//        {
+//            output16data[ 0] = fov*100;
+//            output16data[ 1] = abs(hPulseBuff*100);
+//            output16data[ 2] = abs(vPulseBuff*100);
+//            output16data[ 3] = abs(stim_data.y_angle*100+18000);
+//            output16data[ 4] = abs(stim_data.y_rate*100+18000);
+//            output16data[13] = abs(getSensors()*100);
+//            output16data[14] = controlDtime*100;
+//        }
+////        mbMaster.query( telegram[u8query] ); // send query (only once)
+//        u8state++;
+//        u8query++;
+//        if (u8query >= 2) u8query = 0;
+//        break;
+//    default:
+//        mbMaster.poll(); // check incoming messages
+//        if (mbMaster.getState() == COM_IDLE) {
+//            u8state = 0;
+//            u32wait = millis() + modbus_idle_t;
+//            //update data after modbus communication done
+//            //gimbal.setCT(au16data[0],au16data[1],au16data[2],au16data[3]);
+//        }
+//        break;
+//    }
+//
+//    //analogRead( 0 );
+//
+//}
+unsigned char rawgyro[15];
+unsigned char lastbyteGyro;
+int gyroIndex = -1;
+float gyroX;
 void CGimbalController::readSensorData()//200 microseconds
 {
     //      controlerReport();
@@ -583,23 +592,61 @@ void CGimbalController::readSensorData()//200 microseconds
         }
         lastStimByteTime = timeMicros;
     }
+    while (Serial1.available() > 0) {
+        unsigned char databyte = Serial1.read();
+        if(databyte == 0x7f)
+        {
+          if(lastbyteGyro == 0x7f)
+          {
+            gyroIndex = 0;
+            
+            }
+          
+        }
+        
+        if(gyroIndex>=0)
+        {
+          if(gyroIndex>=15)
+          {
+            unsigned char checksumbyte =  0;
+            for (   int i =1;i<15;i++     )
+            {
+              checksumbyte^=rawgyro[i];
+              }  
+             if (checksumbyte==databyte)//true msg received
+             {
+                mStimMsgCount++;
+                
+                if(rawgyro[1]>=253&&rawgyro[2]>127)
+                gyroX = rawgyro[1]+rawgyro[2]*256;
+                if(gyroX>=32768)gyroX-=65536;
+                Serial.println(gyroX);
+              }
+            }
+          rawgyro[gyroIndex] = databyte;
+          gyroIndex++;
+          
+          }
+       lastbyteGyro = databyte;
+       
+    }
 
 }
 double oldSpeeddpsH = 0;
 
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
-  double acc = (speeddps - oldSpeeddpsH);
-  if(abs(acc)>MAX_ACC_H)
-  {
-    if(acc>MAX_ACC_H)acc=MAX_ACC_H;
-    else if(acc<-MAX_ACC_H)acc=-MAX_ACC_H;
-    
-    }
-  speeddps = oldSpeeddpsH+acc;
-  oldSpeeddpsH =  speeddps;
-    if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
-    else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
+//  double acc = (speeddps - oldSpeeddpsH);
+//  if(abs(acc)>MAX_ACC_H)
+//  {
+//    if(acc>MAX_ACC_H)acc=MAX_ACC_H;
+//    else if(acc<-MAX_ACC_H)acc=-MAX_ACC_H;
+//    
+//    }
+//  speeddps = oldSpeeddpsH+acc;
+//  oldSpeeddpsH =  speeddps;
+//    if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
+//    else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
     if(ct11>0){
         hPulseBuff = h_ppr/360.0*CONTROL_TIME_STAMP;
     }
@@ -638,27 +685,16 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 double oldSpeeddpsV = 0;
 void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
 {
-  double acc = (speeddps - oldSpeeddpsV);
-  double max_a = MAX_ACC+abs(vinteg/800.0);
-  if(abs(acc)>(max_a))
-  {
-    if(acc>max_a)acc=max_a;
-    else if(acc<-max_a)acc=-max_a;
-    
-    }
-  speeddps = oldSpeeddpsV+acc;
-  oldSpeeddpsV =  speeddps;
-    if(speeddps>max_stab_spd)speeddps=max_stab_spd;
-    else if(speeddps<-max_stab_spd)speeddps=-max_stab_spd;
+
     if(ct21>0){
-        vPulseBuff=v_ppr/360.0*CONTROL_TIME_STAMP;
+        vPulseBuff=v_ppr/120.0*CONTROL_TIME_STAMP;
     }
     else if(ct22>0){
-        vPulseBuff=-v_ppr/360.0*CONTROL_TIME_STAMP;
+        vPulseBuff=-v_ppr/120.0*CONTROL_TIME_STAMP;
     }
     else{
         double speed_pps = speeddps/360.0*v_ppr;
-        vPulseBuff += int(speed_pps*CONTROL_TIME_STAMP*2);//
+        vPulseBuff += (speed_pps*CONTROL_TIME_STAMP*2.0);//
         int maxBuf=v_ppr/4;
         if(vPulseBuff > maxBuf )vPulseBuff = maxBuf;
         if(vPulseBuff < -maxBuf)vPulseBuff = -maxBuf;
@@ -666,7 +702,7 @@ void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
     if(vPulseBuff==0)v_freq_devider = v_ppr*1000;
     else
     {
-        v_freq_devider=1+CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(vPulseBuff);
+        v_freq_devider=CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(vPulseBuff);
         if(v_freq_devider<minPulsePeriodv)v_freq_devider=minPulsePeriodv;
     }
     if(pulseMode==1)

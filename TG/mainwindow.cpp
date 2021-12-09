@@ -40,7 +40,7 @@ static int sight_range = 100;
 static  QQueue<double> dataPlot;
 static VideoCapture cap;
 static int frameCount=0;
-static bool bGetData = false;
+static bool incomeFrame = false;
 static bool camAvailable = false;
 static std::vector<int> params;
 static cv::Mat frame,frameOrg;
@@ -132,7 +132,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //    testFrame = imread("d:\\test.jpg", IMREAD_COLOR);
     updateTimer = new QTimer();
     connect(updateTimer, SIGNAL(timeout()), this, SLOT(updateData()));
-    updateTimer->start(40);
+    updateTimer->start(10);
 
     controlTimer = new QTimer();
     connect(controlTimer, SIGNAL(timeout()), this, SLOT(timer30ms()));
@@ -155,7 +155,8 @@ MainWindow::MainWindow(QWidget *parent) :
     trackSize = CConfig::getInt("trackSize",90);
     ballistic_k = CConfig::getDouble("ballistic_k",0.002);
     reloadConfigParams();
-
+    connect(this, SIGNAL(finished()), &mAverCap, SLOT(deleteLater));
+    mAverCap.start();
 }
 
 void MainWindow::usbInit()
@@ -166,12 +167,10 @@ void MainWindow::usbInit()
 
     if (usbDevHandle) {
         usbDevMode = 1;
-        showMessage(QString::fromUtf8("USB control default"));//
-
-
+        showMessage(QString::fromUtf8("USB control default"));
     }
     else{
-        showMessage(QString::fromUtf8("USB not found"));//
+        showMessage(QString::fromUtf8("USB not found"));
         mControl.joystickMode = 0;
         return;
         usbDevHandle = UsbDevice::getDeviceHandle(vendorID1, productID1,0);
@@ -447,8 +446,8 @@ void MainWindow::CaptureVideoCamera()
     if(camAvailable)
     {
 
-        bGetData = cap.read(frameOrg);//single capture image
-        if(!bGetData)
+        incomeFrame = cap.read(frameOrg);//single capture image
+        if(!incomeFrame)
         {
             camAvailable = false;
 
@@ -464,7 +463,7 @@ void MainWindow::CaptureVideoCamera()
                 //                mScaleX = double(frame_process_W)/frameOrg.cols;
                 //                mScaleY = double(frame_process_H)/frameOrg.rows;
             }
-            bGetData = true;
+            incomeFrame = true;
             waitKey(1);
         }
 
@@ -472,37 +471,38 @@ void MainWindow::CaptureVideoCamera()
     else
     {
 
-        bool sucess = mAverCap.getFrame(&frameOrg);
+//        bool sucess = mAverCap.getFrame(&frameOrg);
 
-        if(sucess ==true) {
+        if(mAverCap.bGetData) {
+            mAverCap.bGetData = false;
 
-            if(frameOrg.cols>100&&frameOrg.rows>100)
+            if(mAverCap.output.cols>100&&mAverCap.output.rows>100)
             {
-                if(nightMode)cv::cvtColor(frameOrg, frame, CV_BGR2GRAY);
-                else cv::cvtColor(frameOrg, frame, CV_BGR2RGB);
+                if(nightMode)cv::cvtColor(mAverCap.output, frame, CV_BGR2GRAY);
+                else cv::cvtColor(mAverCap.output, frame, CV_BGR2RGB);
 
-                if((frameOrg.cols!=frame_process_W)||(frameOrg.rows!=frame_process_H))
+                if((frame.cols!=frame_process_W)||(frame.rows!=frame_process_H))
                 {
                     cv::resize(frame,frame,cv::Size(frame_process_W,frame_process_H));
                     //                mScaleX = double(frame_process_W)/frameOrg.cols;
                     //                mScaleY = double(frame_process_H)/frameOrg.rows;
                 }
-                bGetData = true;
+                incomeFrame = true;
 
             }
 
         }
     }
 
-    if(bGetData)
+    if(incomeFrame)
     {
 
         frameCount++;
         if(recorder.isOpened())
             recorder.write(frame);
-        if(isEqualizeHis)cv::equalizeHist(frame,frame);
+//        if(isEqualizeHis)cv::equalizeHist(frame,frame);
         update();
-        sendFrameVideo();
+//        sendFrameVideo();
         if(trackermode)
         {
             //            printf("track update start\n"); flushall();
@@ -703,9 +703,9 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
     p.fillRect(this->rect(), QBrush(Qt::darkBlue, Qt::SolidPattern));
-    if(bGetData)
+    if(incomeFrame)
     {
-        bGetData = false;
+        incomeFrame = false;
 
         if(nightMode)
         {
@@ -924,8 +924,8 @@ void MainWindow::timer30ms()
             //        h_speed_control += (key_ad*255-h_speed_control)/5;
             //        v_speed_control += (key_ws*255-v_speed_control)/5;
             h_speed_control = -hvalue*255;
-            v_speed_control = vvalue*255+13;
-            int zeroZone = 10;
+            v_speed_control = vvalue*255+5;
+            int zeroZone = 12;
             if(h_speed_control>zeroZone)h_speed_control-=zeroZone;
             else if(h_speed_control<-zeroZone)h_speed_control+=zeroZone;
             else h_speed_control=0;
@@ -1744,4 +1744,9 @@ void MainWindow::on_bt_control_usb_toggled(bool checked)
 void MainWindow::on_bt_control_usb_2_toggled(bool checked)
 {
     if(checked)mControl.joystickMode = 0;
+}
+
+void MainWindow::on_bt_stab_2_clicked()
+{
+    mControl.setStimMode(2);
 }

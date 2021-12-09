@@ -97,5 +97,5 @@ win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/v
 #win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/vc12/lib/" -lopencv_superres2413
 #win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/vc12/lib/" -lopencv_video2413
 #win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/vc12/lib/" -lopencv_videostab2413
-win32:LIBS += ws2_32.lib
+#win32:LIBS += ws2_32.lib
 RC_ICONS = icon.ico

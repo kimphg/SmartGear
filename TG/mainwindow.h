@@ -198,6 +198,8 @@ private slots:
 
     void on_bt_control_usb_2_toggled(bool checked);
 
+    void on_bt_stab_2_clicked();
+
 private:
     bool isEqualizeHis = false;
     bool nightMode = false;

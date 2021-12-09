@@ -19,15 +19,15 @@ void stateReport()
 	idleCount = 0;
 	if ((com_mode == 3) && (!s3_count))
 	{
-		com_mode = 2;
+		com_mode = 1;
 		buzz = 150;
-		reportDebug("485 mode");
+		reportDebug("com mode");
 	}
 	else if ((com_mode == 2) && (!s2_count))
 	{
-		com_mode = 1;
+		com_mode = 3;
 		buzz = 150;
-		reportDebug("serial mode");
+		reportDebug("ethernet mode");
 	}
 	else if ((com_mode == 1) && (!s1_count))
 	{
@@ -51,7 +51,7 @@ void setup() {
 	gimbal.initGimbal();
 	S_STIM.begin(460800);
 	Serial.begin(115200);
-	Serial1.begin(38400);
+	Serial1.begin(460800);
 	//    S_CONTROL.begin(38400);
 	E_CONTROL.begin(19200);
 	pinMode(13, OUTPUT);
@@ -164,8 +164,8 @@ bool processPelco(){
 	}
 	else if (pelco_input_buff[1] == 0x03) //P setup
 	{
-		float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0*100.0 - 50.0;
-		float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0*100.0 - 50.0;
+		float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0*40.0 - 20.0;
+		float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0*40.0 - 20.0;
 		gimbal.setPARAM_P(ph, pv);
 		reportDebug("PH:", ph);
 		reportDebug("PV:", pv);

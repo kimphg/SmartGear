@@ -1,7 +1,7 @@
 #ifndef COMMON
 #define COMMON
 #define S_STIM Serial2
-//#define S_CONTROL Serial1
+#define S_CONTROL Serial1
 #define E_CONTROL Serial3
 //#include <SoftwareSerial.h>
 //SoftwareSerial E_CONTROL =  SoftwareSerial(15, 14);
