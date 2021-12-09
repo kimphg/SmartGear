@@ -340,8 +340,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
     h_ppr = hppr;
     v_ppr = vppr;
-    minPulsePeriodh = 1;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 1;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
+    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -577,7 +577,7 @@ void CGimbalController::UserUpdate()//
 //    //analogRead( 0 );
 //
 //}
-unsigned char rawgyro[15];
+unsigned char rawgyro[16];
 unsigned char lastbyteGyro;
 int gyroIndex = -1;
 int rawgyroX=0;
@@ -618,12 +618,12 @@ void CGimbalController::readSensorData()//200 microseconds
             for (   int i =1;i<15;i++     )
             {
               checksumbyte^=rawgyro[i];
-              }  
+            }  
              if (checksumbyte==databyte)//true msg received
              {
                 
                 
-                mStimMsgCount++;
+                mStimMsgCount++;mStimSPS++;
                 int newgyroX = rawgyro[1]+rawgyro[2]*256;
                 if(newgyroX>=32768)
                 newgyroX-=65536;
@@ -639,14 +639,14 @@ void CGimbalController::readSensorData()//200 microseconds
                     newgyroX+=256;
                    }
                   }
-                  if(abs(newgyroX)>=256)return;
+                  if(abs(newgyroX)>=256)break;
                   rawgyroX = newgyroX;
                   gyroX = rawgyroX/16.384;
                   sumGyroX+=gyroX;
                   countGyroX++;
                   if(countGyroX>=10000)
                   {
-                    biasGyroX += 0.2*(sumGyroX/countGyroX-biasGyroX);
+                    biasGyroX += 0.3*(sumGyroX/countGyroX-biasGyroX);
                     countGyroX=0;
                     sumGyroX = 0;
                     reportDebug("auto calib: ",biasGyroX);
