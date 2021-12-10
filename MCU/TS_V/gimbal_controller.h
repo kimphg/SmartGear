@@ -11,6 +11,7 @@
 #define PD2 18
 #define PS2 19
 #define CT1 5
+
 #define CT2 4
 #define CT3 3
 #define CT4 2
@@ -30,8 +31,8 @@ float MAX_ACC_H = 1;
 //modbus_t telegram[2];
 int modbus_idle_t =100;
 unsigned long u32wait;
-uint16_t au16data[16]; 
-uint16_t output16data[16];
+//uint16_t au16data[16]; 
+//uint16_t output16data[16];
 uint8_t u8state = 0; //!< machine state
 uint8_t u8query = 0; //!< pointer to message query
 double max_stab_spd = 90;
@@ -205,61 +206,24 @@ vcalib)
 void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
-    output16data[ 5] = abs(stim_data.z_bias*100+500);
-    output16data[ 6] = abs(stim_data.y_bias*100+500);
-    output16data[ 7] = abs(pelco_count*100);
-    output16data[ 8] = abs(mStimSPS);
-    output16data[ 9] = abs(param_h_p*100);
-    output16data[10] = abs(param_h_i*100);
-    output16data[11] = abs(param_h_d*100);
-    output16data[12] = abs(mStabMode*100);
+//    output16data[ 5] = abs(stim_data.z_bias*100+500);
+//    output16data[ 6] = abs(stim_data.y_bias*100+500);
+//    output16data[ 7] = abs(pelco_count*100);
+//    output16data[ 8] = abs(mStimSPS);
+//    output16data[ 9] = abs(param_h_p*100);
+//    output16data[10] = abs(param_h_i*100);
+//    output16data[11] = abs(param_h_d*100);
+//    output16data[12] = abs(mStabMode*100);
 //    output16data[15] = idleCount;
       
     
     pelco_count=0;
-    stimCon = mStimSPS/5;
+    stimCon = mStimSPS/10;
     mStimSPS=0;
     if(!isSetupChanged)return;
     isSetupChanged = false;
     return;
-    mPrint("$MSGS,");
-
-    mPrint(",azi:");
-    mPrint(float(h_abs_pos)/(float)h_ppr*360.0);
-    mPrint(",ele:");
-    mPrint(float(v_abs_pos)/(float)v_ppr*360.0);
-    mPrint(",vppr:");
-    mPrint(v_ppr);
-    mPrint(",hppr:");
-    mPrint(h_ppr);
-    mPrint(",fov:");
-    mPrint(fov);
-    mPrint(",stim:");
-    mPrint(isStimConnected);
-    mPrint(",stab:");
-    mPrint(mStabMode);
-    mPrint(",pm");
-    mPrint(pulseMode);
-    mPrint(",hp:");
-    mPrint(param_h_p);
-    mPrint(",hi:");
-    mPrint(param_h_i);
-    mPrint(",hd:");
-    mPrint(param_h_d);
-    mPrint(",sensor:");
-    mPrint(ct11);
-    mPrint(ct12);
-    mPrint(ct21);
-    mPrint(ct12);
-    mPrint(",pulse:");
-    mPrint(hPulseBuff);
-    mPrint(",");
-    mPrint(vPulseBuff);
-    mPrint(",");
-    mPrint(hSpeedCalib);
-    mPrint(",");
-    mPrint(vSpeedCalib);
-    mPrint("\n");
+   
     //        controlerReport();
 }
 
@@ -534,7 +498,7 @@ void CGimbalController::UserUpdate()//
 		if (vinteg<-5)vinteg = -5;*/
 		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
 
-		outputSpeedV(v_control - stim_data.y_angle*param_v_i*10 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - stim_data.y_angle*param_v_i*20 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
@@ -594,6 +558,7 @@ void CGimbalController::readSensorData()//200 microseconds
         {
 //            mStimMsgCount++;
             mStimSPS++;
+            
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
         }
         lastStimByteTime = timeMicros;
@@ -612,7 +577,7 @@ void CGimbalController::readSensorData()//200 microseconds
         
         if(gyroIndex>=0)
         {
-          if(gyroIndex>=15)
+          if(gyroIndex==15)
           {
             unsigned char checksumbyte =  0;
             for (   int i =1;i<15;i++     )
@@ -642,23 +607,25 @@ void CGimbalController::readSensorData()//200 microseconds
 //                  }
                   if((abs(newgyroX)<500)&&(rawgyro[1]!=0))//(abs(newgyroX)<256)||(abs(newgyroX-rawgyroX)<100))
                   {
-                  rawgyroX = newgyroX;
-                  gyroX = rawgyroX/16.384;
-                  sumGyroX+=gyroX;
-                  countGyroX++;
-                  if(countGyroX>=10000)
-                  {
-                    biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
-                    countGyroX=0;
-                    sumGyroX = 0;
-                    reportDebug("auto calib: ",biasGyroX);
-                  }
-                  gyroX-=biasGyroX;
-//                   Serial.print(gyroX); 
+                        rawgyroX = newgyroX;
+                        gyroX = rawgyroX/16.384;
+                        sumGyroX+=gyroX;
+                        countGyroX++;
+                        if(countGyroX>=10000)
+                        {
+                          biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
+                          countGyroX=0;
+                          sumGyroX = 0;
+                          reportDebug("auto calib: ",biasGyroX);
+                        }
+                        gyroX-=biasGyroX;
+//                         Serial.print(gyroX); 
 //                        Serial.print(' '); 
-//                        Serial.print(1); 
-//                        Serial.print(' '); 
-//                        Serial.print(-1); 
+//                        Serial.print(stim_data.y_rate); 
+////                        Serial.print(' '); 
+////                        Serial.print(-10); 
+////                        Serial.print(' '); 
+////                        Serial.print(10); 
 //                        Serial.print('\n');
                   }
                   
@@ -668,6 +635,7 @@ void CGimbalController::readSensorData()//200 microseconds
                 }
               
             }
+            if(gyroIndex<15)
           rawgyro[gyroIndex] = databyte;
           gyroIndex++;
           

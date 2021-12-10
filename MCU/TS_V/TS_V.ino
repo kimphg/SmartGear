@@ -240,7 +240,7 @@ bool processPelco(){
 		int c = pelco_input_buff[4];
 		int d = pelco_input_buff[5];
 		int res = (unsigned char)((a*b) + (c *d));
-		reportDebug(res,gimbal.stimCon);
+		reportDebug(res,(unsigned char)gimbal.stimCon);
 	}
 	else {
 		//reportDebug("msge");
