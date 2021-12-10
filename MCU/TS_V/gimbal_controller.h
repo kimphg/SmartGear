@@ -108,6 +108,7 @@ private:
     double sumEv=0,sumEh=0;
     int    workMode=0;
     double h_control=0,v_control=0;
+	double userEle=0, userAzi=0;
 public:
     int stimCon = 0;
     void setCalib(double hcalib,double vcalib);
@@ -160,6 +161,8 @@ public:
         mStabMode = value;
         stim_data.z_angle = 0;
         stim_data.y_angle = 0;
+		userEle = 0;
+		userAzi = 0;
         hPulseBuff = 0;
         vPulseBuff = 0;
         hinteg=0;
@@ -206,17 +209,6 @@ vcalib)
 void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
-//    output16data[ 5] = abs(stim_data.z_bias*100+500);
-//    output16data[ 6] = abs(stim_data.y_bias*100+500);
-//    output16data[ 7] = abs(pelco_count*100);
-//    output16data[ 8] = abs(mStimSPS);
-//    output16data[ 9] = abs(param_h_p*100);
-//    output16data[10] = abs(param_h_i*100);
-//    output16data[11] = abs(param_h_d*100);
-//    output16data[12] = abs(mStabMode*100);
-//    output16data[15] = idleCount;
-      
-    
     pelco_count=0;
     stimCon = mStimSPS/10;
     mStimSPS=0;
@@ -485,7 +477,7 @@ void CGimbalController::UserUpdate()//
    //double angleDiff = stim_data.y_angle - t_ele;
 //		v_control = v_user_speed - stim_data.y_rate *param_v_p;
 		v_control = v_user_speed - gyroX*param_v_p ;
-    //t_ele += v_user_speed*CONTROL_TIME_STAMP;
+        userEle += v_user_speed*CONTROL_TIME_STAMP;
     
 		/*double v_control_dif = v_control - v_control_old;
 		v_control_old = v_control;
@@ -498,7 +490,7 @@ void CGimbalController::UserUpdate()//
 		if (vinteg<-5)vinteg = -5;*/
 		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
 
-		outputSpeedV(v_control - stim_data.y_angle*param_v_i*40 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - (stim_data.y_angle + userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
@@ -739,8 +731,8 @@ void CGimbalController::setFov(float value)
     if(value>0.1&&value<=60.0)
     {
         fov = value;
-        mUserMaxspdH = fov;
-        mUserMaxSpdV = fov;
+        mUserMaxspdH = fov*1.5;
+        mUserMaxSpdV = fov*2;
 //        reportDebug("fov changed");
 //        reportDebug(fov);
 //        isSetupChanged =true;
