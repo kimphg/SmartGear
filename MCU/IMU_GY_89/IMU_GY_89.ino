@@ -129,7 +129,7 @@ void GY89_Setup()
   SetSensor(L3G4200D_ADDRESS ,0x24 ,0x02 ); // CTRL_REG5   low pass filter enable
   delay(5);
 //  SetSensor(L3G4200D_ADDRESS ,0x23 ,0x30); // CTRL_REG4 Select 2000dps
-  SetSensor(L3G4200D_ADDRESS ,0x23 ,0x30); // CTRL_REG4 Select 500dps
+  SetSensor(L3G4200D_ADDRESS ,0x23 ,0xB0); // CTRL_REG4 Select 2000dps BDU=1
 }
 float getSensConst(char SensType, int FullScaleSens)
 {

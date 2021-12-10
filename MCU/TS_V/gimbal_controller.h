@@ -311,7 +311,7 @@ void CGimbalController::initGimbal()
     delay(200);
     motorTimer.begin(callbackMotorUpdate,1000000.0/MOTOR_PULSE_CLOCK);
     controlTimer.begin(callbackUserUpdate,1000000*CONTROL_TIME_STAMP);
-    sensorTimer.begin(callbackSensorUpdate,400);
+    sensorTimer.begin(callbackSensorUpdate,300);
     Serial.println("gimbal test done");
 //    modbusSetup();
     workMode=1;
@@ -341,7 +341,7 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
     h_ppr = hppr;
     v_ppr = vppr;
     minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodv = 3;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -374,16 +374,16 @@ void CGimbalController::motorUpdate()
         {
             h_pulse_clock_counter=0;
 
-            if(hPulseBuff>0)
-            {
-                hPulseBuff--;
-//                h_abs_pos++;
-            }
-            else
-            {
-                hPulseBuff++;
-//                h_abs_pos--;
-            }
+//            if(hPulseBuff>0)
+//            {
+//                hPulseBuff--;
+////                h_abs_pos++;
+//            }
+//            else
+//            {
+//                hPulseBuff++;
+////                h_abs_pos--;
+//            }
             if(pulseMode==1)
             {
                 ps1=!ps1;
@@ -411,16 +411,16 @@ void CGimbalController::motorUpdate()
         if(v_pulse_clock_counter>v_freq_devider)
         {
             v_pulse_clock_counter=0;
-            if(vPulseBuff>0)
-            {
-                vPulseBuff-=1;
-//                v_abs_pos++;
-            }
-            else
-            {
-                vPulseBuff+=1;
-//                v_abs_pos--;
-            }
+//            if(vPulseBuff>0)
+//            {
+//                vPulseBuff-=1;
+////                v_abs_pos++;
+//            }
+//            else
+//            {
+//                vPulseBuff+=1;
+////                v_abs_pos--;
+//            }
 
             if(pulseMode==1)
             {
@@ -487,7 +487,7 @@ void CGimbalController::UserUpdate()//
 		//v control calculation
         //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
         v_control = v_user_speed - stim_data.y_rate;
-//       ele_b1 += v_user_speed/
+//       userEle += v_user_speed/.
         double v_control_dif = v_control-v_control_old;
         v_control_old = v_control;
         if(interupt>0){
@@ -534,7 +534,7 @@ void CGimbalController::UserUpdate()//
 		if (vinteg<-5)vinteg = -5;*/
 		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
 
-		outputSpeedV(v_control - stim_data.y_angle*param_v_i*5 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - stim_data.y_angle*param_v_i*10 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
@@ -592,7 +592,7 @@ void CGimbalController::readSensorData()//200 microseconds
         unsigned char databyte = S_STIM.read();
         if(readStim(databyte,(timeMicros-lastStimByteTime), &stim_data))// one packet per millisencond
         {
-            mStimMsgCount++;
+//            mStimMsgCount++;
             mStimSPS++;
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
         }
@@ -623,23 +623,25 @@ void CGimbalController::readSensorData()//200 microseconds
              {
                 
                 
-                mStimMsgCount++;mStimSPS++;
+//                mStimMsgCount++;
+                mStimSPS++;
                 int newgyroX = rawgyro[1]+rawgyro[2]*256;
                 if(newgyroX>=32768)
                 newgyroX-=65536;
                 
-                if(abs(newgyroX-rawgyroX)>100)
-                {
-                  if(newgyroX>240&&newgyroX<256)
+//                if(abs(newgyroX-rawgyroX)>100)
+//                {
+//                  if(newgyroX>240&&newgyroX<256)
+//                  {
+//                    newgyroX-=256;
+//                   }
+//                   if(newgyroX<-240&&newgyroX>=-256)
+//                  {
+//                    newgyroX+=256;
+//                   }
+//                  }
+                  if((abs(newgyroX)<500)&&(rawgyro[1]!=0))//(abs(newgyroX)<256)||(abs(newgyroX-rawgyroX)<100))
                   {
-                    newgyroX-=256;
-                   }
-                   if(newgyroX<-240&&newgyroX>=-256)
-                  {
-                    newgyroX+=256;
-                   }
-                  }
-                  if((abs(newgyroX)>=256)&&(rawgyro[1]==0))break;
                   rawgyroX = newgyroX;
                   gyroX = rawgyroX/16.384;
                   sumGyroX+=gyroX;
@@ -652,6 +654,13 @@ void CGimbalController::readSensorData()//200 microseconds
                     reportDebug("auto calib: ",biasGyroX);
                   }
                   gyroX-=biasGyroX;
+//                   Serial.print(gyroX); 
+//                        Serial.print(' '); 
+//                        Serial.print(1); 
+//                        Serial.print(' '); 
+//                        Serial.print(-1); 
+//                        Serial.print('\n');
+                  }
                   
 //                  Serial.print(newgyroX);
 //                  Serial.print(' ');
@@ -691,7 +700,7 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
     }
     else{
         double h_speed_pps = speeddps/360.0*h_ppr;
-        hPulseBuff += int(h_speed_pps*CONTROL_TIME_STAMP*2);//
+        hPulseBuff = int(h_speed_pps*CONTROL_TIME_STAMP*2);//
         int maxBuf=h_ppr/4;
         if(hPulseBuff > maxBuf )hPulseBuff = maxBuf;
         if(hPulseBuff < -maxBuf)hPulseBuff = -maxBuf;
@@ -730,7 +739,7 @@ void CGimbalController::outputSpeedV(double speeddps)//speed in degrees per sec
     }
     else{
         double speed_pps = speeddps/360.0*v_ppr;
-        vPulseBuff += (speed_pps*CONTROL_TIME_STAMP*2.0);//
+        vPulseBuff = (speed_pps*CONTROL_TIME_STAMP*2.0);//
         int maxBuf=v_ppr/4;
         if(vPulseBuff > maxBuf )vPulseBuff = maxBuf;
         if(vPulseBuff < -maxBuf)vPulseBuff = -maxBuf;

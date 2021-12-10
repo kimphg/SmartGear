@@ -98,13 +98,13 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             x_rate1/=16384.0;
             y_rate1/=16384.0;
             z_rate1/=16384.0;
-            if(abs(x_rate1)>=400||abs(z_rate1)>=400||
-              abs(y_rate1)>=400)
-              {
-//                resetStimState(stim_data);
-                reportDebug("SVE",y_rate1);
-                return false;
-              }
+//            if(abs(x_rate1)>=400||abs(z_rate1)>=400||
+//              abs(y_rate1)>=400)
+//              {
+////                resetStimState(stim_data);
+//                reportDebug("SVE",y_rate1);
+//                return false;
+//              }
 //            Serial.println(z_rate1);
 //            stim_data->x_acc = x_rate1 - stim_data->x_rate;
             
@@ -116,20 +116,39 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
 //            acc = (z_rate1 - stim_data->z_rate)*1000;
 //            if(abs(acc)>1000)return false;
 
-            
+            if(abs(x_rate1)<400){
             stim_data->x_rate = x_rate1;
             stim_data->x_angle += (stim_data->x_rate/1000.0);
-            
+            }
+            else
+            {
+              reportDebug("SVEx",x_rate1);
+              }
 //            float newval = kalmanY.getFilteredValue(y_rate1)-stim_data->y_bias;
 //			      stim_data->y_acc = newval - stim_data->y_rate;
-			       stim_data->y_rate = y_rate1-stim_data->y_bias;//newval;
-            stim_data->y_angle += (stim_data->y_rate/1000.0);
-            
-            
-            
+            if(abs(y_rate1)<400){
+            			       stim_data->y_rate = y_rate1-stim_data->y_bias;//newval;
+                        stim_data->y_angle += (stim_data->y_rate/1000.0);
+//                        Serial.print(stim_data->y_rate); 
+//                        Serial.print(' '); 
+//                        Serial.print(1); 
+//                        Serial.print(' '); 
+//                        Serial.print(-1); 
+//                        Serial.print('\n'); 
+            }
+            else
+            {
+              reportDebug("SVEy",y_rate1);
+              }  
+            if(abs(z_rate1)<400){
 //            stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
             stim_data->z_rate = z_rate1;
             stim_data->z_angle += (stim_data->z_rate/1000.0);
+            }
+            else
+            {
+              reportDebug("SVEz",z_rate1);
+              }  
 //            Serial.print(60); 
 //            Serial.print(' '); 
 //            Serial.print(-60); 
