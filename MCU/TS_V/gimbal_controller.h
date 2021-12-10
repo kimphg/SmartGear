@@ -96,7 +96,7 @@ private:
     unsigned long lastStimByteTime;
     int    pulseMode ;
     float  fov;
-    int    mStimSPS;
+    int    mGyroCount;
     float  param_h_p ,param_v_p;
     float  param_h_i ,param_v_i;
     float  param_h_d ,param_v_d;
@@ -210,8 +210,8 @@ void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
     pelco_count=0;
-    stimCon = mStimSPS/10;
-    mStimSPS=0;
+    stimCon = mGyroCount/10;
+    mGyroCount=0;
     if(!isSetupChanged)return;
     isSetupChanged = false;
     return;
@@ -221,7 +221,7 @@ void CGimbalController::reportStat(int idleCount)
 
 void CGimbalController::initGimbal()
 {
-    mStimSPS=0;
+    mGyroCount=0;
     isSetupChanged = true;
     maxAccH = 0.1;
     maxAccV = 0.1;
@@ -488,12 +488,13 @@ void CGimbalController::UserUpdate()//
 		vinteg += v_control;
 		if (vinteg>5)vinteg = 5;
 		if (vinteg<-5)vinteg = -5;*/
-		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
+		outputSpeedH(h_control *param_h_p*4 + h_control_dif*param_h_d + stim_data.z_angle*param_h_i*40);
 
-		outputSpeedV(v_control - (stim_data.y_angle + userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - (stim_data.y_angle - userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
+
 
 
 }
@@ -548,9 +549,10 @@ void CGimbalController::readSensorData()//200 microseconds
         unsigned char databyte = S_STIM.read();
         if(readStim(databyte,(timeMicros-lastStimByteTime), &stim_data))// one packet per millisencond
         {
-//            mStimMsgCount++;
-            mStimSPS++;
-            
+            mStimMsgCount++;
+            mGyroCount++;
+//            Serial.println(stim_data.z_rate); 
+//            Serial.print('\n'); 
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
         }
         lastStimByteTime = timeMicros;
@@ -581,7 +583,7 @@ void CGimbalController::readSensorData()//200 microseconds
                 
                 
 //                mStimMsgCount++;
-                mStimSPS++;
+                mGyroCount++;
                 int newgyroX = rawgyro[1]+rawgyro[2]*256;
                 if(newgyroX>=32768)
                 newgyroX-=65536;
