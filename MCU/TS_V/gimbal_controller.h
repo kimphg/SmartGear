@@ -498,7 +498,7 @@ void CGimbalController::UserUpdate()//
 		if (vinteg<-5)vinteg = -5;*/
 		outputSpeedH(h_control *param_h_p + h_control_dif*param_h_d + hinteg*param_h_i);
 
-		outputSpeedV(v_control - stim_data.y_angle*param_v_i*20 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - stim_data.y_angle*param_v_i*40 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
@@ -619,13 +619,13 @@ void CGimbalController::readSensorData()//200 microseconds
                           reportDebug("auto calib: ",biasGyroX);
                         }
                         gyroX-=biasGyroX;
-//                         Serial.print(gyroX); 
+//                        Serial.print(gyroX); 
 //                        Serial.print(' '); 
 //                        Serial.print(stim_data.y_rate); 
-////                        Serial.print(' '); 
-////                        Serial.print(-10); 
-////                        Serial.print(' '); 
-////                        Serial.print(10); 
+//////                        Serial.print(' '); 
+//////                        Serial.print(-10); 
+//////                        Serial.print(' '); 
+//////                        Serial.print(10); 
 //                        Serial.print('\n');
                   }
                   
