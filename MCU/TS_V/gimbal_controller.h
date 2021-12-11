@@ -461,7 +461,7 @@ void CGimbalController::UserUpdate()//
 	else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
 	{
 		//h control calculation
-		h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
+		h_control = h_user_speed + stim_data.z_rate*param_h_p*4;// +userAngleh;
     
 		double h_control_dif = h_control - h_control_old;//
 		h_control_old = h_control;
@@ -470,14 +470,14 @@ void CGimbalController::UserUpdate()//
 		}
 		sumEh += abs(h_control);
 
-		hinteg += h_control;
-		if (hinteg>5)hinteg = 5;
-		if (hinteg<-5)hinteg = -5;
+//		hinteg += h_control;
+//		if (hinteg>5)hinteg = 5;
+//		if (hinteg<-5)hinteg = -5;
 		//v control calculation
    //double angleDiff = stim_data.y_angle - t_ele;
 //		v_control = v_user_speed - stim_data.y_rate *param_v_p;
 		v_control = v_user_speed - gyroX*param_v_p ;
-        userEle += v_user_speed*CONTROL_TIME_STAMP;
+    userEle += v_user_speed*CONTROL_TIME_STAMP;
     
 		/*double v_control_dif = v_control - v_control_old;
 		v_control_old = v_control;
@@ -488,7 +488,8 @@ void CGimbalController::UserUpdate()//
 		vinteg += v_control;
 		if (vinteg>5)vinteg = 5;
 		if (vinteg<-5)vinteg = -5;*/
-		outputSpeedH(h_control *param_h_p*4 + h_control_dif*param_h_d + stim_data.z_angle*param_h_i*40);
+    //+ h_control_dif*param_h_d 
+		outputSpeedH(h_control  + stim_data.z_angle*param_h_i*40);
 
 		outputSpeedV(v_control - (stim_data.y_angle - userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
 
