@@ -472,7 +472,7 @@ void CGimbalController::UserUpdate()//
     //+ h_control_dif*param_h_d 
 		outputSpeedH(h_control  + (stim_data.z_angle + userAzi)*param_h_i*80 + h_control_dif*param_h_d);
 
-		outputSpeedV(v_control - (stim_data.y_angle - userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - (stim_data.y_angle + userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();

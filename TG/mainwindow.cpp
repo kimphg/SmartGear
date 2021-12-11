@@ -25,7 +25,15 @@ DWORD msgLen =USBMSG_LEN;
 // for FILE_FLAG_OVERLAPPED mode
 OVERLAPPED osReader = { 0 };
 #pragma comment(lib, "ws2_32.lib")
-
+double trackx=0,trackxi=0,trackxo=0;
+double tracky=0,trackyi=0,trackyo=0;
+double trackHratio = 1;
+int oldSwData=0;
+int oldAziint = -999999;
+int realAziint = 0;
+int oldEleint = -999999;
+int realEleint = 0;
+int h_angle_offset=0,v_angle_offset = 0;
 static QTimer *timer_1sec;
 static double h_speed_control = 0;
 static double v_speed_control = 0;
@@ -145,9 +153,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->showFullScreen();
     ui->groupBox_setup->setHidden(true);
     //    ui->plot_tracker->addGraph();
-    track_p = CConfig::getDouble("track_p",3);//=0,track_d=0;
-    track_i = CConfig::getDouble("track_i",0.02);
-    track_d = CConfig::getDouble("track_d",0);
+
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
     sight_x=frame_process_W/2.0+CConfig::getDouble("sightx",7);
@@ -202,6 +208,7 @@ void MainWindow::reloadConfigParams()
     track_p =CConfig::getDouble("track_p",3);//=0,track_d=0;
     track_i =CConfig::getDouble("track_i",0.02);
     track_d =CConfig::getDouble("track_d",0);
+    trackHratio = CConfig::getDouble("track_d",0.6);
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
     sight_x=frame_process_W/2.0+CConfig::getDouble("sightx",7);
@@ -801,14 +808,7 @@ void MainWindow::DrawVideoTargets(QPainter*p)
         p->drawRect(left,top,wid,hei);
     }
 }
-double trackx=0,trackxi=0,trackxo=0;
-double tracky=0,trackyi=0,trackyo=0;
-int oldSwData=0;
-int oldAziint = -999999;
-int realAziint = 0;
-int oldEleint = -999999;
-int realEleint = 0;
-int h_angle_offset=0,v_angle_offset = 0;
+
 void MainWindow::trackerShutdown()
 {
     trackermode =0;
@@ -883,14 +883,15 @@ void MainWindow::timer30ms()
         if(abs(trackx)<0.1)trackxi += trackx;
         //        if(trackxi>frame_process_W/2)trackxi = frame_process_W/2;
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
-        float xcontrol = track_p*trackx+track_i*trackxi+track_d*(trackx-trackxo);
+        double xcontrol = track_p*trackx+track_i*trackxi+track_d*(trackx-trackxo);
         xcontrol*=1.7;
         if(xcontrol>0.9)xcontrol=0.9;
         if(xcontrol<-0.9)xcontrol=-0.9;
         trackyo=tracky;
         tracky = -(singleTrackTarget.y+singleTrackTarget.height/2.0-trackpoint_y)/frame_process_H;
         if(abs(tracky)<0.1)trackyi += tracky;
-        float ycontrol = track_p*tracky+track_i*trackyi+track_d*(tracky-trackyo);
+        double ycontrol = track_p*tracky+track_i*trackyi+track_d*(tracky-trackyo);
+        ycontrol*=trackHratio;
         if(ycontrol>0.9)ycontrol=0.9;
         if(ycontrol<-0.9)ycontrol=-0.9;
         mControl.outputPelco(xcontrol*255.0,ycontrol*255.0);
@@ -906,8 +907,8 @@ void MainWindow::timer30ms()
 
         //        h_speed_control += (key_ad*255-h_speed_control)/5;
         //        v_speed_control += (key_ws*255-v_speed_control)/5;
-        h_speed_control = key_ad*255;
-        v_speed_control = key_ws*255;
+        h_speed_control = key_ad*150;
+        v_speed_control = key_ws*150;
         mControl.outputPelco(h_speed_control,v_speed_control);
 
     }
