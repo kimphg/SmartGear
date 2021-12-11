@@ -184,7 +184,7 @@ public:
     void setPARAM_D(float valueh, float valuev);
 
 private:
-    int hPulseBuff ;
+    double hPulseBuff ;
     double vPulseBuff ;
     int h_pulse_clock_counter;
     int v_pulse_clock_counter;
@@ -324,7 +324,7 @@ void CGimbalController::motorUpdate()
     h_pulse_clock_counter++;
     v_pulse_clock_counter++;
     
-    if(hPulseBuff!=0)
+    if(abs(hPulseBuff)>=1)
     {
         if(h_pulse_clock_counter>h_freq_devider)
         {
@@ -347,16 +347,16 @@ void CGimbalController::motorUpdate()
             }
             else if(pulseMode==2)
             {
-                if(hPulseBuff<0){
-                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
-                    else digitalWriteFast(PS1,LOW);
-                    digitalWriteFast(PD1,HIGH);
-                }
-                else{
-                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
-                    else digitalWriteFast(PD1,LOW);
-                    digitalWriteFast(PS1,HIGH);
-                }
+//                if(hPulseBuff<0){
+//                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
+//                    else digitalWriteFast(PS1,LOW);
+//                    digitalWriteFast(PD1,HIGH);
+//                }
+//                else{
+//                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
+//                    else digitalWriteFast(PD1,LOW);
+//                    digitalWriteFast(PS1,HIGH);
+//                }
             }
 
         }
@@ -465,29 +465,13 @@ void CGimbalController::UserUpdate()//
     
 		double h_control_dif = h_control - h_control_old;//
 		h_control_old = h_control;
-		if (interupt>0){
-			h_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
-		}
+//		if (interupt>0){
+//			h_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
+//		}
 		sumEh += abs(h_control);
-
-//		hinteg += h_control;
-//		if (hinteg>5)hinteg = 5;
-//		if (hinteg<-5)hinteg = -5;
-		//v control calculation
-   //double angleDiff = stim_data.y_angle - t_ele;
-//		v_control = v_user_speed - stim_data.y_rate *param_v_p;
+    
 		v_control = v_user_speed - gyroX*param_v_p ;
     userEle += v_user_speed*CONTROL_TIME_STAMP;
-    
-		/*double v_control_dif = v_control - v_control_old;
-		v_control_old = v_control;
-		if (interupt>0){
-			v_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
-		}
-		sumEv += abs(v_control);
-		vinteg += v_control;
-		if (vinteg>5)vinteg = 5;
-		if (vinteg<-5)vinteg = -5;*/
     //+ h_control_dif*param_h_d 
 		outputSpeedH(h_control  + stim_data.z_angle*param_h_i*40);
 
@@ -656,14 +640,14 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 //    if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
 //    else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
     if(ct11>0){
-        hPulseBuff = h_ppr/360.0*CONTROL_TIME_STAMP;
+        hPulseBuff = h_ppr/120.0*CONTROL_TIME_STAMP;
     }
     else if(ct12>0){
-        hPulseBuff = -h_ppr/360.0*CONTROL_TIME_STAMP;
+        hPulseBuff = -h_ppr/120.0*CONTROL_TIME_STAMP;
     }
     else{
         double h_speed_pps = speeddps/360.0*h_ppr;
-        hPulseBuff = int(h_speed_pps*CONTROL_TIME_STAMP*2);//
+        hPulseBuff = (h_speed_pps*CONTROL_TIME_STAMP*2.0);//
         int maxBuf=h_ppr/4;
         if(hPulseBuff > maxBuf )hPulseBuff = maxBuf;
         if(hPulseBuff < -maxBuf)hPulseBuff = -maxBuf;
@@ -671,7 +655,7 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
     if(hPulseBuff==0)h_freq_devider = h_ppr*1000;
     else
     {
-        h_freq_devider=1+CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(hPulseBuff);
+        h_freq_devider=CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(hPulseBuff);
         if(h_freq_devider<minPulsePeriodh)h_freq_devider=minPulsePeriodh;
  
     }
