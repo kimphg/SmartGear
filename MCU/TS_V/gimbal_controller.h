@@ -296,8 +296,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
     h_ppr = hppr;
     v_ppr = vppr;
-    minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
-    minPulsePeriodv = 3;//MOTOR_PULSE_CLOCK/(v_ppr);
+    minPulsePeriodh = 6;//MOTOR_PULSE_CLOCK/(h_ppr);
+    minPulsePeriodv = 6;//MOTOR_PULSE_CLOCK/(v_ppr);
 
     isSetupChanged =true;
 }
@@ -312,8 +312,8 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
     pelco_count++;
     
-	h_user_speed = hspeed * mUserMaxspdH;
-	v_user_speed = vspeed * mUserMaxSpdV;
+	h_user_speed += 0.5*(hspeed * mUserMaxspdH-h_user_speed);
+	v_user_speed += 0.5*(vspeed * mUserMaxSpdV-v_user_speed);
   
     userAlive =0.3/CONTROL_TIME_STAMP;
 
@@ -461,18 +461,18 @@ void CGimbalController::UserUpdate()//
 	else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
 	{
 		//h control calculation
-		h_control = h_user_speed + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
+		h_control = 0 + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
     userAzi += h_user_speed*CONTROL_TIME_STAMP;
 		double h_control_dif = stim_data.z_angle - h_control_old;//
 		h_control_old = stim_data.z_angle;
 		sumEh += abs(h_control);
     
-		v_control = v_user_speed - gyroX*param_v_p ;
+		v_control = 0 - gyroX*param_v_p ;
     userEle += v_user_speed*CONTROL_TIME_STAMP;
     //+ h_control_dif*param_h_d 
-		outputSpeedH(h_control  + (stim_data.z_angle + userAzi)*param_h_i*80 + h_control_dif*param_h_d);
+		outputSpeedH(h_control  + (stim_data.z_angle)*param_h_i*80 + userAzi*5+ h_control_dif*param_h_d);
 
-		outputSpeedV(v_control - (stim_data.y_angle + userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
+		outputSpeedV(v_control - (stim_data.y_angle )*param_v_i * 40 + userEle*5 - stim_data.y_rate*param_v_d);
 
 	}
 //    modbusLoop();
