@@ -141,8 +141,9 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
               reportDebug("SVEy",y_rate1);
               }  
             if(abs(z_rate1)<400){
-//            stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
-            stim_data->z_rate = z_rate1;
+//              stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
+            stim_data->z_rate = z_rate1-stim_data->z_bias;
+//            stim_data->z_rate = z_rate1;
             stim_data->z_angle += (stim_data->z_rate/1000.0);
             }
             else

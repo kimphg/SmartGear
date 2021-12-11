@@ -461,19 +461,16 @@ void CGimbalController::UserUpdate()//
 	else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
 	{
 		//h control calculation
-		h_control = h_user_speed + stim_data.z_rate*param_h_p*4;// +userAngleh;
-    
-		double h_control_dif = h_control - h_control_old;//
-		h_control_old = h_control;
-//		if (interupt>0){
-//			h_control *= (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME;
-//		}
+		h_control = h_user_speed + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
+    userAzi += h_user_speed*CONTROL_TIME_STAMP;
+		double h_control_dif = stim_data.z_angle - h_control_old;//
+		h_control_old = stim_data.z_angle;
 		sumEh += abs(h_control);
     
 		v_control = v_user_speed - gyroX*param_v_p ;
     userEle += v_user_speed*CONTROL_TIME_STAMP;
     //+ h_control_dif*param_h_d 
-		outputSpeedH(h_control  + stim_data.z_angle*param_h_i*40);
+		outputSpeedH(h_control  + (stim_data.z_angle + userAzi)*param_h_i*80 + h_control_dif*param_h_d);
 
 		outputSpeedV(v_control - (stim_data.y_angle - userEle)*param_v_i * 40 - stim_data.y_rate*param_v_d);
 
@@ -536,7 +533,8 @@ void CGimbalController::readSensorData()//200 microseconds
         {
             mStimMsgCount++;
             mGyroCount++;
-//            Serial.println(stim_data.z_rate); 
+            //stim_data.z_angle
+//            Serial.println(stim_data.z_angle); 
 //            Serial.print('\n'); 
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
         }
@@ -628,17 +626,7 @@ double oldSpeeddpsH = 0;
 
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
-//  double acc = (speeddps - oldSpeeddpsH);
-//  if(abs(acc)>MAX_ACC_H)
-//  {
-//    if(acc>MAX_ACC_H)acc=MAX_ACC_H;
-//    else if(acc<-MAX_ACC_H)acc=-MAX_ACC_H;
-//    
-//    }
-//  speeddps = oldSpeeddpsH+acc;
-//  oldSpeeddpsH =  speeddps;
-//    if(speeddps>max_stab_spd)       speeddps = max_stab_spd;
-//    else if(speeddps<-max_stab_spd) speeddps = -max_stab_spd;
+
     if(ct11>0){
         hPulseBuff = h_ppr/120.0*CONTROL_TIME_STAMP;
     }
