@@ -75,14 +75,14 @@ double userAnglev = 0;
 class CGimbalController
 {
 public:
-	CGimbalController()
-	{
-	}
+    CGimbalController()
+    {
+    }
 private:
     int mStabMode;
     int h_abs_pos,v_abs_pos;
     int userAlive;
-	double h_user_speed;
+    double h_user_speed;
     double v_user_speed;
     int h_ppr,v_ppr;
     int pelco_count;
@@ -105,10 +105,10 @@ private:
     float  maxAccH,maxAccV;
     bool   isSetupChanged;
     float  vSpeedCalib = 0,hSpeedCalib = 0;
-    double sumEv=0,sumEh=0;
+//    double sumEv=0,sumEh=0;
     int    workMode=0;
     double h_control=0,v_control=0;
-	double userEle=0, userAzi=0;
+    double userEle=0, userAzi=0;
 public:
     int stimCon = 0;
     void setCalib(double hcalib,double vcalib);
@@ -119,24 +119,24 @@ public:
     
     void setMaxAcc(float hvalue,float vvalue)
     {
-      maxAccH=hvalue;
-      maxAccV=vvalue;
-      isSetupChanged = true;
-      }
-      void setWorkmode(int mode)
-      {
+        maxAccH=hvalue;
+        maxAccV=vvalue;
+        isSetupChanged = true;
+    }
+    void setWorkmode(int mode)
+    {
         workMode = mode;
         
-        }
+    }
     void initGimbal();
     void setPPR(unsigned int hppr,unsigned int vppr);
     void setKalmanZ(double pn,double sn)
     {
-      initKalmanZ(pn,sn);
-      }
+        initKalmanZ(pn,sn);
+    }
     int getSensors(){
-      return ct11*8+ct12*4+ct21*2+ct22;
-      }
+        return ct11*8+ct12*4+ct21*2+ct22;
+    }
     void controlerReport();
     void setControlSpeed(float hspeed,float vspeed);
     bool ps1,ps2;
@@ -148,8 +148,8 @@ public:
     void UserUpdate();
     void setAbsPos (float hpos,float vpos)
     {
-      h_abs_pos = hpos/360.0*h_ppr;
-      v_abs_pos = vpos/360.0*v_ppr;
+        h_abs_pos = hpos/360.0*h_ppr;
+        v_abs_pos = vpos/360.0*v_ppr;
     }
     void modbusLoop();
     void readSensorData();
@@ -157,12 +157,12 @@ public:
     int interupt = 0;
     void setStimMode(int value)
     {
-      
+
         mStabMode = value;
         stim_data.z_angle = 0;
         stim_data.y_angle = 0;
-		userEle = 0;
-		userAzi = 0;
+        userEle = 0;
+        userAzi = 0;
         hPulseBuff = 0;
         vPulseBuff = 0;
         hinteg=0;
@@ -198,7 +198,7 @@ private:
 
 
 void CGimbalController::setCalib(double hcalib, double
-vcalib)
+                                 vcalib)
 {
     vSpeedCalib =vcalib;
     hSpeedCalib = hcalib;
@@ -215,7 +215,7 @@ void CGimbalController::reportStat(int idleCount)
     if(!isSetupChanged)return;
     isSetupChanged = false;
     return;
-   
+
     //        controlerReport();
 }
 
@@ -269,23 +269,13 @@ void CGimbalController::initGimbal()
     controlTimer.begin(callbackUserUpdate,1000000*CONTROL_TIME_STAMP);
     sensorTimer.begin(callbackSensorUpdate,300);
     Serial.println("gimbal test done");
-//    modbusSetup();
+    //    modbusSetup();
     workMode=1;
     reportDebug("Firmware version: 2.1.2");
     h_user_speed = 0;
     v_user_speed = 0;
     setPPR(PPR1*GEAR1,PPR2*GEAR2);
-    //      hPulseBuff = 100000;
-    //      vPulseBuff = 200000;
-    for(int i=0;i<CTRL_DATA_BUF_LEN;i++)
-    {
-        //            h_control   [i]=0;
-        //            h_control_i [i]=0;
-        //            h_control_d [i]=0;
-        //            v_control   [i]=0;
-        //            v_control_i [i]=0;
-        //            v_control_d [i]=0;
-    }
+    setMaxAcc(5,5);
     control_oldID = 0;
     h_pulse_clock_counter =0;
     v_pulse_clock_counter =0;
@@ -312,9 +302,9 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
     pelco_count++;
     
-	h_user_speed += 0.5*(hspeed * mUserMaxspdH-h_user_speed);
-	v_user_speed += 0.5*(vspeed * mUserMaxSpdV-v_user_speed);
-  
+    h_user_speed += 0.5*(hspeed * mUserMaxspdH-h_user_speed);
+    v_user_speed += 0.5*(vspeed * mUserMaxSpdV-v_user_speed);
+
     userAlive =0.3/CONTROL_TIME_STAMP;
 
 }
@@ -330,16 +320,16 @@ void CGimbalController::motorUpdate()
         {
             h_pulse_clock_counter=0;
 
-//            if(hPulseBuff>0)
-//            {
-//                hPulseBuff--;
-////                h_abs_pos++;
-//            }
-//            else
-//            {
-//                hPulseBuff++;
-////                h_abs_pos--;
-//            }
+            //            if(hPulseBuff>0)
+            //            {
+            //                hPulseBuff--;
+            ////                h_abs_pos++;
+            //            }
+            //            else
+            //            {
+            //                hPulseBuff++;
+            ////                h_abs_pos--;
+            //            }
             if(pulseMode==1)
             {
                 ps1=!ps1;
@@ -347,16 +337,16 @@ void CGimbalController::motorUpdate()
             }
             else if(pulseMode==2)
             {
-//                if(hPulseBuff<0){
-//                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
-//                    else digitalWriteFast(PS1,LOW);
-//                    digitalWriteFast(PD1,HIGH);
-//                }
-//                else{
-//                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
-//                    else digitalWriteFast(PD1,LOW);
-//                    digitalWriteFast(PS1,HIGH);
-//                }
+                //                if(hPulseBuff<0){
+                //                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
+                //                    else digitalWriteFast(PS1,LOW);
+                //                    digitalWriteFast(PD1,HIGH);
+                //                }
+                //                else{
+                //                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
+                //                    else digitalWriteFast(PD1,LOW);
+                //                    digitalWriteFast(PS1,HIGH);
+                //                }
             }
 
         }
@@ -367,16 +357,16 @@ void CGimbalController::motorUpdate()
         if(v_pulse_clock_counter>v_freq_devider)
         {
             v_pulse_clock_counter=0;
-//            if(vPulseBuff>0)
-//            {
-//                vPulseBuff-=1;
-////                v_abs_pos++;
-//            }
-//            else
-//            {
-//                vPulseBuff+=1;
-////                v_abs_pos--;
-//            }
+            //            if(vPulseBuff>0)
+            //            {
+            //                vPulseBuff-=1;
+            ////                v_abs_pos++;
+            //            }
+            //            else
+            //            {
+            //                vPulseBuff+=1;
+            ////                v_abs_pos--;
+            //            }
 
             if(pulseMode==1)
             {
@@ -407,7 +397,7 @@ void CGimbalController::UserUpdate()//
     
     if(userAlive>0)
     {
-      userAlive--;
+        userAlive--;
     }
     else
     {
@@ -428,10 +418,10 @@ void CGimbalController::UserUpdate()//
     }
     else if (mStabMode==1)
     {
-		//h control calculation
-		h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
-   double h_control_dif = h_control-h_control_old;//
-    h_control_old = h_control;
+        //h control calculation
+        h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
+        double h_control_dif = h_control-h_control_old;//
+        h_control_old = h_control;
         if(interupt>0){
             h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
         }
@@ -440,14 +430,14 @@ void CGimbalController::UserUpdate()//
         hinteg += h_control ;
         if(hinteg>5)hinteg=5;
         if(hinteg<-5)hinteg=-5;
-		//v control calculation
+        //v control calculation
         //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
         v_control = v_user_speed - stim_data.y_rate;
-//       userEle += v_user_speed/.
+        //       userEle += v_user_speed/.
         double v_control_dif = v_control-v_control_old;
         v_control_old = v_control;
         if(interupt>0){
-			v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
+            v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
         }
         sumEv+=abs(v_control);
         vinteg += v_control ;
@@ -458,24 +448,27 @@ void CGimbalController::UserUpdate()//
         outputSpeedV(v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i);
 
     }
-	else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
-	{
-		//h control calculation
-		h_control = 0 + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
-    userAzi += h_user_speed*CONTROL_TIME_STAMP;
-		double h_control_dif = stim_data.z_angle - h_control_old;//
-		h_control_old = stim_data.z_angle;
-		sumEh += abs(h_control);
-    
-		v_control = 0 - gyroX*param_v_p ;
-    userEle += v_user_speed*CONTROL_TIME_STAMP;
-    //+ h_control_dif*param_h_d 
-		outputSpeedH(h_control  + (stim_data.z_angle)*param_h_i*80 + userAzi*5+ h_control_dif*param_h_d);
+    else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
+    {
+        //h control calculation
+        h_control = 0 + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
+        userAzi += h_user_speed*CONTROL_TIME_STAMP;
+        double h_control_dif = stim_data.z_angle - h_control_old;//
+        h_control_old = stim_data.z_angle;
+        double h_control_i =  (stim_data.z_angle)*param_h_i*80 + userAzi*10;
+        if(h_control_i>maxAccH)h_control_i=maxAccH;
+        if(h_control_i<-maxAccH)h_control_i=-maxAccH;
+        outputSpeedH(h_control + h_control_i + h_control_dif*param_h_d);
 
-		outputSpeedV(v_control - (stim_data.y_angle )*param_v_i * 40 + userEle*5 - stim_data.y_rate*param_v_d);
+        v_control = 0 - gyroX*param_v_p ;
+        userEle += v_user_speed*CONTROL_TIME_STAMP;
+        double v_control_i = (-stim_data.y_angle )*param_v_i * 40 + userEle*10;
+        if(v_control_i>maxAccV)v_control_i=maxAccV;
+        if(v_control_i<-maxAccV)v_control_i=-maxAccV;
+        outputSpeedV(v_control  - stim_data.y_rate*param_v_d);
 
-	}
-//    modbusLoop();
+    }
+    //    modbusLoop();
 
 
 
@@ -534,8 +527,8 @@ void CGimbalController::readSensorData()//200 microseconds
             mStimMsgCount++;
             mGyroCount++;
             //stim_data.z_angle
-//            Serial.println(stim_data.z_angle); 
-//            Serial.print('\n'); 
+            //            Serial.println(stim_data.z_angle);
+            //            Serial.print('\n');
             if(workMode==0)E_CONTROL.println(stim_data.y_rate);
         }
         lastStimByteTime = timeMicros;
@@ -544,81 +537,81 @@ void CGimbalController::readSensorData()//200 microseconds
         unsigned char databyte = Serial1.read();
         if(databyte == 0x7f)
         {
-          if(lastbyteGyro == 0x7f)
-          {
-            gyroIndex = 0;
-            
+            if(lastbyteGyro == 0x7f)
+            {
+                gyroIndex = 0;
+
             }
-          
+
         }
         
         if(gyroIndex>=0)
         {
-          if(gyroIndex==15)
-          {
-            unsigned char checksumbyte =  0;
-            for (   int i =1;i<15;i++     )
+            if(gyroIndex==15)
             {
-              checksumbyte^=rawgyro[i];
-            }  
-             if (checksumbyte==databyte)//true msg received
-             {
-                
-                
-//                mStimMsgCount++;
-                mGyroCount++;
-                int newgyroX = rawgyro[1]+rawgyro[2]*256;
-                if(newgyroX>=32768)
-                newgyroX-=65536;
-                
-//                if(abs(newgyroX-rawgyroX)>100)
-//                {
-//                  if(newgyroX>240&&newgyroX<256)
-//                  {
-//                    newgyroX-=256;
-//                   }
-//                   if(newgyroX<-240&&newgyroX>=-256)
-//                  {
-//                    newgyroX+=256;
-//                   }
-//                  }
-                  if((abs(newgyroX)<500)&&(rawgyro[1]!=0))//(abs(newgyroX)<256)||(abs(newgyroX-rawgyroX)<100))
-                  {
+                unsigned char checksumbyte =  0;
+                for (   int i =1;i<15;i++     )
+                {
+                    checksumbyte^=rawgyro[i];
+                }
+                if (checksumbyte==databyte)//true msg received
+                {
+
+
+                    //                mStimMsgCount++;
+                    mGyroCount++;
+                    int newgyroX = rawgyro[1]+rawgyro[2]*256;
+                    if(newgyroX>=32768)
+                        newgyroX-=65536;
+
+                    //                if(abs(newgyroX-rawgyroX)>100)
+                    //                {
+                    //                  if(newgyroX>240&&newgyroX<256)
+                    //                  {
+                    //                    newgyroX-=256;
+                    //                   }
+                    //                   if(newgyroX<-240&&newgyroX>=-256)
+                    //                  {
+                    //                    newgyroX+=256;
+                    //                   }
+                    //                  }
+                    if((abs(newgyroX)<500)&&(rawgyro[1]!=0))//(abs(newgyroX)<256)||(abs(newgyroX-rawgyroX)<100))
+                    {
                         rawgyroX = newgyroX;
                         gyroX = rawgyroX/16.384;
                         sumGyroX+=gyroX;
                         countGyroX++;
                         if(countGyroX>=10000)
                         {
-                          biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
-                          countGyroX=0;
-                          sumGyroX = 0;
-                          reportDebug("auto calib: ",biasGyroX);
+                            biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
+                            countGyroX=0;
+                            sumGyroX = 0;
+                            reportDebug("auto calib: ",biasGyroX);
                         }
                         gyroX-=biasGyroX;
-//                        Serial.print(gyroX); 
-//                        Serial.print(' '); 
-//                        Serial.print(stim_data.y_rate); 
-//////                        Serial.print(' '); 
-//////                        Serial.print(-10); 
-//////                        Serial.print(' '); 
-//////                        Serial.print(10); 
-//                        Serial.print('\n');
-                  }
-                  
-//                  Serial.print(newgyroX);
-//                  Serial.print(' ');
-//                Serial.println(gyroX);
+                        //                        Serial.print(gyroX);
+                        //                        Serial.print(' ');
+                        //                        Serial.print(stim_data.y_rate);
+                        //////                        Serial.print(' ');
+                        //////                        Serial.print(-10);
+                        //////                        Serial.print(' ');
+                        //////                        Serial.print(10);
+                        //                        Serial.print('\n');
+                    }
+
+                    //                  Serial.print(newgyroX);
+                    //                  Serial.print(' ');
+                    //                Serial.println(gyroX);
                 }
-              
+
             }
             if(gyroIndex<15)
-          rawgyro[gyroIndex] = databyte;
-          gyroIndex++;
-          
-          }
-       lastbyteGyro = databyte;
-       
+                rawgyro[gyroIndex] = databyte;
+            gyroIndex++;
+
+        }
+        lastbyteGyro = databyte;
+
     }
 
 }
@@ -645,7 +638,7 @@ void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
     {
         h_freq_devider=CONTROL_TIME_STAMP*(float)MOTOR_PULSE_CLOCK/abs(hPulseBuff);
         if(h_freq_devider<minPulsePeriodh)h_freq_devider=minPulsePeriodh;
- 
+
     }
     if(pulseMode==1)
     {
@@ -708,13 +701,13 @@ void CGimbalController::setFov(float value)
         fov = value;
         mUserMaxspdH = fov*1.5;
         mUserMaxSpdV = fov*2;
-//        reportDebug("fov changed");
-//        reportDebug(fov);
-//        isSetupChanged =true;
+        //        reportDebug("fov changed");
+        //        reportDebug(fov);
+        //        isSetupChanged =true;
     }
     else
     {
-//        reportDebug("fov invalid");
+        //        reportDebug("fov invalid");
     }
 
 }
@@ -724,7 +717,7 @@ void CGimbalController::setCT(int c11,int c12,int c21,int c22)
     ct12 = c12;
     ct21 = c21;
     ct22 = c22;
-  
+
 }
 void CGimbalController::setPARAM_P(float valueh,float valuev)
 {
@@ -737,7 +730,7 @@ void CGimbalController::setPARAM_I(float valueh,float valuev)
 {
     param_h_i = valueh;
     param_v_i = valuev;
-//    reportDebug("param i updated");
+    //    reportDebug("param i updated");
     isSetupChanged =true;
 }
 
@@ -745,7 +738,7 @@ void CGimbalController::setPARAM_D(float valueh, float valuev)
 {
     param_h_d = valueh;
     param_v_d = valuev;
-//    reportDebug("param d updated");
+    //    reportDebug("param d updated");
     isSetupChanged =true;
 }
 
