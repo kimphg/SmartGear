@@ -233,6 +233,7 @@ private:
     void trackerShutdown();
     void usbInit();
     void draw_trackpoint(QPainter *p, int posx, int posy);
+    void setStimstate(int value);
 };
 
 #endif // MAINWINDOW_H

@@ -422,18 +422,18 @@ void MainWindow::processKeyBoardEvent(int key)
     }
     else if(key==Qt::Key_M)
     {
+        int a=mControl.stabMode;
 
-        if(mControl.stabMode==1){
-            mControl.setStimMode(0);
-//             ui->bt_video_thermal_3->setChecked(false);
+        if(mControl.stabMode){
+            setStimstate(0);
+             ui->bt_stab_2->setChecked(false);
             ui->bt_video_test_2->setChecked(true);
 
         }
         else{
-
-            mControl.setStimMode(1);
-//            ui->bt_video_test_2->setChecked(false);
-            ui->bt_video_thermal_3->setChecked(true);
+            setStimstate(2);
+            ui->bt_video_test_2->setChecked(false);
+            ui->bt_stab_2->setChecked(true);
         }
         mControl.reloadConfig();
     }
@@ -885,13 +885,21 @@ void MainWindow::timer30ms()
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
         double xcontrol = track_p*trackx+track_i*trackxi+track_d*(trackx-trackxo);
         xcontrol*=1.7;
-        if(xcontrol>0.9)xcontrol=0.9;
-        if(xcontrol<-0.9)xcontrol=-0.9;
+
+
         trackyo=tracky;
         tracky = -(singleTrackTarget.y+singleTrackTarget.height/2.0-trackpoint_y)/frame_process_H;
         if(abs(tracky)<0.1)trackyi += tracky;
         double ycontrol = track_p*tracky+track_i*trackyi+track_d*(tracky-trackyo);
         ycontrol*=trackHratio;
+        if(mControl.stabMode)
+        {
+            ycontrol/=5.0;
+            xcontrol/=5.0;
+
+        }
+        if(xcontrol>0.9)xcontrol=0.9;
+        if(xcontrol<-0.9)xcontrol=-0.9;
         if(ycontrol>0.9)ycontrol=0.9;
         if(ycontrol<-0.9)ycontrol=-0.9;
         mControl.outputPelco(xcontrol*255.0,ycontrol*255.0);
@@ -1317,22 +1325,28 @@ void MainWindow::on_bt_send_pid_clicked()
 
 void MainWindow::on_bt_video_test_2_clicked()
 {
-    mControl.setStimMode(0);
+    setStimstate(0);
     mControl.reloadConfig();
 
 }
 
 void MainWindow::on_bt_video_thermal_3_clicked()
 {
-    mControl.setStimMode(1);
-    mControl.sendSetupPacket(3);
-    mControl.sendSetupPacket(4);
-    mControl.sendSetupPacket(5);
+    setStimstate(2);
 }
-
+void MainWindow::setStimstate(int value)
+{
+    if(value)
+    {
+        showMessage(QString::fromUtf8("Tự cân bằng:")+QString::number(value));
+    }
+    else showMessage(QString::fromUtf8("Tự cân bằng đã tắt"));
+    mControl.setStimMode(value);
+    mControl.reloadConfig();
+}
 void MainWindow::on_bt_video_main_2_clicked()
 {
-    mControl.setStimMode(2);
+    setStimstate(2);
 }
 
 //void MainWindow::on_textEdit_textChanged()
@@ -1749,5 +1763,5 @@ void MainWindow::on_bt_control_usb_2_toggled(bool checked)
 
 void MainWindow::on_bt_stab_2_clicked()
 {
-    mControl.setStimMode(2);
+    setStimstate(2);
 }

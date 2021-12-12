@@ -21,7 +21,7 @@
 #define GEAR2 400
 #define PULSE_MAX_FREQ 30000
 #define STAB_TRANSFER_TIME 2000.0
-#define CONTROL_TIME_STAMP 0.002
+#define CONTROL_TIME_STAMP 0.001
 float MAX_ACC = 5;
 float MAX_ACC_H = 1;
 #include "stim.h"
@@ -453,54 +453,18 @@ void CGimbalController::UserUpdate()//
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
     {
         //h control calculation
-        h_control = 0 + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
-//        userAzi += h_user_speed*CONTROL_TIME_STAMP;
-        
-        double h_control_dif = stim_data.z_angle - h_control_old;//
-        h_control_old = stim_data.z_angle;
-        
-        
-        if(abs(h_user_speed)>0.5)
-        {
-          outputSpeedH(h_control + h_user_speed*3);
-          h_user=1;
-          }
-          else 
-          {
-            if(h_user==1)
-            {
-              h_user=0;
-              stim_data.z_angle=0;
-//              reportDebug("fixh");
-
-              }
-            double h_control_i =  (stim_data.z_angle)*param_h_i*80 ;
-//            if(h_control_i>maxAccH)  h_control_i= maxAccH;
-//            if(h_control_i<-maxAccH) h_control_i= -maxAccH;
-            outputSpeedH(h_control + h_control_i + h_control_dif*param_h_d);
-          }
-        v_control = 0 - gyroX*param_v_p ;
+        h_control = h_user_speed  + stim_data.z_rate;
+        hinteg += h_control*CONTROL_TIME_STAMP;
+        double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
+        h_control_old = h_control;
+        outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
+        //end h control calculation
+        //v control calculation         
+        v_control = 0 - gyroX*param_v_p - stim_data.y_rate*param_v_d;
         userEle += v_user_speed*CONTROL_TIME_STAMP;
-
-
-        if(abs(v_user_speed)>0.3)
-        {
-          outputSpeedV(v_control + v_user_speed*2);
-          v_user=1;
-        }
-        else
-        {
-            if(v_user==1)
-            {
-              v_user=0;
-              stim_data.y_angle=0;
-//              reportDebug("fixv");
-              }
-            double v_control_i = (-stim_data.y_angle )*param_v_i * 60 ;
-//            if(v_control_i>maxAccV)v_control_i=maxAccV;
-//            if(v_control_i<-maxAccV)v_control_i=-maxAccV;
-            outputSpeedV(v_control +v_control_i - stim_data.y_rate*param_v_d);
-        }
+        double v_control_i = (-stim_data.y_angle )*param_v_i * 60 + userEle;
+        outputSpeedV(v_control + v_control_i );
+        
 
     }
     //    modbusLoop();

@@ -651,7 +651,6 @@ void c_gimbal_control::reloadConfig()
 {
     pulseMode = CConfig::getInt("pulseMode",1);
     fov = CConfig::getDouble("fov",60);
-    stabMode = false;
     sendSetupPacket(2);
 
     param_hp = CConfig::getDouble("param_hp");
@@ -668,8 +667,8 @@ void c_gimbal_control::reloadConfig()
     param_gear_v = CConfig::getDouble("param_gear_v");
     param_pprv = param_gear_v*1000;
     sendSetupPacket(6);
-    param_acc = CConfig::getInt("param_acc");
-
+    param_acc = CConfig::getDouble("param_acc");
+    sendSetupPacket(7);
     hCalib = CConfig::getDouble("hCalib",-0.16);
     vCalib = CConfig::getDouble("vCalib",0.115);
     sendSetupPacket(9);
