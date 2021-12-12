@@ -472,6 +472,7 @@ void CGimbalController::UserUpdate()//
               h_user=0;
               stim_data.z_angle=0;
 //              reportDebug("fixh");
+
               }
             double h_control_i =  (stim_data.z_angle)*param_h_i*80 ;
 //            if(h_control_i>maxAccH)  h_control_i= maxAccH;
