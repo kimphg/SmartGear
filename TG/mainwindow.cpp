@@ -114,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent) :
     socket = new QUdpSocket(this);
     mControl.setSocket(socket);
     CConfig::readFile();
+
     //    trackrect.x = frame.rows*0.45;
     //    trackrect.y = frame.cols*0.45;
     //    trackrect.width = frame.rows*0.1;
@@ -161,6 +162,12 @@ MainWindow::MainWindow(QWidget *parent) :
     trackSize = CConfig::getInt("trackSize",90);
     ballistic_k = CConfig::getDouble("ballistic_k",0.002);
     reloadConfigParams();
+    CConfig::setValue("param_hp",3.85);
+    CConfig::setValue("param_hi",5.5);
+    CConfig::setValue("param_hd",0);
+    CConfig::setValue("param_vp",4);
+    CConfig::setValue("param_vi",5.85);
+    CConfig::setValue("param_vd",1.25);
     connect(this, SIGNAL(finished()), &mAverCap, SLOT(deleteLater));
     mAverCap.start();
 }
@@ -915,7 +922,7 @@ void MainWindow::timer30ms()
 
         //        h_speed_control += (key_ad*255-h_speed_control)/5;
         //        v_speed_control += (key_ws*255-v_speed_control)/5;
-        h_speed_control = key_ad*150;
+        h_speed_control = key_ad*250;
         v_speed_control = key_ws*150;
         mControl.outputPelco(h_speed_control,v_speed_control);
 
@@ -1326,7 +1333,7 @@ void MainWindow::on_bt_send_pid_clicked()
 void MainWindow::on_bt_video_test_2_clicked()
 {
     setStimstate(0);
-    mControl.reloadConfig();
+//    mControl.reloadConfig();
 
 }
 

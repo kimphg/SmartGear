@@ -453,7 +453,7 @@ void CGimbalController::UserUpdate()//
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
     {
         //h control calculation
-        h_control = h_user_speed  + stim_data.z_rate;
+        h_control = h_user_speed*0.25  + stim_data.z_rate;
         hinteg += h_control*CONTROL_TIME_STAMP;
         double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
         h_control_old = h_control;
@@ -461,8 +461,9 @@ void CGimbalController::UserUpdate()//
         //end h control calculation
         //v control calculation         
         v_control = 0 - gyroX*param_v_p - stim_data.y_rate*param_v_d;
-        userEle += v_user_speed*CONTROL_TIME_STAMP;
-        double v_control_i = (-stim_data.y_angle )*param_v_i * 60 + userEle;
+        userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
+        double v_control_i = (userEle-stim_data.y_angle )*param_v_i * 60 ;
+
         outputSpeedV(v_control + v_control_i );
         
 
@@ -698,8 +699,8 @@ void CGimbalController::setFov(float value)
     if(value>0.1&&value<=60.0)
     {
         fov = value;
-        mUserMaxspdH = fov*1.5;
-        mUserMaxSpdV = fov*2;
+        mUserMaxspdH = fov;
+        mUserMaxSpdV = fov;
         //        reportDebug("fov changed");
         //        reportDebug(fov);
         //        isSetupChanged =true;
