@@ -122,6 +122,7 @@ public:
         maxAccH=hvalue;
         maxAccV=vvalue;
         isSetupChanged = true;
+//        reportDebug("acc",maxAccH);
     }
     void setWorkmode(int mode)
     {
@@ -275,7 +276,7 @@ void CGimbalController::initGimbal()
     h_user_speed = 0;
     v_user_speed = 0;
     setPPR(PPR1*GEAR1,PPR2*GEAR2);
-    setMaxAcc(5,5);
+    setMaxAcc(1,1);
     control_oldID = 0;
     h_pulse_clock_counter =0;
     v_pulse_clock_counter =0;
@@ -391,7 +392,8 @@ void CGimbalController::motorUpdate()
         }
     }
 }
-
+int h_user = 0;
+int v_user = 0;
 void CGimbalController::UserUpdate()//
 {
     
@@ -419,33 +421,33 @@ void CGimbalController::UserUpdate()//
     else if (mStabMode==1)
     {
         //h control calculation
-        h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
-        double h_control_dif = h_control-h_control_old;//
-        h_control_old = h_control;
-        if(interupt>0){
-            h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
-        }
-        sumEh+=abs(h_control);
-        
-        hinteg += h_control ;
-        if(hinteg>5)hinteg=5;
-        if(hinteg<-5)hinteg=-5;
-        //v control calculation
-        //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
-        v_control = v_user_speed - stim_data.y_rate;
-        //       userEle += v_user_speed/.
-        double v_control_dif = v_control-v_control_old;
-        v_control_old = v_control;
-        if(interupt>0){
-            v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
-        }
-        sumEv+=abs(v_control);
-        vinteg += v_control ;
-        if(vinteg>5)vinteg=5;
-        if(vinteg<-5)vinteg=-5;
-        outputSpeedH(h_control *param_h_p+ h_control_dif*param_h_d+ hinteg*param_h_i);
-
-        outputSpeedV(v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i);
+//        h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
+//        double h_control_dif = h_control-h_control_old;//
+//        h_control_old = h_control;
+//        if(interupt>0){
+//            h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
+//        }
+////        sumEh+=abs(h_control);
+//        
+//        hinteg += h_control ;
+//        if(hinteg>5)hinteg=5;
+//        if(hinteg<-5)hinteg=-5;
+//        //v control calculation
+//        //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
+//        v_control = v_user_speed - stim_data.y_rate;
+//        //       userEle += v_user_speed/.
+//        double v_control_dif = v_control-v_control_old;
+//        v_control_old = v_control;
+//        if(interupt>0){
+//            v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
+//        }
+////        sumEv+=abs(v_control);
+//        vinteg += v_control ;
+//        if(vinteg>5)vinteg=5;
+//        if(vinteg<-5)vinteg=-5;
+//        outputSpeedH(h_control *param_h_p+ h_control_dif*param_h_d+ hinteg*param_h_i);
+//
+//        outputSpeedV(v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i);
 
     }
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
@@ -453,19 +455,49 @@ void CGimbalController::UserUpdate()//
         //h control calculation
         h_control = 0 + stim_data.z_rate*param_h_p*4 ;// +userAngleh;
         userAzi += h_user_speed*CONTROL_TIME_STAMP;
+        
         double h_control_dif = stim_data.z_angle - h_control_old;//
         h_control_old = stim_data.z_angle;
-        double h_control_i =  (stim_data.z_angle)*param_h_i*80 + userAzi*10;
-        if(h_control_i>maxAccH)h_control_i=maxAccH;
-        if(h_control_i<-maxAccH)h_control_i=-maxAccH;
-        outputSpeedH(h_control + h_control_i + h_control_dif*param_h_d);
-
+        
+        
+        if(abs(h_user_speed)>0.1)
+        {
+          outputSpeedH(h_control + h_user_speed);
+          h_user=1;
+          }
+          else 
+          {
+            if(h_user==1)
+            {
+              h_user=0;
+              stim_data.z_angle=0;
+              }
+            double h_control_i =  (stim_data.z_angle)*param_h_i*80 ;
+            if(h_control_i>maxAccH)  h_control_i= maxAccH;
+            if(h_control_i<-maxAccH) h_control_i= -maxAccH;
+            outputSpeedH(h_control + h_control_i + h_control_dif*param_h_d);
+          }
         v_control = 0 - gyroX*param_v_p ;
         userEle += v_user_speed*CONTROL_TIME_STAMP;
-        double v_control_i = (-stim_data.y_angle )*param_v_i * 40 + userEle*10;
+
+
+        if(abs(h_user_speed)>0.1)
+        {
+          outputSpeedV(v_control + v_user_speed);
+          v_user=1;
+          }
+          else
+          {
+            if(v_user==1)
+            {
+              v_user=0;
+              stim_data.y_angle=0;
+              }
+        double v_control_i = (-stim_data.y_angle )*param_v_i * 40 ;
         if(v_control_i>maxAccV)v_control_i=maxAccV;
         if(v_control_i<-maxAccV)v_control_i=-maxAccV;
-        outputSpeedV(v_control  - stim_data.y_rate*param_v_d);
+        outputSpeedV(v_control +v_control_i - stim_data.y_rate*param_v_d);
+          }
 
     }
     //    modbusLoop();
@@ -586,7 +618,7 @@ void CGimbalController::readSensorData()//200 microseconds
                             biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
                             countGyroX=0;
                             sumGyroX = 0;
-                            reportDebug("auto calib: ",biasGyroX);
+                            reportDebug("ac ",biasGyroX);
                         }
                         gyroX-=biasGyroX;
                         //                        Serial.print(gyroX);

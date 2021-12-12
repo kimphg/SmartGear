@@ -14,8 +14,8 @@ void reportDebug(const char* msg)
 //  //S_CONTROL.println(msg);
   E_CONTROL.print("$MSG,");
   E_CONTROL.println(msg);
-//  Serial.print("$MSG,");
-//  Serial.println(msg);
+  Serial.print("$MSG,");
+  Serial.println(msg);
 }
 void reportDebug(const char* msg,float value)
 {
@@ -23,6 +23,10 @@ void reportDebug(const char* msg,float value)
   E_CONTROL.print(msg);
   E_CONTROL.print(":");
   E_CONTROL.println(value);
+  Serial.print("$MSG,");
+  Serial.print(msg);
+  Serial.print(":");
+  Serial.println(value);
 }
 void reportDebug(int value,int value2)
 {
@@ -30,7 +34,7 @@ void reportDebug(int value,int value2)
 	E_CONTROL.write(value);
   E_CONTROL.write(value2);
 //	Serial.write(value);
-	//S_CONTROL.write(value);
+//	S_CONTROL.write(value);
 }
 void mPrint(const char* msg)
 {
