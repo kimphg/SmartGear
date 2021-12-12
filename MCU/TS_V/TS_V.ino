@@ -193,8 +193,8 @@ bool processPelco(){
 	}
 	else if (pelco_input_buff[1] == 0x07) //max acceleration set
 	{
-		float hacc = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3])*0.01;
-		float vacc = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5])*0.01;
+		float hacc = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3])*0.015;
+		float vacc = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5])*0.015;
 		gimbal.setMaxAcc(hacc, vacc);
 		reportDebug("acc set");
 	}
