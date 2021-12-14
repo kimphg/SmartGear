@@ -69,7 +69,7 @@ int selectVTargetIndex = -1;
 static double ballistic_k=0.002;
 double ballistic_calc_time(float d)
 {
-
+    
     double v0 = 850;
     double time = (exp(ballistic_k*d)-1)/(ballistic_k*v0);
     return time;
@@ -108,18 +108,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
+    
     ui->setupUi(this);
     this->statusBar()->setStyleSheet("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)");
     socket = new QUdpSocket(this);
     mControl.setSocket(socket);
     CConfig::readFile();
-
+    
     //    trackrect.x = frame.rows*0.45;
     //    trackrect.y = frame.cols*0.45;
     //    trackrect.width = frame.rows*0.1;
     //    trackrect.height = frame.cols*0.1;
-
+    
     //    cap = cv::cap('test.avi');
     //    label_video_fps
     timer_1sec = new QTimer();
@@ -142,19 +142,19 @@ MainWindow::MainWindow(QWidget *parent) :
     updateTimer = new QTimer();
     connect(updateTimer, SIGNAL(timeout()), this, SLOT(updateData()));
     updateTimer->start(10);
-
+    
     controlTimer = new QTimer();
     connect(controlTimer, SIGNAL(timeout()), this, SLOT(timer30ms()));
     controlTimer->start(30);
-
+    
     params.push_back(CV_IMWRITE_JPEG_QUALITY);
     params.push_back(80); //image quality
-
+    
     //window init
     this->showFullScreen();
     ui->groupBox_setup->setHidden(true);
     //    ui->plot_tracker->addGraph();
-
+    
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
     sight_x=frame_process_W/2.0+CConfig::getDouble("sightx",7);
@@ -175,9 +175,9 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::usbInit()
 {
     // message length = 32
-
+    
     usbDevHandle = UsbDevice::getDeviceHandle(vendorID, productID,0);
-
+    
     if (usbDevHandle) {
         usbDevMode = 1;
         showMessage(QString::fromUtf8("USB control default"));
@@ -190,7 +190,7 @@ void MainWindow::usbInit()
         if (!usbDevHandle) {
             usbDevMode = 2;
             showMessage(QString::fromUtf8("USB control gamepad"));//
-
+            
         }
         else
         {
@@ -199,9 +199,9 @@ void MainWindow::usbInit()
             return ;
         }
     }
-
+    
     if(usbDevMode){
-
+        
         osReader.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
         if (osReader.hEvent == NULL)
         {
@@ -255,9 +255,9 @@ void MainWindow::updateInfo()
     //    else ui->label_cu_connection->setText(QString::fromUtf8("Mất kết nối"));
     //    if(mControl.isStimAlive)ui->label_stim_stat->setText("OK");
     //    else ui->label_stim_stat->setText(QString::fromUtf8("Mất kết nối"));
-//    ui->label_cu_connection->setText(QString::number(cuconcount));
+    //    ui->label_cu_connection->setText(QString::number(cuconcount));
     ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
-
+    
 }
 
 void MainWindow::processKeyBoardEvent(int key)
@@ -282,7 +282,7 @@ void MainWindow::processKeyBoardEvent(int key)
             //        unsigned char *packet = mControl.outputPelco(0,100);
             //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
         }
-
+        
     }
     else
     {
@@ -311,7 +311,7 @@ void MainWindow::processKeyBoardEvent(int key)
     }
     if(key == Qt::Key_L)// start tracking at selected target
     {
-
+        
         if(trackermode == 0)
         {
             if(selectVTargetIndex>=0&&selectVTargetIndex<vTargetList.size())
@@ -337,10 +337,10 @@ void MainWindow::processKeyBoardEvent(int key)
                     trackermode = 1;
                     trackpoint_x=sight_x;
                     trackpoint_y=sight_y;
-
+                    
                 }
             }
-
+            
         }
         else trackerShutdown();
     }
@@ -358,17 +358,17 @@ void MainWindow::processKeyBoardEvent(int key)
             if(selectVTargetIndex>=vTargetList.size())
             { selectVTargetIndex=-1;break;}
         }
-
-
-
+        
+        
+        
     }
     else if(key == Qt::Key_T){//start tracking
-
+        
         if((!frame.empty())&&trackermode == 0)
         {
-
-
-
+            
+            
+            
             kcf_tracker.trackLostSens = CConfig::getDouble("trackLostSens",2.5);
             if(kcf_tracker.Init(frame,trackrect))ui->textBrowser_msg->append("target too big");
             kcf_tracker.setLearning_rate(CConfig::getDouble("track_learn_rate",0.025));
@@ -376,66 +376,66 @@ void MainWindow::processKeyBoardEvent(int key)
             showMessage("Bắt đầu bám");
             trackpoint_x=sight_x;
             trackpoint_y=sight_y;
-
+            
         }
         else trackerShutdown();
-
+        
     }
     else if(key == Qt::Key_F8){
-
-
+        
+        
         system("cmd.exe");
     }
     else if(key == Qt::Key_F9){
-
-
+        
+        
         system("explorer.exe");
     }
     else if(key==Qt::Key_F11)
     {
         mControl.setWorkmode(0);
-
+        
     }
     else if(key==Qt::Key_Escape)
     {
         mControl.setWorkmode(1);
-
+        
     }
     else if(key==Qt::Key_F12)
     {
-
+        
         cap = VideoCapture(0);//(filename.toStdString().data());
         camAvailable = true;
     }
     else if(key==Qt::Key_End)
     {
-
+        
         on_bt_control_file_3_pressed();
     }
     else if(key==Qt::Key_Home)
     {
-
+        
         on_bt_control_file_2_pressed();
     }
     else if(key==Qt::Key_Delete)
     {
         on_bt_tracksizeup_2_clicked();
-//        on_bt_control_file_5_pressed();
+        //        on_bt_control_file_5_pressed();
     }
     else if(key==Qt::Key_Insert)
     {
         on_bt_tracksizeup_clicked();
-//        on_bt_control_file_4_pressed();
+        //        on_bt_control_file_4_pressed();
     }
     else if(key==Qt::Key_M)
     {
         int a=mControl.stabMode;
-
+        
         if(mControl.stabMode){
             setStimstate(0);
-             ui->bt_stab_2->setChecked(false);
+            ui->bt_stab_2->setChecked(false);
             ui->bt_video_test_2->setChecked(true);
-
+            
         }
         else{
             setStimstate(2);
@@ -449,13 +449,17 @@ void MainWindow::processKeyBoardEvent(int key)
         //fov narrow
         float newfov = mControl.fov/2;
         if(newfov<2)newfov=2;
-        mControl.setFOV(newfov);//fov wide
+        mControl.setFOV(newfov);//fov wide 
+        ui->slider_fov->setValue(int(newfov*10.0));
+        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
     else if(key==Qt::Key_L)
     {
         float newfov = mControl.fov*2;
         if(newfov>70)newfov=70;
-        mControl.setFOV(newfov);//fov wide
+        mControl.setFOV(newfov);//fov wide 
+        ui->slider_fov->setValue(int(newfov*10.0));
+        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -472,18 +476,18 @@ void MainWindow::CaptureVideoCamera()
     processorBusy=true;
     if(camAvailable)
     {
-
+        
         incomeFrame = cap.read(frameOrg);//single capture image
         if(!incomeFrame)
         {
             camAvailable = false;
-
+            
         }
         if(frameOrg.cols>100&&frameOrg.rows>100)
         {
             if(nightMode)cv::cvtColor(frameOrg, frame, CV_BGR2GRAY);
             else cv::cvtColor(frameOrg, frame, CV_BGR2RGB);
-
+            
             if((frameOrg.cols!=frame_process_W)||(frameOrg.rows!=frame_process_H))
             {
                 cv::resize(frame,frame,cv::Size(frame_process_W,frame_process_H));
@@ -493,21 +497,21 @@ void MainWindow::CaptureVideoCamera()
             incomeFrame = true;
             waitKey(1);
         }
-
+        
     }
     else
     {
-
-//        bool sucess = mAverCap.getFrame(&frameOrg);
-
+        
+        //        bool sucess = mAverCap.getFrame(&frameOrg);
+        
         if(mAverCap.bGetData) {
             mAverCap.bGetData = false;
-
+            
             if(mAverCap.output.cols>100&&mAverCap.output.rows>100)
             {
                 if(nightMode)cv::cvtColor(mAverCap.output, frame, CV_BGR2GRAY);
                 else cv::cvtColor(mAverCap.output, frame, CV_BGR2RGB);
-
+                
                 if((frame.cols!=frame_process_W)||(frame.rows!=frame_process_H))
                 {
                     cv::resize(frame,frame,cv::Size(frame_process_W,frame_process_H));
@@ -515,21 +519,21 @@ void MainWindow::CaptureVideoCamera()
                     //                mScaleY = double(frame_process_H)/frameOrg.rows;
                 }
                 incomeFrame = true;
-
+                
             }
-
+            
         }
     }
-
+    
     if(incomeFrame)
     {
-
+        
         frameCount++;
         if(recorder.isOpened())
             recorder.write(frame);
-//        if(isEqualizeHis)cv::equalizeHist(frame,frame);
+        //        if(isEqualizeHis)cv::equalizeHist(frame,frame);
         update();
-//        sendFrameVideo();
+        //        sendFrameVideo();
         if(trackermode)
         {
             //            printf("track update start\n"); flushall();
@@ -540,7 +544,7 @@ void MainWindow::CaptureVideoCamera()
             bool trackFail = (singleTrackTarget.area()<100)||(singleTrackTarget.width<5)||(singleTrackTarget.height<5);
             if(trackFail)
             {
-
+                
                 showMessage(QString::fromUtf8("Mất bám, đang tìm kiếm..."));
                 trackermode = 2;
             }
@@ -556,22 +560,22 @@ void MainWindow::CaptureVideoCamera()
             //            scaledRect.y = singleTrackTarget.y /mScaleY;
             //            scaledRect.width = singleTrackTarget.width /mScaleX;
             //            scaledRect.height = singleTrackTarget.height /mScaleY;
-
+            
             if(trackermode==1)cv::rectangle(frame,singleTrackTarget,cv::Scalar(255, 0, 0),1,16 );
             else cv::rectangle(frame,singleTrackWindow,cv::Scalar(255, 255, 0),1,16 );
-
-
+            
+            
         }
         else
         {
             cv::rectangle(frame,trackrect,cv::Scalar(150, 150, 0),1,16 );
         }
-
-
-
-
+        
+        
+        
+        
     }
-
+    
     //    cv::rectangle(frame,trackrect,cv::Scalar(0, 255, 0));
     processorBusy=false;
     return ;
@@ -591,16 +595,16 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     cv::line(frame, cv::Point(posx+size*3,  posy),     cv::Point(posx+gap,  posy  )  , color,0.5);//  #crosshair horizontal
     cv::line(frame, cv::Point(posx,       posy-size), cv::Point( posx,       posy-gap ), color,0.5);//  #crosshair vertical
     cv::line(frame, cv::Point(posx,       posy+size*3), cv::Point( posx,       posy+gap ), color,0.5);//  #crosshair vertical
-//    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
-//    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
-//    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
-//    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
+    //    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
+    //    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
+    //    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
+    //    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
         double fallVideo = fallAngle/PI*180.0/mControl.fov*frame.rows;
         cv::line(frame, cv::Point(posx-size/3,  posy+fallVideo),     cv::Point(posx+size/3,  posy+fallVideo  )  , color,1);//  #crosshair horizontal
-
+        
     }
     double fallAngle = ballistic_calc_fall_angle(sight_range);//sight_range);
     double fallVideo = fallAngle/PI*180.0/mControl.fov*frame.rows;
@@ -635,9 +639,9 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
     p->drawLine(posx+size,posy,   posx+gap,  posy );
     p->drawLine(posx,posy-size,     posx,      posy-gap);
     p->drawLine(posx,posy+size,   posx,      posy+gap);
-//    p->drawEllipse(QPoint(posx,posy),size,size);
-//    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
-//    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
+    //    p->drawEllipse(QPoint(posx,posy),size,size);
+    //    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
+    //    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
@@ -651,16 +655,16 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
             if(fallVideo>vRect.height()/20)
                 p->drawText(posx+size/2,  posy+fallVideo,200,20,0,QString::number(range,'f',1));
         }
-
+        
         //        cv::line(frame, cv::Point(posx-size/3,  posy+fallVideo),     cv::Point(posx+size/3,  posy+fallVideo  )  , color,1);//  #crosshair horizontal
-
+        
     }
     double fallAngle = ballistic_calc_fall_angle(sight_range);//sight_range);
     double fallInPixels = fallAngle/PI*180.0/mControl.fov*vRect.height();
     fallVideo = fallInPixels*frame_process_H/vRect.height();
     p->setPen(pen2);
     p->drawLine(posx-size/3,  posy+fallInPixels,   posx+size/3,  posy+fallInPixels);
-
+    
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
@@ -685,25 +689,25 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     }
     else if(key==Qt::Key_End)
     {
-
+        
         on_bt_control_file_3_released();
     }
     else if(key==Qt::Key_Home)
     {
-
+        
         on_bt_control_file_2_released();
     }
     else if(key==Qt::Key_Delete)
     {
-
+        
         on_bt_control_file_5_released();
     }
     else if(key==Qt::Key_Insert)
     {
-
+        
         on_bt_control_file_4_released();
     }
-
+    
 }
 //bool AddGaussianNoise_Opencv(const Mat mSrc, Mat &mDst,double Mean=0.0, double StdDev=40.0)
 //{
@@ -733,7 +737,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     if(incomeFrame)
     {
         incomeFrame = false;
-
+        
         if(nightMode)
         {
             QImage image(frame.data, frame.cols, frame.rows, frame.step,
@@ -745,12 +749,12 @@ void MainWindow::paintEvent(QPaintEvent *event)
             QImage image(frame.data, frame.cols, frame.rows, frame.step,
                          QImage::Format_RGB888);
             p.drawImage(vRect,image,image.rect());
-
+            
         }
     }
     draw_trackpoint(&p,vRect.x()+trackpoint_x*vRect.width()/frame_process_W,vRect.y()+trackpoint_y*vRect.height()/frame_process_H);
     draw_sight_paint(&p,vRect.x()+sight_x*vRect.width()/frame_process_W,vRect.y()+sight_y*vRect.height()/frame_process_H);
-
+    
     if(mControl.joystickMode==1)
     {
         QColor color2(255, 0, 0);
@@ -803,7 +807,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         p.setFont(QFont("times",20));
         p.drawText(vRect, flags, msgShown);
     }
-
+    
 }
 void MainWindow::DrawVideoTargets(QPainter*p)
 {
@@ -840,15 +844,15 @@ void MainWindow::timer30ms()
     if(msgTime>0)
     {
         msgTime--;
-//        update();
+        //        update();
     }
     if(mControl.modbusDeviceCam!=nullptr)
     {
-
+        
     }
     if(mControl.modbusDeviceCU!=nullptr)
     {
-
+        
         int ct11 = mControl.getPLCInput(0,1);
         int ct12 = mControl.getPLCInput(1,1);
         int ct21 = mControl.getPLCInput(2,1);
@@ -864,14 +868,14 @@ void MainWindow::timer30ms()
             mControl.sendSetupPacket(12);
         }
         isCtActivated = ctValue;
-
+        
         int azi_int = mControl.getPLCInput(4,1);
-
+        
         double azi_float = (azi_int/1000.0*360.0)*CConfig::getDouble("scale_azi",0.5)+CConfig::getDouble("scale_azi_abs",180);
         while (azi_float>=180)azi_float-=360;
         while (azi_float<=-180)azi_float+=360;
         ui->view_azi->setValue(azi_float);
-
+        
         //ele cal
         int ele_int = mControl.getPLCInput(5,1);
         double ele_float = ele_int/1000.0*360.0*CConfig::getDouble("scale_ele",0.5)+CConfig::getDouble("scale_ele_abs",7);
@@ -889,15 +893,15 @@ void MainWindow::timer30ms()
     }
     else
     {
-
+        
         ui->label_plc2->setText("Mất kết nối");
-
+        
     }
     if((trackermode==1)&&(singleTrackTarget.width>10)&&(singleTrackTarget.height>10))
     {
         //todo: send command
         //(singleTrackTarget.x+singleTrackTarget.width/2)
-
+        
         trackxo = trackx;
         trackx = (singleTrackTarget.x+singleTrackTarget.width/2.0-trackpoint_x)/frame_process_W;
         if(abs(trackx)<0.1)trackxi += trackx;
@@ -905,8 +909,8 @@ void MainWindow::timer30ms()
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
         double xcontrol = track_p*trackx+track_i*trackxi+track_d*(trackx-trackxo);
         xcontrol*=1.7;
-
-
+        
+        
         trackyo=tracky;
         tracky = -(singleTrackTarget.y+singleTrackTarget.height/2.0-trackpoint_y)/frame_process_H;
         if(abs(tracky)<0.1)trackyi += tracky;
@@ -916,34 +920,34 @@ void MainWindow::timer30ms()
         {
             ycontrol/=5.0;
             xcontrol/=5.0;
-
+            
         }
         if(xcontrol>0.9)xcontrol=0.9;
         if(xcontrol<-0.9)xcontrol=-0.9;
         if(ycontrol>0.9)ycontrol=0.9;
         if(ycontrol<-0.9)ycontrol=-0.9;
         mControl.outputPelco(xcontrol*255.0,ycontrol*255.0);
-
+        
     }
     else if(mControl.joystickMode==0){
         if(!this->hasFocus())
         {
             key_ad = 0;
-
+            
             key_ws = 0;
         }
-
+        
         //        h_speed_control += (key_ad*255-h_speed_control)/5;
         //        v_speed_control += (key_ws*255-v_speed_control)/5;
         h_speed_control = key_ad*250;
         v_speed_control = key_ws*150;
         mControl.outputPelco(h_speed_control,v_speed_control);
-
+        
     }
     else if(mControl.joystickMode==2){
         if(usbDevMode==1){
             UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
-
+            
             double  hvalue = ((usbBuf[1]+usbBuf[2]*256)-511.0)/400.0;
             double vvalue = ((usbBuf[3]+usbBuf[4]*256)-511.0)/400.0;
             if(hvalue>1.0)hvalue=1.0;
@@ -969,13 +973,13 @@ void MainWindow::timer30ms()
                 if(trackpoint_x>sight_x+150)trackpoint_x = sight_x+150;
                 if(trackpoint_y<sight_y-150)trackpoint_y = sight_y-150;
                 if(trackpoint_y>sight_y+150)trackpoint_y = sight_y+150;
-
+                
             }
             else mControl.outputPelco(h_speed_control,v_speed_control);
         }
         else if(usbDevMode==2){
             if(trackermode)
-            UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
+                UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
             double  vvalue = -(usbBuf[2])*2+255;
             double  hvalue = (usbBuf[3])*2-255;
             int zeroZone = 2;
@@ -985,30 +989,30 @@ void MainWindow::timer30ms()
             if(v_speed_control>zeroZone)v_speed_control-=zeroZone;
             else if(v_speed_control<-zeroZone)v_speed_control+=zeroZone;
             else v_speed_control=0;
-//            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
-//            flushall();
-//            showMessage(QString::number(hvalue));
+            //            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
+            //            flushall();
+            //            showMessage(QString::number(hvalue));
             //        ui->label_track_y->setText(QString::number(vvalue));
             mControl.outputPelco(hvalue,vvalue);
         }
     }
-
-
+    
+    
     ui->label_track_x->setText(QString::number(mControl.mPan));
     ui->label_track_y->setText(QString::number(mControl.mTil));
-
-
+    
+    
 }
 void MainWindow::updateData()
 {
-
+    
     CaptureVideoCamera();
     if(mControl.getIsSerialAvailable())
     {
         QByteArray ba = mControl.getSerialData();
         if(ba.size())processDatagram(ba);
     }
-
+    
     while(socket->hasPendingDatagrams())
     {
         int len = socket->pendingDatagramSize();
@@ -1016,7 +1020,7 @@ void MainWindow::updateData()
         quint16 port;
         QByteArray data;
         data.resize(len);
-
+        
         socket->readDatagram(data.data(),len,&host,&port);
         if(len==2){//ping msg
             int byte = (unsigned char)data.at(0);
@@ -1050,14 +1054,14 @@ void MainWindow::updateData()
         }
         else
             processDetectorData(data);
-
+        
     }
     //    printf("update data done\n");
     //    flushall();
 }
 void MainWindow::processDatagramLaser(QByteArray data)
 {
-
+    
     QStringList dataFields = QString(data).split(',');
     if(dataFields.length()>=3)
     {
@@ -1083,7 +1087,7 @@ void MainWindow::processDatagramLaser(QByteArray data)
 void MainWindow::processDetectorData(QByteArray data)
 {
     QString stringData(data);
-
+    
     QStringList datasentences =  stringData.split("$");
     for(QString sentence : datasentences)
     {
@@ -1091,7 +1095,7 @@ void MainWindow::processDetectorData(QByteArray data)
         if(dataFields.size())
         {
             //            ui->checkBox_connection->toggle();
-
+            
             if(sentence.contains("TGT")&&dataFields.size()>5)
             {
                 ReadVideoTargets(dataFields);
@@ -1107,7 +1111,7 @@ void MainWindow::processDetectorData(QByteArray data)
             //                printf((char*)sentence.toUtf8().data());
         }
     }
-
+    
 }
 QByteArray dataFrameBuff;
 
@@ -1132,12 +1136,12 @@ void MainWindow::processDatagram(QByteArray data)
     for(QString sentence : datasentences)
     {
         QStringList dataFields = sentence.split(',');
-
+        
         if(dataFields.size())
         {
             if(dataFields[0].contains("TGC")&&dataFields.size()>5)
             {
-
+                
                 if(dataFields[0].contains("TGC")&&dataFields.size()>=10)
                 {
                     ui->label_speed->setText(sentence);
@@ -1172,7 +1176,7 @@ void MainWindow::processDatagram(QByteArray data)
                 {
                     double azi = azistr[1].toDouble();
                     ui->view_azi->setValue(azi);
-
+                    
                 }
                 azistr = dataFields[3].split(':');
                 if(azistr.length()==2)
@@ -1180,15 +1184,15 @@ void MainWindow::processDatagram(QByteArray data)
                     double ele = azistr[1].toDouble();
                     //                    ui->slider_ele->setValue(ele);
                     //                    ui->label_ele->setText(QString::number(ele,'f',1));
-
+                    
                 }
-
+                
             }
             else if(dataFields[0].contains("MSG")&&dataFields.size()>=2)
             {
                 mControl.isCuAlive = true;
                 QString messages = ui->textBrowser_msg->toPlainText();
-
+                
                 if(messages.count('\n')>20)
                 {
                     messages.append(dataFields[1]);
@@ -1200,7 +1204,7 @@ void MainWindow::processDatagram(QByteArray data)
                 else {
                     ui->textBrowser_msg->append(dataFields[1]);
                 }
-
+                
             }
             else if(sentence.contains("TGT")&&dataFields.size()>5)
             {
@@ -1217,7 +1221,7 @@ void MainWindow::processDatagram(QByteArray data)
             //                printf((char*)sentence.toUtf8().data());
         }
     }
-
+    
 }
 void MainWindow::ReadVideoInfo(QStringList data)
 {
@@ -1248,20 +1252,20 @@ void MainWindow::ReadVideoTargets(QStringList data)
                     idExist = true;
                     break;
                 }
-
+                
             }
             if(!idExist)
                 vTargetList.push_back(tgt);
         }
-
+        
     }
-
+    
 }
 void MainWindow::sendFrameVideo()
 {
-
+    
     //        AddGaussianNoise_Opencv(frame,frame2);
-
+    
     cv::imencode(".jpg", frame, buffer,params);
     //        frame = frame2;
     int unsent_len = buffer.size();
@@ -1289,7 +1293,7 @@ void MainWindow::on_slider_range_valueChanged(int value)
 {
     sight_range = value*50;
     ui->label_range->setText(QString::number(sight_range));
-
+    
 }
 
 void MainWindow::on_bt_control_pulse_mode_clicked(bool checked)
@@ -1300,13 +1304,13 @@ void MainWindow::on_bt_control_pulse_mode_clicked(bool checked)
 void MainWindow::on_bt_video_main_clicked(bool checked)
 {
     //    nightMode  =false;
-
+    
 }
 
 void MainWindow::on_pushButton_show_setup_clicked(bool checked)
 {
     //    ui->groupBox_setup->setVisible(checked);
-
+    
 }
 
 void MainWindow::on_pushButton_clear_msg_clicked()
@@ -1335,7 +1339,7 @@ void MainWindow::on_bt_send_pid_clicked()
     double ph= ui->textEdit_ph->toPlainText().toDouble();
     double ih= ui->textEdit_ih->toPlainText().toDouble();
     double dh= ui->textEdit_dh->toPlainText().toDouble();
-
+    
     double pv= ui->textEdit_pv->toPlainText().toDouble();
     double iv= ui->textEdit_iv->toPlainText().toDouble();
     double dv= ui->textEdit_dv->toPlainText().toDouble();
@@ -1346,8 +1350,8 @@ void MainWindow::on_bt_send_pid_clicked()
 void MainWindow::on_bt_video_test_2_clicked()
 {
     setStimstate(0);
-//    mControl.reloadConfig();
-
+    //    mControl.reloadConfig();
+    
 }
 
 void MainWindow::on_bt_video_thermal_3_clicked()
@@ -1458,10 +1462,10 @@ void MainWindow::on_bt_send_pid_track_clicked()
 
 void MainWindow::on_pushButton_record_clicked(bool checked)
 {
-
+    
     if(checked)
     {
-
+        
         QDateTime now = QDateTime::currentDateTime();
         QString filename = now.toString("dd.MM_hh.mm.ss");
         filename = "D:/rec_"+filename+".avi";
@@ -1489,7 +1493,7 @@ void MainWindow::on_pushButton_show_setup_clicked()
 
 void MainWindow::on_bt_video_thermal_clicked(bool checked)
 {
-
+    
 }
 
 void MainWindow::on_pushButton_load_setup_clicked()
@@ -1500,7 +1504,7 @@ void MainWindow::on_pushButton_load_setup_clicked()
 void MainWindow::on_pushButton_load_setup_2_clicked()
 {
     mControl.sendSetupPacket(3);
-
+    
     mControl.sendSetupPacket(4);
     mControl.sendSetupPacket(5);
 }
@@ -1520,7 +1524,7 @@ void MainWindow::on_slider_fov_sliderReleased()
 
 void MainWindow::on_bt_video_test_2_clicked(bool checked)
 {
-
+    
 }
 
 void MainWindow::on_bt_video_his_equal_clicked(bool checked)
@@ -1535,7 +1539,7 @@ void MainWindow::on_connectButton_clicked()
 
 void MainWindow::on_bt_control_file_2_clicked()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_file_2_pressed()//zoom + button
@@ -1560,7 +1564,7 @@ void MainWindow::on_bt_control_file_3_released()
 
 void MainWindow::on_bt_zero_set_3_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_zero_set_3_clicked(bool checked)
@@ -1600,57 +1604,57 @@ void MainWindow::on_bt_control_file_7_released()
 
 void MainWindow::on_bt_video_thermal_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_video_thermal_released()
 {
-
+    
 }
 
 void MainWindow::on_bt_video_main_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_video_main_released()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_file_2_clicked(bool checked)
 {
-
+    
 }
 
 void MainWindow::on_pushButton_show_setup_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_file_6_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_focusauto_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_focusauto_released()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_kv_pressed()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_kv_released()
 {
-
+    
 }
 
 void MainWindow::on_bt_control_kv_clicked(bool checked)
@@ -1693,17 +1697,17 @@ void MainWindow::on_bt_video_thermal_toggled(bool checked)
     //    //    nightMode = true;
     //        mControl.setplc(9,(!checked));
     //        Sleep(2000);
-
+    
     if(checked)
     {
-
-
+        
+        
         mControl.setplc(9,0);
         ui->bt_video_main->setDisabled(true);
         ui->bt_video_off->setChecked(false);
-
+        
     }
-
+    
     mControl.setplc(8,checked);
 }
 
@@ -1711,15 +1715,15 @@ void MainWindow::on_bt_video_main_toggled(bool checked)
 {
     //    mControl.setplc(8,(!checked));
     //    Sleep(2000);
-
+    
     if(checked)
     {
         mControl.setplc(8,0);
         ui->bt_video_thermal->setDisabled(true);
         ui->bt_video_off->setChecked(false);
-
+        
     }
-
+    
     mControl.setplc(9,checked);
 }
 
@@ -1759,7 +1763,7 @@ void MainWindow::on_pushButton_sightup_clicked()
 {
     if(sight_y>-200)sight_y = sight_y-1;
     CConfig::setValue("sighty",sight_y-frame_process_H/2.0);
-
+    
 }
 
 void MainWindow::on_pushButton_sight_right_clicked()
