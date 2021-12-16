@@ -255,7 +255,7 @@ void MainWindow::updateInfo()
     //    else ui->label_cu_connection->setText(QString::fromUtf8("Mất kết nối"));
     //    if(mControl.isStimAlive)ui->label_stim_stat->setText("OK");
     //    else ui->label_stim_stat->setText(QString::fromUtf8("Mất kết nối"));
-//    ui->label_cu_connection->setText(QString::number(cuconcount));
+    //    ui->label_cu_connection->setText(QString::number(cuconcount));
     ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
 
 }
@@ -420,12 +420,12 @@ void MainWindow::processKeyBoardEvent(int key)
     else if(key==Qt::Key_Delete)
     {
         on_bt_tracksizeup_2_clicked();
-//        on_bt_control_file_5_pressed();
+        //        on_bt_control_file_5_pressed();
     }
     else if(key==Qt::Key_Insert)
     {
         on_bt_tracksizeup_clicked();
-//        on_bt_control_file_4_pressed();
+        //        on_bt_control_file_4_pressed();
     }
     else if(key==Qt::Key_M)
     {
@@ -433,7 +433,7 @@ void MainWindow::processKeyBoardEvent(int key)
 
         if(mControl.stabMode){
             setStimstate(0);
-             ui->bt_stab_2->setChecked(false);
+            ui->bt_stab_2->setChecked(false);
             ui->bt_video_test_2->setChecked(true);
 
         }
@@ -450,12 +450,16 @@ void MainWindow::processKeyBoardEvent(int key)
         float newfov = mControl.fov/2;
         if(newfov<2)newfov=2;
         mControl.setFOV(newfov);//fov wide
+        ui->slider_fov->setValue(int(newfov*10.0));
+        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
     else if(key==Qt::Key_L)
     {
         float newfov = mControl.fov*2;
         if(newfov>70)newfov=70;
         mControl.setFOV(newfov);//fov wide
+        ui->slider_fov->setValue(int(newfov*10.0));
+        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -498,7 +502,7 @@ void MainWindow::CaptureVideoCamera()
     else
     {
 
-//        bool sucess = mAverCap.getFrame(&frameOrg);
+        //        bool sucess = mAverCap.getFrame(&frameOrg);
 
         if(mAverCap.bGetData) {
             mAverCap.bGetData = false;
@@ -527,9 +531,9 @@ void MainWindow::CaptureVideoCamera()
         frameCount++;
         if(recorder.isOpened())
             recorder.write(frame);
-//        if(isEqualizeHis)cv::equalizeHist(frame,frame);
+        //        if(isEqualizeHis)cv::equalizeHist(frame,frame);
         update();
-//        sendFrameVideo();
+        //        sendFrameVideo();
         if(trackermode)
         {
             //            printf("track update start\n"); flushall();
@@ -591,10 +595,10 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     cv::line(frame, cv::Point(posx+size*3,  posy),     cv::Point(posx+gap,  posy  )  , color,0.5);//  #crosshair horizontal
     cv::line(frame, cv::Point(posx,       posy-size), cv::Point( posx,       posy-gap ), color,0.5);//  #crosshair vertical
     cv::line(frame, cv::Point(posx,       posy+size*3), cv::Point( posx,       posy+gap ), color,0.5);//  #crosshair vertical
-//    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
-//    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
-//    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
-//    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
+    //    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
+    //    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
+    //    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2
+    //    cv::circle(frame, cv::Point(posx,posy), size*3, color, 0.5,CV_AA);// #crosshair circle 2
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
@@ -635,9 +639,9 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
     p->drawLine(posx+size,posy,   posx+gap,  posy );
     p->drawLine(posx,posy-size,     posx,      posy-gap);
     p->drawLine(posx,posy+size,   posx,      posy+gap);
-//    p->drawEllipse(QPoint(posx,posy),size,size);
-//    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
-//    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
+    //    p->drawEllipse(QPoint(posx,posy),size,size);
+    //    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
+    //    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
@@ -840,7 +844,7 @@ void MainWindow::timer30ms()
     if(msgTime>0)
     {
         msgTime--;
-//        update();
+        //        update();
     }
     if(mControl.modbusDeviceCam!=nullptr)
     {
@@ -975,7 +979,7 @@ void MainWindow::timer30ms()
         }
         else if(usbDevMode==2){
             if(trackermode)
-            UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
+                UsbDevice::readDataFromDevice(usbDevHandle, usbBuf, msgLen, &msgLen, NULL);
             double  vvalue = -(usbBuf[2])*2+255;
             double  hvalue = (usbBuf[3])*2-255;
             int zeroZone = 2;
@@ -985,9 +989,9 @@ void MainWindow::timer30ms()
             if(v_speed_control>zeroZone)v_speed_control-=zeroZone;
             else if(v_speed_control<-zeroZone)v_speed_control+=zeroZone;
             else v_speed_control=0;
-//            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
-//            flushall();
-//            showMessage(QString::number(hvalue));
+            //            printf("1:%d,2:%d,3:%d,4:%d,%d,%d,%d,%d\n",usbBuf[5],usbBuf[6],usbBuf[7],usbBuf[8]);
+            //            flushall();
+            //            showMessage(QString::number(hvalue));
             //        ui->label_track_y->setText(QString::number(vvalue));
             mControl.outputPelco(hvalue,vvalue);
         }
@@ -1346,7 +1350,7 @@ void MainWindow::on_bt_send_pid_clicked()
 void MainWindow::on_bt_video_test_2_clicked()
 {
     setStimstate(0);
-//    mControl.reloadConfig();
+    //    mControl.reloadConfig();
 
 }
 

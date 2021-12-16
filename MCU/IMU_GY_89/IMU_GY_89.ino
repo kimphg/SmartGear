@@ -18,27 +18,32 @@
 
 
 byte I2C_Addr_LSM303D = 0x1D;
-byte L3G4200D_ADDRESS =0x6B;
+//byte L3G4200D_ADDRESS =0x6B;
+byte L3G4200D_ADDRESS =0x69;
 byte RawDatabuffer[17]; // Array of Bytes. Each byte in the array will hold one byte of data for MSB and LSB
 float rawX, rawY, rawZ;
 float Gyro_X,Gyro_Y,Gyro_Z;
 float Acc_X, Acc_Y, Acc_Z, MagnX, MagnY, MagnZ;
 float T_raw, Temp;
-
+int led = LED_BUILTIN;
 float a_sensitivityConst, m_sensitivityConst, T_Const;
 //******************** Setup section **************************
 void setup()
 {
-  Serial1.begin(460800);
-//  Serial.begin(115200);
+//  Serial1.begin(460800);
+  Serial.begin(115200);
+  Wire.setSDA(20);
+  Wire.setSCL(21);
   Wire.begin();
   GY89_Setup();
   RawDatabuffer[0]=0x7f;
   RawDatabuffer[1]=0x7f;
+  pinMode(led, OUTPUT);
 }
 //********************* Main loop *******************************
 int oldtime=0;
 int count = 0;
+byte oldbyte = 0;
 void loop() {
   int newtime = millis();
 //  Serial.println(newtime-oldtime);
@@ -50,23 +55,24 @@ if(newtime-oldtime<2&&newtime-oldtime>0)return;
 //  getMag();
   count++;
   getGyro();
-  if(count%10==0){
-  getTemp();
-  getAcc();
-  }
-  RawDatabuffer[16]=0;
-  for (int i=2;i<16;i++)
+  if(oldbyte!=RawDatabuffer[6])
   {
-    RawDatabuffer[16]^=RawDatabuffer[i];
-//    Serial.print(RawDatabuffer[i]);
-//    Serial.print(" ");
+    oldbyte=RawDatabuffer[6];
+    digitalWrite(led,HIGH);
+    RawDatabuffer[8]=0;
+    for (int i=2;i<8;i++)
+    {
+      RawDatabuffer[8]^=RawDatabuffer[i];
     }
-//      float gyrox = RawDatabuffer[2]+RawDatabuffer[3]*256;
-//if(gyrox>=32768)gyrox-=65536;
-// Serial.println(gyrox);
-//  Serial.print("\n");
-  Serial1.write(RawDatabuffer,17);
-//delay(10);
+    int gyrox = RawDatabuffer[6]+RawDatabuffer[7]*256;
+    if(gyrox>=32768)gyrox-=65536;
+    Serial.println(gyrox);
+    //  Serial.print("\n");
+    //  Serial1.write(RawDatabuffer,8);
+    //delay(10);
+    }
+    else digitalWrite(led,LOW);
+  
 }
 //*************************************************************
 
@@ -129,7 +135,7 @@ void GY89_Setup()
   SetSensor(L3G4200D_ADDRESS ,0x24 ,0x02 ); // CTRL_REG5   low pass filter enable
   delay(5);
 //  SetSensor(L3G4200D_ADDRESS ,0x23 ,0x30); // CTRL_REG4 Select 2000dps
-  SetSensor(L3G4200D_ADDRESS ,0x23 ,0xA0); // CTRL_REG4 Select 2000dps BDU=1
+  SetSensor(L3G4200D_ADDRESS ,0x23 ,0x90); // CTRL_REG4 Select 2000dps BDU=1
 }
 float getSensConst(char SensType, int FullScaleSens)
 {
@@ -185,4 +191,5 @@ float getSensConst(char SensType, int FullScaleSens)
     m_sensitivityConst = 0.160;
     T_Const = 8;
   }
+  return 0;
 }
