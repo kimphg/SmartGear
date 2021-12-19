@@ -241,14 +241,15 @@ void MainWindow::updateInfo()
     frameCount = 0;
     // remove old targets
     unsigned long long timeNow = QDateTime::currentMSecsSinceEpoch();
-    for(int i = 0;i<vTargetList.size();i++)
-    {
-        if(vTargetList[i].active)
-            if(timeNow-vTargetList[i].time>3000)
-            {
-                vTargetList[i].active = false;
-            }
-    }
+    repaint();
+//    for(int i = 0;i<vTargetList.size();i++)
+//    {
+//        if(vTargetList[i].active)
+//            if(timeNow-vTargetList[i].time>3000)
+//            {
+//                vTargetList[i].active = false;
+//            }
+//    }
     //    repaint();
     //check connection status
     //    if(mControl.isCuAlive)ui->label_cu_connection->setText("OK");
@@ -256,7 +257,7 @@ void MainWindow::updateInfo()
     //    if(mControl.isStimAlive)ui->label_stim_stat->setText("OK");
     //    else ui->label_stim_stat->setText(QString::fromUtf8("Mất kết nối"));
     //    ui->label_cu_connection->setText(QString::number(cuconcount));
-    ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
+//    ui->label_stim_stat->setText(QString::number(mControl.isStimAlive));
 
 }
 
@@ -583,7 +584,9 @@ void MainWindow::CaptureVideoCamera()
 void MainWindow::showMessage(QString msg)
 {
     msgShown = msg;
-    msgTime = 30;
+    msgTime = 60;
+    repaint();
+
 }
 void MainWindow::draw_sight_cv( int  posx, int posy)
 {
@@ -798,7 +801,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     // draw Message
     if(msgTime){
         Qt::Alignment flags = (Qt::AlignHCenter)|(Qt::AlignVCenter);
-        int alpha = msgTime/30.0*255.0;
+        int alpha = msgTime/60.0*150+100;
         //        printf("alpha:%d \n",alpha);flushall();
         QColor color2(255, 255, 0,alpha);
         QPen pen2(color2);
@@ -1025,6 +1028,9 @@ void MainWindow::updateData()
         if(len==2){//ping msg
             int byte = (unsigned char)data.at(0);
             int stimCon = (unsigned char)data.at(1);
+            int gyro1 = stimCon&0x03;
+            int gyro2 = (stimCon&0x0c)>>2;
+            int gyro3 = (stimCon&0x30)>>4;
             int a = mControl.lastPing;
             int b = mControl.lastPing>>8;
             int c = mControl.lastPing>>16;
@@ -1035,7 +1041,7 @@ void MainWindow::updateData()
                 int curTime = clock();
                 int pingtime = curTime-mControl.lastPing;
                 ui->label_cu_connection->setText(QString::number(pingtime));
-                ui->label_stim_stat->setText(QString::number(stimCon));
+                ui->label_stim_stat->setText(QString::number(gyro1)+"-"+QString::number(gyro2)+"-"+QString::number(gyro3));
             }
         }
         if(port==4002)//joystick port
@@ -1121,7 +1127,7 @@ void MainWindow::processDatagram(QByteArray data)
     else  cuconcount = 0;
     if(mControl.getWorkMode()==0)
     {
-        float scale  =CConfig::getDouble("plotScale");
+        float scale  = 10;//CConfig::getDouble("plotScale");
         QByteArrayList datar =  data.split('\n');
         for(int i=1;i<datar.size()-1;i++)
             dataPlot.push_back(QString(datar.at(i)).toDouble()*scale);

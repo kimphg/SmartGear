@@ -212,7 +212,8 @@ void CGimbalController::reportStat(int idleCount)
 {
     if(getSensors())setStimMode(0);
     pelco_count=0;
-    mGyroStat = mGyroCount1/20.83333333333333  + mGyroCount2/5.208333333333333 + mGyroCount3/1.302083333333333;
+    mGyroStat = (int(mGyroCount1/333)&0x03)  + ((mGyroCount2/300)<<2)+ ((mGyroCount3/300)<<4);
+    Serial.println(mGyroStat);
     if(mGyroCount1>900)digitalWrite(LED_1,HIGH);
     else
     {
@@ -542,9 +543,9 @@ void CGimbalController::readSensorData()//200 microseconds
                     if(newgyroX>=32768)
                         newgyroX-=65536;
                     gyroV3 = newgyroX/131.072;
-                    Serial.print(gyroV2);
-                    Serial.print(' ');
-                    Serial.println(gyroV3);
+//                    Serial.print(gyroV2);
+//                    Serial.print(' ');
+//                    Serial.println(gyroV3);
                 }
 
             }

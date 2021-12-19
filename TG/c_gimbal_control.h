@@ -103,7 +103,7 @@ public:
 
 private:
 
-    int workMode = 0;
+    int workMode = 1;
     QByteArray serialData;
     bool isSerialAvailable;
     double abs_pos_h,abs_pos_v;
