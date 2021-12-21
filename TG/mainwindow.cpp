@@ -632,24 +632,20 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
 {
     int size = vRect.height()/8;
     int gap = int(size/4);
+    p->setFont(QFont("times",8));
     QColor color(0, 255, 0);
     QPen pen(color);
     QColor color2(255, 0, 0);
     QPen pen2(color2);
-    pen2.setWidth(1);
-    p->setPen(pen);
-    p->drawLine(posx-size,posy,   posx-gap,  posy);
-    p->drawLine(posx+size,posy,   posx+gap,  posy );
-    p->drawLine(posx,posy-size,     posx,      posy-gap);
-    p->drawLine(posx,posy+size,   posx,      posy+gap);
-    //    p->drawEllipse(QPoint(posx,posy),size,size);
-    //    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
-    //    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
+
+//    p->drawEllipse(QPoint(posx,posy),size,size);
+//    p->drawEllipse(QPoint(posx,posy),size*2,size*2);
+//    p->drawEllipse(QPoint(posx,posy),size*3,size*3);
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
         double fallVideo = fallAngle/PI*180.0/mControl.fov*vRect.height();
-        size = vRect.height()/mControl.fov/range*1000;
+        size = 10;//vRect.height()/mControl.fov/range*1000;
         if(size>vRect.width()/1.5)size  = vRect.width()/1.5;
         //        p->setPen(pen2);
         if(fallVideo<(vRect.height()/2))
@@ -665,8 +661,16 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
     double fallAngle = ballistic_calc_fall_angle(sight_range);//sight_range);
     double fallInPixels = fallAngle/PI*180.0/mControl.fov*vRect.height();
     fallVideo = fallInPixels*frame_process_H/vRect.height();
+    pen2.setWidth(2);
     p->setPen(pen2);
-    p->drawLine(posx-size/3,  posy+fallInPixels,   posx+size/3,  posy+fallInPixels);
+    posy+=fallInPixels;
+    p->drawLine(posx-size,posy,   posx-gap,  posy);
+    p->drawLine(posx+size,posy,   posx+gap,  posy );
+    p->drawLine(posx,posy-size,     posx,      posy-gap);
+    p->drawLine(posx,posy+size,   posx,      posy+gap);
+//    p->setPen(pen2);
+//    size=20;
+//    p->drawLine(posx-size,  posy+fallInPixels,   posx+size,  posy+fallInPixels);
 
 }
 
