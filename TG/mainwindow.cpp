@@ -1554,22 +1554,22 @@ void MainWindow::on_bt_control_file_2_clicked()
 
 void MainWindow::on_bt_control_file_2_pressed()//zoom + button
 {
-    mControl.setplc(3,1);
+    mControl.setplc(0,1);
 }
 
 void MainWindow::on_bt_control_file_2_released()
 {
-    mControl.setplc(3,0);
+    mControl.setplc(0,0);
 }
 
 void MainWindow::on_bt_control_file_3_pressed()
 {
-    mControl.setplc(4,1);
+    mControl.setplc(1,1);
 }
 
 void MainWindow::on_bt_control_file_3_released()
 {
-    mControl.setplc(4,0);
+    mControl.setplc(1,0);
 }
 
 void MainWindow::on_bt_zero_set_3_pressed()
@@ -1584,33 +1584,34 @@ void MainWindow::on_bt_zero_set_3_clicked(bool checked)
 
 void MainWindow::on_bt_control_file_4_pressed()
 {
-    mControl.setplc(5,1);
+    mControl.setplc(2,1);
 }
 
 void MainWindow::on_bt_control_file_4_released()
 {
-    mControl.setplc(5,0);
+    mControl.setplc(2,0);
 }
 
 void MainWindow::on_bt_control_file_5_pressed()
 {
-    mControl.setplc(6,1);
+    mControl.setplc(3,1);
 }
 
 void MainWindow::on_bt_control_file_5_released()
 {
-    mControl.setplc(6,0);
+    mControl.setplc(3,0);
 }
 
 void MainWindow::on_bt_control_file_7_pressed()
 {
-    mControl.setplc(7,1);
+    mControl.setplc(4,1);
 }
 
 void MainWindow::on_bt_control_file_7_released()
 {
-    mControl.setplc(7,0);
+    mControl.setplc(4,0);
 }
+
 
 void MainWindow::on_bt_video_thermal_pressed()
 {
@@ -1669,12 +1670,12 @@ void MainWindow::on_bt_control_kv_released()
 
 void MainWindow::on_bt_control_kv_clicked(bool checked)
 {
-    mControl.setplc(11,checked);
+    mControl.setplc(6,checked);
 }
 
 void MainWindow::on_bt_control_focusauto_clicked(bool checked)
 {
-    mControl.setplc(10,checked);
+    mControl.setplc(5,checked);
 }
 
 void MainWindow::on_radioButton_uplimit_toggled(bool checked)
