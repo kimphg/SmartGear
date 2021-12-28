@@ -453,16 +453,16 @@ void CGimbalController::UserUpdate()//
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
     {
         //h control calculation
-        h_control = h_user_speed*0.25  + stim_data.z_rate;
+        h_control = h_user_speed*0.25  + stim_data.y_rate;
         hinteg += h_control*CONTROL_TIME_STAMP;
         double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
         h_control_old = h_control;
         outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
         //end h control calculation
         //v control calculation         
-        v_control = 0 - gyroX*param_v_p - stim_data.y_rate*param_v_d;
+        v_control = 0 - gyroX*param_v_p - stim_data.z_rate*param_v_d;
         userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
-        double v_control_i = (userEle-stim_data.y_angle )*param_v_i * 60 ;
+        double v_control_i = (userEle-stim_data.z_angle )*param_v_i * 60 ;
 
         outputSpeedV(v_control + v_control_i );
         
