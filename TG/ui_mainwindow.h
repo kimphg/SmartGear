@@ -69,21 +69,23 @@ public:
     QGridLayout *gridLayout_5;
     QTextBrowser *textBrowser_msg;
     QPushButton *pushButton_clear_msg;
-    QLabel *label_range;
-    QLabel *label_5;
-    QSlider *slider_fov;
-    QLabel *label_fov;
-    QLabel *label;
-    QLabel *label_speed;
-    QSlider *slider_range;
     QFrame *frame_2;
     QGridLayout *gridLayout_3;
     QLabel *image_label_8;
-    QLabel *image_label_9;
     QLabel *image_label_10;
-    QLabel *image_label_11;
+    QLabel *image_label_9;
     QLabel *image_label_12;
+    QLabel *image_label_11;
     QLabel *image_label_13;
+    QLabel *label_range;
+    QLabel *label_5;
+    QLabel *label;
+    QSlider *slider_fov;
+    QLabel *label_fov;
+    QSlider *slider_range;
+    QLabel *label_speed;
+    QLabel *label_speed_2;
+    QLabel *label_fovSpeed;
     QGroupBox *groupBox_setup;
     QGridLayout *gridLayout_7;
     QGroupBox *groupBox_13;
@@ -153,7 +155,6 @@ public:
     QGroupBox *groupBox_12;
     QGridLayout *gridLayout_11;
     QPushButton *bt_video_test_2;
-    QPushButton *bt_video_thermal_3;
     QPushButton *bt_stab_2;
     QcGaugeWidget *view_azi;
     QGroupBox *groupBox_angle_limit;
@@ -410,6 +411,52 @@ public:
 
         gridLayout->addWidget(groupBox_4, 0, 0, 3, 1);
 
+        frame_2 = new QFrame(frame_7);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
+        gridLayout_3 = new QGridLayout(frame_2);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        image_label_8 = new QLabel(frame_2);
+        image_label_8->setObjectName(QStringLiteral("image_label_8"));
+        image_label_8->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_8, 0, 1, 1, 1);
+
+        image_label_10 = new QLabel(frame_2);
+        image_label_10->setObjectName(QStringLiteral("image_label_10"));
+        image_label_10->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_10, 1, 1, 1, 1);
+
+        image_label_9 = new QLabel(frame_2);
+        image_label_9->setObjectName(QStringLiteral("image_label_9"));
+        image_label_9->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_9, 1, 2, 1, 1);
+
+        image_label_12 = new QLabel(frame_2);
+        image_label_12->setObjectName(QStringLiteral("image_label_12"));
+        image_label_12->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_12, 2, 1, 1, 1);
+
+        image_label_11 = new QLabel(frame_2);
+        image_label_11->setObjectName(QStringLiteral("image_label_11"));
+        image_label_11->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_11, 0, 2, 1, 1);
+
+        image_label_13 = new QLabel(frame_2);
+        image_label_13->setObjectName(QStringLiteral("image_label_13"));
+        image_label_13->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_13, 2, 2, 1, 1);
+
+
+        gridLayout->addWidget(frame_2, 0, 5, 3, 1);
+
         label_range = new QLabel(frame_7);
         label_range->setObjectName(QStringLiteral("label_range"));
         QFont font1;
@@ -423,6 +470,12 @@ public:
         label_5->setFont(font);
 
         gridLayout->addWidget(label_5, 2, 1, 1, 1);
+
+        label = new QLabel(frame_7);
+        label->setObjectName(QStringLiteral("label"));
+        label->setFont(font);
+
+        gridLayout->addWidget(label, 1, 1, 1, 1);
 
         slider_fov = new QSlider(frame_7);
         slider_fov->setObjectName(QStringLiteral("slider_fov"));
@@ -449,22 +502,6 @@ public:
 
         gridLayout->addWidget(label_fov, 2, 2, 1, 1);
 
-        label = new QLabel(frame_7);
-        label->setObjectName(QStringLiteral("label"));
-        label->setFont(font);
-
-        gridLayout->addWidget(label, 1, 1, 1, 1);
-
-        label_speed = new QLabel(frame_7);
-        label_speed->setObjectName(QStringLiteral("label_speed"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(label_speed->sizePolicy().hasHeightForWidth());
-        label_speed->setSizePolicy(sizePolicy2);
-
-        gridLayout->addWidget(label_speed, 0, 3, 1, 2);
-
         slider_range = new QSlider(frame_7);
         slider_range->setObjectName(QStringLiteral("slider_range"));
         sizePolicy1.setHeightForWidth(slider_range->sizePolicy().hasHeightForWidth());
@@ -481,55 +518,33 @@ public:
 
         gridLayout->addWidget(slider_range, 1, 3, 1, 2);
 
-        frame_2 = new QFrame(frame_7);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
-        gridLayout_3 = new QGridLayout(frame_2);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        image_label_8 = new QLabel(frame_2);
-        image_label_8->setObjectName(QStringLiteral("image_label_8"));
-        image_label_8->setFrameShape(QFrame::Panel);
+        label_speed = new QLabel(frame_7);
+        label_speed->setObjectName(QStringLiteral("label_speed"));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(label_speed->sizePolicy().hasHeightForWidth());
+        label_speed->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_8, 0, 0, 1, 1);
+        gridLayout->addWidget(label_speed, 0, 3, 1, 1);
 
-        image_label_9 = new QLabel(frame_2);
-        image_label_9->setObjectName(QStringLiteral("image_label_9"));
-        image_label_9->setFrameShape(QFrame::Panel);
+        label_speed_2 = new QLabel(frame_7);
+        label_speed_2->setObjectName(QStringLiteral("label_speed_2"));
+        sizePolicy2.setHeightForWidth(label_speed_2->sizePolicy().hasHeightForWidth());
+        label_speed_2->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_9, 1, 1, 1, 1);
+        gridLayout->addWidget(label_speed_2, 0, 1, 1, 1);
 
-        image_label_10 = new QLabel(frame_2);
-        image_label_10->setObjectName(QStringLiteral("image_label_10"));
-        image_label_10->setFrameShape(QFrame::Panel);
+        label_fovSpeed = new QLabel(frame_7);
+        label_fovSpeed->setObjectName(QStringLiteral("label_fovSpeed"));
+        sizePolicy2.setHeightForWidth(label_fovSpeed->sizePolicy().hasHeightForWidth());
+        label_fovSpeed->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_10, 1, 0, 1, 1);
-
-        image_label_11 = new QLabel(frame_2);
-        image_label_11->setObjectName(QStringLiteral("image_label_11"));
-        image_label_11->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_11, 0, 1, 1, 1);
-
-        image_label_12 = new QLabel(frame_2);
-        image_label_12->setObjectName(QStringLiteral("image_label_12"));
-        image_label_12->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_12, 2, 0, 1, 1);
-
-        image_label_13 = new QLabel(frame_2);
-        image_label_13->setObjectName(QStringLiteral("image_label_13"));
-        image_label_13->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_13, 2, 1, 1, 1);
-
-
-        gridLayout->addWidget(frame_2, 0, 5, 3, 1);
+        gridLayout->addWidget(label_fovSpeed, 3, 3, 1, 1);
 
         groupBox_setup = new QGroupBox(centralwidget);
         groupBox_setup->setObjectName(QStringLiteral("groupBox_setup"));
-        groupBox_setup->setGeometry(QRect(330, 280, 721, 631));
+        groupBox_setup->setGeometry(QRect(270, 100, 721, 631));
         groupBox_setup->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
         gridLayout_7 = new QGridLayout(groupBox_setup);
         gridLayout_7->setSpacing(6);
@@ -895,7 +910,7 @@ public:
 
         groupBox_12 = new QGroupBox(centralwidget);
         groupBox_12->setObjectName(QStringLiteral("groupBox_12"));
-        groupBox_12->setGeometry(QRect(1020, 10, 121, 121));
+        groupBox_12->setGeometry(QRect(1030, 10, 111, 111));
         groupBox_12->setStyleSheet(QStringLiteral("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
         gridLayout_11 = new QGridLayout(groupBox_12);
         gridLayout_11->setSpacing(6);
@@ -910,21 +925,13 @@ public:
 
         gridLayout_11->addWidget(bt_video_test_2, 1, 0, 1, 1);
 
-        bt_video_thermal_3 = new QPushButton(groupBox_12);
-        bt_video_thermal_3->setObjectName(QStringLiteral("bt_video_thermal_3"));
-        bt_video_thermal_3->setStyleSheet(QStringLiteral("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
-        bt_video_thermal_3->setCheckable(true);
-        bt_video_thermal_3->setAutoExclusive(true);
-
-        gridLayout_11->addWidget(bt_video_thermal_3, 2, 0, 1, 1);
-
         bt_stab_2 = new QPushButton(groupBox_12);
         bt_stab_2->setObjectName(QStringLiteral("bt_stab_2"));
         bt_stab_2->setStyleSheet(QStringLiteral("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
         bt_stab_2->setCheckable(true);
         bt_stab_2->setAutoExclusive(true);
 
-        gridLayout_11->addWidget(bt_stab_2, 3, 0, 1, 1);
+        gridLayout_11->addWidget(bt_stab_2, 2, 0, 1, 1);
 
         view_azi = new QcGaugeWidget(centralwidget);
         view_azi->setObjectName(QStringLiteral("view_azi"));
@@ -1113,17 +1120,19 @@ public:
         connectButton->setText(QApplication::translate("MainWindow", "N\341\273\221i PLC", Q_NULLPTR));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Th\303\264ng b\303\241o", Q_NULLPTR));
         pushButton_clear_msg->setText(QApplication::translate("MainWindow", "Clear", Q_NULLPTR));
+        image_label_8->setText(QApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 b\341\272\257n:", Q_NULLPTR));
+        image_label_10->setText(QApplication::translate("MainWindow", "\304\220\341\272\241n:", Q_NULLPTR));
+        image_label_9->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        image_label_12->setText(QApplication::translate("MainWindow", "S\341\272\265n s\303\240ng:", Q_NULLPTR));
+        image_label_11->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        image_label_13->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_range->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_5->setText(QApplication::translate("MainWindow", "FOV(\304\221\341\273\231):", Q_NULLPTR));
-        label_fov->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "C\341\273\261 ly(m):", Q_NULLPTR));
+        label_fov->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_speed->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
-        image_label_8->setText(QApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 b\341\272\257n:", Q_NULLPTR));
-        image_label_9->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
-        image_label_10->setText(QApplication::translate("MainWindow", "\304\220\341\272\241n:", Q_NULLPTR));
-        image_label_11->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
-        image_label_12->setText(QApplication::translate("MainWindow", "S\341\272\265n s\303\240ng:", Q_NULLPTR));
-        image_label_13->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        label_speed_2->setText(QApplication::translate("MainWindow", "T\341\273\221c \304\221\341\273\231 t\303\240u (h\341\272\243i l\303\275/h):", Q_NULLPTR));
+        label_fovSpeed->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
         groupBox_setup->setTitle(QApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", Q_NULLPTR));
         groupBox_13->setTitle(QApplication::translate("MainWindow", "\304\220\341\273\231ng c\306\241", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 qu\303\241n t\303\255nh:", Q_NULLPTR));
@@ -1132,37 +1141,37 @@ public:
         textEdit_gearh->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">200</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">200</p></body></html>", Q_NULLPTR));
         textEdit_gearv->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">500</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">500</p></body></html>", Q_NULLPTR));
         textEdit_pprh->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">500</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">500</p></body></html>", Q_NULLPTR));
         textEdit_pprv->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">500</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">500</p></body></html>", Q_NULLPTR));
         bt_save_setting_2->setText(QApplication::translate("MainWindow", "L\306\260u", Q_NULLPTR));
         bt_send_pid_2->setText(QApplication::translate("MainWindow", "L\306\260u", Q_NULLPTR));
         textEdit_acc->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0.1</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0.1</p></body></html>", Q_NULLPTR));
         groupBox_6->setTitle(QApplication::translate("MainWindow", "\304\220\306\260\341\273\235ng \304\221\341\272\241n:", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 ch\341\273\211nh \304\221\341\273\231 cao \304\221\306\260\341\273\235ng \304\221\341\272\241n:", Q_NULLPTR));
         textEdit_ballistic_k->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">1</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1</p></body></html>", Q_NULLPTR));
         bt_save_setting->setText(QApplication::translate("MainWindow", "L\306\260u", Q_NULLPTR));
         groupBox_7->setTitle(QApplication::translate("MainWindow", "\304\220i\341\273\201u khi\341\273\203n", Q_NULLPTR));
         bt_control_1_pulse->setText(QApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 1 xung", Q_NULLPTR));
@@ -1172,34 +1181,34 @@ public:
         textEdit_dv->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>", Q_NULLPTR));
         textEdit_ph->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">1</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1</p></body></html>", Q_NULLPTR));
         textEdit_ih->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0.06</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0.06</p></body></html>", Q_NULLPTR));
         textEdit_dh->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>", Q_NULLPTR));
         textEdit_iv->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0.06</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0.06</p></body></html>", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "H\306\260\341\273\233ng:", Q_NULLPTR));
         textEdit_pv->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">1</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1</p></body></html>", Q_NULLPTR));
         bt_send_pid->setText(QApplication::translate("MainWindow", "L\306\260u", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 P:", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 I:", Q_NULLPTR));
@@ -1209,20 +1218,20 @@ public:
         textEdit_p_track->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">1</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1</p></body></html>", Q_NULLPTR));
         textEdit_d_track->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>", Q_NULLPTR));
         label_13->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 I:", Q_NULLPTR));
         label_12->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 P:", Q_NULLPTR));
         textEdit_i_track->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8.25pt;\">0.06</span></p></body></html>", Q_NULLPTR));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0.06</p></body></html>", Q_NULLPTR));
         bt_send_pid_track->setText(QApplication::translate("MainWindow", "L\306\260u", Q_NULLPTR));
         groupBox_9->setTitle(QApplication::translate("MainWindow", "FPS:", Q_NULLPTR));
         label_video_fps->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
@@ -1243,7 +1252,6 @@ public:
         label_video_fps_14->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         groupBox_12->setTitle(QApplication::translate("MainWindow", "T\304\220 c\303\242n b\341\272\261ng;", Q_NULLPTR));
         bt_video_test_2->setText(QApplication::translate("MainWindow", "T\341\272\257t STAB", Q_NULLPTR));
-        bt_video_thermal_3->setText(QApplication::translate("MainWindow", "B\341\272\255t STAB", Q_NULLPTR));
         bt_stab_2->setText(QApplication::translate("MainWindow", "Stab 2", Q_NULLPTR));
         groupBox_angle_limit->setTitle(QApplication::translate("MainWindow", "Gi\341\273\233i h\341\272\241n g\303\263c:", Q_NULLPTR));
         radioButton_leftlimit->setText(QString());

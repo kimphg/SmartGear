@@ -28,6 +28,8 @@ OVERLAPPED osReader = { 0 };
 double trackx=0,trackxi=0,trackxo=0;
 double tracky=0,trackyi=0,trackyo=0;
 double trackHratio = 1;
+double h_correction = 0;
+float shipSpeed = 0;
 int oldSwData=0;
 int oldAziint = -999999;
 int realAziint = 0;
@@ -39,6 +41,7 @@ static double h_speed_control = 0;
 static double v_speed_control = 0;
 static int key_ad = 0;
 static int key_ws = 0;
+static float viewFov = 60;
 //static double mControl.fov = 60;
 static QRect vRect = QRect(140,20,1000,800);
 static QRect plotRect = QRect(140,20,TRACK_MEM_SIZE,100);
@@ -79,6 +82,13 @@ double ballistic_calc_fall_angle(double range)
     double time = ballistic_calc_time(range);
     double fall = 0.5*9.8*time*time;
     double angle = atan(fall/range);
+    return angle;
+}
+double ballistic_calc_future_azi(double range,double speed)
+{
+    double time = ballistic_calc_time(range);
+    double futureMeter = speed*time;
+    double angle = atan(futureMeter/range);
     return angle;
 }
 //bool load_matrices(string matricesdoc) { //load existing matrices
@@ -215,7 +225,7 @@ void MainWindow::reloadConfigParams()
     track_p =CConfig::getDouble("track_p",3);//=0,track_d=0;
     track_i =CConfig::getDouble("track_i",0.02);
     track_d =CConfig::getDouble("track_d",0);
-    trackHratio = CConfig::getDouble("track_d",0.6);
+    trackHratio = CConfig::getDouble("track_VScale",0.6);
     frame_process_W = CConfig::getDouble("frame_process_W",720);
     frame_process_H = CConfig::getDouble("frame_process_H",576);
     sight_x=frame_process_W/2.0+CConfig::getDouble("sightx",7);
@@ -223,7 +233,7 @@ void MainWindow::reloadConfigParams()
     trackSize = CConfig::getInt("trackSize",90);
     ballistic_k = CConfig::getDouble("ballistic_k",0.002);
     mControl.reloadConfig();
-    trackrect.x = sight_x-trackSize/2;
+    trackrect.x = (sight_x+h_correction)-trackSize/2;
     trackrect.y = sight_y-trackSize/1.25/2;
     trackrect.width = trackSize;
     trackrect.height = trackSize/1.25;
@@ -241,7 +251,11 @@ void MainWindow::updateInfo()
     frameCount = 0;
     // remove old targets
     unsigned long long timeNow = QDateTime::currentMSecsSinceEpoch();
-    repaint();
+    ui->label_speed->setText(QString::number(shipSpeed));
+    ui->label_fovSpeed->setText(QString::number(mControl.fov));
+    float aziCorection = ballistic_calc_future_azi(sight_range,shipSpeed*0.514444);
+    h_correction = aziCorection/PI*180.0/viewFov*frame.cols;
+//    repaint();
 //    for(int i = 0;i<vTargetList.size();i++)
 //    {
 //        if(vTargetList[i].active)
@@ -305,65 +319,65 @@ void MainWindow::processKeyBoardEvent(int key)
             //        unsigned char *packet = mControl.outputPelco(0,100);
             //        socket->writeDatagram((char*)packet,7,QHostAddress("192.168.0.204"),4001);
         }
-        if(trackpoint_x<sight_x-100)trackpoint_x = sight_x-100;
-        if(trackpoint_x>sight_x+100)trackpoint_x = sight_x+100;
+        if(trackpoint_x<(sight_x+h_correction)-100)trackpoint_x = (sight_x+h_correction)-100;
+        if(trackpoint_x>(sight_x+h_correction)+100)trackpoint_x = (sight_x+h_correction)+100;
         if(trackpoint_y<sight_y-100)trackpoint_y = sight_y-100;
         if(trackpoint_y>sight_y+100)trackpoint_y = sight_y+100;
     }
-    if(key == Qt::Key_L)// start tracking at selected target
-    {
+//    if(key == Qt::Key_L)// start tracking at selected target
+//    {
 
-        if(trackermode == 0)
-        {
-            if(selectVTargetIndex>=0&&selectVTargetIndex<vTargetList.size())
-            {
-                if(vTargetList[selectVTargetIndex].active)
-                {
-                    int trackW = vTargetList[selectVTargetIndex].w*frame_process_W;
-                    int trackH = vTargetList[selectVTargetIndex].h*frame_process_H;
-                    float area = (trackW*trackW+trackH*trackH);
-                    if(area>trackSize*trackSize)
-                    {
-                        float reduceRat = sqrt(area/(trackSize*trackSize));
-                        trackW*=reduceRat;
-                        trackH*=reduceRat;
-                    }
-                    if(trackW>trackSize)trackW=trackSize;
-                    if(trackH>trackSize)trackH=trackSize;
-                    trackrect.x = frame.cols*vTargetList[selectVTargetIndex].ctx -trackW/2;
-                    trackrect.y = frame.rows*vTargetList[selectVTargetIndex].cty -trackH/2;//-vTargetList[selectVTargetIndex].h*0.4);
-                    trackrect.width = trackW;//frame.cols*vTargetList[selectVTargetIndex].w*0.8;
-                    trackrect.height = trackH;//frame.rows*vTargetList[selectVTargetIndex].h*0.8;
-                    if(kcf_tracker.Init(frame,trackrect))ui->textBrowser_msg->append("target too big");;
-                    trackermode = 1;
-                    trackpoint_x=sight_x;
-                    trackpoint_y=sight_y;
+//        if(trackermode == 0)
+//        {
+//            if(selectVTargetIndex>=0&&selectVTargetIndex<vTargetList.size())
+//            {
+//                if(vTargetList[selectVTargetIndex].active)
+//                {
+//                    int trackW = vTargetList[selectVTargetIndex].w*frame_process_W;
+//                    int trackH = vTargetList[selectVTargetIndex].h*frame_process_H;
+//                    float area = (trackW*trackW+trackH*trackH);
+//                    if(area>trackSize*trackSize)
+//                    {
+//                        float reduceRat = sqrt(area/(trackSize*trackSize));
+//                        trackW*=reduceRat;
+//                        trackH*=reduceRat;
+//                    }
+//                    if(trackW>trackSize)trackW=trackSize;
+//                    if(trackH>trackSize)trackH=trackSize;
+//                    trackrect.x = frame.cols*vTargetList[selectVTargetIndex].ctx -trackW/2;
+//                    trackrect.y = frame.rows*vTargetList[selectVTargetIndex].cty -trackH/2;//-vTargetList[selectVTargetIndex].h*0.4);
+//                    trackrect.width = trackW;//frame.cols*vTargetList[selectVTargetIndex].w*0.8;
+//                    trackrect.height = trackH;//frame.rows*vTargetList[selectVTargetIndex].h*0.8;
+//                    if(kcf_tracker.Init(frame,trackrect))ui->textBrowser_msg->append("target too big");;
+//                    trackermode = 1;
+//                    trackpoint_x=sight_x;
+//                    trackpoint_y=sight_y;
 
-                }
-            }
+//                }
+//            }
 
-        }
-        else trackerShutdown();
-    }
-    else if(key == Qt::Key_S){ //change target
-        if(trackermode)trackerShutdown();
-        selectVTargetIndex++;
-        if(selectVTargetIndex>=vTargetList.size())
-        {
-            selectVTargetIndex=-1;
-            return;
-        }
-        while(vTargetList[selectVTargetIndex].active==false)
-        {
-            selectVTargetIndex++;
-            if(selectVTargetIndex>=vTargetList.size())
-            { selectVTargetIndex=-1;break;}
-        }
+//        }
+//        else trackerShutdown();
+//    }
+//    else if(key == Qt::Key_S){ //change target
+//        if(trackermode)trackerShutdown();
+//        selectVTargetIndex++;
+//        if(selectVTargetIndex>=vTargetList.size())
+//        {
+//            selectVTargetIndex=-1;
+//            return;
+//        }
+//        while(vTargetList[selectVTargetIndex].active==false)
+//        {
+//            selectVTargetIndex++;
+//            if(selectVTargetIndex>=vTargetList.size())
+//            { selectVTargetIndex=-1;break;}
+//        }
 
 
 
-    }
-    else if(key == Qt::Key_T){//start tracking
+//    }
+    if(key == Qt::Key_T){//start tracking
 
         if((!frame.empty())&&trackermode == 0)
         {
@@ -375,7 +389,7 @@ void MainWindow::processKeyBoardEvent(int key)
             kcf_tracker.setLearning_rate(CConfig::getDouble("track_learn_rate",0.025));
             trackermode = 1;
             showMessage("Bắt đầu bám");
-            trackpoint_x=sight_x;
+            trackpoint_x=(sight_x);
             trackpoint_y=sight_y;
 
         }
@@ -411,17 +425,26 @@ void MainWindow::processKeyBoardEvent(int key)
     else if(key==Qt::Key_End)
     {
 
-        on_bt_control_file_3_pressed();
+        if(abs(shipSpeed)>=5)shipSpeed-=1;
+        else if(abs(shipSpeed)>=10)shipSpeed-=2;
+        else shipSpeed-=0.5;
+
+        if(shipSpeed<-20)shipSpeed=-20;
     }
     else if(key==Qt::Key_Home)
     {
 
-        on_bt_control_file_2_pressed();
+//        on_bt_control_file_2_pressed();
+
+        if(abs(shipSpeed)>=5)shipSpeed+=1;
+        else if(abs(shipSpeed)>=10)shipSpeed+=2;
+        else shipSpeed+=0.5;
+
+        if(shipSpeed>20)shipSpeed=20;
     }
     else if(key==Qt::Key_Delete)
     {
         on_bt_tracksizeup_2_clicked();
-        //        on_bt_control_file_5_pressed();
     }
     else if(key==Qt::Key_Insert)
     {
@@ -451,16 +474,12 @@ void MainWindow::processKeyBoardEvent(int key)
         float newfov = mControl.fov/2;
         if(newfov<2)newfov=2;
         mControl.setFOV(newfov);//fov wide
-        ui->slider_fov->setValue(int(newfov*10.0));
-        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
     else if(key==Qt::Key_L)
     {
         float newfov = mControl.fov*2;
-        if(newfov>70)newfov=70;
+        if(newfov>100)newfov=100;
         mControl.setFOV(newfov);//fov wide
-        ui->slider_fov->setValue(int(newfov*10.0));
-        ui->label_fov->setText(QString::number(newfov,'f',1));
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -605,12 +624,12 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
-        double fallVideo = fallAngle/PI*180.0/mControl.fov*frame.rows;
+        double fallVideo = fallAngle/PI*180.0/viewFov*frame.rows;
         cv::line(frame, cv::Point(posx-size/3,  posy+fallVideo),     cv::Point(posx+size/3,  posy+fallVideo  )  , color,1);//  #crosshair horizontal
 
     }
     double fallAngle = ballistic_calc_fall_angle(sight_range);//sight_range);
-    double fallVideo = fallAngle/PI*180.0/mControl.fov*frame.rows;
+    double fallVideo = fallAngle/PI*180.0/viewFov*frame.rows;
     cv::line(frame, cv::Point(posx-size/3,  posy+fallVideo),     cv::Point(posx+size/3,  posy+fallVideo  )  , cv::Scalar(255, 0, 0),1);//  #crosshair horizontal
 }
 void MainWindow::draw_trackpoint(QPainter* p,int  posx, int posy)
@@ -644,7 +663,7 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
     for(int range=100;range<1500;range+=100)
     {
         double fallAngle = ballistic_calc_fall_angle(range);//sight_range);
-        double fallVideo = fallAngle/PI*180.0/mControl.fov*vRect.height();
+        double fallVideo = fallAngle/PI*180.0/viewFov*vRect.height();
         size = 10;//vRect.height()/mControl.fov/range*1000;
         if(size>vRect.width()/1.5)size  = vRect.width()/1.5;
         //        p->setPen(pen2);
@@ -659,7 +678,7 @@ void MainWindow::draw_sight_paint(QPainter* p,int  posx, int posy)
 
     }
     double fallAngle = ballistic_calc_fall_angle(sight_range);//sight_range);
-    double fallInPixels = fallAngle/PI*180.0/mControl.fov*vRect.height();
+    double fallInPixels = fallAngle/PI*180.0/viewFov*vRect.height();
     fallVideo = fallInPixels*frame_process_H/vRect.height();
     pen2.setWidth(2);
     p->setPen(pen2);
@@ -759,8 +778,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
         }
     }
-    draw_trackpoint(&p,vRect.x()+trackpoint_x*vRect.width()/frame_process_W,vRect.y()+trackpoint_y*vRect.height()/frame_process_H);
-    draw_sight_paint(&p,vRect.x()+sight_x*vRect.width()/frame_process_W,vRect.y()+sight_y*vRect.height()/frame_process_H);
+    draw_trackpoint(&p,vRect.x()+(trackpoint_x+h_correction)*vRect.width()/frame_process_W,vRect.y()+trackpoint_y*vRect.height()/frame_process_H);
+    draw_sight_paint(&p,vRect.x()+(sight_x+h_correction)*vRect.width()/frame_process_W,vRect.y()+sight_y*vRect.height()/frame_process_H);
 
     if(mControl.joystickMode==1)
     {
@@ -910,7 +929,7 @@ void MainWindow::timer30ms()
         //(singleTrackTarget.x+singleTrackTarget.width/2)
 
         trackxo = trackx;
-        trackx = (singleTrackTarget.x+singleTrackTarget.width/2.0-trackpoint_x)/frame_process_W;
+        trackx = (singleTrackTarget.x+singleTrackTarget.width/2.0-trackpoint_x-h_correction)/frame_process_W;
         if(abs(trackx)<0.1)trackxi += trackx;
         //        if(trackxi>frame_process_W/2)trackxi = frame_process_W/2;
         //        if(trackxi<-frame_process_W/2)trackxi = -frame_process_W/2;
@@ -976,8 +995,8 @@ void MainWindow::timer30ms()
             {
                 trackpoint_x+=h_speed_control/30;
                 trackpoint_y-=v_speed_control/30;
-                if(trackpoint_x<sight_x-150)trackpoint_x = sight_x-150;
-                if(trackpoint_x>sight_x+150)trackpoint_x = sight_x+150;
+                if(trackpoint_x<(sight_x+h_correction)-150)trackpoint_x = (sight_x+h_correction)-150;
+                if(trackpoint_x>(sight_x+h_correction)+150)trackpoint_x = (sight_x+h_correction)+150;
                 if(trackpoint_y<sight_y-150)trackpoint_y = sight_y-150;
                 if(trackpoint_y>sight_y+150)trackpoint_y = sight_y+150;
 
@@ -1082,8 +1101,8 @@ void MainWindow::processDatagramLaser(QByteArray data)
             double fov = CConfig::getDouble("1xFOV",57.8)/value;
             ui->slider_fov->setValue(int(fov*10.0));
             ui->label_fov->setText(QString::number(fov,'f',1));
-            mControl.fov = fov;
-            mControl.setFOV(mControl.fov);
+            viewFov = fov;
+            mControl.setFOV(viewFov);
         }
         else
         {
@@ -1528,8 +1547,8 @@ void MainWindow::on_slider_fov_sliderReleased()
 {
     int value = ui->slider_fov->value();
     ui->label_fov->setText(QString::number(value/10.0,'f',1));
-    mControl.fov = value/10.0;
-    mControl.setFOV(mControl.fov);
+    viewFov = value/10.0;
+    mControl.setFOV(viewFov);
 }
 
 void MainWindow::on_bt_video_test_2_clicked(bool checked)
@@ -1754,7 +1773,7 @@ void MainWindow::on_bt_tracksizeup_clicked()
 {
     if(trackSize<90)trackSize+=10;
     CConfig::setValue("trackSize",trackSize);
-    trackrect.x = sight_x-trackSize/2;
+    trackrect.x = (sight_x+h_correction)-trackSize/2;
     trackrect.y = sight_y-trackSize/1.25/2;
     trackrect.width = trackSize;
     trackrect.height = trackSize/1.25;
@@ -1764,7 +1783,7 @@ void MainWindow::on_bt_tracksizeup_2_clicked()
 {
     if(trackSize>30)trackSize-=10;
     CConfig::setValue("trackSize",trackSize);
-    trackrect.x = sight_x-trackSize/2;
+    trackrect.x = (sight_x+h_correction)-trackSize/2;
     trackrect.y = sight_y-trackSize/1.25/2;
     trackrect.width = trackSize;
     trackrect.height = trackSize/1.25;

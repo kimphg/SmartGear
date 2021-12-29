@@ -69,21 +69,23 @@ public:
     QGridLayout *gridLayout_5;
     QTextBrowser *textBrowser_msg;
     QPushButton *pushButton_clear_msg;
-    QLabel *label_range;
-    QLabel *label_5;
-    QSlider *slider_fov;
-    QLabel *label_fov;
-    QLabel *label;
-    QLabel *label_speed;
-    QSlider *slider_range;
     QFrame *frame_2;
     QGridLayout *gridLayout_3;
     QLabel *image_label_8;
-    QLabel *image_label_9;
     QLabel *image_label_10;
-    QLabel *image_label_11;
+    QLabel *image_label_9;
     QLabel *image_label_12;
+    QLabel *image_label_11;
     QLabel *image_label_13;
+    QLabel *label_range;
+    QLabel *label_5;
+    QLabel *label;
+    QSlider *slider_fov;
+    QLabel *label_fov;
+    QSlider *slider_range;
+    QLabel *label_speed;
+    QLabel *label_speed_2;
+    QLabel *label_fovSpeed;
     QGroupBox *groupBox_setup;
     QGridLayout *gridLayout_7;
     QGroupBox *groupBox_13;
@@ -409,6 +411,52 @@ public:
 
         gridLayout->addWidget(groupBox_4, 0, 0, 3, 1);
 
+        frame_2 = new QFrame(frame_7);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
+        gridLayout_3 = new QGridLayout(frame_2);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        image_label_8 = new QLabel(frame_2);
+        image_label_8->setObjectName(QStringLiteral("image_label_8"));
+        image_label_8->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_8, 0, 1, 1, 1);
+
+        image_label_10 = new QLabel(frame_2);
+        image_label_10->setObjectName(QStringLiteral("image_label_10"));
+        image_label_10->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_10, 1, 1, 1, 1);
+
+        image_label_9 = new QLabel(frame_2);
+        image_label_9->setObjectName(QStringLiteral("image_label_9"));
+        image_label_9->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_9, 1, 2, 1, 1);
+
+        image_label_12 = new QLabel(frame_2);
+        image_label_12->setObjectName(QStringLiteral("image_label_12"));
+        image_label_12->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_12, 2, 1, 1, 1);
+
+        image_label_11 = new QLabel(frame_2);
+        image_label_11->setObjectName(QStringLiteral("image_label_11"));
+        image_label_11->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_11, 0, 2, 1, 1);
+
+        image_label_13 = new QLabel(frame_2);
+        image_label_13->setObjectName(QStringLiteral("image_label_13"));
+        image_label_13->setFrameShape(QFrame::Panel);
+
+        gridLayout_3->addWidget(image_label_13, 2, 2, 1, 1);
+
+
+        gridLayout->addWidget(frame_2, 0, 5, 3, 1);
+
         label_range = new QLabel(frame_7);
         label_range->setObjectName(QStringLiteral("label_range"));
         QFont font1;
@@ -422,6 +470,12 @@ public:
         label_5->setFont(font);
 
         gridLayout->addWidget(label_5, 2, 1, 1, 1);
+
+        label = new QLabel(frame_7);
+        label->setObjectName(QStringLiteral("label"));
+        label->setFont(font);
+
+        gridLayout->addWidget(label, 1, 1, 1, 1);
 
         slider_fov = new QSlider(frame_7);
         slider_fov->setObjectName(QStringLiteral("slider_fov"));
@@ -448,22 +502,6 @@ public:
 
         gridLayout->addWidget(label_fov, 2, 2, 1, 1);
 
-        label = new QLabel(frame_7);
-        label->setObjectName(QStringLiteral("label"));
-        label->setFont(font);
-
-        gridLayout->addWidget(label, 1, 1, 1, 1);
-
-        label_speed = new QLabel(frame_7);
-        label_speed->setObjectName(QStringLiteral("label_speed"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(label_speed->sizePolicy().hasHeightForWidth());
-        label_speed->setSizePolicy(sizePolicy2);
-
-        gridLayout->addWidget(label_speed, 0, 3, 1, 2);
-
         slider_range = new QSlider(frame_7);
         slider_range->setObjectName(QStringLiteral("slider_range"));
         sizePolicy1.setHeightForWidth(slider_range->sizePolicy().hasHeightForWidth());
@@ -480,55 +518,33 @@ public:
 
         gridLayout->addWidget(slider_range, 1, 3, 1, 2);
 
-        frame_2 = new QFrame(frame_7);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
-        gridLayout_3 = new QGridLayout(frame_2);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        image_label_8 = new QLabel(frame_2);
-        image_label_8->setObjectName(QStringLiteral("image_label_8"));
-        image_label_8->setFrameShape(QFrame::Panel);
+        label_speed = new QLabel(frame_7);
+        label_speed->setObjectName(QStringLiteral("label_speed"));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(label_speed->sizePolicy().hasHeightForWidth());
+        label_speed->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_8, 0, 0, 1, 1);
+        gridLayout->addWidget(label_speed, 0, 3, 1, 1);
 
-        image_label_9 = new QLabel(frame_2);
-        image_label_9->setObjectName(QStringLiteral("image_label_9"));
-        image_label_9->setFrameShape(QFrame::Panel);
+        label_speed_2 = new QLabel(frame_7);
+        label_speed_2->setObjectName(QStringLiteral("label_speed_2"));
+        sizePolicy2.setHeightForWidth(label_speed_2->sizePolicy().hasHeightForWidth());
+        label_speed_2->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_9, 1, 1, 1, 1);
+        gridLayout->addWidget(label_speed_2, 0, 1, 1, 1);
 
-        image_label_10 = new QLabel(frame_2);
-        image_label_10->setObjectName(QStringLiteral("image_label_10"));
-        image_label_10->setFrameShape(QFrame::Panel);
+        label_fovSpeed = new QLabel(frame_7);
+        label_fovSpeed->setObjectName(QStringLiteral("label_fovSpeed"));
+        sizePolicy2.setHeightForWidth(label_fovSpeed->sizePolicy().hasHeightForWidth());
+        label_fovSpeed->setSizePolicy(sizePolicy2);
 
-        gridLayout_3->addWidget(image_label_10, 1, 0, 1, 1);
-
-        image_label_11 = new QLabel(frame_2);
-        image_label_11->setObjectName(QStringLiteral("image_label_11"));
-        image_label_11->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_11, 0, 1, 1, 1);
-
-        image_label_12 = new QLabel(frame_2);
-        image_label_12->setObjectName(QStringLiteral("image_label_12"));
-        image_label_12->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_12, 2, 0, 1, 1);
-
-        image_label_13 = new QLabel(frame_2);
-        image_label_13->setObjectName(QStringLiteral("image_label_13"));
-        image_label_13->setFrameShape(QFrame::Panel);
-
-        gridLayout_3->addWidget(image_label_13, 2, 1, 1, 1);
-
-
-        gridLayout->addWidget(frame_2, 0, 5, 3, 1);
+        gridLayout->addWidget(label_fovSpeed, 3, 3, 1, 1);
 
         groupBox_setup = new QGroupBox(centralwidget);
         groupBox_setup->setObjectName(QStringLiteral("groupBox_setup"));
-        groupBox_setup->setGeometry(QRect(330, 280, 721, 631));
+        groupBox_setup->setGeometry(QRect(270, 100, 721, 631));
         groupBox_setup->setStyleSheet(QStringLiteral("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
         gridLayout_7 = new QGridLayout(groupBox_setup);
         gridLayout_7->setSpacing(6);
@@ -1104,17 +1120,19 @@ public:
         connectButton->setText(QApplication::translate("MainWindow", "N\341\273\221i PLC", Q_NULLPTR));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Th\303\264ng b\303\241o", Q_NULLPTR));
         pushButton_clear_msg->setText(QApplication::translate("MainWindow", "Clear", Q_NULLPTR));
+        image_label_8->setText(QApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 b\341\272\257n:", Q_NULLPTR));
+        image_label_10->setText(QApplication::translate("MainWindow", "\304\220\341\272\241n:", Q_NULLPTR));
+        image_label_9->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        image_label_12->setText(QApplication::translate("MainWindow", "S\341\272\265n s\303\240ng:", Q_NULLPTR));
+        image_label_11->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        image_label_13->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_range->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_5->setText(QApplication::translate("MainWindow", "FOV(\304\221\341\273\231):", Q_NULLPTR));
-        label_fov->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "C\341\273\261 ly(m):", Q_NULLPTR));
+        label_fov->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
         label_speed->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
-        image_label_8->setText(QApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 b\341\272\257n:", Q_NULLPTR));
-        image_label_9->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
-        image_label_10->setText(QApplication::translate("MainWindow", "\304\220\341\272\241n:", Q_NULLPTR));
-        image_label_11->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
-        image_label_12->setText(QApplication::translate("MainWindow", "S\341\272\265n s\303\240ng:", Q_NULLPTR));
-        image_label_13->setText(QApplication::translate("MainWindow", "--", Q_NULLPTR));
+        label_speed_2->setText(QApplication::translate("MainWindow", "T\341\273\221c \304\221\341\273\231 t\303\240u (h\341\272\243i l\303\275/h):", Q_NULLPTR));
+        label_fovSpeed->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
         groupBox_setup->setTitle(QApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", Q_NULLPTR));
         groupBox_13->setTitle(QApplication::translate("MainWindow", "\304\220\341\273\231ng c\306\241", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "H\341\273\207 s\341\273\221 qu\303\241n t\303\255nh:", Q_NULLPTR));

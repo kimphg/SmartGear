@@ -329,9 +329,9 @@ void c_gimbal_control::setplc(int addr, int value,int plci)
     if(plci==0){
         if(addr<16)plcout[addr] = value;
         QModbusDataUnit writeUnit(QModbusDataUnit::Coils,0,32);
-        for(int i = 16;i<32;i++)
+        for(int i = 0;i<16;i++)
         {
-            writeUnit.setValue(i,plcout[i-16]);
+            writeUnit.setValue(i,plcout[i]);
         }
 
         modbusDeviceCam->sendWriteRequest(writeUnit,2);
