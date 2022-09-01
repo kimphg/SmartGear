@@ -13,7 +13,7 @@ int buzz = 0;
 int idleCount = 0;
 void stateReport()
 {
-	gimbal.reportStat(idleCount / 1000);
+	gimbal.reportStat( idleCount / 1000 );
 	if (idleCount<1000000)
 		reportDebug("CPU overload", idleCount / 1000.0);
 	idleCount = 0;
@@ -51,7 +51,7 @@ void setup() {
 	gimbal.initGimbal();
 	S_STIM.begin(460800);
 	Serial.begin(115200);
-	Serial1.begin(230400);
+	S_MT.begin(230400);
 	//    S_CONTROL.begin(38400);
 	E_CONTROL.begin(19200);
 	pinMode(13, OUTPUT);

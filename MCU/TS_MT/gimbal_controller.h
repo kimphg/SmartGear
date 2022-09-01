@@ -552,8 +552,8 @@ void CGimbalController::readSensorData()//200 microseconds
         lastStimByteTime = timeMicros;
     }
 #ifdef GY_89  
-    while (Serial1.available() > 0) {
-        unsigned char databyte = Serial1.read();
+    while (S_MT.available() > 0) {
+        unsigned char databyte = S_MT.read();
         if(databyte == 0x7f)
         {
             if(lastbyteGyro == 0x7f)
@@ -605,8 +605,8 @@ void CGimbalController::readSensorData()//200 microseconds
 
     }
 #else
-    while (Serial1.available() > 0) {//FA FF 36 0F 80 40 0C 3B 8B BC 00 BB E2 4F 00 3B 4E 4A 00 AF
-        unsigned char databyte = Serial1.read();
+    while (S_MT.available() > 0) {//FA FF 36 0F 80 40 0C 3B 8B BC 00 BB E2 4F 00 3B 4E 4A 00 AF
+        unsigned char databyte = S_MT.read();
         if(databyte == 0xff)
         {
           if(lastbyteGyro == 0xfa)
