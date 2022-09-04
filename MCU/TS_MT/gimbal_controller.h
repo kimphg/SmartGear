@@ -36,7 +36,7 @@ unsigned long u32wait;
 uint8_t u8state = 0; //!< machine state
 uint8_t u8query = 0; //!< pointer to message query
 double max_stab_spd = 90;
-float gyroX;
+float gyroX=0,gyroY=0;
 //void modbusSetup()
 //{
 //    // telegram 0: read registers
@@ -453,20 +453,30 @@ void CGimbalController::UserUpdate()//
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
     {
         //h control calculation
-        h_control = h_user_speed*0.25  + stim_data.y_rate;
-        hinteg += h_control*CONTROL_TIME_STAMP;
-        double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
-        h_control_old = h_control;
-        outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
-        //end h control calculation
+//        h_control = h_user_speed*0.25  + stim_data.y_rate;
+//        hinteg += h_control*CONTROL_TIME_STAMP;
+//        double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
+//        h_control_old = h_control;
+//        outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
+//        //end h control calculation
+
+         h_control = 0 - gyroY*param_h_p - stim_data.y_rate*param_h_d;
+        userAzi += h_user_speed*CONTROL_TIME_STAMP/12.0;
+        double h_control_i = (userAzi+stim_data.y_angle )*param_h_i * 60 ;
+
+        outputSpeedH(h_control + h_control_i );
+
+        
         //v control calculation         
         v_control = 0 - gyroX*param_v_p + stim_data.z_rate*param_v_d;
         userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
         double v_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
 
         outputSpeedV(v_control + v_control_i );
-        
 
+        Serial.print(gyroY);
+        Serial.print(' ');
+        Serial.println(gyroX);
     }
     //    modbusLoop();
 
@@ -627,7 +637,7 @@ void CGimbalController::readSensorData()//200 microseconds
             }
           gyroByteIndex++;
         }
-        if(gyroMsgLen==20)
+        if(gyroMsgLen==20)//gyro 2 - rate of turn hr 500
         {
           if(gyroByteIndex==(gyroMsgLen+4))
           {
@@ -640,13 +650,13 @@ void CGimbalController::readSensorData()//200 microseconds
             if(databyte==cs)//check sum ok
             {
               float vs = bytesToFloat(rawgyro[19],rawgyro[20],rawgyro[21],rawgyro[22]);
-
+              gyroX=vs;
               Serial.println(vs*1000.0);
               }
             
           }
         }
-        if(gyroMsgLen==15)
+        if(gyroMsgLen==15)//con quay 3 packetcounter, acc 100, temp 1, rateofturn 500
         {
           if(gyroByteIndex==(gyroMsgLen+4))
           {
@@ -659,7 +669,7 @@ void CGimbalController::readSensorData()//200 microseconds
             if(databyte==cs)//check sum ok
             {
               float vs = bytesToFloat(rawgyro[6],rawgyro[7],rawgyro[8],rawgyro[9]);
-              
+              gyroY=vs;
               Serial.println(vs*1000.0);
               }
             

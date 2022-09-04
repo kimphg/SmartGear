@@ -51,7 +51,7 @@ void setup() {
 	gimbal.initGimbal();
 	S_STIM.begin(460800);
 	Serial.begin(115200);
-	S_MT.begin(230400);
+	S_MT.begin(460800);
 	//    S_CONTROL.begin(38400);
 	E_CONTROL.begin(19200);
 	pinMode(13, OUTPUT);
