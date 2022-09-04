@@ -396,6 +396,7 @@ int h_user = 0;
 int v_user = 0;
 void CGimbalController::UserUpdate()//
 {
+  mStabMode=2;//todo:remove later
     
     if(userAlive>0)
     {
@@ -452,31 +453,32 @@ void CGimbalController::UserUpdate()//
     }
     else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
     {
-        //h control calculation
-//        h_control = h_user_speed*0.25  + stim_data.y_rate;
-//        hinteg += h_control*CONTROL_TIME_STAMP;
-//        double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
-//        h_control_old = h_control;
-//        outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
-//        //end h control calculation
+        //h control c0alculation
+       // h_control = 0 - gyroY*param_h_p + h_user_speed*0.25  + stim_data.y_rate;
+        //hinteg += h_control*CONTROL_TIME_STAMP;
+        //double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
+        //h_control_old = h_control;
+        //outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
+        //end h control calculation
 
-         h_control = 0 - gyroY*param_h_p - stim_data.y_rate*param_h_d;
+
+
+
+        h_control = 0 - gyroY*param_h_p + stim_data.y_rate*param_v_d;
         userAzi += h_user_speed*CONTROL_TIME_STAMP/12.0;
-        double h_control_i = (userAzi+stim_data.y_angle )*param_h_i * 60 ;
+        double h_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
 
         outputSpeedH(h_control + h_control_i );
-
-        
         //v control calculation         
         v_control = 0 - gyroX*param_v_p + stim_data.z_rate*param_v_d;
         userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
         double v_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
 
         outputSpeedV(v_control + v_control_i );
-
-        Serial.print(gyroY);
+        Serial.print(gyroX);
         Serial.print(' ');
-        Serial.println(gyroX);
+        Serial.println(gyroY);
+
     }
     //    modbusLoop();
 
@@ -650,8 +652,8 @@ void CGimbalController::readSensorData()//200 microseconds
             if(databyte==cs)//check sum ok
             {
               float vs = bytesToFloat(rawgyro[19],rawgyro[20],rawgyro[21],rawgyro[22]);
-              gyroX=vs;
-              Serial.println(vs*1000.0);
+              gyroX = vs;
+              //if(vs<6)Serial.println(vs*1000.0);
               }
             
           }
@@ -668,9 +670,9 @@ void CGimbalController::readSensorData()//200 microseconds
             cs = 256-(cs&0xff);
             if(databyte==cs)//check sum ok
             {
-              float vs = bytesToFloat(rawgyro[6],rawgyro[7],rawgyro[8],rawgyro[9]);
-              gyroY=vs;
-              Serial.println(vs*1000.0);
+              float vs = bytesToFloat(rawgyro[14],rawgyro[15],rawgyro[16],rawgyro[17]);
+              gyroY = vs;
+              //if(vs<6)Serial.println(vs*1000.0);
               }
             
           }

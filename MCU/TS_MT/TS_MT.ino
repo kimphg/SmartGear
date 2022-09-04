@@ -52,6 +52,18 @@ void setup() {
 	S_STIM.begin(460800);
 	Serial.begin(115200);
 	S_MT.begin(460800);
+ delay(200);
+ S_MT.write(0xFA);//FF1000F1
+ S_MT.write(0xFF);
+ S_MT.write(0x10);
+ S_MT.write(0x00);
+ S_MT.write(0xF1);
+// delay(20);
+// S_MT.write(0xFA);//FF1000F1
+// S_MT.write(0xFF);
+// S_MT.write(0x10);
+// S_MT.write(0x00);
+// S_MT.write(0xF1);
 	//    S_CONTROL.begin(38400);
 	E_CONTROL.begin(19200);
 	pinMode(13, OUTPUT);
