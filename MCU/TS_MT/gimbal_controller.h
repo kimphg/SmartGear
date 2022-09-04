@@ -6,10 +6,10 @@
 #define CTRL_DATA_BUF_LEN 50
 #define CONTROL_DELAY_FILTER
 #define MOTOR_PULSE_CLOCK 1000000
-#define PD1 16
-#define PS1 17
-#define PD2 18
-#define PS2 19
+#define PD1 23
+#define PS1 22
+#define PD2 21
+#define PS2 20
 #define CT1 5
 
 #define CT2 4
@@ -94,7 +94,7 @@ private:
     int    control_oldID;
     int    stimCount;
     unsigned long lastStimByteTime;
-    int    pulseMode ;
+    int    pulseMode =1;
     float  fov;
     int    mGyroCount;
     float  param_h_p ,param_v_p;
@@ -236,11 +236,11 @@ void CGimbalController::initGimbal()
     v_abs_pos=0;
     userAlive = 1;
     param_h_p =1.2;
-    param_h_i =0.0;
-    param_h_d =0.0;
+    param_h_i =0.5;
+    param_h_d =0.1;
     param_v_p =1.2;
-    param_v_i =0.0;
-    param_v_d =0.0;
+    param_v_i =0.5;
+    param_v_d =0.1;
     pinMode(CT1,INPUT);
     pinMode(CT2,INPUT);
     pinMode(CT3,INPUT);
@@ -320,17 +320,6 @@ void CGimbalController::motorUpdate()
         if(h_pulse_clock_counter>h_freq_devider)
         {
             h_pulse_clock_counter=0;
-
-            //            if(hPulseBuff>0)
-            //            {
-            //                hPulseBuff--;
-            ////                h_abs_pos++;
-            //            }
-            //            else
-            //            {
-            //                hPulseBuff++;
-            ////                h_abs_pos--;
-            //            }
             if(pulseMode==1)
             {
                 ps1=!ps1;
@@ -338,16 +327,16 @@ void CGimbalController::motorUpdate()
             }
             else if(pulseMode==2)
             {
-                //                if(hPulseBuff<0){
-                //                    if(hPulseBuff%2)digitalWriteFast(PS1,HIGH);
-                //                    else digitalWriteFast(PS1,LOW);
-                //                    digitalWriteFast(PD1,HIGH);
-                //                }
-                //                else{
-                //                    if(hPulseBuff%2)digitalWriteFast(PD1,HIGH);
-                //                    else digitalWriteFast(PD1,LOW);
-                //                    digitalWriteFast(PS1,HIGH);
-                //                }
+                                if(hPulseBuff<0){
+                                    if(int(hPulseBuff)%2)digitalWriteFast(PS1,HIGH);
+                                    else digitalWriteFast(PS1,LOW);
+                                    digitalWriteFast(PD1,HIGH);
+                                }
+                                else{
+                                    if(int(hPulseBuff)%2)digitalWriteFast(PD1,HIGH);
+                                    else digitalWriteFast(PD1,LOW);
+                                    digitalWriteFast(PS1,HIGH);
+                                }
             }
 
         }
@@ -358,16 +347,6 @@ void CGimbalController::motorUpdate()
         if(v_pulse_clock_counter>v_freq_devider)
         {
             v_pulse_clock_counter=0;
-            //            if(vPulseBuff>0)
-            //            {
-            //                vPulseBuff-=1;
-            ////                v_abs_pos++;
-            //            }
-            //            else
-            //            {
-            //                vPulseBuff+=1;
-            ////                v_abs_pos--;
-            //            }
 
             if(pulseMode==1)
             {
@@ -464,20 +443,27 @@ void CGimbalController::UserUpdate()//
 
 
 
-        h_control = 0 - gyroY*param_h_p + stim_data.y_rate*param_v_d;
+        h_control = 0 - gyroY*param_h_p + stim_data.y_rate*param_h_d;
         userAzi += h_user_speed*CONTROL_TIME_STAMP/12.0;
-        double h_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
+        double h_control_i = 0;//(userAzi+stim_data.y_angle )*param_h_i * 60 ;
 
         outputSpeedH(h_control + h_control_i );
         //v control calculation         
         v_control = 0 - gyroX*param_v_p + stim_data.z_rate*param_v_d;
         userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
-        double v_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
+        double v_control_i = 0;//(userEle+stim_data.z_angle )*param_v_i * 60 ;
 
         outputSpeedV(v_control + v_control_i );
+        Serial.print(h_control + h_control_i );
+        Serial.print(' ');
+        Serial.print(v_control + v_control_i );
+        Serial.print(' ');
+        Serial.print(gyroY);
+        Serial.print(' ');
         Serial.print(gyroX);
         Serial.print(' ');
-        Serial.println(gyroY);
+        Serial.println(stimCount);
+        
 
     }
     //    modbusLoop();
