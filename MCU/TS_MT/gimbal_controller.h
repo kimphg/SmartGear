@@ -37,6 +37,7 @@ uint8_t u8state = 0; //!< machine state
 uint8_t u8query = 0; //!< pointer to message query
 double max_stab_spd = 90;
 float gyroX=0,gyroY=0;
+int gyroXok = 0,gyroYok=0;
 //void modbusSetup()
 //{
 //    // telegram 0: read registers
@@ -375,7 +376,6 @@ int h_user = 0;
 int v_user = 0;
 void CGimbalController::UserUpdate()//
 {
-  mStabMode=2;//todo:remove later
     
     if(userAlive>0)
     {
@@ -397,72 +397,37 @@ void CGimbalController::UserUpdate()//
         outputSpeedH(h_user_speed);
         // vertical control value
         outputSpeedV(v_user_speed);
-    }
-    else if (mStabMode==1)
-    {
-        //h control calculation
-//        h_control = h_user_speed + stim_data.z_rate;// +userAngleh;
-//        double h_control_dif = h_control-h_control_old;//
-//        h_control_old = h_control;
-//        if(interupt>0){
-//            h_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
-//        }
-////        sumEh+=abs(h_control);
-//        
-//        hinteg += h_control ;
-//        if(hinteg>5)hinteg=5;
-//        if(hinteg<-5)hinteg=-5;
-//        //v control calculation
-//        //userAnglev+=v_user_speed*CONTROL_TIME_STAMP;
-//        v_control = v_user_speed - stim_data.y_rate;
-//        //       userEle += v_user_speed/.
-//        double v_control_dif = v_control-v_control_old;
-//        v_control_old = v_control;
-//        if(interupt>0){
-//            v_control*=(STAB_TRANSFER_TIME-interupt)/STAB_TRANSFER_TIME;
-//        }
-////        sumEv+=abs(v_control);
-//        vinteg += v_control ;
-//        if(vinteg>5)vinteg=5;
-//        if(vinteg<-5)vinteg=-5;
-//        outputSpeedH(h_control *param_h_p+ h_control_dif*param_h_d+ hinteg*param_h_i);
-//
-//        outputSpeedV(v_control *param_v_p+ v_control_dif*param_v_d+ vinteg*param_v_i);
-
-    }
-    else if (mStabMode == 2)//closed loop for horizontal and openloop for vertical
-    {
-        //h control c0alculation
-       // h_control = 0 - gyroY*param_h_p + h_user_speed*0.25  + stim_data.y_rate;
-        //hinteg += h_control*CONTROL_TIME_STAMP;
-        //double h_control_dif = (h_control - h_control_old)/CONTROL_TIME_STAMP;//
-        //h_control_old = h_control;
-        //outputSpeedH(h_control*param_h_p*4 + hinteg*param_h_i*80 + h_control_dif*param_h_d);
-        //end h control calculation
-
-
-
-
-        h_control = 0 - gyroY*param_h_p + stim_data.y_rate*param_h_d;
-        userAzi += h_user_speed*CONTROL_TIME_STAMP/12.0;
-        double h_control_i = 0;//(userAzi+stim_data.y_angle )*param_h_i * 60 ;
-
-        outputSpeedH(h_control + h_control_i );
-        //v control calculation         
-        v_control = 0 - gyroX*param_v_p + stim_data.z_rate*param_v_d;
-        userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
-        double v_control_i = 0;//(userEle+stim_data.z_angle )*param_v_i * 60 ;
-
-        outputSpeedV(v_control + v_control_i );
-        Serial.print(h_control + h_control_i );
-        Serial.print(' ');
-        Serial.print(v_control + v_control_i );
-        Serial.print(' ');
+//        Serial.print(h_control + h_control_i );
+//        Serial.print(' ');
+//        Serial.print(v_control + v_control_i );
+//        Serial.print(' ');
+        
         Serial.print(gyroY);
         Serial.print(' ');
         Serial.print(gyroX);
         Serial.print(' ');
-        Serial.println(stimCount);
+        Serial.print(stim_data.z_rate);
+        Serial.print(' ');
+        Serial.println(stim_data.y_rate);
+    }
+    else if (mStabMode>=1)
+    {
+      if(gyroYok)  gyroYok=0;
+        else    gyroY=0;
+        h_control = 0 - gyroY*param_h_p + stim_data.y_rate*param_h_d;
+        userAzi += h_user_speed*CONTROL_TIME_STAMP/12.0;
+        double h_control_i = (userAzi+stim_data.y_angle )*param_h_i * 60 ;
+    
+        outputSpeedH(h_control + h_control_i );
+        //v control calculation    
+        if(gyroXok)  gyroXok=0;
+        else    gyroX=0;
+        v_control = 0 - gyroX*param_v_p + stim_data.z_rate*param_v_d;
+        userEle += v_user_speed*CONTROL_TIME_STAMP/12.0;
+        double v_control_i = (userEle+stim_data.z_angle )*param_v_i * 60 ;
+
+        outputSpeedV(v_control + v_control_i );
+        
         
 
     }
@@ -513,7 +478,10 @@ int gyroByteIndex = -1;
 int rawgyroX=0;
 double sumGyroX=0;
 int countGyroX=0;
-float biasGyroX = 0.25;
+float biasGyroX = 0.0;
+double sumGyroY=0;
+int countGyroY=0;
+float biasGyroY = 0.0;
 int gyroMsgLen = 0;
 unsigned char reverse(unsigned char b) {
    b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
@@ -638,8 +606,18 @@ void CGimbalController::readSensorData()//200 microseconds
             if(databyte==cs)//check sum ok
             {
               float vs = bytesToFloat(rawgyro[19],rawgyro[20],rawgyro[21],rawgyro[22]);
-              gyroX = vs;
-              //if(vs<6)Serial.println(vs*1000.0);
+              gyroX = vs*100.0;
+              sumGyroX+=gyroX;
+              countGyroX++;
+              gyroXok++;
+              if(countGyroX>=1000)
+                        {
+                            biasGyroX += 0.1*(sumGyroX/countGyroX-biasGyroX);
+                            countGyroX=0;
+                            sumGyroX = 0;
+                            reportDebug("acx ",biasGyroX);
+                        }
+                        gyroX-=biasGyroX;
               }
             
           }
@@ -657,8 +635,19 @@ void CGimbalController::readSensorData()//200 microseconds
             if(databyte==cs)//check sum ok
             {
               float vs = bytesToFloat(rawgyro[14],rawgyro[15],rawgyro[16],rawgyro[17]);
-              gyroY = vs;
-              //if(vs<6)Serial.println(vs*1000.0);
+              gyroY = vs*100.0;
+              sumGyroY+=gyroY;
+              countGyroY++;
+              gyroYok++;
+              if(countGyroY>=1000)
+                        {
+                            biasGyroY += 0.1*(sumGyroY/countGyroY-biasGyroY);
+                            countGyroY=0;
+                            sumGyroY = 0;
+                            reportDebug("acy ",biasGyroY);
+//                            Serial.println(biasGyroY);
+                        }
+                        gyroY-=biasGyroY;
               }
             
           }

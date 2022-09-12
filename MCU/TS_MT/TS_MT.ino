@@ -51,8 +51,16 @@ void setup() {
 	gimbal.initGimbal();
 	S_STIM.begin(460800);
 	Serial.begin(115200);
-	S_MT.begin(460800);
+	S_MT.begin(921600);
  delay(200);
+//0xFA 0xFF 0x18 0x01 BR CS
+//S_MT.write(0xFA);//FF1000F1
+// S_MT.write(0xFF);
+// S_MT.write(0x10);
+// S_MT.write(0x00);
+// S_MT.write(0xF1);
+
+ 
  S_MT.write(0xFA);//FF1000F1
  S_MT.write(0xFF);
  S_MT.write(0x10);
