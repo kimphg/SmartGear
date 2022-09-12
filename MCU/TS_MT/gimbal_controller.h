@@ -417,19 +417,21 @@ void CGimbalController::UserUpdate()//
   else if (mStabMode >= 1)
   {
 
-    h_control = 0 - gyroY * param_h_p + (stim_data.y_rate) * param_h_d;
+    h_control = 0 - gyroY * param_h_p + (stim_data.y_rate) * param_h_d+h_user_speed*0.25;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle ) * param_h_i * 60 ;
     outputSpeedH(h_control + h_control_i );
     //v control calculation    22
 
-    v_control = 0 - gyroX * param_v_p + (stim_data.z_rate) * param_v_d;
+    v_control = 0 - gyroX * param_v_p + (stim_data.z_rate) * param_v_d+v_user_speed*0.25;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
     double v_control_i = (userEle + stim_data.z_angle ) * param_v_i * 60 ;
 
     outputSpeedV(v_control + v_control_i );
 
-
+  Serial.print(v_control );
+    Serial.print(' ');
+    Serial.println(v_control_i );
 
   }
   //    modbusLoop();
