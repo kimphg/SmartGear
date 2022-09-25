@@ -11,7 +11,8 @@ byte mac[] = {
  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
 IPAddress ip(192, 168, 0, 7);
-
+char EthReply[200];        // a string to send back
+char EthReplyLen = 0;
 int com_mode;
 void reportDebug(const char* msg)
 {
@@ -19,6 +20,15 @@ void reportDebug(const char* msg)
 //  //S_CONTROL.println(msg);
 //  E_CONTROL.print("$MSG,");
 //  E_CONTROL.println(msg);
+
+  int i=0;
+  while(msg[i]!=0)
+  {
+    EthReply[i]=msg[i];
+    i++;
+  }
+  EthReplyLen = i;
+  
   Serial.print("$MSG,");
   Serial.println(msg);
 }

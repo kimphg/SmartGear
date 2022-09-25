@@ -1,11 +1,6 @@
 #include "common.h"
 #include "gimbal_controller.h"
 
-
-
-
-
-
 extern CGimbalController gimbal;
 //IntervalTimer  reportTimer;
 int             s1_count = 0;
@@ -19,8 +14,8 @@ int idleCount = 0;
 void stateReport()
 {
   gimbal.reportStat( idleCount / 1000 );
-  if (idleCount < 1000000)
-    reportDebug("CPU overload(%)", 100 - idleCount / 10000.0);
+  //if (idleCount < 1000000)
+  reportDebug("CPU overload(%)", 100 - idleCount / 10000.0);
   idleCount = 0;
   //	if ((com_mode == 3) && (!s3_count))
   //	{
@@ -45,14 +40,14 @@ void stateReport()
   s3_count = 0;
   s2_count = 0;
   msg_count = 0;
-//  Serial.println(100 - idleCount / 10000.0);
+  //  Serial.println(100 - idleCount / 10000.0);
   //    if(gimbal.getSensors())buzz=1000;
 }
 
 //eth
 unsigned int localPort = 4001;
 char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
-char ReplyBuffer[] = "acknowledged";        // a string to send back
+
 
 EthernetUDP Udp;//eth
 
@@ -138,8 +133,6 @@ void loop() {
 int freqreduce = 0;
 void readSerialdata()
 {
-
-
   //read stim data
   if (com_mode == 1)
     while (Serial.available() > 0) {
@@ -163,29 +156,37 @@ void readSerialdata()
   //	}
   //
   freqreduce++;
-  if (freqreduce > 10)
+  if (freqreduce > 5)
   {
     freqreduce = 0;
 
-    int packetSize = 0;// Udp.parsePacket();
+    int packetSize =  Udp.parsePacket();
     if (packetSize) {
 
       Serial.print("Received packet of size ");
       Serial.println(packetSize);
       Serial.print("From ");
       IPAddress remote = Udp.remoteIP();
-      for (int i = 0; i < 4; i++) {
-        Serial.print(remote[i], DEC);
-        if (i < 3) {
-          Serial.print(".");
-        }
+      //      for (int i = 0; i < 4; i++) {
+      //        Serial.print(remote[i], DEC);
+      //        if (i < 3) {
+      //          Serial.print(".");
+      //        }
+      //      }
+      Udp.read(packetBuffer, packetSize);
+      for (int i = 0; i < packetSize; i++)
+      {
+        Serial.print(packetBuffer[i]);
+      }
+      if(EthReplyLen)
+      {
+        EthReplyLen=0;
+        Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+        Udp.write(EthReply);
+        Udp.endPacket();
       }
     }
-    //    Udp.read(packetBuffer, packetSize);
-    //    for(int i=0;i<packetSize;i++)
-    //    {
-    //        readPelco(packetBuffer[i]);
-    //    }
+
 
   }
 
