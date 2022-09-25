@@ -148,8 +148,9 @@ void readSerialdata()
    
 	}
   
-//  int packetSize = Udp.parsePacket();
-//  if (packetSize) {
+  int packetSize = Udp.parsePacket();
+  if (packetSize) {
+  
 //    Serial.print("Received packet of size ");
 //    Serial.println(packetSize);
 //    Serial.print("From ");
@@ -160,7 +161,14 @@ void readSerialdata()
 //        Serial.print(".");
 //      }
 //    }
-//  }
+
+    udp.read(packetBuffer, packetSize);
+    for(int i=0;i<packetSize;i++)
+    {
+        readPelco(packetBuffer[i]);  
+    }
+    
+  }
     
     
 
