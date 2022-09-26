@@ -437,7 +437,7 @@ void CGimbalController::UserUpdate()//
 
     h_control = 0 - gyroY * param_h_p + (h_user_speed + stim_data.y_rate) * param_h_d;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
-    double h_control_i = (userAzi + stim_data.y_angle ) * param_h_i * 60 ;
+    double h_control_i = (userAzi + stim_data.y_angle /4.0) * param_h_i * 60 ;
     outputSpeedH(h_control + h_control_i );
     //v control calculation    22
 //  Serial.print(' ');
@@ -446,7 +446,7 @@ void CGimbalController::UserUpdate()//
 //  Serial.println(stim_data.y_rate);
     v_control = 0 - gyroX * param_v_p + (v_user_speed + stim_data.z_rate) * param_v_d;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    double v_control_i = (userEle + stim_data.z_angle ) * param_v_i * 60 ;
+    double v_control_i = (userEle + stim_data.z_angle /3.0) * param_v_i * 60 ;
 
     outputSpeedV(v_control + v_control_i );
 
