@@ -613,10 +613,10 @@ void MainWindow::draw_sight_cv( int  posx, int posy)
     int gap = int(size/4);
     cv::Scalar color(0, 255, 0);
     if(nightMode)color = cv::Scalar(255,255,255);
-    cv::line(frame, cv::Point(posx-size*3,  posy),     cv::Point(posx-gap,  posy  )  , color,0.5);//  #crosshair horizontal
-    cv::line(frame, cv::Point(posx+size*3,  posy),     cv::Point(posx+gap,  posy  )  , color,0.5);//  #crosshair horizontal
-    cv::line(frame, cv::Point(posx,       posy-size), cv::Point( posx,       posy-gap ), color,0.5);//  #crosshair vertical
-    cv::line(frame, cv::Point(posx,       posy+size*3), cv::Point( posx,       posy+gap ), color,0.5);//  #crosshair vertical
+    cv::line(frame, cv::Point(posx-size*3,  posy),     cv::Point(posx-gap,  posy  )  , color,1);//  #crosshair horizontal
+    cv::line(frame, cv::Point(posx+size*3,  posy),     cv::Point(posx+gap,  posy  )  , color,1);//  #crosshair horizontal
+    cv::line(frame, cv::Point(posx,       posy-size), cv::Point( posx,       posy-gap ), color,1);//  #crosshair vertical
+    cv::line(frame, cv::Point(posx,       posy+size*3), cv::Point( posx,       posy+gap ), color,1);//  #crosshair vertical
     //    cv::circle(frame, cv::Point(posx,posy), 0, color, 0.5,CV_AA);// #crosshair point center
     //    cv::circle(frame, cv::Point(posx,posy), size, color, 0.5,CV_AA);// #crosshair circle 1
     //    cv::circle(frame, cv::Point(posx,posy), size*2, color, 0.5,CV_AA);// #crosshair circle 2

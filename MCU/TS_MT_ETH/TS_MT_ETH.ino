@@ -11,10 +11,12 @@ int msg_count = 0;
 int generalState = 1;
 int buzz = 0;
 int idleCount = 0;
+IPAddress ipRemote1(192, 168, 0, 71);
+IPAddress ipRemote2(192, 168, 0, 73);
 void stateReport()
 {
   gimbal.reportStat( idleCount / 1000 );
-  //if (idleCount < 1000000)
+  if (idleCount < 1000000)
   reportDebug("CPU overload(%)", 100 - idleCount / 10000.0);
   idleCount = 0;
   //	if ((com_mode == 3) && (!s3_count))
@@ -133,59 +135,34 @@ void loop() {
 int freqreduce = 0;
 void readSerialdata()
 {
-  //read stim data
-  if (com_mode == 1)
-    while (Serial.available() > 0) {
-      //            digitalWrite(13, HIGH);
-      unsigned char databyte = Serial.read();
-      if (readPelco(databyte))s1_count++;
-    }
-  //    if(com_mode==2)
-  //        while (S_CONTROL.available() > 0) {
-  //            digitalWrite(13, HIGH);
-  //            unsigned char databyte = S_CONTROL.read();
-  //            if( readPelco(databyte))s2_count++;
-  //        }
-  //	if (com_mode == 3)
-  //	while (E_CONTROL.available() > 0) {
-  //
-  //		unsigned char databyte = E_CONTROL.read();
-  //		if (readPelco(databyte))s3_count++;
-  //
-  //
-  //	}
-  //
+ 
   freqreduce++;
   if (freqreduce > 5)
   {
     freqreduce = 0;
 
     int packetSize =  Udp.parsePacket();
+    if(packetSize>=23)packetSize=23;
     if (packetSize) {
-
-      Serial.print("Received packet of size ");
-      Serial.println(packetSize);
-      Serial.print("From ");
-      IPAddress remote = Udp.remoteIP();
-      //      for (int i = 0; i < 4; i++) {
-      //        Serial.print(remote[i], DEC);
-      //        if (i < 3) {
-      //          Serial.print(".");
-      //        }
-      //      }
       Udp.read(packetBuffer, packetSize);
       for (int i = 0; i < packetSize; i++)
       {
-        Serial.print(packetBuffer[i]);
+        readPelco(packetBuffer[i]);
       }
-      if(EthReplyLen)
-      {
-        EthReplyLen=0;
-        Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-        Udp.write(EthReply);
-        Udp.endPacket();
-      }
+      
     }
+    if(EthReplyLen>0)
+      {
+        if(EthReplyLen>100)EthReplyLen=100;
+        
+        Udp.beginPacket(ipRemote1, 4000);
+        Udp.write(EthReply,EthReplyLen);
+        Udp.endPacket();
+        Udp.beginPacket(ipRemote2, 4000);
+        Udp.write(EthReply,EthReplyLen);
+        Udp.endPacket();
+        EthReplyLen=0;
+      }
 
 
   }

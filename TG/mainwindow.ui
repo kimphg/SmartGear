@@ -406,7 +406,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)</string>
+     <string notr="true">background-color: rgb(64, 32, 128); color:rgb(255, 255, 255)</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -653,7 +653,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Tốc độ tàu (hải lý/h):</string>
+        <string>Tốc độ xe(km/h):</string>
        </property>
       </widget>
      </item>

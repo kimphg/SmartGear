@@ -46,10 +46,10 @@ int gyroByteIndexV = -1;
 int rawgyroX = 0;
 double sumGyroX = 0;
 int countGyroX = 0;
-float biasGyroX = 0.0;
+float biasGyroX = 0.1;
 double sumGyroY = 0;
 int countGyroY = 0;
-float biasGyroY = 0.3;
+float biasGyroY = 0.31;
 int gyroMsgLenH = 0;
 int gyroMsgLenV = 0;
 //void modbusSetup()
@@ -390,7 +390,7 @@ int h_user = 0;
 int v_user = 0;
 void CGimbalController::UserUpdate()//
 {
-  mStabMode = 2;
+//  mStabMode = 2;
 //  Serial.print(gyroY);
 //  Serial.print(' ');
 //  Serial.print(gyroX);
@@ -440,7 +440,10 @@ void CGimbalController::UserUpdate()//
     double h_control_i = (userAzi + stim_data.y_angle ) * param_h_i * 60 ;
     outputSpeedH(h_control + h_control_i );
     //v control calculation    22
-
+//  Serial.print(' ');
+//  Serial.print(stim_data.z_rate);
+//  Serial.print(' ');
+//  Serial.println(stim_data.y_rate);
     v_control = 0 - gyroX * param_v_p + (v_user_speed + stim_data.z_rate) * param_v_d;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
     double v_control_i = (userEle + stim_data.z_angle ) * param_v_i * 60 ;
@@ -565,8 +568,10 @@ void CGimbalController::readSensorData()//200 microseconds
         {
           float vs = bytesToFloat(rawgyroV[19], rawgyroV[20], rawgyroV[21], rawgyroV[22]);
           gyroX = vs * 100.0;
-          sumGyroX += gyroX;
-          countGyroX++;
+          if(abs(gyroX)<1){
+            sumGyroX += gyroX;
+            countGyroX++;
+          }
           gyroXok = 20;
           if (countGyroX >= 10000)
           {
@@ -619,8 +624,10 @@ void CGimbalController::readSensorData()//200 microseconds
         {
           float vs = bytesToFloat(rawgyroH[14], rawgyroH[15], rawgyroH[16], rawgyroH[17]);
           gyroY = vs * 100.0;
+          if(abs(gyroY)<1){
           sumGyroY += gyroY;
           countGyroY++;
+          }
           gyroYok = 20;
           if (countGyroY >= 10000)
           {

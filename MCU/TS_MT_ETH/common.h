@@ -11,7 +11,7 @@ byte mac[] = {
  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
 IPAddress ip(192, 168, 0, 7);
-char EthReply[200];        // a string to send back
+char EthReply[300];        // a string to send back
 char EthReplyLen = 0;
 int com_mode;
 void reportDebug(const char* msg)
@@ -21,13 +21,20 @@ void reportDebug(const char* msg)
 //  E_CONTROL.print("$MSG,");
 //  E_CONTROL.println(msg);
 
-  int i=0;
-  while(msg[i]!=0)
+  int i=5;
+  EthReply[0]='$';
+  EthReply[1]='M';
+  EthReply[2]='S';
+  EthReply[3]='G';
+  EthReply[4]=',';
+  while(msg[i-5]!=0)
   {
-    EthReply[i]=msg[i];
+    EthReply[i]=msg[i-5];
     i++;
   }
-  EthReplyLen = i;
+  EthReply[i]='\n';
+  EthReply[i+1]=0;
+  EthReplyLen = i+1;
   
   Serial.print("$MSG,");
   Serial.println(msg);
@@ -42,6 +49,23 @@ void reportDebug(const char* msg,float value)
   Serial.print(msg);
   Serial.print(":");
   Serial.println(value);
+   int i=5;
+  EthReply[0]='$';
+  EthReply[1]='M';
+  EthReply[2]='S';
+  EthReply[3]='G';
+  EthReply[4]=',';
+  while(msg[i-5]!=0)
+  {
+    EthReply[i]=msg[i-5];
+    i++;
+  }
+  EthReply[i]=':';
+    i++;
+  int num = sprintf(EthReply+i,"%f",value);
+  EthReply[i+num]='\n';
+  EthReply[i+num+1]=0;
+  EthReplyLen = i+num+1;
 }
 void reportDebug(int value,int value2)
 {
