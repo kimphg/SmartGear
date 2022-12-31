@@ -99,3 +99,7 @@ win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/v
 #win32:CONFIG(release, debug|release):LIBS += -L"C:/opencv/opencv2413/build/x64/vc12/lib/" -lopencv_videostab2413
 #win32:LIBS += ws2_32.lib
 RC_ICONS = icon.ico
+win32 {
+DESTDIR = $$PWD/bin
+QMAKE_POST_LINK =  "C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/bin/windeployqt.exe" $$shell_path($$DESTDIR/$${TARGET}.exe)
+}
