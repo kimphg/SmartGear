@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../c_gimbal_control.h"
+#include "../../TG/c_gimbal_control.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

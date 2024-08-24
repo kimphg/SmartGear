@@ -62,7 +62,10 @@ static cv::Rect singleTrackTarget;
 static cv::Rect trackrect;
 static cv::Rect singleTrackWindow;
 static KCF kcf_tracker("gaussian","hog");
-
+static QColor color1 = QColor(179,188,182);
+static QColor color2 = QColor(162,172,165);
+static QColor color3 = QColor(114,129,119);
+static QColor color4 = QColor(69,78,72);
 //arucoMarker markers;
 
 //aruco_handler handler;
@@ -120,7 +123,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    this->statusBar()->setStyleSheet("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)");
+    this->statusBar()->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
+//    this->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
     socket = new QUdpSocket(this);
     mControl.setSocket(socket);
     CConfig::readFile();
@@ -151,7 +155,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //    testFrame = imread("d:\\test.jpg", IMREAD_COLOR);
     updateTimer = new QTimer();
     connect(updateTimer, SIGNAL(timeout()), this, SLOT(updateData()));
-    updateTimer->start(10);
+    updateTimer->start(11);
 
     controlTimer = new QTimer();
     connect(controlTimer, SIGNAL(timeout()), this, SLOT(timer30ms()));
@@ -178,8 +182,8 @@ MainWindow::MainWindow(QWidget *parent) :
     CConfig::setValue("param_vp",4);
     CConfig::setValue("param_vi",5.85);
     CConfig::setValue("param_vd",1.25);
-    connect(this, SIGNAL(finished()), &mAverCap, SLOT(deleteLater));
-    mAverCap.start();
+//    connect(this, SIGNAL(finished()), &mAverCap, SLOT(deleteLater));
+//    mAverCap.start();
 }
 
 void MainWindow::usbInit()
@@ -428,7 +432,6 @@ void MainWindow::processKeyBoardEvent(int key)
         if(abs(shipSpeed)>=5)shipSpeed-=1;
         else if(abs(shipSpeed)>=10)shipSpeed-=2;
         else shipSpeed-=0.5;
-
         if(shipSpeed<-20)shipSpeed=-20;
     }
     else if(key==Qt::Key_Home)
@@ -501,7 +504,6 @@ void MainWindow::CaptureVideoCamera()
         if(!incomeFrame)
         {
             camAvailable = false;
-
         }
         if(frameOrg.cols>100&&frameOrg.rows>100)
         {
@@ -524,25 +526,25 @@ void MainWindow::CaptureVideoCamera()
 
         //        bool sucess = mAverCap.getFrame(&frameOrg);
 
-        if(mAverCap.bGetData) {
-            mAverCap.bGetData = false;
+//        if(mAverCap.bGetData) {
+//            mAverCap.bGetData = false;
 
-            if(mAverCap.output.cols>100&&mAverCap.output.rows>100)
-            {
-                if(nightMode)cv::cvtColor(mAverCap.output, frame, CV_BGR2GRAY);
-                else cv::cvtColor(mAverCap.output, frame, CV_BGR2RGB);
+//            if(mAverCap.output.cols>100&&mAverCap.output.rows>100)
+//            {
+//                if(nightMode)cv::cvtColor(mAverCap.output, frame, CV_BGR2GRAY);
+//                else cv::cvtColor(mAverCap.output, frame, CV_BGR2RGB);
 
-                if((frame.cols!=frame_process_W)||(frame.rows!=frame_process_H))
-                {
-                    cv::resize(frame,frame,cv::Size(frame_process_W,frame_process_H));
-                    //                mScaleX = double(frame_process_W)/frameOrg.cols;
-                    //                mScaleY = double(frame_process_H)/frameOrg.rows;
-                }
-                incomeFrame = true;
+//                if((frame.cols!=frame_process_W)||(frame.rows!=frame_process_H))
+//                {
+//                    cv::resize(frame,frame,cv::Size(frame_process_W,frame_process_H));
+//                    //                mScaleX = double(frame_process_W)/frameOrg.cols;
+//                    //                mScaleY = double(frame_process_H)/frameOrg.rows;
+//                }
+//                incomeFrame = true;
 
-            }
+//            }
 
-        }
+//        }
     }
 
     if(incomeFrame)
@@ -759,7 +761,7 @@ unsigned char header[2];
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
-    p.fillRect(this->rect(), QBrush(Qt::darkBlue, Qt::SolidPattern));
+    p.fillRect(this->rect(),color2);
     if(incomeFrame)
     {
         incomeFrame = false;

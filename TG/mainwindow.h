@@ -7,7 +7,7 @@
 #include <QDateTime>
 #include <QKeyEvent>
 #include <QFileDialog>
-#include "c_aver_capture.h"
+//#include "c_aver_capture.h"
 #include "c_gimbal_control.h"
 #include "opencv2/core/core.hpp"
 //#include "opencv2/objdetect.hpp"
@@ -37,7 +37,7 @@ public:
     QUdpSocket *socket;
     void sendFrameVideo();
     c_gimbal_control mControl;
-    c_aver_capture mAverCap;
+//    c_aver_capture mAverCap;
     void CaptureVideoCamera();
 public slots:
     void updateData();

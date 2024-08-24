@@ -932,9 +932,9 @@ public:
 
         view_azi = new QcGaugeWidget(centralwidget);
         view_azi->setObjectName(QString::fromUtf8("view_azi"));
-        view_azi->setGeometry(QRect(1090, 830, 180, 180));
+        view_azi->setGeometry(QRect(950, 610, 180, 180));
         view_azi->setAutoFillBackground(false);
-        view_azi->setStyleSheet(QString::fromUtf8("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
+        view_azi->setStyleSheet(QString::fromUtf8(""));
         groupBox_angle_limit = new QGroupBox(centralwidget);
         groupBox_angle_limit->setObjectName(QString::fromUtf8("groupBox_angle_limit"));
         groupBox_angle_limit->setGeometry(QRect(1150, 730, 121, 91));
