@@ -501,6 +501,9 @@ void MainWindow::CaptureVideoCamera()
     {
 
         incomeFrame = cap.read(frameOrg);//single capture image
+        Mat smoothedFrame;
+        smoothedFrame = stab.stabilize(incomeFrame , oldFrame);
+
         if(!incomeFrame)
         {
             camAvailable = false;
