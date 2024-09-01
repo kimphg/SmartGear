@@ -1,0 +1,430 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Copyright (c) AVerMedia TECHNOLOGIES, Inc.
+;;
+;;  Installation file for AVerMedia USB Polaris Series Capture Driver
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+Signature="$Chicago$"
+Class=Media
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%AVerMedia%
+CatalogFile=AVerPola.cat
+DriverVer=08/24/2017,10.2.64.116
+
+[SourceDisksNames]
+1=%DriverDescription%,,,
+
+[SourceDisksFiles]
+AVerPola.sys=1
+MerlinD.rom=1
+cxtvrate.dll=1
+cpnotify.ax=1
+
+[DestinationDirs]
+AVerPola.CopyFiles=12
+DSFilters.CopyFiles=11
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AVerMedia%=DeviceList,NTamd64,NTamd64.6
+
+; XP Model ---------------------------------------------------------------------
+[DeviceList.NTamd64]
+%DeviceDescriptionE039%=AVerCapturex64_E039,USB\VID_07CA&PID_E039&MI_01
+; XP Model ---------------------------------------------------------------------
+
+; Vista Model ---------------------------------------------------------------------
+[DeviceList.NTamd64.6]
+%DeviceDescriptionE039%=AVerCapturex64_Vista_E039,USB\VID_07CA&PID_E039&MI_01
+; Vista Model ---------------------------------------------------------------------
+
+; XP Model ---------------------------------------------------------------------
+[AVerCapturex64_E039.NT]
+CopyFiles=AVerPola.CopyFiles,DSFilters.CopyFiles
+AddReg=AVerPola.AddReg,PolarisVID.AddReg,CXDVBT.AddReg,EVK.AddReg,Capture.AddReg,AVerPID_E039.AddReg
+Include=ks.inf,kscaptur.inf,ksfilter.inf,bda.inf,wdmaudio.inf,dshowext.inf
+Needs=KS.Registration,KSCAPTUR.Registration.NT,WDMAUDIO.Registration,BDA.Registration,BDA.Installation.NT,MSPCLOCK.Installation.NT,DSHOWEXT.Registration.NT
+RegisterDlls=DSFilters.RegDLL
+
+; XP Model ---------------------------------------------------------------------
+
+; Vista Model ---------------------------------------------------------------------
+[AVerCapturex64_Vista_E039.NT]
+CopyFiles=AVerPola.CopyFiles,DSFilters.CopyFiles
+AddReg=AVerPola.AddReg,PolarisVID.AddReg,CXDVBT.AddReg,EVK.AddReg,Capture.AddReg,AVerPID_E039.AddReg
+Include=ks.inf,kscaptur.inf,ksfilter.inf,bda.inf,wdmaudio.inf,dshowext.inf
+Needs=KS.Registration,KSCAPTUR.Registration.NT,WDMAUDIO.Registration,BDA.Registration,BDA.Installation.NT,MSPCLOCK.Installation.NT,DSHOWEXT.Registration.NT
+RegisterDlls=DSFilters.RegDLL
+AddPowerSetting=AVerUSBPowerSettings
+
+[AVerUSBPowerSettings]
+SubGroup={7814c0f6-01dd-475d-a5d9-1b28b581feaf}, \
+         "AVer USB TV Device Power Settings", \
+         "Change the AVer Power Settings"
+
+Setting={8db7ed0c-af85-438f-a9fb-369bcfaebebc}, \
+        "Selective Suspend Setting", \
+         "Modify the Selective Suspend Behavior of the Driver"
+
+value=0,\
+      "Disable", \
+      "Disable Selective Suspend", \
+      0x00010001, \
+      100
+
+value=1,\
+      "Enable", \
+      "Enable Selective Suspend", \
+      0x00010001, \
+      200
+
+value=2,\
+      "Use System Setting", \
+      "Use System Setting", \
+      0x00010001, \
+      300
+
+;           Max Power Savings                    AC  Value
+Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 0, 2
+
+;           Max Power Savings                    DC  Value
+Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 1, 2
+
+;           No Power Savings                     AC  Value
+Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 0, 2
+
+;           No Power Savings                     DC  Value
+Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 1, 2
+
+;           Balanced Power Savings               AC  Value
+Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 0, 2
+
+;           Balanced Power Savings               AC  Value
+Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 1, 2
+; Vista Model ---------------------------------------------------------------------
+
+[AVerPola.CopyFiles]
+AVerPola.sys
+MerlinD.rom
+
+[DSFilters.CopyFiles]
+cxtvrate.dll
+cpnotify.ax
+
+[DSFilters.RegDLL]
+11,,cxtvrate.dll,1
+11,,cpnotify.ax,1
+
+[AVerPola.AddReg]
+; Sony format = 1, Philips format = 0
+
+; for Polaris testing, select HANC to transfer Audio
+HKR,"DriverData","EnableHANCAudioOut",0x00010001, 0x00, 0x00, 0x00, 0x00
+; ----GPIO Pin values -----
+; IMPORTANT !!! if any GPIO is not used - just delete the corresponding entry !!!
+; AGC_Analog_Digitial_Select_Gpio_Bit is controlled by GPIO 12
+HKR,"DriverData","EEPROM_WP_Gpio_Bit", 0x00010001, 0x00, 0x00, 0x00, 0x00
+HKR,"DriverData","N_Enable_Demod_3_3_Gpio_Bit", 0x00010001, 0x1D, 0x00, 0x00, 0x00
+HKR,"DriverData","Enable_Demod_1_2_Gpio_Bit", 0x00010001, 0x1E, 0x00, 0x00, 0x00
+HKR,"DriverData","Enable_Tuner_Gpio_Bit", 0x00010001, 0x1F, 0x00, 0x00, 0x00
+HKR,"DriverData","N_Enable_Analog_AGC_Gpio_Bit", 0x00010001, 0x14, 0x00, 0x00, 0x00
+HKR,"DriverData","N_Enable_Digital_AGC_Gpio_Bit", 0x00010001, 0x1C, 0x00, 0x00, 0x00
+HKR,"DriverData","N_GPIO_I2C_SCL_Bus0", 0x00010001, 0x18, 0x00, 0x00, 0x00
+HKR,"DriverData","N_GPIO_I2C_SDA_Bus0", 0x00010001, 0x1A, 0x00, 0x00, 0x00
+HKR,"DriverData","Brightness",        0x00010001, 0x80, 0x00, 0x00, 0x00
+HKR,"DriverData","Contrast",          0x00010001, 0x00, 0x01, 0x00, 0x00
+HKR,"DriverData","Hue",               0x00010001, 0x80, 0x00, 0x00, 0x00
+HKR,"DriverData","Saturation",        0x00010001, 0x00, 0x01, 0x00, 0x00
+HKR,"DriverData","Sharpness",         0x00010001, 0x80, 0x00, 0x00, 0x00
+
+;Line in input is the default audio
+HKR,"DriverData","AudioInputPin",0x00010001, 0x04,0x00,0x00,0x00
+HKR,"DriverData","ForceAudioWithVideoPin",0x00010001, 0x01,0x00,0x00,0x00
+
+[PolarisVID.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,AVerPola.sys
+HKR,,OkToHibernate,3,01
+; Disable driver page out
+HKR,,PageOutWhenUnopened,3,0
+;HKR,,PageOutWhenUnopened,3,01
+HKR,,DontSuspendIfStreamsAreRunning,3,01
+HKLM,%MediaCategories%\%PINNAME_ANALOG_AUDIO_IN%,Name,,%PinName.AnalogAudioIn%
+HKLM,%MediaCategories%\%PINNAME_ANALOG_AUDIO_OUT%,Name,,%PinName.AudioOut%
+
+HKLM,%MediaInterfaces%\{0A7AF963-6805-4f99-B284-29B680975542},,,"Copy Protect Notification Filter"
+HKLM,%MediaInterfaces%\{0A7AF963-6805-4f99-B284-29B680975542},IID,1,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+;Wave in audio device registration
+HKR,Drivers,SubClasses,,"wave"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv,Description,,%AnalogAudio%
+
+HKR,"DriverData","MVDetectEnable",0x00010001, 0x01, 0x00, 0x00, 0x00
+HKR,"DriverData","CGDetectEnable",0x00010001, 0x00, 0x00, 0x00, 0x00
+
+;Copy protection method enforced by driver
+HKR,"DriverData","CpMethod",0x00010001, 0x04, 0x00, 0x00, 0x00
+;Copy protection algorithm
+HKR,"DriverData","CpAlgorithm",0x00010001, 0x1E, 0x07, 0x84, 0x03
+
+
+
+; for creating unique serial number to Tuners on the board
+HKR,"DriverData","NoOfTuners",0x00010001, 0x01, 0x00, 0x00, 0x00
+;tuner category : 0 - Analog, 1 - Digital , 2 - Hybrid
+HKR,"DriverData","TunerCategory",0x00010001, 0x02, 0x00, 0x00, 0x00
+
+[CXDVBT.AddReg]
+HKLM,%MediaCategories%\%PINNAME_TS_OUT%,Display,1, 00,00,00,00
+HKLM,%MediaCategories%\%PINNAME_TS_OUT%,Name,,%PinName.MPEG2TransportOut%
+
+[EVK.AddReg]
+;DVT--0, EVK--1, FPGA--2
+HKR,"DriverData","BoardType",0x00010001, 0x01, 0x00, 0x00, 0x00
+
+;---Tuner registry values------
+
+;I2C speed: 0-1M,1-400K,2-100K,3-5M
+HKR,"DriverData","I2CSpeed",0x00010001, 0x1, 0x00, 0x00, 0x00
+
+;Support 2 TS: DVT board - 1, EVK board - 0
+HKR,"DriverData","enable_2TS",0x00010001, 0x00, 0x00, 0x00, 0x00
+
+;CX23102 FM noise threshold - 0x00001000
+HKR,"DriverData","FM_Noise_Thresh",0x00010001, 0x00, 0x10, 0x00, 0x00
+
+[Capture.AddReg]
+HKR,"DriverData","VideoStandard",0x00010001, 0x20,0x00,0x00,0x00
+;Composite input is the default
+HKR,"DriverData","VideoInputPin",0x00010001, 0x1,0x00,0x00,0x00
+
+HKR,"DriverData","EnableReportDetectedStandard",0x00010001, 0x01,0x00,0x00,0x00
+
+[AVerPID_E039.AddReg]
+HKR,"DriverData","CardConfig",        0x00010001, 0x00, 0x1a, 0x16, 0x80
+HKR,"DriverData","CryptoAT88Support", 0x00010001, 0x01, 0x00, 0x00, 0x00
+
+
+; XP Model ---------------------------------------------------------------------
+[AVerCapturex64_E039.NT.Services]
+AddService=AVerPola,0x00000002,AVerPola.ServiceInstall
+
+; XP Model ---------------------------------------------------------------------
+
+; Vista Model ---------------------------------------------------------------------
+[AVerCapturex64_Vista_E039.NT.Services]
+AddService=AVerPola,0x00000002,AVerPola.ServiceInstall
+
+; Vista Model ---------------------------------------------------------------------
+
+[AVerPola.ServiceInstall]
+DisplayName=%ServiceDescription%
+ServiceType=%SERVICE_KERNEL_DRIVER%
+StartType=%SERVICE_DEMAND_START%
+ErrorControl=%SERVICE_ERROR_NORMAL%
+ServiceBinary=%12%\AVerPola.sys
+LoadOrderGroup=ExtendedBase
+
+; XP Model ---------------------------------------------------------------------
+[AVerCapturex64_E039.NT.Interfaces]
+AddInterface=%KSCATEGORY_TVTUNER%,%AnalogTVTunerFilter%,AVerPola.AnalogTVTuner.Interface
+AddInterface=%KSCATEGORY_TVTUNER%,%AnalogTVTunerFilter%,AVerPola.AnalogTVTuner.InterfaceEx
+AddInterface=%KSCATEGORY_TVAUDIO%,%AnalogTVAudioFilter%,AVerPola.AnalogTVAudio.Interface
+AddInterface=%KSCATEGORY_CROSSBAR%,%AnalogCrossbarFilter%,AVerPola.AnalogCrossbar.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,%AnalogCaptureFilter%,AVerPola.AnalogCapture.Interface
+AddInterface=%KSCATEGORY_AUDIO%,%AnalogAudioFilter%,AVerPola.AnalogAudio.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalATSCTunerFilter%,AVerPola.DigitalTuner.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalATSCTunerFilter%,AVerPola.DigitalTuner.InterfaceEx
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalDVBTTunerFilter%,AVerPola.DigitalTuner.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalDVBTTunerFilter%,AVerPola.DigitalTuner.InterfaceEx
+AddInterface=%KSCATEGORY_BDA_RECEIVER_COMPONENT%,%DigitalCaptureFilter%,AVerPola.DigitalCapture.Interface
+
+; XP Model ---------------------------------------------------------------------
+
+; Vista Model ---------------------------------------------------------------------
+[AVerCapturex64_Vista_E039.NT.Interfaces]
+AddInterface=%KSCATEGORY_TVTUNER%,%AnalogTVTunerFilter%,AVerPola.AnalogTVTuner.Interface
+AddInterface=%KSCATEGORY_TVTUNER%,%AnalogTVTunerFilter%,AVerPola.AnalogTVTuner.InterfaceEx
+AddInterface=%KSCATEGORY_TVAUDIO%,%AnalogTVAudioFilter%,AVerPola.AnalogTVAudio.Interface
+AddInterface=%KSCATEGORY_CROSSBAR%,%AnalogCrossbarFilter%,AVerPola.AnalogCrossbar.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,%AnalogCaptureFilter%,AVerPola.AnalogCapture.Interface
+AddInterface=%KSCATEGORY_AUDIO%,%AnalogAudioFilter%,AVerPola.AnalogAudio.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalATSCTunerFilter%,AVerPola.DigitalTuner.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalATSCTunerFilter%,AVerPola.DigitalTuner.InterfaceEx
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalDVBTTunerFilter%,AVerPola.DigitalTuner.Interface
+AddInterface=%KSCATEGORY_BDA_NETWORK_TUNER%,%DigitalDVBTTunerFilter%,AVerPola.DigitalTuner.InterfaceEx
+AddInterface=%KSCATEGORY_BDA_RECEIVER_COMPONENT%,%DigitalCaptureFilter%,AVerPola.DigitalCapture.Interface
+
+; Vista Model ---------------------------------------------------------------------
+
+[AVerPola.AnalogTVTuner.Interface]
+AddReg=AVerPola.AnalogTVTuner.AddReg
+
+[AVerPola.AnalogTVTuner.InterfaceEx]
+AddReg=AVerPola.AnalogTVTuner.InterfaceEx.AddReg
+
+[AVerPola.AnalogTVAudio.Interface]
+AddReg=AVerPola.AnalogTVAudio.AddReg
+
+[AVerPola.AnalogCrossbar.Interface]
+AddReg=AVerPola.AnalogCrossbar.AddReg
+         
+[AVerPola.AnalogCapture.Interface]
+AddReg=AVerPola.AnalogCapture.AddReg
+
+[AVerPola.AnalogAudio.Interface]
+AddReg=AVerPola.AnalogAudio.AddReg
+
+[AVerPola.DigitalTuner.Interface]
+AddReg=AVerPola.DigitalTuner.AddReg
+
+[AVerPola.DigitalTuner.InterfaceEx]
+AddReg=AVerPola.DigitalTuner.InterfaceEx.AddReg
+
+[AVerPola.DigitalCapture.Interface]
+AddReg=AVerPola.DigitalCapture.AddReg
+
+[AVerPola.AnalogTVTuner.AddReg]
+HKR,,CLSID,,%ProxyAnalogTVTuner.CLSID%
+HKR,,FriendlyName,,%AnalogTVTuner%
+
+[AVerPola.AnalogTVTuner.InterfaceEx.AddReg]
+HKR,,CLSID,,%ProxyAnalogTVTuner.CLSID%
+HKR,,FriendlyName,,%AnalogTVTuner%
+HKR,,TunerInstanceID,0x00010001,10
+
+[AVerPola.AnalogTVAudio.AddReg]
+HKR,,CLSID,,%ProxyAnalogTVAudio.CLSID%
+HKR,,FriendlyName,,%AnalogTVAudio%
+
+[AVerPola.AnalogCrossbar.AddReg]
+HKR,,CLSID,,%ProxyAnalogCrossbar.CLSID%
+HKR,,FriendlyName,,%AnalogCrossbar%
+
+[AVerPola.AnalogCapture.AddReg]
+HKR,,CLSID,,%ProxyAnalogCapture.CLSID%
+HKR,,FriendlyName,,%AnalogCapture%
+HKR,,Description,,%DriverDescription%
+HKR,"EP\\0",%PKEY_AudioEndpoint_Association%,,%PINNAME_ANALOG_AUDIO_IN%
+HKR,"EP\\0",%PKEY_AudioDevice_NeverSetAsDefaultEndpoint%,0x00010001,0x00000305
+HKR,"EP\\0",%PKEY_AudioEngine_OEMFormat%,0x00000001, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0",%PKEY_AudioEndpoint_ControlPanelProvider%,,%AUDIOENDPOINT_EXT_UI_CLSID%
+
+[AVerPola.AnalogAudio.AddReg]
+HKR,,CLSID,,%ProxyAnalogAudio.CLSID%
+HKR,,FriendlyName,,%AnalogAudio%
+HKR,"EP\\0",%PKEY_AudioEndpoint_Association%,,%PINNAME_ANALOG_AUDIO_IN%
+HKR,"EP\\0",%PKEY_AudioDevice_NeverSetAsDefaultEndpoint%,0x00010001,NeverSetAsDefaultEndpointMaskValue
+
+[AVerPola.DigitalTuner.AddReg]
+HKR,,CLSID,,%ProxyDigitalCapture.CLSID%
+HKR,,FriendlyName,,%DigitalTuner%
+
+[AVerPola.DigitalTuner.InterfaceEx.AddReg]
+HKR,,CLSID,,%ProxyDigitalCapture.CLSID%
+HKR,,FriendlyName,,%DigitalTuner%
+HKR,,TunerInstanceID,0x00010001,10
+
+[AVerPola.DigitalCapture.AddReg]
+HKR,,CLSID,,%ProxyDigitalCapture.CLSID%
+HKR,,FriendlyName,,%DigitalCapture%
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,PowerOffDelayTime,0x00010001,0x00004E20
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,SSEnable,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EnableMontorThread,0x00010001,0x00000001
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,DisableCX23102Sleep,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EnableVideoStdAutoDetect,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,AF9033FreqOffset,0x00010001,0x000124F8
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,DisableAGCFixMode,0x00010001,0x00000001
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,VGAGain,0x00010001,0x00000006
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,DVBTIFLevel,0x00010001,0x00000002
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,ISDBTIFLevel,0x00010001,0x00000007
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EnableICVideoStdAutoDetect,0x00010001,0x00000001
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,ColibriSupBlkTune2,0x00010001,0x00000010
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,TSPacketCount,0x00010001,0x00000010
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,ATVPacketCount,0x00010001,0x00000020
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,ATVPacketCount2,0x00010001,0x00000020
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EnableACF,0x00010001,0x00000001
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,LastLockedBW,0x00010001,0x00000008
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,RWRegI2CDelay,0x00010001,0x00001388
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,SBTDTIFFreq,0x00010001,0x003DFF18
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,Path1Vol,0x00010001,0x000006A0
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,Path11Vol,0x00010001,0x000016C0
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,Path12Vol,0x00010001,0x00004700
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,Path2Vol,0x00010001,0x00000026
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,AVIDecompFilter,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,Win7MultiResolution,0x00010001,0x00000001
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,CancelPowerDown,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EliminateByDefault,0x00010001,0x00000000
+HKLM,System\CurrentControlSet\SERVICES\AVerCX23102BDA\Parameters\AVerPola,EliminateBlackEdge,0x00010001,0x00000000
+
+[Strings]
+AVerMedia="AVerMedia TECHNOLOGIES, Inc."
+
+DriverDescription="AVerMedia USB Polaris Series Capture Driver"
+
+DeviceDescriptionE039="AVerMedia C039 USB Capture Card"
+
+MediaCategories="System\CurrentControlSet\Control\MediaCategories"
+MediaInterfaces="System\CurrentControlSet\Control\MediaInterfaces"
+MediaSets="System\CurrentControlSet\Control\MediaSets"
+
+GUID.DriverVersion_Properties="{1979C7E7-FB3B-42ff-B070-0D8F49A1A42D}"
+GUID.POLARIS_VERSION_INFORMATION_PROPERTIES="{2038EEA5-AE84-4a00-B174-9673AB35F1DC}"
+
+PINNAME_ANALOG_AUDIO_IN="{3E2D189F-B15C-4447-96F1-BD1D64FB99BA}"
+PINNAME_ANALOG_AUDIO_OUT="{13FFFECC-3C46-4e52-8B07-4ED850E5FB49}"
+PINNAME_TS_OUT="{5237C937-0A21-4f7e-B338-DE0D0793D03F}"
+
+PinName.AnalogAudioIn="Analog Audio In"
+PinName.AudioOut="Audio"
+PinName.MPEG2TransportOut="MPEG2 Transport"
+
+ServiceDescription="AVerMedia USB Polaris Series Capture Service"
+
+SERVICE_KERNEL_DRIVER=1
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1
+
+KSCATEGORY_TVTUNER="{a799a800-a46d-11d0-a18c-00a02401dcd4}"
+KSCATEGORY_TVAUDIO="{a799a802-a46d-11d0-a18c-00a02401dcd4}"
+KSCATEGORY_CROSSBAR="{a799a801-a46d-11d0-a18c-00a02401dcd4}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_BDA_NETWORK_TUNER="{71985F48-1CA1-11d3-9CC8-00C04F7971E0}"
+KSCATEGORY_BDA_RECEIVER_COMPONENT="{FD0A5AF4-B41D-11d2-9C95-00C04F7971E0}"
+
+AnalogTVTunerFilter="{F7CCD5C2-8766-4401-BF9D-ECF5FE0A07C0}"
+AnalogTVAudioFilter="{D8D86791-A570-4a10-8457-08C957E90ECD}"
+AnalogCrossbarFilter="{47B00748-34A2-4000-A892-BA2ABF2E2BE4}"
+AnalogCaptureFilter="{9B365890-165F-11D0-A195-0020AFD156E4}"
+AnalogAudioFilter="{5EAF914D-2212-4034-8C4C-02CAFD15D68A}"
+DigitalATSCTunerFilter="{E01E1072-3DF3-4C23-B99F-6A27A7CC7CD2}"
+DigitalDVBTTunerFilter="{E01E1072-3DF3-4C23-B99F-6A27A7CC7CD2}"
+DigitalCaptureFilter="{452660BD-3B39-4e34-9B97-3D3BC054AF5D}"
+
+ProxyAnalogTVTuner.CLSID="{266EEE40-6C63-11cf-8A03-00AA006ECB65}"
+ProxyAnalogTVAudio.CLSID="{71F96462-78F3-11d0-A18C-00A0C9118956}"
+ProxyAnalogCrossbar.CLSID="{71F96460-78F3-11d0-A18C-00A0C9118956}"
+ProxyAnalogCapture.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+ProxyAnalogAudio.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+ProxyDigitalCapture.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+
+AUDIOENDPOINT_EXT_UI_CLSID="{6C57B2A2-91F5-4B90-93D5-FAB82485ECA6}"
+PKEY_AudioEndpoint_ControlPanelProvider="{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},1"
+PKEY_AudioEndpoint_Association="{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioEngine_OEMFormat="{E4870E26-3CC5-4CD2-BA46-CA0A9A70ED04},3"
+PKEY_AudioDevice_NeverSetAsDefaultEndpoint="{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4},3"
+
+AnalogTVTuner="AVerMedia USB Polaris Analog TVTuner"
+AnalogTVAudio="AVerMedia USB Polaris Analog TVAudio"
+AnalogCrossbar="AVerMedia USB Polaris Analog Crossbar"
+AnalogCapture="AVerMedia USB Polaris Analog Capture"
+AnalogAudio="AVerMedia USB Polaris Analog Audio"
+DigitalTuner="AVerMedia USB Polaris Digital Tuner"
+DigitalCapture="AVerMedia USB Polaris Digital Capture"

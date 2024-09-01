@@ -204,7 +204,7 @@ c_gimbal_control::c_gimbal_control()
     pulseMode = 1;
     stabMode = 0;
     openSerialPort();
-    startTimer(50);
+//    startTimer(50);
     for (int i=0;i<PLC_REG_SIZE;i++)
     {
         plcReg[i] = 0;

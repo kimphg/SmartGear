@@ -1071,7 +1071,7 @@ public:
         groupBox_10->raise();
         frame_7->raise();
         groupBox_9->raise();
-        groupBox_81->raise();
+        groupBox_8->raise();
         groupBox_12->raise();
         view_azi->raise();
         groupBox_angle_limit->raise();

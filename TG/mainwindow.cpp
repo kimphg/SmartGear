@@ -54,7 +54,7 @@ static int frameCount=0;
 static bool incomeFrame = false;
 static bool camAvailable = false;
 static std::vector<int> params;
-static cv::Mat frame,frameOrg;
+static cv::Mat frame,frameOrg,frameOld;
 static cv::VideoWriter recorder;
 //cv::Mat f;
 //static cv::Mat *pFrame;
@@ -67,7 +67,8 @@ static QColor color2 = QColor(162,172,165);
 static QColor color3 = QColor(114,129,119);
 static QColor color4 = QColor(69,78,72);
 //arucoMarker markers;
-
+VideoStab stab;
+QByteArray videoBuff;
 //aruco_handler handler;
 //QHash<int,VideoTarget> vTargetList;
 unsigned char usbBuf[USBMSG_LEN];
@@ -126,6 +127,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->statusBar()->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
 //    this->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
     socket = new QUdpSocket(this);
+    videoSocket = new QUdpSocket(this);
     mControl.setSocket(socket);
     CConfig::readFile();
 
@@ -141,7 +143,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timer_1sec->start(1000);
     // do something..
     ui->view_azi->setValue(5.22);
-    //    int nMilliseconds = myTimer.elapsed();
+
     if(socket->bind(4000))
     {
         //        connect(navSocket,SIGNAL(readyRead()),this, SLOT(ReadNavData()));
@@ -150,6 +152,15 @@ MainWindow::MainWindow(QWidget *parent) :
     else
     {
         this->statusBar()->showMessage("Socket failure, port busy");
+    }
+    if(videoSocket->bind(12345))
+    {
+        //        connect(navSocket,SIGNAL(readyRead()),this, SLOT(ReadNavData()));
+        //initAverCapture();
+    }
+    else
+    {
+        this->statusBar()->showMessage("Video socket failure, port busy");
     }
     //    std::string image_path = samples::findFile("d:\\test.jpg");
     //    testFrame = imread("d:\\test.jpg", IMREAD_COLOR);
@@ -165,7 +176,7 @@ MainWindow::MainWindow(QWidget *parent) :
     params.push_back(80); //image quality
 
     //window init
-    this->showFullScreen();
+//    this->showFullScreen();
     ui->groupBox_setup->setHidden(true);
     //    ui->plot_tracker->addGraph();
 
@@ -423,7 +434,7 @@ void MainWindow::processKeyBoardEvent(int key)
     else if(key==Qt::Key_F12)
     {
 
-        cap = VideoCapture(0);//(filename.toStdString().data());
+        cap = VideoCapture(1);//(filename.toStdString().data());
         camAvailable = true;
     }
     else if(key==Qt::Key_End)
@@ -501,13 +512,26 @@ void MainWindow::CaptureVideoCamera()
     {
 
         incomeFrame = cap.read(frameOrg);//single capture image
+//        cv::resize(frameOrg, frameOrg, Size(640,480), INTER_LINEAR);
         Mat smoothedFrame;
-        smoothedFrame = stab.stabilize(incomeFrame , oldFrame);
+        if((!frameOrg.empty())&&(!frameOld.empty()))
+        {
+            Mat M = estimateRigidTransform(frameOld,frameOrg,0);
+            warpAffine(frameOrg,smoothedFrame,M,Size(640,480),INTER_NEAREST|WARP_INVERSE_MAP) ;
+//            smoothedFrame = stab.stabilize(frameOrg , frameOld);
+
+            frameOld =frameOrg ;
+            frameOrg=smoothedFrame;
+        }
+        else frameOld =frameOrg ;
+
+//        smoothedFrame = stab.stabilize(frameOrg , frameOld);
 
         if(!incomeFrame)
         {
             camAvailable = false;
         }
+
         if(frameOrg.cols>100&&frameOrg.rows>100)
         {
             if(nightMode)cv::cvtColor(frameOrg, frame, CV_BGR2GRAY);
@@ -520,7 +544,7 @@ void MainWindow::CaptureVideoCamera()
                 //                mScaleY = double(frame_process_H)/frameOrg.rows;
             }
             incomeFrame = true;
-            waitKey(1);
+            waitKey(100);
         }
 
     }
@@ -595,10 +619,6 @@ void MainWindow::CaptureVideoCamera()
         {
             cv::rectangle(frame,trackrect,cv::Scalar(150, 150, 0),1,16 );
         }
-
-
-
-
     }
 
     //    cv::rectangle(frame,trackrect,cv::Scalar(0, 255, 0));
@@ -765,24 +785,25 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
     p.fillRect(this->rect(),color2);
-    if(incomeFrame)
-    {
-        incomeFrame = false;
+    p.drawImage(vRect,imgVideo,imgVideo.rect());
+//    if(incomeFrame)
+//    {
+//        incomeFrame = false;
 
-        if(nightMode)
-        {
-            QImage image(frame.data, frame.cols, frame.rows, frame.step,
-                         QImage::Format_Grayscale8);
-            p.drawImage(vRect,image,image.rect());
-        }
-        else
-        {
-            QImage image(frame.data, frame.cols, frame.rows, frame.step,
-                         QImage::Format_RGB888);
-            p.drawImage(vRect,image,image.rect());
+//        if(nightMode)
+//        {
+//            QImage image(frame.data, frame.cols, frame.rows, frame.step,
+//                         QImage::Format_Grayscale8);
+//            p.drawImage(vRect,image,image.rect());
+//        }
+//        else
+//        {
+//            QImage image(frame.data, frame.cols, frame.rows, frame.step,
+//                         QImage::Format_RGB888);
+//            p.drawImage(vRect,image,image.rect());
 
-        }
-    }
+//        }
+//    }
     draw_trackpoint(&p,vRect.x()+(trackpoint_x+h_correction)*vRect.width()/frame_process_W,vRect.y()+trackpoint_y*vRect.height()/frame_process_H);
     draw_sight_paint(&p,vRect.x()+(sight_x+h_correction)*vRect.width()/frame_process_W,vRect.y()+sight_y*vRect.height()/frame_process_H);
 
@@ -1090,8 +1111,37 @@ void MainWindow::updateData()
             processDetectorData(data);
 
     }
+    while(videoSocket->hasPendingDatagrams())
+    {
+        int len = videoSocket->pendingDatagramSize();
+        QHostAddress host;
+        quint16 port;
+        QByteArray data;
+        data.resize(len);
+
+        videoSocket->readDatagram(data.data(),len,&host,&port);
+        int newFrameID = (uchar)data.at(1);
+        data.remove(0,2);
+        if(newFrameID!=frameID)//new frame
+        {
+
+            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
+            if(imgVideo.loadFromData(videoBuff,"JPEG"))
+            {
+//                printf("OK");
+                update();
+            }
+            frameID=newFrameID;
+
+            videoBuff.clear();
+            videoBuff.append(data);
+
+        }
+        else videoBuff.append(data);
+
+    }
     //    printf("update data done\n");
-    //    flushall();
+        _flushall();
 }
 void MainWindow::processDatagramLaser(QByteArray data)
 {

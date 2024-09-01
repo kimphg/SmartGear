@@ -1,0 +1,54 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Copyright (c) AVerMedia TECHNOLOGIES, Inc.
+;;
+;;  Installation file for AVerMedia USB Polaris Series Dummy IR Driver
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+Signature="$Chicago$"
+Class=USB
+ClassGuid={36fc9e60-c465-11cf-8056-444553540000}
+Provider=%AVerMedia%
+CatalogFile=AVPolDIR.cat
+DriverVer=08/24/2017,10.2.64.116
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AVerMedia%=DeviceList,NTamd64,NTamd64.6
+
+
+[DeviceList.NTamd64]
+%DeviceDescriptionE039%=AVPolFIRx64,USB\VID_07CA&PID_E039&MI_00
+
+[DeviceList.NTamd64.6]
+%DeviceDescriptionE039%=AVPolFIRx64,USB\VID_07CA&PID_E039&MI_00
+
+
+[AVPolFIRx64.NT]
+AddReg=AVPolFIR.AddReg
+
+[AVPolFIR.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,"Parameters","MaximumTransferSize",0x10001,256
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,"Parameters","A336DummyEnable",0x10001,1
+
+[AVPolFIRx64.NT.Services]
+Addservice=,0x00000002
+
+[Strings]
+AVerMedia="AVerMedia TECHNOLOGIES, Inc."
+
+DriverDescription="AVerMedia USB Polaris Series Dummy IR Driver"
+
+DeviceDescriptionE039="AVerMedia C039 USB Dummy IR Receiver"
+
+ServiceDescription="AVerMedia USB Polaris Series Dummy IR Service"
+
+SERVICE_KERNEL_DRIVER=1
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1

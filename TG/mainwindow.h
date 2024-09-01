@@ -47,11 +47,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    QUdpSocket *socket;
+    QUdpSocket *socket,*videoSocket;
     void sendFrameVideo();
     c_gimbal_control mControl;
 //    c_aver_capture mAverCap;
     void CaptureVideoCamera();
+private:
+    int frameID=0,chunkID=0;
+    QImage imgVideo;
 public slots:
     void updateData();
     void timer30ms();
