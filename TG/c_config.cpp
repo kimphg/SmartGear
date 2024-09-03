@@ -137,18 +137,21 @@ void CConfig::SaveToFile()
 
 void CConfig::appendLog(const char* error)
 {
-    freopen(HR_ERROR_FILE, "a", stderr );
-    time_t rawtime;
-    struct tm * timeinfo;
-    char buffer[80];
+    freopen(HR_ERROR_FILE, "a", stdout );
+//    freopen ("myfile.txt","w",stdout);
+//      printf ("This sentence is redirected to a file.");
 
-    time (&rawtime);
-    timeinfo = localtime(&rawtime);
+//    time_t rawtime;
+//    struct tm * timeinfo;
+//    char buffer[80];
 
-    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S    ",timeinfo);
-    cerr << buffer;
-    cerr << error;
-    cerr << endl;
+//    time (&rawtime);
+//    timeinfo = localtime(&rawtime);
+
+//    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S    ",timeinfo);
+    printf("%s: ",QDateTime::fromTime_t(10).toUTC().toString("hh:mm:ss").toStdString().data());
+    printf("%s\n",error);
+    fclose (stdout);
 }
 
 //void CConfig::AddMessage(QString message)

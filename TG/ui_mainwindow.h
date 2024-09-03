@@ -20,10 +20,12 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <qcustombutton.h>
 #include "qcgaugewidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -34,16 +36,6 @@ public:
     QWidget *centralwidget;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout;
-    QPushButton *pushButton_show_setup;
-    QPushButton *bt_control_file_2;
-    QPushButton *bt_control_file_3;
-    QPushButton *bt_control_file_4;
-    QPushButton *bt_control_file_5;
-    QPushButton *bt_control_file_7;
-    QPushButton *bt_control_focusauto;
-    QPushButton *bt_control_kv;
-    QPushButton *bt_tracksizeup;
-    QPushButton *bt_tracksizeup_2;
     QGroupBox *groupBox_11;
     QVBoxLayout *verticalLayout_5;
     QPushButton *pushButton_play_video;
@@ -149,11 +141,6 @@ public:
     QLabel *label_video_fps_16;
     QLabel *label_video_fps_13;
     QLabel *label_video_fps_14;
-    QGroupBox *groupBox_12;
-    QGridLayout *gridLayout_11;
-    QPushButton *bt_video_test_2;
-    QPushButton *bt_stab_2;
-    QcGaugeWidget *view_azi;
     QGroupBox *groupBox_angle_limit;
     QGridLayout *gridLayout_14;
     QRadioButton *radioButton_leftlimit;
@@ -170,11 +157,49 @@ public:
     QVBoxLayout *verticalLayout_6;
     QPushButton *pushButton_sightup;
     QPushButton *pushButton_sight_right;
+    QFrame *frame_3;
+    QFrame *frame_4;
+    QVBoxLayout *verticalLayout_2;
+    QCustomButton *bt_f_1;
+    QCustomButton *bt_f_2;
+    QCustomButton *bt_f_3;
+    QCustomButton *bt_f_4;
+    QCustomButton *bt_f_5;
+    QCustomButton *bt_f_6;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QVBoxLayout *verticalLayout_3;
+    QCustomButton *bt_control_file_2;
+    QCustomButton *bt_control_file_3;
+    QCustomButton *bt_control_file_4;
+    QCustomButton *bt_control_file_5;
+    QCustomButton *bt_control_kv;
+    QCustomButton *bt_control_focusauto;
+    QWidget *tab_5;
+    QVBoxLayout *verticalLayout_7;
+    QCustomButton *bt_control_file_14;
+    QCustomButton *bt_control_file_12;
+    QCustomButton *bt_control_file_11;
+    QCustomButton *bt_control_kv_3;
+    QCustomButton *bt_control_file_13;
+    QCustomButton *bt_control_focusauto_3;
+    QWidget *tab_6;
+    QCustomButton *bt_control_file_7;
+    QWidget *tab_2;
+    QVBoxLayout *verticalLayout_4;
     QGroupBox *groupBox_17;
     QGridLayout *gridLayout_16;
-    QPushButton *bt_zero_set_3;
-    QPushButton *bt_control_usb;
-    QPushButton *bt_control_usb_2;
+    QCustomButton *bt_zero_set_3;
+    QCustomButton *bt_control_usb;
+    QCustomButton *bt_control_usb_2;
+    QCustomButton *bt_stab_2;
+    QCustomButton *bt_video_test_2;
+    QWidget *tab_3;
+    QPushButton *bt_tracksizeup_2;
+    QPushButton *bt_tracksizeup;
+    QWidget *tab_4;
+    QCustomButton *toolButton_show_setup;
+    QcGaugeWidget *view_azi;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -197,99 +222,6 @@ public:
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(5, 5, 5, 5);
-        pushButton_show_setup = new QPushButton(groupBox_5);
-        pushButton_show_setup->setObjectName(QString::fromUtf8("pushButton_show_setup"));
-        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButton_show_setup->sizePolicy().hasHeightForWidth());
-        pushButton_show_setup->setSizePolicy(sizePolicy);
-        pushButton_show_setup->setCheckable(false);
-
-        verticalLayout->addWidget(pushButton_show_setup);
-
-        bt_control_file_2 = new QPushButton(groupBox_5);
-        bt_control_file_2->setObjectName(QString::fromUtf8("bt_control_file_2"));
-        sizePolicy.setHeightForWidth(bt_control_file_2->sizePolicy().hasHeightForWidth());
-        bt_control_file_2->setSizePolicy(sizePolicy);
-        bt_control_file_2->setCheckable(false);
-
-        verticalLayout->addWidget(bt_control_file_2);
-
-        bt_control_file_3 = new QPushButton(groupBox_5);
-        bt_control_file_3->setObjectName(QString::fromUtf8("bt_control_file_3"));
-        sizePolicy.setHeightForWidth(bt_control_file_3->sizePolicy().hasHeightForWidth());
-        bt_control_file_3->setSizePolicy(sizePolicy);
-        bt_control_file_3->setCheckable(false);
-
-        verticalLayout->addWidget(bt_control_file_3);
-
-        bt_control_file_4 = new QPushButton(groupBox_5);
-        bt_control_file_4->setObjectName(QString::fromUtf8("bt_control_file_4"));
-        sizePolicy.setHeightForWidth(bt_control_file_4->sizePolicy().hasHeightForWidth());
-        bt_control_file_4->setSizePolicy(sizePolicy);
-        bt_control_file_4->setCheckable(false);
-
-        verticalLayout->addWidget(bt_control_file_4);
-
-        bt_control_file_5 = new QPushButton(groupBox_5);
-        bt_control_file_5->setObjectName(QString::fromUtf8("bt_control_file_5"));
-        sizePolicy.setHeightForWidth(bt_control_file_5->sizePolicy().hasHeightForWidth());
-        bt_control_file_5->setSizePolicy(sizePolicy);
-        bt_control_file_5->setCheckable(false);
-
-        verticalLayout->addWidget(bt_control_file_5);
-
-        bt_control_file_7 = new QPushButton(groupBox_5);
-        bt_control_file_7->setObjectName(QString::fromUtf8("bt_control_file_7"));
-        sizePolicy.setHeightForWidth(bt_control_file_7->sizePolicy().hasHeightForWidth());
-        bt_control_file_7->setSizePolicy(sizePolicy);
-        bt_control_file_7->setCheckable(false);
-
-        verticalLayout->addWidget(bt_control_file_7);
-
-        bt_control_focusauto = new QPushButton(groupBox_5);
-        bt_control_focusauto->setObjectName(QString::fromUtf8("bt_control_focusauto"));
-        sizePolicy.setHeightForWidth(bt_control_focusauto->sizePolicy().hasHeightForWidth());
-        bt_control_focusauto->setSizePolicy(sizePolicy);
-        bt_control_focusauto->setCheckable(true);
-
-        verticalLayout->addWidget(bt_control_focusauto);
-
-        bt_control_kv = new QPushButton(groupBox_5);
-        bt_control_kv->setObjectName(QString::fromUtf8("bt_control_kv"));
-        sizePolicy.setHeightForWidth(bt_control_kv->sizePolicy().hasHeightForWidth());
-        bt_control_kv->setSizePolicy(sizePolicy);
-        bt_control_kv->setCheckable(true);
-
-        verticalLayout->addWidget(bt_control_kv);
-
-        bt_tracksizeup = new QPushButton(groupBox_5);
-        bt_tracksizeup->setObjectName(QString::fromUtf8("bt_tracksizeup"));
-        sizePolicy.setHeightForWidth(bt_tracksizeup->sizePolicy().hasHeightForWidth());
-        bt_tracksizeup->setSizePolicy(sizePolicy);
-        bt_tracksizeup->setCheckable(false);
-
-        verticalLayout->addWidget(bt_tracksizeup);
-
-        bt_tracksizeup_2 = new QPushButton(groupBox_5);
-        bt_tracksizeup_2->setObjectName(QString::fromUtf8("bt_tracksizeup_2"));
-        sizePolicy.setHeightForWidth(bt_tracksizeup_2->sizePolicy().hasHeightForWidth());
-        bt_tracksizeup_2->setSizePolicy(sizePolicy);
-        bt_tracksizeup_2->setCheckable(false);
-
-        verticalLayout->addWidget(bt_tracksizeup_2);
-
-        bt_control_file_2->raise();
-        bt_control_file_5->raise();
-        bt_control_file_4->raise();
-        bt_control_file_7->raise();
-        bt_control_file_3->raise();
-        pushButton_show_setup->raise();
-        bt_control_kv->raise();
-        bt_control_focusauto->raise();
-        bt_tracksizeup->raise();
-        bt_tracksizeup_2->raise();
         groupBox_11 = new QGroupBox(centralwidget);
         groupBox_11->setObjectName(QString::fromUtf8("groupBox_11"));
         groupBox_11->setGeometry(QRect(1490, 130, 121, 131));
@@ -301,6 +233,9 @@ public:
         verticalLayout_5->setContentsMargins(5, 5, 5, 5);
         pushButton_play_video = new QPushButton(groupBox_11);
         pushButton_play_video->setObjectName(QString::fromUtf8("pushButton_play_video"));
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(pushButton_play_video->sizePolicy().hasHeightForWidth());
         pushButton_play_video->setSizePolicy(sizePolicy);
         pushButton_play_video->setCheckable(false);
@@ -541,7 +476,7 @@ public:
 
         groupBox_setup = new QGroupBox(centralwidget);
         groupBox_setup->setObjectName(QString::fromUtf8("groupBox_setup"));
-        groupBox_setup->setGeometry(QRect(240, 90, 721, 631));
+        groupBox_setup->setGeometry(QRect(1150, 580, 721, 631));
         groupBox_setup->setStyleSheet(QString::fromUtf8("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
         gridLayout_7 = new QGridLayout(groupBox_setup);
         gridLayout_7->setSpacing(6);
@@ -905,36 +840,6 @@ public:
 
         gridLayout_4->addWidget(label_video_fps_14, 3, 2, 1, 1);
 
-        groupBox_12 = new QGroupBox(centralwidget);
-        groupBox_12->setObjectName(QString::fromUtf8("groupBox_12"));
-        groupBox_12->setGeometry(QRect(1370, 450, 111, 111));
-        groupBox_12->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
-        gridLayout_11 = new QGridLayout(groupBox_12);
-        gridLayout_11->setSpacing(6);
-        gridLayout_11->setContentsMargins(11, 11, 11, 11);
-        gridLayout_11->setObjectName(QString::fromUtf8("gridLayout_11"));
-        bt_video_test_2 = new QPushButton(groupBox_12);
-        bt_video_test_2->setObjectName(QString::fromUtf8("bt_video_test_2"));
-        bt_video_test_2->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
-        bt_video_test_2->setCheckable(true);
-        bt_video_test_2->setChecked(true);
-        bt_video_test_2->setAutoExclusive(true);
-
-        gridLayout_11->addWidget(bt_video_test_2, 1, 0, 1, 1);
-
-        bt_stab_2 = new QPushButton(groupBox_12);
-        bt_stab_2->setObjectName(QString::fromUtf8("bt_stab_2"));
-        bt_stab_2->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
-        bt_stab_2->setCheckable(true);
-        bt_stab_2->setAutoExclusive(true);
-
-        gridLayout_11->addWidget(bt_stab_2, 2, 0, 1, 1);
-
-        view_azi = new QcGaugeWidget(centralwidget);
-        view_azi->setObjectName(QString::fromUtf8("view_azi"));
-        view_azi->setGeometry(QRect(950, 610, 180, 180));
-        view_azi->setAutoFillBackground(false);
-        view_azi->setStyleSheet(QString::fromUtf8(""));
         groupBox_angle_limit = new QGroupBox(centralwidget);
         groupBox_angle_limit->setObjectName(QString::fromUtf8("groupBox_angle_limit"));
         groupBox_angle_limit->setGeometry(QRect(1530, 750, 121, 91));
@@ -1028,15 +933,217 @@ public:
 
         verticalLayout_6->addWidget(pushButton_sight_right);
 
-        groupBox_17 = new QGroupBox(centralwidget);
+        frame_3 = new QFrame(centralwidget);
+        frame_3->setObjectName(QString::fromUtf8("frame_3"));
+        frame_3->setGeometry(QRect(5, 5, 1034, 778));
+        frame_3->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
+        frame_4 = new QFrame(frame_3);
+        frame_4->setObjectName(QString::fromUtf8("frame_4"));
+        frame_4->setGeometry(QRect(0, 0, 170, 600));
+        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(frame_4->sizePolicy().hasHeightForWidth());
+        frame_4->setSizePolicy(sizePolicy3);
+        frame_4->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
+        verticalLayout_2 = new QVBoxLayout(frame_4);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        bt_f_1 = new QCustomButton(frame_4);
+        bt_f_1->setObjectName(QString::fromUtf8("bt_f_1"));
+        sizePolicy.setHeightForWidth(bt_f_1->sizePolicy().hasHeightForWidth());
+        bt_f_1->setSizePolicy(sizePolicy);
+        bt_f_1->setCheckable(true);
+        bt_f_1->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_1);
+
+        bt_f_2 = new QCustomButton(frame_4);
+        bt_f_2->setObjectName(QString::fromUtf8("bt_f_2"));
+        sizePolicy.setHeightForWidth(bt_f_2->sizePolicy().hasHeightForWidth());
+        bt_f_2->setSizePolicy(sizePolicy);
+        bt_f_2->setCheckable(true);
+        bt_f_2->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_2);
+
+        bt_f_3 = new QCustomButton(frame_4);
+        bt_f_3->setObjectName(QString::fromUtf8("bt_f_3"));
+        sizePolicy.setHeightForWidth(bt_f_3->sizePolicy().hasHeightForWidth());
+        bt_f_3->setSizePolicy(sizePolicy);
+        bt_f_3->setCheckable(true);
+        bt_f_3->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_3);
+
+        bt_f_4 = new QCustomButton(frame_4);
+        bt_f_4->setObjectName(QString::fromUtf8("bt_f_4"));
+        sizePolicy.setHeightForWidth(bt_f_4->sizePolicy().hasHeightForWidth());
+        bt_f_4->setSizePolicy(sizePolicy);
+        bt_f_4->setCheckable(true);
+        bt_f_4->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_4);
+
+        bt_f_5 = new QCustomButton(frame_4);
+        bt_f_5->setObjectName(QString::fromUtf8("bt_f_5"));
+        sizePolicy.setHeightForWidth(bt_f_5->sizePolicy().hasHeightForWidth());
+        bt_f_5->setSizePolicy(sizePolicy);
+        bt_f_5->setCheckable(true);
+        bt_f_5->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_5);
+
+        bt_f_6 = new QCustomButton(frame_4);
+        bt_f_6->setObjectName(QString::fromUtf8("bt_f_6"));
+        sizePolicy.setHeightForWidth(bt_f_6->sizePolicy().hasHeightForWidth());
+        bt_f_6->setSizePolicy(sizePolicy);
+        bt_f_6->setCheckable(true);
+        bt_f_6->setAutoExclusive(true);
+
+        verticalLayout_2->addWidget(bt_f_6);
+
+        tabWidget = new QTabWidget(frame_3);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setGeometry(QRect(850, 0, 180, 600));
+        sizePolicy3.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy3);
+        tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
+        tabWidget->setTabPosition(QTabWidget::East);
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        verticalLayout_3 = new QVBoxLayout(tab);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        bt_control_file_2 = new QCustomButton(tab);
+        bt_control_file_2->setObjectName(QString::fromUtf8("bt_control_file_2"));
+        sizePolicy.setHeightForWidth(bt_control_file_2->sizePolicy().hasHeightForWidth());
+        bt_control_file_2->setSizePolicy(sizePolicy);
+        bt_control_file_2->setCheckable(false);
+
+        verticalLayout_3->addWidget(bt_control_file_2);
+
+        bt_control_file_3 = new QCustomButton(tab);
+        bt_control_file_3->setObjectName(QString::fromUtf8("bt_control_file_3"));
+        sizePolicy.setHeightForWidth(bt_control_file_3->sizePolicy().hasHeightForWidth());
+        bt_control_file_3->setSizePolicy(sizePolicy);
+        bt_control_file_3->setCheckable(false);
+
+        verticalLayout_3->addWidget(bt_control_file_3);
+
+        bt_control_file_4 = new QCustomButton(tab);
+        bt_control_file_4->setObjectName(QString::fromUtf8("bt_control_file_4"));
+        sizePolicy.setHeightForWidth(bt_control_file_4->sizePolicy().hasHeightForWidth());
+        bt_control_file_4->setSizePolicy(sizePolicy);
+        bt_control_file_4->setCheckable(false);
+
+        verticalLayout_3->addWidget(bt_control_file_4);
+
+        bt_control_file_5 = new QCustomButton(tab);
+        bt_control_file_5->setObjectName(QString::fromUtf8("bt_control_file_5"));
+        sizePolicy.setHeightForWidth(bt_control_file_5->sizePolicy().hasHeightForWidth());
+        bt_control_file_5->setSizePolicy(sizePolicy);
+        bt_control_file_5->setCheckable(false);
+
+        verticalLayout_3->addWidget(bt_control_file_5);
+
+        bt_control_kv = new QCustomButton(tab);
+        bt_control_kv->setObjectName(QString::fromUtf8("bt_control_kv"));
+        sizePolicy.setHeightForWidth(bt_control_kv->sizePolicy().hasHeightForWidth());
+        bt_control_kv->setSizePolicy(sizePolicy);
+        bt_control_kv->setCheckable(true);
+
+        verticalLayout_3->addWidget(bt_control_kv);
+
+        bt_control_focusauto = new QCustomButton(tab);
+        bt_control_focusauto->setObjectName(QString::fromUtf8("bt_control_focusauto"));
+        sizePolicy.setHeightForWidth(bt_control_focusauto->sizePolicy().hasHeightForWidth());
+        bt_control_focusauto->setSizePolicy(sizePolicy);
+        bt_control_focusauto->setCheckable(true);
+
+        verticalLayout_3->addWidget(bt_control_focusauto);
+
+        tabWidget->addTab(tab, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        verticalLayout_7 = new QVBoxLayout(tab_5);
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        bt_control_file_14 = new QCustomButton(tab_5);
+        bt_control_file_14->setObjectName(QString::fromUtf8("bt_control_file_14"));
+        sizePolicy.setHeightForWidth(bt_control_file_14->sizePolicy().hasHeightForWidth());
+        bt_control_file_14->setSizePolicy(sizePolicy);
+        bt_control_file_14->setCheckable(false);
+
+        verticalLayout_7->addWidget(bt_control_file_14);
+
+        bt_control_file_12 = new QCustomButton(tab_5);
+        bt_control_file_12->setObjectName(QString::fromUtf8("bt_control_file_12"));
+        sizePolicy.setHeightForWidth(bt_control_file_12->sizePolicy().hasHeightForWidth());
+        bt_control_file_12->setSizePolicy(sizePolicy);
+        bt_control_file_12->setCheckable(false);
+
+        verticalLayout_7->addWidget(bt_control_file_12);
+
+        bt_control_file_11 = new QCustomButton(tab_5);
+        bt_control_file_11->setObjectName(QString::fromUtf8("bt_control_file_11"));
+        sizePolicy.setHeightForWidth(bt_control_file_11->sizePolicy().hasHeightForWidth());
+        bt_control_file_11->setSizePolicy(sizePolicy);
+        bt_control_file_11->setCheckable(false);
+
+        verticalLayout_7->addWidget(bt_control_file_11);
+
+        bt_control_kv_3 = new QCustomButton(tab_5);
+        bt_control_kv_3->setObjectName(QString::fromUtf8("bt_control_kv_3"));
+        sizePolicy.setHeightForWidth(bt_control_kv_3->sizePolicy().hasHeightForWidth());
+        bt_control_kv_3->setSizePolicy(sizePolicy);
+        bt_control_kv_3->setCheckable(true);
+
+        verticalLayout_7->addWidget(bt_control_kv_3);
+
+        bt_control_file_13 = new QCustomButton(tab_5);
+        bt_control_file_13->setObjectName(QString::fromUtf8("bt_control_file_13"));
+        sizePolicy.setHeightForWidth(bt_control_file_13->sizePolicy().hasHeightForWidth());
+        bt_control_file_13->setSizePolicy(sizePolicy);
+        bt_control_file_13->setCheckable(false);
+
+        verticalLayout_7->addWidget(bt_control_file_13);
+
+        bt_control_focusauto_3 = new QCustomButton(tab_5);
+        bt_control_focusauto_3->setObjectName(QString::fromUtf8("bt_control_focusauto_3"));
+        sizePolicy.setHeightForWidth(bt_control_focusauto_3->sizePolicy().hasHeightForWidth());
+        bt_control_focusauto_3->setSizePolicy(sizePolicy);
+        bt_control_focusauto_3->setCheckable(true);
+
+        verticalLayout_7->addWidget(bt_control_focusauto_3);
+
+        tabWidget->addTab(tab_5, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QString::fromUtf8("tab_6"));
+        bt_control_file_7 = new QCustomButton(tab_6);
+        bt_control_file_7->setObjectName(QString::fromUtf8("bt_control_file_7"));
+        bt_control_file_7->setGeometry(QRect(20, 20, 115, 101));
+        sizePolicy.setHeightForWidth(bt_control_file_7->sizePolicy().hasHeightForWidth());
+        bt_control_file_7->setSizePolicy(sizePolicy);
+        bt_control_file_7->setCheckable(false);
+        tabWidget->addTab(tab_6, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        verticalLayout_4 = new QVBoxLayout(tab_2);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        groupBox_17 = new QGroupBox(tab_2);
         groupBox_17->setObjectName(QString::fromUtf8("groupBox_17"));
-        groupBox_17->setGeometry(QRect(1150, 10, 121, 171));
         groupBox_17->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
         gridLayout_16 = new QGridLayout(groupBox_17);
         gridLayout_16->setSpacing(6);
         gridLayout_16->setContentsMargins(11, 11, 11, 11);
         gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
-        bt_zero_set_3 = new QPushButton(groupBox_17);
+        bt_zero_set_3 = new QCustomButton(groupBox_17);
         bt_zero_set_3->setObjectName(QString::fromUtf8("bt_zero_set_3"));
         sizePolicy.setHeightForWidth(bt_zero_set_3->sizePolicy().hasHeightForWidth());
         bt_zero_set_3->setSizePolicy(sizePolicy);
@@ -1045,7 +1152,7 @@ public:
 
         gridLayout_16->addWidget(bt_zero_set_3, 0, 0, 1, 1);
 
-        bt_control_usb = new QPushButton(groupBox_17);
+        bt_control_usb = new QCustomButton(groupBox_17);
         bt_control_usb->setObjectName(QString::fromUtf8("bt_control_usb"));
         sizePolicy.setHeightForWidth(bt_control_usb->sizePolicy().hasHeightForWidth());
         bt_control_usb->setSizePolicy(sizePolicy);
@@ -1054,7 +1161,7 @@ public:
 
         gridLayout_16->addWidget(bt_control_usb, 1, 0, 1, 1);
 
-        bt_control_usb_2 = new QPushButton(groupBox_17);
+        bt_control_usb_2 = new QCustomButton(groupBox_17);
         bt_control_usb_2->setObjectName(QString::fromUtf8("bt_control_usb_2"));
         sizePolicy.setHeightForWidth(bt_control_usb_2->sizePolicy().hasHeightForWidth());
         bt_control_usb_2->setSizePolicy(sizePolicy);
@@ -1064,25 +1171,89 @@ public:
 
         gridLayout_16->addWidget(bt_control_usb_2, 2, 0, 1, 1);
 
+
+        verticalLayout_4->addWidget(groupBox_17);
+
+        bt_stab_2 = new QCustomButton(tab_2);
+        bt_stab_2->setObjectName(QString::fromUtf8("bt_stab_2"));
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(bt_stab_2->sizePolicy().hasHeightForWidth());
+        bt_stab_2->setSizePolicy(sizePolicy4);
+        bt_stab_2->setMinimumSize(QSize(0, 90));
+        bt_stab_2->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
+        bt_stab_2->setCheckable(true);
+        bt_stab_2->setAutoExclusive(true);
+
+        verticalLayout_4->addWidget(bt_stab_2);
+
+        bt_video_test_2 = new QCustomButton(tab_2);
+        bt_video_test_2->setObjectName(QString::fromUtf8("bt_video_test_2"));
+        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(bt_video_test_2->sizePolicy().hasHeightForWidth());
+        bt_video_test_2->setSizePolicy(sizePolicy5);
+        bt_video_test_2->setMinimumSize(QSize(0, 90));
+        bt_video_test_2->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 64, 32); color:rgb(255, 255, 255)"));
+        bt_video_test_2->setCheckable(true);
+        bt_video_test_2->setChecked(true);
+        bt_video_test_2->setAutoExclusive(true);
+
+        verticalLayout_4->addWidget(bt_video_test_2);
+
+        tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        bt_tracksizeup_2 = new QPushButton(tab_3);
+        bt_tracksizeup_2->setObjectName(QString::fromUtf8("bt_tracksizeup_2"));
+        bt_tracksizeup_2->setGeometry(QRect(20, 110, 115, 92));
+        sizePolicy.setHeightForWidth(bt_tracksizeup_2->sizePolicy().hasHeightForWidth());
+        bt_tracksizeup_2->setSizePolicy(sizePolicy);
+        bt_tracksizeup_2->setCheckable(false);
+        bt_tracksizeup = new QPushButton(tab_3);
+        bt_tracksizeup->setObjectName(QString::fromUtf8("bt_tracksizeup"));
+        bt_tracksizeup->setGeometry(QRect(20, 17, 115, 91));
+        sizePolicy.setHeightForWidth(bt_tracksizeup->sizePolicy().hasHeightForWidth());
+        bt_tracksizeup->setSizePolicy(sizePolicy);
+        bt_tracksizeup->setCheckable(false);
+        tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        toolButton_show_setup = new QCustomButton(tab_4);
+        toolButton_show_setup->setObjectName(QString::fromUtf8("toolButton_show_setup"));
+        toolButton_show_setup->setGeometry(QRect(10, 30, 115, 91));
+        sizePolicy.setHeightForWidth(toolButton_show_setup->sizePolicy().hasHeightForWidth());
+        toolButton_show_setup->setSizePolicy(sizePolicy);
+        toolButton_show_setup->setCheckable(false);
+        tabWidget->addTab(tab_4, QString());
+        view_azi = new QcGaugeWidget(centralwidget);
+        view_azi->setObjectName(QString::fromUtf8("view_azi"));
+        view_azi->setGeometry(QRect(990, 790, 151, 141));
+        view_azi->setAutoFillBackground(false);
+        view_azi->setStyleSheet(QString::fromUtf8(""));
         MainWindow->setCentralWidget(centralwidget);
+        frame_3->raise();
         groupBox_setup->raise();
         groupBox_5->raise();
         groupBox_11->raise();
         groupBox_10->raise();
         frame_7->raise();
         groupBox_9->raise();
-        groupBox_8->raise();
-        groupBox_12->raise();
-        view_azi->raise();
+        groupBox_81->raise();
         groupBox_angle_limit->raise();
         groupBox_15->raise();
         groupBox_16->raise();
-        groupBox_17->raise();
+        view_azi->raise();
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
+
+        tabWidget->setCurrentIndex(4);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -1091,16 +1262,6 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\304\220K camera:", nullptr));
-        pushButton_show_setup->setText(QCoreApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", nullptr));
-        bt_control_file_2->setText(QCoreApplication::translate("MainWindow", "Zoom +", nullptr));
-        bt_control_file_3->setText(QCoreApplication::translate("MainWindow", "Zoom -", nullptr));
-        bt_control_file_4->setText(QCoreApplication::translate("MainWindow", "Focus+", nullptr));
-        bt_control_file_5->setText(QCoreApplication::translate("MainWindow", "Focus-", nullptr));
-        bt_control_file_7->setText(QCoreApplication::translate("MainWindow", "\304\220o xa laser", nullptr));
-        bt_control_focusauto->setText(QCoreApplication::translate("MainWindow", "Autofocus", nullptr));
-        bt_control_kv->setText(QCoreApplication::translate("MainWindow", "K\303\255nh v\341\272\241ch", nullptr));
-        bt_tracksizeup->setText(QCoreApplication::translate("MainWindow", "T\304\203ng \303\264 b\303\241m", nullptr));
-        bt_tracksizeup_2->setText(QCoreApplication::translate("MainWindow", "Gi\341\272\243m \303\264 b\303\241m", nullptr));
         groupBox_11->setTitle(QCoreApplication::translate("MainWindow", "Video", nullptr));
         pushButton_play_video->setText(QCoreApplication::translate("MainWindow", "Open video", nullptr));
         pushButton_record->setText(QCoreApplication::translate("MainWindow", "Ghi l\306\260u", nullptr));
@@ -1247,9 +1408,6 @@ public:
         label_video_fps_16->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         label_video_fps_13->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_video_fps_14->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        groupBox_12->setTitle(QCoreApplication::translate("MainWindow", "T\304\220 c\303\242n b\341\272\261ng;", nullptr));
-        bt_video_test_2->setText(QCoreApplication::translate("MainWindow", "T\341\272\257t STAB", nullptr));
-        bt_stab_2->setText(QCoreApplication::translate("MainWindow", "Stab 2", nullptr));
         groupBox_angle_limit->setTitle(QCoreApplication::translate("MainWindow", "Gi\341\273\233i h\341\272\241n g\303\263c:", nullptr));
         radioButton_leftlimit->setText(QString());
         radioButton_nolimit->setText(QString());
@@ -1263,10 +1421,40 @@ public:
         groupBox_16->setTitle(QCoreApplication::translate("MainWindow", "Th\306\260\341\273\233c ng\341\272\257m", nullptr));
         pushButton_sightup->setText(QCoreApplication::translate("MainWindow", "Ch\341\273\211nh l\303\252n", nullptr));
         pushButton_sight_right->setText(QCoreApplication::translate("MainWindow", "Ch\341\273\211nh xu\341\273\221ng", nullptr));
-        groupBox_17->setTitle(QCoreApplication::translate("MainWindow", "\304\220i\341\273\201u khi\341\273\203n:", nullptr));
+        bt_f_1->setText(QCoreApplication::translate("MainWindow", "CAMERA NG\303\200Y", nullptr));
+        bt_f_2->setText(QCoreApplication::translate("MainWindow", "CAMERA \304\220\303\212M", nullptr));
+        bt_f_3->setText(QCoreApplication::translate("MainWindow", "\304\220O XA", nullptr));
+        bt_f_4->setText(QCoreApplication::translate("MainWindow", "\304\220I\341\273\200U KHI\341\273\202N B\341\273\206", nullptr));
+        bt_f_5->setText(QCoreApplication::translate("MainWindow", "B\303\201M M\341\273\244C TI\303\212U", nullptr));
+        bt_f_6->setText(QCoreApplication::translate("MainWindow", "TR\341\272\240NG TH\303\201I H\341\273\206 TH\341\273\220NG", nullptr));
+        bt_control_file_2->setText(QCoreApplication::translate("MainWindow", "Zoom +", nullptr));
+        bt_control_file_3->setText(QCoreApplication::translate("MainWindow", "Zoom -", nullptr));
+        bt_control_file_4->setText(QCoreApplication::translate("MainWindow", "Focus+", nullptr));
+        bt_control_file_5->setText(QCoreApplication::translate("MainWindow", "Focus-", nullptr));
+        bt_control_kv->setText(QCoreApplication::translate("MainWindow", "K\303\255nh v\341\272\241ch", nullptr));
+        bt_control_focusauto->setText(QCoreApplication::translate("MainWindow", "Autofocus", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        bt_control_file_14->setText(QCoreApplication::translate("MainWindow", "Focus-", nullptr));
+        bt_control_file_12->setText(QCoreApplication::translate("MainWindow", "Zoom -", nullptr));
+        bt_control_file_11->setText(QCoreApplication::translate("MainWindow", "Zoom +", nullptr));
+        bt_control_kv_3->setText(QCoreApplication::translate("MainWindow", "K\303\255nh v\341\272\241ch", nullptr));
+        bt_control_file_13->setText(QCoreApplication::translate("MainWindow", "Focus+", nullptr));
+        bt_control_focusauto_3->setText(QCoreApplication::translate("MainWindow", "Autofocus", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Page", nullptr));
+        bt_control_file_7->setText(QCoreApplication::translate("MainWindow", "\304\220o xa laser", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QCoreApplication::translate("MainWindow", "Page", nullptr));
+        groupBox_17->setTitle(QCoreApplication::translate("MainWindow", "Ch\341\272\277 \304\221\341\273\231 \304\220K:", nullptr));
         bt_zero_set_3->setText(QCoreApplication::translate("MainWindow", "Joystick", nullptr));
         bt_control_usb->setText(QCoreApplication::translate("MainWindow", "USB", nullptr));
         bt_control_usb_2->setText(QCoreApplication::translate("MainWindow", "B\303\240n ph\303\255m", nullptr));
+        bt_stab_2->setText(QCoreApplication::translate("MainWindow", "Stab 2", nullptr));
+        bt_video_test_2->setText(QCoreApplication::translate("MainWindow", "T\341\272\257t STAB", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
+        bt_tracksizeup_2->setText(QCoreApplication::translate("MainWindow", "Gi\341\272\243m \303\264 b\303\241m", nullptr));
+        bt_tracksizeup->setText(QCoreApplication::translate("MainWindow", "T\304\203ng \303\264 b\303\241m", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Page", nullptr));
+        toolButton_show_setup->setText(QCoreApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Page", nullptr));
     } // retranslateUi
 
 };

@@ -5,7 +5,7 @@ import socket
 # import pickle
 import time 
 from ultralytics import YOLO
-from vidstab import VidStab
+# from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
 model = YOLO("yolov10s.pt")
@@ -37,26 +37,31 @@ def send_frame(frame,frame_counter, address):
 
     print(f"Sent frame with size {len(data)} bytes")
 
-stabilizer = VidStab()
+# stabilizer = VidStab()
 cap = cv2.VideoCapture("D:/VIDEO/rec_03.12_07.05.34.avi")
+# cap = cv2.VideoCapture("tracking compilation.mp4")
 frame_width = int(cap.get(3)) 
-frame_height = int(cap.get(4)) 
+frame_height = int(cap.get(4)) *2
    
 size = (frame_width, frame_height) 
 frame_counter=0
 prev_frame_time =0
 # print(model.names)
-# result = cv2.VideoWriter('filename.avi',  
-#                          cv2.VideoWriter_fourcc(*'MJPG'), 
-#                          10, size) 
+# result = cv2.VideoWriter('filename.mp4',  
+#                          cv2.VideoWriter_fourcc(*'MP4V'), 
+#                          20, size) 
+class trackObject
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
-    frame = stabilizer.stabilize_frame(input_frame=frame,smoothing_window=10)
+    # cv2.imshow('Original', frame)
+    # frame = stabilizer.stabilize_frame(input_frame=inframe,smoothing_window=10)
     results = model(frame)
     detections = results[0].boxes
-    # print(model.names)
+    print(model.names)
+    list_classes = {0,2,3,4,8}
+    
     for box in detections:
         x1, y1, x2, y2 = map(int, box.xyxy[0])
         conf = box.conf[0]
@@ -65,7 +70,7 @@ while cap.isOpened():
             cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
             cv2.putText(frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
     # font which we will be using to display FPS 
-    # result.write(frame) 
+    #  
     font = cv2.FONT_HERSHEY_SIMPLEX 
     new_frame_time = time.time() 
     if(new_frame_time==prev_frame_time):
@@ -82,8 +87,9 @@ while cap.isOpened():
   
     # putting the FPS count on the frame 
     cv2.putText(frame, fps, (7, 70), font, 1, (30, 70, 0), 1, cv2.LINE_AA)
+    # im_v = cv2.vconcat([inframe, frame]) 
     cv2.imshow('Detection', frame)
-    
+    # result.write(im_v)
     send_frame(frame,frame_counter, (udp_ip, udp_port))
     frame_counter=frame_counter+1
     if(frame_counter>=255):

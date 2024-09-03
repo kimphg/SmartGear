@@ -617,7 +617,7 @@ void c_gimbal_control::sendSetupPacket(int index)
     QByteArray ba((char*)&packet2[0],7);
     send(ba);
     send(ba);
-    CConfig::appendLog(ba.data());
+    CConfig::appendLog("sendSetupPacket");
 }
 void c_gimbal_control::setACC(float maxAcc)
 {

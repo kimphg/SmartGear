@@ -178,6 +178,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //window init
 //    this->showFullScreen();
     ui->groupBox_setup->setHidden(true);
+    this->setGeometry(0,0,1024,768);
     //    ui->plot_tracker->addGraph();
 
     frame_process_W = CConfig::getDouble("frame_process_W",720);
@@ -821,7 +822,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         pen2.setWidth(5);
         p.setPen(pen2);
     }
-    p.drawRect(vRect);
+//    p.drawRect(vRect);
     //    p.drawLine(0,0,100,100);
     DrawVideoTargets(&p);
     QColor color2(0, 255, 0);
@@ -1873,4 +1874,34 @@ void MainWindow::on_bt_control_usb_2_toggled(bool checked)
 void MainWindow::on_bt_stab_2_clicked()
 {
     setStimstate(2);
+}
+
+void MainWindow::on_bt_f_1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_bt_f_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_bt_f_3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_bt_f_4_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_bt_f_5_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_bt_f_6_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
 }

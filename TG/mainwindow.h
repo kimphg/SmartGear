@@ -216,6 +216,18 @@ private slots:
 
     void on_bt_stab_2_clicked();
 
+    void on_bt_f_1_clicked();
+
+    void on_bt_f_2_clicked();
+
+    void on_bt_f_3_clicked();
+
+    void on_bt_f_4_clicked();
+
+    void on_bt_f_5_clicked();
+
+    void on_bt_f_6_clicked();
+
 private:
     bool isEqualizeHis = false;
     bool nightMode = false;
