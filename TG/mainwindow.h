@@ -228,6 +228,14 @@ private slots:
 
     void on_bt_f_6_clicked();
 
+    void on_bt_video_thermal_clicked();
+
+    void on_bt_f_2_clicked(bool checked);
+
+    void on_bt_f_1_clicked(bool checked);
+
+    void on_bt_control_focusauto_2_clicked(bool checked);
+
 private:
     bool isEqualizeHis = false;
     bool nightMode = false;

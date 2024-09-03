@@ -50,7 +50,7 @@ prev_frame_time =0
 # result = cv2.VideoWriter('filename.mp4',  
 #                          cv2.VideoWriter_fourcc(*'MP4V'), 
 #                          20, size) 
-class trackObject
+# class trackObject
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -88,7 +88,7 @@ while cap.isOpened():
     # putting the FPS count on the frame 
     cv2.putText(frame, fps, (7, 70), font, 1, (30, 70, 0), 1, cv2.LINE_AA)
     # im_v = cv2.vconcat([inframe, frame]) 
-    cv2.imshow('Detection', frame)
+    # cv2.imshow('Detection', frame)
     # result.write(im_v)
     send_frame(frame,frame_counter, (udp_ip, udp_port))
     frame_counter=frame_counter+1

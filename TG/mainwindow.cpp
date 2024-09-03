@@ -43,7 +43,7 @@ static int key_ad = 0;
 static int key_ws = 0;
 static float viewFov = 60;
 //static double mControl.fov = 60;
-static QRect vRect = QRect(140,20,1000,800);
+static QRect vRect = QRect(10,10,1004,748);
 static QRect plotRect = QRect(140,20,TRACK_MEM_SIZE,100);
 //static int sight_x;//=frame_process_W/2+CConfig::getInt("sightx",0);
 //static int sight_y;//=frame_process_H/2+CConfig::getInt("sighty",0);
@@ -1126,7 +1126,7 @@ void MainWindow::updateData()
         if(newFrameID!=frameID)//new frame
         {
 
-            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
+//            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
             if(imgVideo.loadFromData(videoBuff,"JPEG"))
             {
 //                printf("OK");
@@ -1784,17 +1784,7 @@ void MainWindow::on_bt_video_thermal_toggled(bool checked)
     //        mControl.setplc(9,(!checked));
     //        Sleep(2000);
 
-    if(checked)
-    {
 
-
-        mControl.setplc(9,0);
-        ui->bt_video_main->setDisabled(true);
-        ui->bt_video_off->setChecked(false);
-
-    }
-
-    mControl.setplc(8,checked);
 }
 
 void MainWindow::on_bt_video_main_toggled(bool checked)
@@ -1802,27 +1792,12 @@ void MainWindow::on_bt_video_main_toggled(bool checked)
     //    mControl.setplc(8,(!checked));
     //    Sleep(2000);
 
-    if(checked)
-    {
-        mControl.setplc(8,0);
-        ui->bt_video_thermal->setDisabled(true);
-        ui->bt_video_off->setChecked(false);
 
-    }
-
-    mControl.setplc(9,checked);
 }
 
 void MainWindow::on_bt_video_off_toggled(bool checked)
 {
-    if(checked){
-        mControl.setplc(9,0);
-        mControl.setplc(8,0);
-        ui->bt_video_main->setChecked(!checked);
-        ui->bt_video_thermal->setChecked(!checked);
-        ui->bt_video_main->setDisabled(false);
-        ui->bt_video_thermal->setDisabled(false);
-    }
+
 }
 
 void MainWindow::on_bt_tracksizeup_clicked()
@@ -1878,12 +1853,12 @@ void MainWindow::on_bt_stab_2_clicked()
 
 void MainWindow::on_bt_f_1_clicked()
 {
-    ui->tabWidget->setCurrentIndex(0);
+
 }
 
 void MainWindow::on_bt_f_2_clicked()
 {
-    ui->tabWidget->setCurrentIndex(1);
+
 }
 
 void MainWindow::on_bt_f_3_clicked()
@@ -1904,4 +1879,51 @@ void MainWindow::on_bt_f_5_clicked()
 void MainWindow::on_bt_f_6_clicked()
 {
     ui->tabWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_bt_video_thermal_clicked()
+{
+
+}
+
+void MainWindow::on_bt_f_2_clicked(bool checked)
+{
+    ui->tabWidget->setCurrentIndex(1);
+    if(checked)
+    {
+
+
+        mControl.setplc(9,0);
+        ui->bt_video_main->setDisabled(true);
+        ui->bt_video_off->setChecked(false);
+
+    }
+
+    mControl.setplc(8,checked);
+}
+
+void MainWindow::on_bt_f_1_clicked(bool checked)
+{
+    ui->tabWidget->setCurrentIndex(0);
+    if(checked)
+    {
+        mControl.setplc(8,0);
+//        ui->bt_video_thermal->setDisabled(true);
+        ui->bt_video_off->setChecked(false);
+
+    }
+
+    mControl.setplc(9,checked);
+}
+
+void MainWindow::on_bt_control_focusauto_2_clicked(bool checked)
+{
+    if(checked){
+        mControl.setplc(9,0);
+        mControl.setplc(8,0);
+        ui->bt_video_main->setChecked(!checked);
+//        ui->bt_video_thermal->setChecked(!checked);
+        ui->bt_video_main->setDisabled(false);
+//        ui->bt_video_thermal->setDisabled(false);
+    }
 }
