@@ -8,7 +8,7 @@ from ultralytics import YOLO
 # from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
-model = YOLO("yolov10s.pt")
+# model = YOLO("yolov10s.pt")
 udp_ip = "127.0.0.1"
 udp_port = 12345
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -57,20 +57,20 @@ while cap.isOpened():
         break
     # cv2.imshow('Original', frame)
     # frame = stabilizer.stabilize_frame(input_frame=inframe,smoothing_window=10)
-    results = model(frame)
-    detections = results[0].boxes
-    print(model.names)
-    list_classes = {0,2,3,4,8}
+    # results = model(frame)
+    # detections = results[0].boxes
+    # print(model.names)
+    # list_classes = {0,2,3,4,8}
     
-    for box in detections:
-        x1, y1, x2, y2 = map(int, box.xyxy[0])
-        conf = box.conf[0]
-        cls = int(box.cls[0])
-        if(abs(x1-x2)>20):
-            cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-            cv2.putText(frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
-    # font which we will be using to display FPS 
-    #  
+    # for box in detections:
+    #     x1, y1, x2, y2 = map(int, box.xyxy[0])
+    #     conf = box.conf[0]
+    #     cls = int(box.cls[0])
+    #     if(abs(x1-x2)>20):
+    #         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+    #         cv2.putText(frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+    # # font which we will be using to display FPS 
+    # #  
     font = cv2.FONT_HERSHEY_SIMPLEX 
     new_frame_time = time.time() 
     if(new_frame_time==prev_frame_time):

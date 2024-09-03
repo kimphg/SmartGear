@@ -171,7 +171,7 @@ MainWindow::MainWindow(QWidget *parent) :
     controlTimer = new QTimer();
     connect(controlTimer, SIGNAL(timeout()), this, SLOT(timer30ms()));
     controlTimer->start(30);
-
+    ui->statusbar-> hide ();
     params.push_back(CV_IMWRITE_JPEG_QUALITY);
     params.push_back(80); //image quality
 
@@ -1126,7 +1126,7 @@ void MainWindow::updateData()
         if(newFrameID!=frameID)//new frame
         {
 
-//            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
+            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
             if(imgVideo.loadFromData(videoBuff,"JPEG"))
             {
 //                printf("OK");
@@ -1863,22 +1863,22 @@ void MainWindow::on_bt_f_2_clicked()
 
 void MainWindow::on_bt_f_3_clicked()
 {
-    ui->tabWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_bt_f_4_clicked()
 {
-    ui->tabWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_bt_f_5_clicked()
 {
-    ui->tabWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::on_bt_f_6_clicked()
 {
-    ui->tabWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_bt_video_thermal_clicked()
@@ -1888,7 +1888,7 @@ void MainWindow::on_bt_video_thermal_clicked()
 
 void MainWindow::on_bt_f_2_clicked(bool checked)
 {
-    ui->tabWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(1);
     if(checked)
     {
 
@@ -1904,7 +1904,7 @@ void MainWindow::on_bt_f_2_clicked(bool checked)
 
 void MainWindow::on_bt_f_1_clicked(bool checked)
 {
-    ui->tabWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
     if(checked)
     {
         mControl.setplc(8,0);

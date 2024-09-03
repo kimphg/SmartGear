@@ -338,3 +338,6798 @@
 00:00:10: sendSetupPacket
 00:00:10: sendSetupPacket
 00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+Data:1,62953
+Data:2,92143
+Data:3,92761
+Data:4,94982
+Data:5,97994
+Data:6,98417
+Data:7,95668
+Data:8,94920
+Data:9,97271
+Data:10,95727
+00:00:10: sendSetupPacket
+Data:11,100210
+Data:12,91070
+Data:13,101399
+Data:14,95509
+Data:15,97989
+Data:16,102094
+Data:17,102930
+Data:18,97187
+Data:19,100518
+Data:20,97868
+Data:21,99721
+Data:22,96999
+Data:23,93630
+Data:24,96351
+Data:25,98925
+Data:26,96304
+Data:27,96389
+Data:28,98171
+Data:29,96470
+Data:30,97204
+Data:31,99227
+Data:32,98089
+Data:33,100231
+Data:34,96716
+Data:35,97788
+Data:36,99890
+Data:37,99497
+Data:38,99377
+Data:39,97767
+Data:40,97016
+Data:41,102606
+Data:42,101642
+00:00:10: sendSetupPacket
+Data:43,95781
+Data:44,98611
+Data:45,100859
+Data:46,99014
+Data:47,101256
+Data:48,99788
+Data:49,101859
+Data:50,98486
+Data:51,97637
+Data:52,100149
+Data:53,98360
+Data:54,105206
+Data:55,98056
+Data:56,99158
+Data:57,96498
+Data:58,100586
+Data:59,102147
+Data:60,105655
+Data:61,106029
+Data:62,97371
+Data:63,96095
+Data:64,94199
+Data:65,96516
+Data:66,98998
+Data:67,98428
+Data:68,100855
+Data:69,101088
+Data:70,99399
+Data:71,94986
+Data:72,94712
+Data:73,97913
+Data:74,96759
+00:00:10: sendSetupPacket
+Data:75,96399
+Data:76,97340
+Data:77,101474
+Data:78,100807
+Data:79,97966
+Data:80,97866
+Data:81,99048
+Data:82,97483
+Data:83,98856
+Data:84,96937
+Data:85,96794
+Data:86,100269
+Data:87,101164
+Data:88,100002
+Data:89,100101
+Data:90,99402
+Data:91,100803
+Data:92,99185
+Data:93,98084
+Data:94,100044
+Data:95,98556
+Data:96,98608
+Data:97,99224
+Data:98,100649
+Data:99,97476
+Data:100,98840
+Data:101,103929
+Data:102,100124
+Data:103,101103
+Data:104,102733
+Data:105,104293
+Data:106,97287
+00:00:10: sendSetupPacket
+Data:107,97618
+Data:108,99771
+Data:109,106717
+Data:110,100230
+Data:111,102976
+Data:112,102610
+Data:113,99173
+Data:114,99366
+Data:115,98887
+Data:116,100401
+Data:117,99910
+Data:118,100151
+Data:119,97136
+Data:120,99555
+Data:121,103420
+Data:122,105642
+Data:123,102019
+Data:124,101296
+Data:125,101828
+Data:126,99525
+Data:127,96819
+Data:128,96127
+Data:129,96373
+Data:130,98534
+Data:131,102377
+Data:132,103295
+Data:133,105377
+Data:134,100308
+Data:135,103457
+Data:136,101422
+Data:137,97623
+Data:138,99664
+00:00:10: sendSetupPacket
+Data:139,95915
+Data:140,95807
+Data:141,96619
+Data:142,97917
+Data:143,94879
+Data:144,94029
+Data:145,94306
+Data:146,98309
+Data:147,96977
+Data:148,95420
+Data:149,96033
+Data:150,101886
+Data:151,95842
+Data:152,99537
+Data:153,100923
+Data:154,104301
+Data:155,105276
+Data:156,98016
+Data:157,105998
+Data:158,103332
+Data:159,102766
+Data:160,103228
+Data:161,98827
+Data:162,98606
+Data:163,99278
+Data:164,98131
+Data:165,101749
+Data:166,101097
+Data:167,101763
+Data:168,98150
+Data:169,102439
+Data:170,100620
+Data:171,99666
+00:00:10: sendSetupPacket
+Data:172,99939
+Data:173,99133
+Data:174,102080
+Data:175,101297
+Data:176,99552
+Data:177,98942
+Data:178,97816
+Data:179,94807
+Data:180,97062
+Data:181,97075
+Data:182,99414
+Data:183,98808
+Data:184,99380
+Data:185,98724
+Data:186,99888
+Data:187,98246
+Data:188,100510
+Data:189,99282
+Data:190,99786
+Data:191,100124
+Data:192,98261
+Data:193,102660
+Data:194,101104
+Data:195,96830
+Data:196,96993
+Data:197,102682
+Data:198,99569
+Data:199,104406
+Data:200,105129
+Data:201,101168
+Data:202,100854
+00:00:10: sendSetupPacket
+Data:203,102199
+Data:204,102003
+Data:205,102143
+Data:206,101485
+Data:207,102248
+Data:208,102188
+Data:209,101195
+Data:210,102688
+Data:211,98906
+Data:212,100820
+Data:213,101992
+Data:214,102671
+Data:215,102829
+Data:216,99674
+Data:217,97617
+Data:218,98537
+Data:219,101404
+Data:220,103872
+Data:221,102106
+Data:222,100395
+Data:223,96824
+Data:224,97821
+Data:225,98752
+Data:226,98193
+Data:227,99987
+Data:228,97914
+Data:229,99556
+Data:230,96131
+Data:231,101917
+Data:232,99419
+Data:233,93130
+Data:234,98547
+00:00:10: sendSetupPacket
+Data:235,99607
+Data:236,105783
+Data:237,98981
+Data:238,99340
+Data:239,97827
+Data:240,94266
+Data:241,95731
+Data:242,97987
+Data:243,99640
+Data:244,102855
+Data:245,101513
+Data:246,102427
+Data:247,100306
+Data:248,100953
+Data:249,101202
+Data:250,100911
+Data:251,97204
+Data:252,96140
+Data:253,100790
+Data:254,100330
+Data:0,102059
+Data:1,101243
+Data:2,97619
+Data:3,98798
+Data:4,103542
+Data:5,100871
+Data:6,102269
+Data:7,99552
+Data:8,97068
+Data:9,98991
+Data:10,98866
+Data:11,102136
+00:00:10: sendSetupPacket
+Data:12,101815
+Data:13,101254
+Data:14,97920
+Data:15,101647
+Data:16,99130
+Data:17,100198
+Data:18,101128
+Data:19,105283
+Data:20,106758
+Data:21,107763
+Data:22,103879
+Data:23,101048
+Data:24,98662
+Data:25,102327
+Data:26,103936
+Data:27,102678
+Data:28,98472
+Data:29,100630
+Data:30,103848
+Data:31,107506
+Data:32,98732
+Data:33,99096
+Data:34,97786
+Data:35,101030
+Data:36,103845
+Data:37,103156
+Data:38,99344
+Data:39,101315
+Data:40,105152
+Data:41,105994
+Data:42,100263
+Data:43,100801
+00:00:10: sendSetupPacket
+Data:44,107475
+Data:45,97916
+Data:46,106908
+Data:47,102998
+Data:48,102260
+Data:49,100015
+Data:50,101745
+Data:51,99428
+Data:52,95342
+Data:53,98086
+Data:54,98168
+Data:55,98146
+Data:56,101521
+Data:57,110848
+Data:58,97828
+Data:59,102888
+Data:60,101160
+Data:61,102461
+Data:62,102427
+Data:63,106070
+Data:64,102851
+Data:65,105152
+Data:66,107674
+Data:67,106671
+Data:68,102728
+Data:69,106188
+Data:70,102532
+Data:71,103526
+Data:72,104831
+Data:73,105305
+Data:74,108537
+Data:75,102696
+00:00:10: sendSetupPacket
+Data:76,102713
+Data:77,100615
+Data:78,102900
+Data:79,107808
+Data:80,98053
+Data:81,102792
+Data:82,100911
+Data:83,100854
+Data:84,99148
+Data:85,105230
+Data:86,106279
+Data:87,97397
+Data:88,102481
+Data:89,104272
+Data:90,98875
+Data:91,102539
+Data:92,106508
+Data:93,101550
+Data:94,105791
+Data:95,103079
+Data:96,105183
+Data:97,107649
+Data:98,108303
+Data:99,101596
+Data:100,97392
+Data:101,96560
+Data:102,101234
+Data:103,101727
+Data:104,102286
+Data:105,101924
+Data:106,95170
+Data:107,93505
+00:00:10: sendSetupPacket
+Data:108,100314
+Data:109,101744
+Data:110,93588
+Data:111,100162
+Data:112,101458
+Data:113,104078
+Data:114,109582
+Data:115,110661
+Data:116,102467
+Data:117,110302
+Data:118,110702
+Data:119,109925
+Data:120,109575
+Data:121,106435
+Data:122,103165
+Data:123,104578
+Data:124,104723
+Data:125,97141
+Data:126,97584
+Data:127,94749
+Data:128,97205
+Data:129,93724
+Data:130,90552
+Data:131,100381
+Data:132,92582
+Data:133,94411
+Data:134,91838
+Data:135,97720
+Data:136,97426
+Data:137,96088
+Data:138,92127
+Data:139,89949
+Data:140,94781
+00:00:10: sendSetupPacket
+Data:141,95771
+Data:142,96974
+Data:143,101283
+Data:144,100104
+Data:145,108664
+Data:146,112820
+Data:147,117627
+Data:148,117557
+Data:149,115412
+Data:150,113385
+Data:151,118359
+Data:152,109444
+Data:153,107004
+Data:154,96462
+Data:155,104715
+Data:156,100871
+Data:157,102290
+Data:158,98454
+Data:159,98291
+Data:160,94476
+Data:161,97476
+Data:162,91858
+Data:163,94068
+Data:164,101098
+Data:165,90173
+Data:166,91601
+Data:167,88964
+Data:168,88242
+Data:169,86167
+Data:170,89267
+Data:171,91044
+Data:172,92672
+00:00:10: sendSetupPacket
+Data:173,98768
+Data:174,93814
+Data:175,97499
+Data:176,97008
+Data:177,102543
+Data:178,103092
+Data:179,109409
+Data:180,112293
+Data:181,120402
+Data:182,114340
+Data:183,118828
+Data:184,116196
+Data:185,107247
+Data:186,108623
+Data:187,101264
+Data:188,99827
+Data:189,99508
+Data:190,99519
+Data:191,93265
+Data:192,94708
+Data:193,92629
+Data:194,93557
+Data:195,92302
+Data:196,91342
+Data:197,98472
+Data:198,92636
+Data:199,93695
+Data:200,88311
+Data:201,84347
+Data:202,90096
+Data:203,93210
+Data:204,98794
+00:00:10: sendSetupPacket
+Data:205,103193
+Data:206,95360
+Data:207,99441
+Data:208,96707
+Data:209,91508
+Data:210,95098
+Data:211,99390
+Data:212,106239
+Data:213,101998
+Data:214,106254
+Data:215,99213
+Data:216,98759
+Data:217,100326
+Data:218,100608
+Data:219,100671
+Data:220,100462
+Data:221,100621
+Data:222,94593
+Data:223,93568
+Data:224,92454
+Data:225,101661
+Data:226,96679
+Data:227,102177
+Data:228,99466
+Data:229,99020
+Data:230,99346
+Data:231,103389
+Data:232,100505
+Data:233,100525
+Data:234,100908
+Data:235,99368
+00:00:10: sendSetupPacket
+Data:236,101860
+Data:237,103167
+Data:238,103804
+Data:239,104631
+Data:240,105838
+Data:241,107500
+Data:242,105424
+Data:243,106090
+Data:244,104205
+Data:245,105147
+Data:246,104594
+Data:247,103592
+Data:248,102506
+Data:249,103415
+Data:250,102112
+Data:251,104834
+Data:252,100848
+Data:253,104083
+Data:254,103043
+Data:0,101853
+Data:1,104780
+Data:2,103994
+Data:3,101879
+Data:4,101280
+Data:5,102306
+Data:6,104492
+Data:7,102790
+Data:8,102151
+Data:9,101772
+Data:10,102029
+Data:11,102304
+Data:12,102030
+Data:13,101775
+00:00:10: sendSetupPacket
+Data:14,99653
+Data:15,101034
+Data:16,101402
+Data:17,100879
+Data:18,95304
+Data:19,97111
+Data:20,95621
+Data:21,96568
+Data:22,97037
+Data:23,98064
+Data:24,93131
+Data:25,97005
+Data:26,101650
+Data:27,99670
+Data:28,98663
+Data:29,97610
+Data:30,99130
+Data:31,102760
+Data:32,104029
+Data:33,105235
+Data:34,101269
+Data:35,96562
+Data:36,99428
+Data:37,100875
+Data:38,99941
+Data:39,102288
+Data:40,101846
+Data:41,101108
+Data:42,104297
+Data:43,104457
+Data:44,101423
+00:00:10: sendSetupPacket
+Data:45,101955
+Data:46,101626
+Data:47,99665
+Data:48,94415
+Data:49,97634
+Data:50,97707
+Data:51,96564
+Data:52,95061
+Data:53,103484
+Data:54,102942
+Data:55,98974
+Data:56,99826
+Data:57,99333
+Data:58,100260
+Data:59,101096
+Data:60,97885
+Data:61,104212
+Data:62,99913
+Data:63,101169
+Data:64,101308
+Data:65,100878
+Data:66,99102
+Data:67,101500
+Data:68,100119
+Data:69,98527
+Data:70,99454
+Data:71,95066
+Data:72,96930
+Data:73,98319
+Data:74,104580
+Data:75,97967
+Data:76,99923
+Data:77,98343
+00:00:10: sendSetupPacket
+Data:78,99801
+Data:79,98480
+Data:80,97609
+Data:81,99923
+Data:82,101399
+Data:83,102025
+Data:84,101865
+Data:85,101963
+Data:86,100229
+Data:87,102669
+Data:88,103251
+Data:89,100910
+Data:90,98187
+Data:91,96943
+Data:92,100611
+Data:93,102157
+Data:94,98125
+Data:95,105569
+Data:96,100047
+Data:97,97791
+Data:98,104435
+Data:99,101172
+Data:100,100624
+Data:101,103452
+Data:102,100446
+Data:103,98290
+Data:104,102663
+Data:105,103010
+Data:106,99839
+Data:107,96265
+Data:108,102415
+Data:109,99494
+00:00:10: sendSetupPacket
+Data:110,101425
+Data:111,101620
+Data:112,102803
+Data:113,103903
+Data:114,103568
+Data:115,100689
+Data:116,103814
+Data:117,101390
+Data:118,96156
+Data:119,98755
+Data:120,97038
+Data:121,98377
+Data:122,98346
+Data:123,95358
+Data:124,95278
+Data:125,102249
+Data:126,101073
+Data:127,99331
+Data:128,97919
+Data:129,100177
+Data:130,100438
+Data:131,98202
+Data:132,102480
+Data:133,97450
+Data:134,99804
+Data:135,100308
+Data:136,93579
+Data:137,98098
+Data:138,94330
+Data:139,95347
+Data:140,98447
+Data:141,96917
+00:00:10: sendSetupPacket
+Data:142,99265
+Data:143,95895
+Data:144,96818
+Data:145,93896
+Data:146,97436
+Data:147,92825
+Data:148,95694
+Data:149,91663
+Data:150,95597
+Data:151,96361
+Data:152,94045
+Data:153,95498
+Data:154,91805
+Data:155,96918
+Data:156,102528
+Data:157,96135
+Data:158,102135
+Data:159,102487
+Data:160,97759
+Data:161,97398
+Data:162,98458
+Data:163,100341
+Data:164,95390
+Data:165,99498
+Data:166,97250
+Data:167,95219
+Data:168,94176
+Data:169,95123
+Data:170,97715
+Data:171,100924
+Data:172,92088
+Data:173,94892
+00:00:10: sendSetupPacket
+Data:174,96640
+Data:175,94289
+Data:176,100849
+Data:177,100171
+Data:178,102177
+Data:179,103493
+Data:180,101207
+Data:181,100285
+Data:182,98202
+Data:183,96179
+Data:184,98474
+Data:185,101320
+Data:186,103906
+Data:187,100834
+Data:188,104373
+Data:189,103601
+Data:190,102318
+Data:191,102310
+Data:192,98450
+Data:193,95401
+Data:194,102329
+Data:195,95784
+Data:196,104111
+Data:197,97777
+Data:198,101033
+Data:199,100395
+Data:200,92740
+Data:201,95502
+Data:202,99292
+Data:203,104557
+Data:204,99007
+Data:205,101490
+00:00:10: sendSetupPacket
+Data:206,100111
+Data:207,97184
+Data:208,101700
+Data:209,102017
+Data:210,103781
+Data:211,98705
+Data:212,104475
+Data:213,99983
+Data:214,97654
+Data:215,97923
+Data:216,96817
+Data:217,98312
+Data:218,95050
+Data:219,99980
+Data:220,98189
+Data:221,101087
+Data:222,102213
+Data:223,102489
+Data:224,100479
+Data:225,97864
+Data:226,95435
+Data:227,101112
+Data:228,96477
+Data:229,94384
+Data:230,96628
+Data:231,97802
+Data:232,100382
+Data:233,102521
+Data:234,104526
+Data:235,106173
+Data:236,97890
+Data:237,97955
+00:00:10: sendSetupPacket
+Data:238,98695
+Data:239,97762
+Data:240,95682
+Data:241,98007
+Data:242,96808
+Data:243,97975
+Data:244,97187
+Data:245,96675
+Data:246,95731
+Data:247,99249
+Data:248,95555
+Data:249,94616
+Data:250,96753
+Data:251,103739
+Data:252,98632
+Data:253,99555
+Data:254,97039
+Data:0,97638
+Data:1,92902
+Data:2,99458
+Data:3,95042
+Data:4,94607
+Data:5,99010
+Data:6,97733
+Data:7,98518
+Data:8,105712
+Data:9,102904
+Data:10,100231
+Data:11,97652
+Data:12,101281
+Data:13,100778
+Data:14,101065
+00:00:10: sendSetupPacket
+Data:15,100517
+Data:16,102875
+Data:17,100510
+Data:18,101901
+Data:19,100898
+Data:20,101415
+Data:21,100929
+Data:22,101446
+Data:23,100486
+Data:24,98702
+Data:25,97359
+Data:26,97005
+Data:27,106214
+Data:28,98726
+Data:29,103584
+Data:30,102156
+Data:31,98226
+Data:32,99689
+Data:33,99784
+Data:34,99791
+Data:35,98532
+Data:36,100240
+Data:37,97678
+Data:38,94439
+Data:39,96766
+Data:40,97235
+Data:41,95570
+Data:42,97624
+Data:43,93522
+Data:44,101508
+Data:45,101449
+Data:46,100777
+00:00:10: sendSetupPacket
+Data:47,101224
+Data:48,96684
+Data:49,99321
+Data:50,95705
+Data:51,99327
+Data:52,101893
+Data:53,97153
+Data:54,101170
+Data:55,99531
+Data:56,100568
+Data:57,98311
+Data:58,103700
+Data:59,99051
+Data:60,104553
+Data:61,106303
+Data:62,100720
+Data:63,103067
+Data:64,100267
+Data:65,102518
+Data:66,101142
+Data:67,98157
+Data:68,96773
+Data:69,93484
+Data:70,97903
+Data:71,103858
+Data:72,104468
+Data:73,96144
+Data:74,96946
+Data:75,99850
+Data:76,103753
+Data:77,100123
+Data:78,99089
+Data:79,105613
+00:00:10: sendSetupPacket
+Data:80,100068
+Data:81,98165
+Data:82,99299
+Data:83,99513
+Data:84,96299
+Data:85,95160
+Data:86,99993
+Data:87,100598
+Data:88,100359
+Data:89,99277
+Data:90,105186
+Data:91,104173
+Data:92,101924
+Data:93,105286
+Data:94,102127
+Data:95,104419
+Data:96,101892
+Data:97,101334
+Data:98,105848
+Data:99,102094
+Data:100,104588
+Data:101,109690
+Data:102,105680
+Data:103,104978
+Data:104,104170
+Data:105,102271
+Data:106,105668
+Data:107,107043
+Data:108,104450
+Data:109,103527
+Data:110,102056
+00:00:10: sendSetupPacket
+Data:111,103896
+Data:112,101797
+Data:113,97987
+Data:114,100840
+Data:115,97821
+Data:116,98723
+Data:117,98025
+Data:118,97044
+Data:119,98933
+Data:120,95162
+Data:121,96738
+Data:122,96484
+Data:123,94886
+Data:124,95249
+Data:125,95392
+Data:126,96900
+Data:127,98868
+Data:128,106675
+Data:129,102577
+Data:130,100841
+Data:131,102009
+Data:132,100312
+Data:133,101724
+Data:134,95254
+Data:135,94251
+Data:136,105047
+Data:137,104280
+Data:138,110081
+Data:139,104487
+Data:140,101073
+Data:141,101701
+Data:142,103062
+00:00:10: sendSetupPacket
+Data:143,94274
+Data:144,96463
+Data:145,100226
+Data:146,100971
+Data:147,101966
+Data:148,104798
+Data:149,101547
+Data:150,105451
+Data:151,104739
+Data:152,102547
+Data:153,108402
+Data:154,107723
+Data:155,104472
+Data:156,103404
+Data:157,102549
+Data:158,103861
+Data:159,102008
+Data:160,104480
+Data:161,102104
+Data:162,105724
+Data:163,108704
+Data:164,108373
+Data:165,107552
+Data:166,107717
+Data:167,104707
+Data:168,103978
+Data:169,101877
+Data:170,104078
+Data:171,103157
+Data:172,102626
+Data:173,101170
+Data:174,101596
+00:00:10: sendSetupPacket
+Data:175,106973
+Data:176,103782
+Data:177,101702
+Data:178,103475
+Data:179,105727
+Data:180,104540
+Data:181,102252
+Data:182,106062
+Data:183,100922
+Data:184,103412
+Data:185,100897
+Data:186,105038
+Data:187,108529
+Data:188,108602
+Data:189,104975
+Data:190,110793
+Data:191,108858
+Data:192,103314
+Data:193,105835
+Data:194,104580
+Data:195,106248
+Data:196,106282
+Data:197,103998
+Data:198,98718
+Data:199,98721
+Data:200,96998
+Data:201,106131
+Data:202,108818
+Data:203,105477
+Data:204,97470
+Data:205,100358
+Data:206,101680
+00:00:10: sendSetupPacket
+Data:207,99797
+Data:208,102815
+Data:209,100838
+Data:210,102770
+Data:211,99125
+Data:212,97336
+Data:213,101272
+Data:214,98341
+Data:215,93312
+Data:216,94119
+Data:217,95620
+Data:218,94770
+Data:219,93095
+Data:220,96479
+Data:221,99742
+Data:222,99697
+Data:223,99245
+Data:224,94683
+Data:225,95142
+Data:226,95878
+Data:227,100370
+Data:228,98929
+Data:229,99927
+Data:230,98633
+Data:231,93494
+Data:232,95431
+Data:233,100588
+Data:234,103016
+Data:235,97125
+Data:236,97490
+Data:237,98787
+Data:238,97690
+Data:239,97178
+00:00:10: sendSetupPacket
+Data:240,98811
+Data:241,94370
+Data:242,98378
+Data:243,96800
+Data:244,97926
+Data:245,98414
+Data:246,96217
+Data:247,96927
+Data:248,96649
+Data:249,87542
+Data:250,88007
+Data:251,92991
+Data:252,98021
+Data:253,95422
+Data:254,96972
+Data:0,91321
+Data:1,92783
+Data:2,91770
+Data:3,86970
+Data:4,91958
+Data:5,93094
+Data:6,91130
+Data:7,84764
+Data:8,88479
+Data:9,90396
+Data:10,90954
+Data:11,86070
+Data:12,89883
+Data:13,88892
+Data:14,93057
+Data:15,89888
+00:00:10: sendSetupPacket
+Data:16,89381
+Data:17,87100
+Data:18,86468
+Data:19,95958
+Data:20,93879
+Data:21,94561
+Data:22,94983
+Data:23,98886
+Data:24,96499
+Data:25,92462
+Data:26,86340
+Data:27,95436
+Data:28,93000
+Data:29,97306
+Data:30,93785
+Data:31,94411
+Data:32,87750
+Data:33,90540
+Data:34,98647
+Data:35,92172
+Data:36,95518
+Data:37,94618
+Data:38,94078
+Data:39,92443
+Data:40,88095
+Data:41,93116
+Data:42,89118
+Data:43,90603
+Data:44,97471
+Data:45,99889
+Data:46,96168
+Data:47,91031
+Data:48,91436
+00:00:10: sendSetupPacket
+Data:49,88924
+Data:50,84861
+Data:51,89212
+Data:52,84852
+Data:53,91740
+Data:54,93615
+Data:55,83330
+Data:56,84346
+Data:57,87366
+Data:58,82958
+Data:59,87968
+Data:60,86993
+Data:61,91856
+Data:62,88867
+Data:63,90150
+Data:64,91793
+Data:65,92823
+Data:66,90012
+Data:67,90245
+Data:68,94438
+Data:69,101215
+Data:70,94619
+Data:71,91615
+Data:72,88270
+Data:73,88047
+Data:74,84754
+Data:75,93440
+Data:76,89052
+Data:77,92843
+Data:78,94204
+Data:79,97619
+Data:80,89659
+00:00:10: sendSetupPacket
+Data:81,89082
+Data:82,86528
+Data:83,83971
+Data:84,86529
+Data:85,83884
+Data:86,92301
+Data:87,92247
+Data:88,97681
+Data:89,93153
+Data:90,91837
+Data:91,85143
+Data:92,85704
+Data:93,97515
+Data:94,95755
+Data:95,97033
+Data:96,91403
+Data:97,93430
+Data:98,88595
+Data:99,90170
+Data:100,95885
+Data:101,104108
+Data:102,103856
+Data:103,100099
+Data:104,93363
+Data:105,89815
+Data:106,89817
+Data:107,89286
+Data:108,82894
+Data:109,80578
+Data:110,84639
+Data:111,85104
+Data:112,86553
+00:00:10: sendSetupPacket
+Data:113,86679
+Data:114,83111
+Data:115,85072
+Data:116,83335
+Data:117,81907
+Data:118,78743
+Data:119,80200
+Data:120,77544
+Data:121,82709
+Data:122,82787
+Data:123,83518
+Data:124,90592
+Data:125,94350
+Data:126,92998
+Data:127,91054
+Data:128,84835
+Data:129,83776
+Data:130,83461
+Data:131,81826
+Data:132,79824
+Data:133,77315
+Data:134,85645
+Data:135,81281
+Data:136,84657
+Data:137,92629
+Data:138,94412
+Data:139,93498
+Data:140,96439
+Data:141,98503
+Data:142,98445
+Data:143,98376
+00:00:10: sendSetupPacket
+Data:144,96576
+Data:145,98300
+Data:146,97234
+Data:147,100153
+Data:148,99918
+Data:149,98659
+Data:150,97344
+Data:151,98214
+Data:152,95737
+Data:153,99995
+Data:154,98460
+Data:155,94142
+Data:156,94445
+Data:157,96439
+Data:158,102773
+Data:159,100232
+Data:160,102363
+Data:161,103878
+Data:162,102492
+Data:163,101328
+Data:164,98558
+Data:165,100259
+Data:166,100034
+Data:167,100985
+Data:168,99508
+Data:169,99208
+Data:170,94167
+Data:171,97380
+Data:172,94565
+Data:173,97755
+Data:174,94472
+Data:175,92792
+00:00:10: sendSetupPacket
+Data:176,98583
+Data:177,96860
+Data:178,94753
+Data:179,95902
+Data:180,95457
+Data:181,94684
+Data:182,95570
+Data:183,95407
+Data:184,95346
+Data:185,93494
+Data:186,90952
+Data:187,88954
+Data:188,89701
+Data:189,89782
+Data:190,82058
+Data:191,81114
+Data:192,87503
+Data:193,83809
+Data:194,85019
+Data:195,82856
+Data:196,86842
+Data:197,85999
+Data:198,79302
+Data:199,83098
+Data:200,84067
+Data:201,84007
+Data:202,85384
+Data:203,83301
+Data:204,84662
+Data:205,81876
+Data:206,85762
+Data:207,84723
+Data:208,84199
+00:00:10: sendSetupPacket
+Data:209,83044
+Data:210,80679
+Data:211,84599
+Data:212,82633
+Data:213,85996
+Data:214,78192
+Data:215,74479
+Data:216,80399
+Data:217,80178
+Data:218,74133
+Data:219,83184
+Data:220,79383
+Data:221,77758
+Data:222,78534
+Data:223,79437
+Data:224,78705
+Data:225,78940
+Data:226,76773
+Data:227,77542
+Data:228,77214
+Data:229,77199
+Data:230,76496
+Data:231,82247
+Data:232,80095
+Data:233,76702
+Data:234,78416
+Data:235,79797
+Data:236,78230
+Data:237,74343
+Data:238,76059
+Data:239,76714
+00:00:10: sendSetupPacket
+Data:240,73886
+Data:241,90370
+Data:242,101544
+Data:243,105386
+Data:244,109284
+Data:245,105556
+Data:246,106728
+Data:247,107800
+Data:248,109896
+Data:249,108256
+Data:250,110494
+Data:251,115760
+Data:252,117742
+Data:253,118806
+Data:254,118466
+Data:0,113972
+Data:1,116337
+Data:2,110864
+Data:3,114244
+Data:4,112280
+Data:5,113704
+Data:6,115404
+Data:7,113928
+Data:8,116135
+Data:9,114311
+Data:10,113129
+Data:11,111864
+Data:12,114690
+Data:13,114487
+Data:14,113946
+Data:15,111826
+Data:16,113562
+00:00:10: sendSetupPacket
+Data:17,114523
+Data:18,113070
+Data:19,113300
+Data:20,115367
+Data:21,111858
+Data:22,114892
+Data:23,113006
+Data:24,111048
+Data:25,111221
+Data:26,110644
+Data:27,113492
+Data:28,111352
+Data:29,111259
+Data:30,109021
+Data:31,109472
+Data:32,110348
+Data:33,107838
+Data:34,111321
+Data:35,110913
+Data:36,108452
+Data:37,111536
+Data:38,111752
+Data:39,111491
+Data:40,111434
+Data:41,109822
+Data:42,112146
+Data:43,112985
+Data:44,111924
+Data:45,113895
+Data:46,113595
+Data:47,113280
+Data:48,114107
+00:00:10: sendSetupPacket
+Data:49,115546
+Data:50,113706
+Data:51,110705
+Data:52,111068
+Data:53,110359
+Data:54,108878
+Data:55,112053
+Data:56,108223
+Data:57,109223
+Data:58,113195
+Data:59,112554
+Data:60,111015
+Data:61,111929
+Data:62,108495
+Data:63,114467
+Data:64,110137
+Data:65,114878
+Data:66,113974
+Data:67,111700
+Data:68,112763
+Data:69,115837
+Data:70,113532
+Data:71,111947
+Data:72,113199
+Data:73,110647
+Data:74,108856
+Data:75,109464
+Data:76,111196
+Data:77,109904
+Data:78,108246
+Data:79,108233
+Data:80,113946
+00:00:10: sendSetupPacket
+Data:81,114047
+Data:82,113124
+Data:83,114218
+Data:84,113444
+Data:85,106719
+Data:86,113774
+Data:87,114039
+Data:88,116771
+Data:89,115433
+Data:90,113035
+Data:91,111042
+Data:92,113447
+Data:93,111607
+Data:94,108548
+Data:95,110017
+Data:96,112744
+Data:97,113282
+Data:98,113451
+Data:99,112487
+Data:100,111458
+Data:101,108475
+Data:102,107364
+Data:103,108346
+Data:104,108131
+Data:105,111497
+Data:106,117687
+Data:107,111814
+Data:108,117703
+Data:109,113016
+Data:110,108179
+Data:111,112011
+00:00:10: sendSetupPacket
+Data:112,104594
+Data:113,110023
+Data:114,102770
+Data:115,101426
+Data:116,97871
+Data:117,104253
+Data:118,107381
+Data:119,107131
+Data:120,109488
+Data:121,109659
+Data:122,111101
+Data:123,110410
+Data:124,111440
+Data:125,116203
+Data:126,113316
+Data:127,116525
+Data:128,117690
+Data:129,119109
+Data:130,115308
+Data:131,108905
+Data:132,111127
+Data:133,114292
+Data:134,115392
+Data:135,113104
+Data:136,111455
+Data:137,114358
+Data:138,114421
+Data:139,115064
+Data:140,115614
+Data:141,117443
+Data:142,116440
+Data:143,117173
+00:00:10: sendSetupPacket
+Data:144,117427
+Data:145,115461
+Data:146,112694
+Data:147,114057
+Data:148,107649
+Data:149,110741
+Data:150,111155
+Data:151,106651
+Data:152,102493
+Data:153,101997
+Data:154,105817
+Data:155,106725
+Data:156,106437
+Data:157,105933
+Data:158,108641
+Data:159,109748
+Data:160,110638
+Data:161,113126
+Data:162,112635
+Data:163,115224
+Data:164,112463
+Data:165,112373
+Data:166,113714
+Data:167,113276
+Data:168,117527
+Data:169,119159
+Data:170,116189
+Data:171,119829
+Data:172,118750
+Data:173,119517
+Data:174,122774
+Data:175,122001
+00:00:10: sendSetupPacket
+Data:176,118569
+Data:177,124094
+Data:178,117844
+Data:179,122422
+Data:180,122712
+Data:181,117643
+Data:182,117902
+Data:183,118638
+Data:184,114105
+Data:185,115290
+Data:186,115461
+Data:187,114186
+Data:188,113856
+Data:189,112942
+Data:190,111959
+Data:191,112791
+Data:192,110242
+Data:193,111824
+Data:194,110541
+Data:195,110494
+Data:196,110535
+Data:197,111114
+Data:198,109064
+Data:199,110997
+Data:200,108185
+Data:201,110271
+Data:202,110603
+Data:203,110443
+Data:204,109611
+Data:205,108808
+Data:206,110741
+Data:207,117882
+00:00:10: sendSetupPacket
+Data:208,111738
+Data:209,119258
+Data:210,119726
+Data:211,116724
+Data:212,116099
+Data:213,116787
+Data:214,120092
+Data:215,119013
+Data:216,120140
+Data:217,119666
+Data:218,119242
+Data:219,118233
+Data:220,116545
+Data:221,121184
+Data:222,115694
+Data:223,114504
+Data:224,113334
+Data:225,114163
+Data:226,111093
+Data:227,108798
+Data:228,106907
+Data:229,110107
+Data:230,111543
+Data:231,104615
+Data:232,109954
+Data:233,110252
+Data:234,107625
+Data:235,106453
+Data:236,107044
+Data:237,108190
+Data:238,106815
+Data:239,104072
+00:00:10: sendSetupPacket
+Data:240,108923
+Data:241,108765
+Data:242,111991
+Data:243,112333
+Data:244,111308
+Data:245,112493
+Data:246,111686
+Data:247,115730
+Data:248,114581
+Data:249,114697
+Data:250,117091
+Data:251,118109
+Data:252,119389
+Data:253,124069
+Data:254,124468
+Data:0,124442
+Data:1,122271
+Data:2,124879
+Data:3,121859
+Data:4,125165
+Data:5,127585
+Data:6,123626
+Data:7,121282
+Data:8,111901
+Data:9,109866
+Data:10,110457
+Data:11,107567
+Data:12,109168
+Data:13,102909
+Data:14,105907
+Data:15,105643
+Data:16,109230
+00:00:10: sendSetupPacket
+Data:17,107830
+Data:18,107248
+Data:19,105855
+Data:20,111363
+Data:21,107782
+Data:22,108345
+Data:23,107515
+Data:24,108520
+Data:25,111553
+Data:26,109972
+Data:27,113210
+Data:28,104057
+Data:29,106519
+Data:30,105403
+Data:31,109395
+Data:32,103666
+Data:33,104192
+Data:34,103670
+Data:35,99873
+Data:36,105914
+Data:37,107588
+Data:38,107515
+Data:39,112597
+Data:40,109583
+Data:41,112998
+Data:42,110212
+Data:43,109833
+Data:44,115867
+Data:45,111541
+Data:46,110268
+Data:47,108217
+Data:48,112368
+00:00:10: sendSetupPacket
+Data:49,109726
+Data:50,112881
+Data:51,106275
+Data:52,107710
+Data:53,107783
+Data:54,111712
+Data:55,112095
+Data:56,109230
+Data:57,108430
+Data:58,110712
+Data:59,111556
+Data:60,109266
+Data:61,111055
+Data:62,115249
+Data:63,113440
+Data:64,116137
+Data:65,114458
+Data:66,112776
+Data:67,111284
+Data:68,110176
+Data:69,111333
+Data:70,111505
+Data:71,108795
+Data:72,110017
+Data:73,109099
+Data:74,108335
+Data:75,108410
+Data:76,109232
+Data:77,106668
+Data:78,109236
+Data:79,109813
+Data:80,105957
+00:00:10: sendSetupPacket
+Data:81,104926
+Data:82,106439
+Data:83,109782
+Data:84,107407
+Data:85,109450
+Data:86,111018
+Data:87,112188
+Data:88,108047
+Data:89,108232
+Data:90,105855
+Data:91,105506
+Data:92,110748
+Data:93,107471
+Data:94,113759
+Data:95,117387
+Data:96,110262
+Data:97,116233
+Data:98,109440
+Data:99,109740
+Data:100,112597
+Data:101,107516
+Data:102,110147
+Data:103,112325
+Data:104,109293
+Data:105,112075
+Data:106,108878
+Data:107,117744
+Data:108,112577
+Data:109,112138
+Data:110,115468
+Data:111,115723
+Data:112,115934
+00:00:10: sendSetupPacket
+Data:113,114744
+Data:114,118185
+Data:115,114557
+Data:116,115725
+Data:117,116600
+Data:118,115218
+Data:119,116334
+Data:120,115287
+Data:121,113892
+Data:122,116618
+Data:123,117473
+Data:124,117251
+Data:125,113151
+Data:126,117233
+Data:127,116491
+Data:128,114161
+Data:129,109411
+Data:130,111366
+Data:131,110552
+Data:132,110586
+Data:133,117670
+Data:134,115985
+Data:135,117004
+Data:136,111551
+Data:137,115868
+Data:138,114057
+Data:139,113305
+Data:140,110875
+Data:141,105931
+Data:142,114252
+Data:143,108912
+Data:144,115249
+Data:145,115111
+00:00:10: sendSetupPacket
+Data:146,111677
+Data:147,108209
+Data:148,106954
+Data:149,112544
+Data:150,114088
+Data:151,106426
+Data:152,104699
+Data:153,107617
+Data:154,115151
+Data:155,109472
+Data:156,108543
+Data:157,111689
+Data:158,111386
+Data:159,112434
+Data:160,108394
+Data:161,106912
+Data:162,108799
+Data:163,114834
+Data:164,110795
+Data:165,108955
+Data:166,113104
+Data:167,107560
+Data:168,110678
+Data:169,110871
+Data:170,115546
+Data:171,112139
+Data:172,112336
+Data:173,110344
+Data:174,112543
+Data:175,111239
+Data:176,118148
+00:00:10: sendSetupPacket
+Data:177,115930
+Data:178,114686
+Data:179,111102
+Data:180,110299
+Data:181,114232
+Data:182,115253
+Data:183,113595
+Data:184,110981
+Data:185,108479
+Data:186,110241
+Data:187,109225
+Data:188,108781
+Data:189,115891
+Data:190,107403
+Data:191,107995
+Data:192,107202
+Data:193,107977
+Data:194,115927
+Data:195,114158
+Data:196,113180
+Data:197,110497
+Data:198,108768
+Data:199,107718
+Data:200,111581
+Data:201,111809
+Data:202,105639
+Data:203,105517
+Data:204,108505
+Data:205,110344
+Data:206,115175
+Data:207,115505
+Data:208,109409
+00:00:10: sendSetupPacket
+Data:209,106532
+Data:210,112999
+Data:211,114271
+Data:212,117006
+Data:213,116093
+Data:214,113859
+Data:215,110167
+Data:216,110751
+Data:217,115996
+Data:218,114821
+Data:219,112229
+Data:220,113091
+Data:221,115518
+Data:222,111908
+Data:223,113805
+Data:224,112628
+Data:225,109746
+Data:226,110583
+Data:227,114850
+Data:228,112093
+Data:229,113221
+Data:230,115638
+Data:231,116113
+Data:232,110840
+Data:233,115699
+Data:234,112463
+Data:235,110881
+Data:236,114158
+Data:237,111855
+Data:238,110018
+Data:239,111361
+Data:240,108977
+00:00:10: sendSetupPacket
+Data:241,108821
+Data:242,109761
+Data:243,110763
+Data:244,113417
+Data:245,111063
+Data:246,110999
+Data:247,112491
+Data:248,110345
+Data:249,110475
+Data:250,105751
+Data:251,108825
+Data:252,108045
+Data:253,104975
+Data:254,109216
+Data:0,114849
+Data:1,113147
+Data:2,110660
+Data:3,114729
+Data:4,115760
+Data:5,114375
+Data:6,115225
+Data:7,113058
+Data:8,115098
+Data:9,114903
+Data:10,112154
+Data:11,105849
+Data:12,117490
+Data:13,109847
+Data:14,110709
+Data:15,111739
+Data:16,112339
+Data:17,114941
+00:00:10: sendSetupPacket
+Data:18,115243
+Data:19,118235
+Data:20,113956
+Data:21,115427
+Data:22,118218
+Data:23,120972
+Data:24,114763
+Data:25,117206
+Data:26,111594
+Data:27,112527
+Data:28,112726
+Data:29,113486
+Data:30,114763
+Data:31,112037
+Data:32,116075
+Data:33,111973
+Data:34,111459
+Data:35,115871
+Data:36,114196
+Data:37,109901
+Data:38,109171
+Data:39,110368
+Data:40,107437
+Data:41,110001
+Data:42,115383
+Data:43,115703
+Data:44,113322
+Data:45,108807
+Data:46,112891
+Data:47,114876
+Data:48,117460
+Data:49,118835
+00:00:10: sendSetupPacket
+Data:50,113317
+Data:51,109180
+Data:52,108881
+Data:53,116082
+Data:54,108517
+Data:55,110328
+Data:56,115482
+Data:57,115229
+Data:58,115394
+Data:59,113073
+Data:60,114275
+Data:61,114204
+Data:62,112284
+Data:63,115535
+Data:64,109050
+Data:65,109711
+Data:66,107697
+Data:67,112262
+Data:68,115492
+Data:69,115423
+Data:70,115005
+Data:71,114337
+Data:72,113805
+Data:73,105185
+Data:74,112598
+Data:75,114959
+Data:76,115015
+Data:77,111150
+Data:78,110106
+Data:79,111453
+Data:80,114255
+Data:81,112337
+Data:82,114401
+00:00:10: sendSetupPacket
+Data:83,115655
+Data:84,111168
+Data:85,111939
+Data:86,110044
+Data:87,112263
+Data:88,117412
+Data:89,111573
+Data:90,112767
+Data:91,113269
+Data:92,115313
+Data:93,111261
+Data:94,113818
+Data:95,111542
+Data:96,113691
+Data:97,113544
+Data:98,111407
+Data:99,108543
+Data:100,109962
+Data:101,113041
+Data:102,110040
+Data:103,113410
+Data:104,110971
+Data:105,107735
+Data:106,109666
+Data:107,114403
+Data:108,109160
+Data:109,110952
+Data:110,117744
+Data:111,114624
+Data:112,117341
+Data:113,113925
+Data:114,115926
+00:00:10: sendSetupPacket
+Data:115,117800
+Data:116,112270
+Data:117,118165
+Data:118,118030
+Data:119,120657
+Data:120,115799
+Data:121,115999
+Data:122,117958
+Data:123,121551
+Data:124,121099
+Data:125,124919
+Data:126,121083
+Data:127,116186
+Data:128,118173
+Data:129,118555
+Data:130,124028
+Data:131,119691
+Data:132,117749
+Data:133,114074
+Data:134,114917
+Data:135,116579
+Data:136,118646
+Data:137,117618
+Data:138,121330
+Data:139,123110
+Data:140,116804
+Data:141,121023
+Data:142,124161
+Data:143,122934
+Data:144,119227
+Data:145,118975
+Data:146,117208
+00:00:10: sendSetupPacket
+Data:147,118933
+Data:148,118323
+Data:149,117771
+Data:150,119602
+Data:151,118226
+Data:152,116722
+Data:153,118480
+Data:154,113403
+Data:155,116190
+Data:156,120177
+Data:157,116012
+Data:158,120754
+Data:159,120552
+Data:160,117868
+Data:161,118378
+Data:162,119560
+Data:163,119452
+Data:164,119298
+Data:165,119724
+Data:166,117687
+Data:167,119019
+Data:168,119977
+Data:169,119043
+Data:170,115132
+Data:171,113796
+Data:172,114247
+Data:173,110961
+Data:174,112318
+Data:175,116138
+Data:176,118659
+Data:177,117598
+Data:178,116449
+00:00:10: sendSetupPacket
+Data:179,116684
+Data:180,118102
+Data:181,116524
+Data:182,115100
+Data:183,114458
+Data:184,113327
+Data:185,115861
+Data:186,115986
+Data:187,116172
+Data:188,113255
+Data:189,111113
+Data:190,115171
+Data:191,115812
+Data:192,114382
+Data:193,115318
+Data:194,116758
+Data:195,117140
+Data:196,112139
+Data:197,116533
+Data:198,114872
+Data:199,119409
+Data:200,116387
+Data:201,117924
+Data:202,115539
+Data:203,114085
+Data:204,110319
+Data:205,111964
+Data:206,114995
+Data:207,120310
+Data:208,121332
+Data:209,118798
+Data:210,118108
+00:00:10: sendSetupPacket
+Data:211,120180
+Data:212,113888
+Data:213,108325
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+Data:144,0
+Data:155,118638
+Data:156,126582
+Data:157,124431
+Data:158,120612
+Data:159,120043
+Data:160,120227
+Data:161,123435
+Data:162,126607
+Data:163,124494
+Data:164,122828
+Data:165,121698
+Data:166,120087
+Data:167,119540
+Data:168,117657
+Data:169,120753
+Data:170,125179
+Data:171,117646
+Data:172,119301
+Data:173,124637
+Data:174,129239
+00:00:10: sendSetupPacket
+Data:175,128225
+Data:176,125657
+Data:177,121026
+Data:178,113607
+Data:179,119485
+Data:180,125065
+Data:181,127723
+Data:182,127082
+Data:183,126698
+Data:184,125836
+Data:185,120708
+Data:186,117355
+Data:187,126663
+Data:188,126387
+Data:189,129137
+Data:190,130780
+Data:191,124462
+Data:192,120993
+Data:193,122013
+Data:194,121200
+Data:195,122152
+Data:196,117327
+Data:197,118859
+Data:198,121259
+Data:199,123517
+Data:200,124249
+Data:201,127195
+Data:202,123078
+Data:203,124078
+Data:204,130869
+Data:205,123143
+Data:206,130801
+Data:207,126430
+00:00:10: sendSetupPacket
+Data:208,127211
+Data:209,126714
+Data:210,129417
+Data:211,126998
+Data:212,124881
+Data:213,125165
+Data:214,127160
+Data:215,123860
+Data:216,121465
+Data:217,123579
+Data:218,123040
+Data:219,124379
+Data:220,124187
+Data:221,124924
+Data:222,126932
+Data:223,130602
+Data:224,124092
+Data:225,125593
+Data:226,123867
+Data:227,119764
+Data:228,117827
+Data:229,121522
+Data:230,126379
+Data:231,123435
+Data:232,117208
+Data:233,117051
+Data:234,123802
+Data:235,116829
+Data:236,116285
+Data:237,120051
+Data:238,118155
+00:00:10: sendSetupPacket
+Data:239,119894
+Data:240,114169
+Data:241,112449
+Data:242,114956
+Data:243,119528
+Data:244,115449
+Data:245,117798
+Data:246,124535
+Data:247,121227
+Data:248,124152
+Data:249,128368
+Data:250,121724
+Data:251,120506
+Data:252,123945
+Data:253,124647
+Data:254,119514
+Data:0,117453
+Data:1,117262
+Data:2,123382
+Data:3,119576
+Data:4,124065
+Data:5,116134
+Data:6,129789
+Data:7,128085
+Data:8,123400
+Data:9,123333
+Data:10,122654
+Data:11,122813
+Data:12,126880
+Data:13,121457
+Data:14,128148
+Data:15,130900
+Data:16,130109
+00:00:10: sendSetupPacket
+Data:17,130883
+Data:18,130007
+Data:19,130900
+Data:20,126549
+Data:21,127407
+Data:22,130202
+Data:23,127548
+Data:24,128111
+Data:25,126946
+Data:26,127381
+Data:27,130900
+Data:28,124376
+Data:29,130900
+Data:30,124710
+Data:31,126134
+Data:32,123191
+Data:33,130900
+Data:34,126167
+Data:35,128126
+Data:36,124465
+Data:37,126268
+Data:38,126632
+Data:39,130029
+Data:40,130081
+Data:41,128684
+Data:42,129832
+Data:43,127557
+Data:44,124811
+Data:45,130900
+Data:46,128813
+Data:47,127314
+Data:48,129513
+00:00:10: sendSetupPacket
+Data:49,126864
+Data:50,128799
+Data:51,129350
+Data:52,129387
+Data:53,128074
+Data:54,130044
+Data:55,126886
+Data:56,129073
+Data:57,127284
+Data:58,127099
+Data:59,123737
+Data:60,124298
+Data:61,122791
+Data:62,120179
+Data:63,117523
+Data:64,120705
+Data:65,118844
+Data:66,129076
+Data:67,126857
+Data:68,65450
+Data:69,121776
+Data:70,124530
+Data:71,125729
+Data:72,121601
+Data:73,124307
+Data:74,130900
+Data:75,130900
+Data:76,126518
+Data:77,129474
+Data:78,130900
+Data:79,130039
+00:00:10: sendSetupPacket
+Data:80,130900
+Data:81,130900
+Data:82,130900
+Data:83,130900
+Data:84,130900
+Data:85,130900
+Data:86,130706
+Data:87,130900
+Data:88,129437
+Data:89,127907
+Data:90,129886
+Data:91,128962
+Data:92,130900
+Data:93,130900
+Data:94,130900
+Data:95,125649
+Data:96,128031
+Data:97,130900
+Data:98,128429
+Data:99,129941
+Data:100,128645
+Data:101,130089
+Data:102,130900
+Data:103,130736
+Data:104,130454
+Data:105,130900
+Data:106,130058
+Data:107,130900
+Data:108,130900
+Data:109,130900
+Data:110,128804
+Data:111,130900
+00:00:10: sendSetupPacket
+Data:112,128808
+Data:113,128503
+Data:114,129549
+Data:115,128978
+Data:116,130900
+Data:117,126319
+Data:118,129192
+Data:119,129895
+Data:120,126277
+Data:121,127682
+Data:122,130668
+Data:123,130221
+Data:124,129492
+Data:125,130900
+Data:126,130900
+Data:127,124066
+Data:128,122817
+Data:129,125132
+Data:130,122056
+Data:131,127191
+Data:132,130900
+Data:133,130900
+Data:134,130900
+Data:135,130900
+Data:136,130900
+Data:137,127863
+Data:138,126305
+Data:139,128237
+Data:140,129443
+Data:141,127835
+Data:142,128836
+Data:143,128570
+Data:144,128971
+00:00:10: sendSetupPacket
+Data:145,128700
+Data:146,126427
+Data:147,120529
+Data:148,129461
+Data:149,130899
+Data:150,127230
+Data:151,130900
+Data:152,130900
+Data:153,130900
+Data:154,130900
+Data:155,129901
+Data:156,130626
+Data:157,123051
+Data:158,126588
+Data:159,128948
+Data:160,126011
+Data:161,130900
+Data:162,127842
+Data:163,129676
+Data:164,130900
+Data:165,130179
+Data:166,130900
+Data:167,130900
+Data:168,128772
+Data:169,130900
+Data:170,130900
+Data:171,126260
+Data:172,130773
+Data:173,125567
+Data:174,130575
+Data:175,129682
+Data:176,130637
+00:00:10: sendSetupPacket
+Data:177,129187
+Data:178,128830
+Data:179,130900
+Data:180,130900
+Data:181,130900
+Data:182,130900
+Data:183,130900
+Data:184,130900
+Data:185,130900
+Data:186,128844
+Data:187,129349
+Data:188,130900
+Data:189,130900
+Data:190,130900
+Data:191,128513
+Data:192,127752
+Data:193,128559
+Data:194,125558
+Data:195,130900
+Data:196,130900
+Data:197,130900
+Data:198,130900
+Data:199,130900
+Data:200,127224
+Data:201,129408
+Data:202,124070
+Data:203,126682
+Data:204,127677
+Data:205,130900
+Data:206,130900
+Data:207,130900
+Data:208,130900
+00:00:10: sendSetupPacket
+Data:209,128841
+Data:210,128134
+Data:211,130900
+Data:212,128316
+Data:213,130641
+Data:214,123340
+Data:215,130786
+Data:216,130900
+Data:217,130900
+Data:218,130900
+Data:219,130900
+Data:220,130900
+Data:221,130900
+Data:222,130900
+Data:223,130900
+Data:224,130900
+Data:225,129721
+Data:226,130163
+Data:227,130900
+Data:228,130900
+Data:229,130900
+Data:230,130578
+Data:231,130900
+Data:232,128139
+Data:233,127600
+Data:234,130046
+Data:235,127226
+Data:236,129839
+Data:237,126452
+Data:238,126110
+Data:239,125635
+Data:240,127171
+00:00:10: sendSetupPacket
+Data:241,119917
+Data:242,125559
+Data:243,127296
+Data:244,130900
+Data:245,130900
+Data:246,130900
+Data:247,130900
+Data:248,130900
+Data:249,130900
+Data:250,130900
+Data:251,130900
+Data:252,130900
+Data:253,130900
+Data:254,130900
+Data:0,130900
+Data:1,130900
+Data:2,130900
+Data:3,130093
+Data:4,130900
+Data:5,130900
+Data:6,130900
+Data:7,130900
+Data:8,130900
+Data:9,130006
+Data:10,130900
+Data:11,130900
+Data:12,127835
+Data:13,125541
+Data:14,124685
+Data:15,129126
+Data:16,128742
+Data:17,127470
+00:00:10: sendSetupPacket
+Data:18,126399
+Data:19,129129
+Data:20,130900
+Data:21,130900
+Data:22,130900
+Data:23,130900
+Data:24,130900
+Data:25,130900
+Data:26,130900
+Data:27,130900
+Data:28,130900
+Data:29,130900
+Data:30,130900
+Data:31,130900
+Data:32,130900
+Data:33,130900
+Data:34,130900
+Data:35,130900
+Data:36,130900
+Data:37,130900
+Data:38,130900
+Data:42,130900
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket
+00:00:10: sendSetupPacket

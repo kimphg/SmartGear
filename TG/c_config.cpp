@@ -151,7 +151,7 @@ void CConfig::appendLog(const char* error)
 //    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S    ",timeinfo);
     printf("%s: ",QDateTime::fromTime_t(10).toUTC().toString("hh:mm:ss").toStdString().data());
     printf("%s\n",error);
-    fclose (stdout);
+//    fclose (stdout);
 }
 
 //void CConfig::AddMessage(QString message)

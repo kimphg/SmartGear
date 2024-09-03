@@ -37,7 +37,7 @@
 QcGaugeWidget::QcGaugeWidget(QWidget *parent) :
     QWidget(parent)
 {
-    setMinimumSize(150,150);
+    setMinimumSize(120,120);
     initFigure();
 }
 
@@ -118,8 +118,8 @@ QcAttitudeMeter *QcGaugeWidget::addAttitudeMeter(float position)
 
 void QcGaugeWidget::initFigure()
 {
-    double minAngle = -150;
-    double maxAngle= 150;
+    double minAngle = -180;
+    double maxAngle= 180;
     this->addBackground(99)->addColor(1.0,Qt::white);
     QcBackgroundItem *bkg1 = this->addBackground(97);
     bkg1->clearrColors();
@@ -143,10 +143,10 @@ void QcGaugeWidget::initFigure()
     vlitem->setValueRange(minAngle,maxAngle);
     vlitem->setStep(30);
     vlitem->setColor(Qt::white);
-    QcLabelItem *labitem = this->addLabel(70);
-    labitem->setText("Góc mạn");
-    labitem->setColor(Qt::white);
-    QcLabelItem *lab = this->addLabel(40);
+//    QcLabelItem *labitem = this->addLabel(70);
+//    labitem->setText("Góc mạn");
+//    labitem->setColor(Qt::white);
+    QcLabelItem *lab = this->addLabel(150);
     lab->setText("0");
     mSpeedNeedle = this->addNeedle(60);
     mSpeedNeedle->setNeedle(QcNeedleItem::WeaponNeedle);
@@ -289,8 +289,8 @@ float QcItem::getAngle(const QPointF&pt, const QRectF &tmpRect)
 QcScaleItem::QcScaleItem(QObject *parent) :
     QcItem(parent)
 {
-    mMinDegree = -45;
-    mMaxDegree = 225;
+    mMinDegree = -90;
+    mMaxDegree = 270;
     mMinValue = 0;
     mMaxValue = 100;
 }
@@ -518,7 +518,7 @@ void QcArcItem::draw(QPainter *painter)
     pen.setColor(mColor);
     pen.setWidthF(r/40);
     painter->setPen(pen);
-    painter->drawArc(tmpRect,-16*(mMinDegree+180),-16*(mMaxDegree-mMinDegree));
+    painter->drawArc(tmpRect,-18*(mMinDegree+180),-18*(mMaxDegree-mMinDegree));
 }
 
 void QcArcItem::setColor(const QColor &color)
@@ -774,16 +774,16 @@ void QcNeedleItem::createGunNeedle(float r)
 {
     QVector<QPointF> tmpPoints;
     tmpPoints.append(QPointF(0.0, 0.0));
-    tmpPoints.append(QPointF(20,-10));
-    tmpPoints.append(QPointF(25,5));
-    tmpPoints.append(QPointF(20,20));
-    tmpPoints.append(QPointF(3,25));
-    tmpPoints.append(QPointF(3, r));
-    tmpPoints.append(QPointF(-3, r));
-    tmpPoints.append(QPointF(-3,25));
-    tmpPoints.append(QPointF(-20,20));
-    tmpPoints.append(QPointF(-25,5));
-    tmpPoints.append(QPointF(-20,-10));
+    tmpPoints.append(QPointF(15,-7));
+    tmpPoints.append(QPointF(18,3));
+    tmpPoints.append(QPointF(15,15));
+    tmpPoints.append(QPointF(2,18));
+    tmpPoints.append(QPointF(2, r));
+    tmpPoints.append(QPointF(-2, r));
+    tmpPoints.append(QPointF(-2,18));
+    tmpPoints.append(QPointF(-15,15));
+    tmpPoints.append(QPointF(-18,3));
+    tmpPoints.append(QPointF(-15,-7));
 //    tmpPoints.append(QPointF(100,0));
     mNeedlePoly = tmpPoints;
 }
@@ -854,7 +854,7 @@ void QcValuesItem::draw(QPainter*painter)
     QRectF  tmpRect = resetRect();
     float r = getRadius(adjustRect(99));
     QFont font("Meiryo UI",0, QFont::Bold);
-    font.setPointSizeF(0.08*r);
+    font.setPointSizeF(0.12*r);
 
     painter->setFont(font);
     painter->setPen(mColor);
