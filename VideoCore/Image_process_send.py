@@ -5,11 +5,12 @@ import socket
 # import pickle
 import time 
 from ultralytics import YOLO
-# from vidstab import VidStab
+from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
-# model = YOLO("yolov10s.pt")
-udp_ip = "127.0.0.1"
+model = YOLO("yolov10s.pt")
+model.to("cuda")
+udp_ip = "192.168.0.73"
 udp_port = 12345
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 MAX_PACKET_SIZE = 65450  
@@ -18,7 +19,7 @@ import pickle
 import struct
 import cv2
 def send_frame(frame,frame_counter, address):
-    ret, buffer = cv2.imencode('.jpeg', frame)
+    ret, buffer = cv2.imencode('.jpeg', frame,[cv2.IMWRITE_JPEG_QUALITY, 95])
     if not ret:
         print("Failed to encode image")
         return
@@ -37,8 +38,9 @@ def send_frame(frame,frame_counter, address):
 
     print(f"Sent frame with size {len(data)} bytes")
 
-# stabilizer = VidStab()
-cap = cv2.VideoCapture("D:/VIDEO/rec_03.12_07.05.34.avi")
+stabilizer = VidStab()
+cap = cv2.VideoCapture(1)
+# cap = cv2.VideoCapture("D:/VIDEO/rec_03.12_07.05.34.avi")
 # cap = cv2.VideoCapture("tracking compilation.mp4")
 frame_width = int(cap.get(3)) 
 frame_height = int(cap.get(4)) *2
@@ -55,8 +57,8 @@ while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
-    # cv2.imshow('Original', frame)
-    # frame = stabilizer.stabilize_frame(input_frame=inframe,smoothing_window=10)
+    cv2.imshow('Original', frame)
+    # frame = stabilizer.stabilize_frame(input_frame=frame,smoothing_window=8)
     # results = model(frame)
     # detections = results[0].boxes
     # print(model.names)
@@ -69,7 +71,7 @@ while cap.isOpened():
     #     if(abs(x1-x2)>20):
     #         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
     #         cv2.putText(frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
-    # # font which we will be using to display FPS 
+    # font which we will be using to display FPS 
     # #  
     font = cv2.FONT_HERSHEY_SIMPLEX 
     new_frame_time = time.time() 
