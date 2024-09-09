@@ -236,6 +236,8 @@ private slots:
 
     void on_bt_control_focusauto_2_clicked(bool checked);
 
+    void on_toolButton_sightup_clicked();
+
 private:
     bool isEqualizeHis = false;
     bool nightMode = false;

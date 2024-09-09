@@ -122,7 +122,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
+//namedWindow("image", 1);
     ui->setupUi(this);
     this->statusBar()->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
 //    this->setStyleSheet("background-color: rgb(58, 65, 60); color:rgb(255, 255, 255)");
@@ -130,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent) :
     videoSocket = new QUdpSocket(this);
     mControl.setSocket(socket);
     CConfig::readFile();
-
+    ui->frame_gui->hide();
     //    trackrect.x = frame.rows*0.45;
     //    trackrect.y = frame.cols*0.45;
     //    trackrect.width = frame.rows*0.1;
@@ -142,7 +142,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer_1sec, SIGNAL(timeout()), this, SLOT(updateInfo()) );
     timer_1sec->start(1000);
     // do something..
-    ui->view_azi->setValue(5.22);
+    ui->view_azi->setValue(152);
 
     if(socket->bind(4000))
     {
@@ -411,6 +411,24 @@ void MainWindow::processKeyBoardEvent(int key)
         }
         else trackerShutdown();
 
+    }
+    else if(key == Qt::Key_F1){
+
+
+        this->on_bt_f_1_clicked();
+        this->ui->frame_gui->show();
+    }
+    else if(key == Qt::Key_F2){
+
+
+        this->on_bt_f_2_clicked();
+        this->ui->frame_gui->show();
+    }
+    else if(key == Qt::Key_F3){
+
+
+        this->on_bt_f_3_clicked();
+        this->ui->frame_gui->show();
     }
     else if(key == Qt::Key_F8){
 
@@ -829,7 +847,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     QPen pen2(color2);
     pen2.setWidth(2);
     p.setPen(pen2);
-    p.drawRect(plotRect);
+
     QPoint point2;
     for(int i=0;i<kcf_tracker.trackmax.size();i++)
     {
@@ -837,10 +855,11 @@ void MainWindow::paintEvent(QPaintEvent *event)
         if(i>0)p.drawLine(point1,point2);
         point2=point1;
     }
-    int meanValue = kcf_tracker.trackmean*100;
-    p.drawLine(plotRect.x(),plotRect.y()+plotRect.height()-meanValue,plotRect.x()+TRACK_MEM_SIZE,plotRect.y()+plotRect.height()-meanValue);
-    if(1)//draw graphg
+
+    if(0)//draw graphg
     {
+
+         p.drawRect(plotRect);
         for(int i=0;i<dataPlot.size();i++)
         {
             QPoint point1(plotRect.x()+i*2,plotRect.y()+plotRect.height()*2-dataPlot[i]);
@@ -903,7 +922,7 @@ void MainWindow::timer30ms()
     {
 
     }
-    if(mControl.modbusDeviceCU!=nullptr)
+    if(0)//mControl.modbusDeviceCU!=nullptr)
     {
 
         int ct11 = mControl.getPLCInput(0,1);
@@ -935,7 +954,7 @@ void MainWindow::timer30ms()
         while (ele_float>=180)ele_float-=360;
         while (ele_float<=-180)ele_float+=360;
         //        ui->statusbar->showMessage(QString::number(ele_int));
-        ui->label_ele->setText(QString::number(ele_float,'f',1));
+//        ui->label_ele->setText(QString::number(ele_float,'f',1));
         ui->slider_ele->setValue(int(ele_float));
         if(isCtActivated)
         {
@@ -1114,6 +1133,7 @@ void MainWindow::updateData()
     }
     while(videoSocket->hasPendingDatagrams())
     {
+
         int len = videoSocket->pendingDatagramSize();
         QHostAddress host;
         quint16 port;
@@ -1126,9 +1146,56 @@ void MainWindow::updateData()
         if(newFrameID!=frameID)//new frame
         {
 
-            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
-            if(imgVideo.loadFromData(videoBuff,"JPEG"))
+//            printf("Data:%d,%d\n",newFrameID,videoBuff.length());
+            frame = cv::imdecode(cv::Mat(1, videoBuff.length(), CV_8UC1, videoBuff.data()), CV_LOAD_IMAGE_UNCHANGED);
+            if(!frame.empty())
             {
+
+                frameCount++;
+                if(recorder.isOpened())
+                    recorder.write(frame);
+                //        if(isEqualizeHis)cv::equalizeHist(frame,frame);
+                update();
+                //        sendFrameVideo();
+                if(trackermode)
+                {
+                    //            printf("track update start\n"); flushall();
+                    singleTrackTarget = kcf_tracker.Update(frame);
+                    singleTrackWindow = kcf_tracker.getsearchingRect();
+                    //            printf("track update done\n");
+                    //            flushall();
+                    bool trackFail = (singleTrackTarget.area()<100)||(singleTrackTarget.width<5)||(singleTrackTarget.height<5);
+                    if(trackFail)
+                    {
+
+                        showMessage(QString::fromUtf8("Mất bám, đang tìm kiếm..."));
+                        trackermode = 2;
+                    }
+                    else
+                    {
+                        if(trackermode==2)
+                        {
+                            trackermode=1;
+                        }
+                    }
+                    //            cv::Rect scaledRect;
+                    //            scaledRect.x = singleTrackTarget.x /mScaleX;
+                    //            scaledRect.y = singleTrackTarget.y /mScaleY;
+                    //            scaledRect.width = singleTrackTarget.width /mScaleX;
+                    //            scaledRect.height = singleTrackTarget.height /mScaleY;
+
+                    if(trackermode==1)cv::rectangle(frame,singleTrackTarget,cv::Scalar(255, 0, 0),1,16 );
+                    else cv::rectangle(frame,singleTrackWindow,cv::Scalar(255, 255, 0),1,16 );
+
+
+                }
+                else
+                {
+                    cv::rectangle(frame,trackrect,cv::Scalar(150, 150, 0),1,16 );
+                }
+            }
+            {
+                imgVideo = QImage (frame.data, frame.cols, frame.rows, frame.step,QImage::Format_RGB888);
 //                printf("OK");
                 update();
             }
@@ -1822,8 +1889,7 @@ void MainWindow::on_bt_tracksizeup_2_clicked()
 
 void MainWindow::on_pushButton_sightup_clicked()
 {
-    if(sight_y>-200)sight_y = sight_y-1;
-    CConfig::setValue("sighty",sight_y-frame_process_H/2.0);
+
 
 }
 
@@ -1853,12 +1919,32 @@ void MainWindow::on_bt_stab_2_clicked()
 
 void MainWindow::on_bt_f_1_clicked()
 {
+    ui->stackedWidget->setCurrentIndex(0);
+    if(true)
+    {
+        mControl.setplc(8,0);
+//        ui->bt_video_thermal->setDisabled(true);
+        ui->bt_video_off->setChecked(false);
 
+    }
+
+    mControl.setplc(9,true);
 }
 
 void MainWindow::on_bt_f_2_clicked()
 {
+    ui->stackedWidget->setCurrentIndex(1);
+    if(true)
+    {
 
+
+        mControl.setplc(9,0);
+        ui->bt_video_main->setDisabled(true);
+        ui->bt_video_off->setChecked(false);
+
+    }
+
+    mControl.setplc(8,true);
 }
 
 void MainWindow::on_bt_f_3_clicked()
@@ -1888,32 +1974,12 @@ void MainWindow::on_bt_video_thermal_clicked()
 
 void MainWindow::on_bt_f_2_clicked(bool checked)
 {
-    ui->stackedWidget->setCurrentIndex(1);
-    if(checked)
-    {
 
-
-        mControl.setplc(9,0);
-        ui->bt_video_main->setDisabled(true);
-        ui->bt_video_off->setChecked(false);
-
-    }
-
-    mControl.setplc(8,checked);
 }
 
 void MainWindow::on_bt_f_1_clicked(bool checked)
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    if(checked)
-    {
-        mControl.setplc(8,0);
-//        ui->bt_video_thermal->setDisabled(true);
-        ui->bt_video_off->setChecked(false);
 
-    }
-
-    mControl.setplc(9,checked);
 }
 
 void MainWindow::on_bt_control_focusauto_2_clicked(bool checked)
@@ -1926,4 +1992,11 @@ void MainWindow::on_bt_control_focusauto_2_clicked(bool checked)
         ui->bt_video_main->setDisabled(false);
 //        ui->bt_video_thermal->setDisabled(false);
     }
+}
+
+void MainWindow::on_toolButton_sightup_clicked()
+{
+    if(sight_y>-200)sight_y = sight_y-1;
+    CConfig::setValue("sighty",sight_y-frame_process_H/2.0);
+
 }

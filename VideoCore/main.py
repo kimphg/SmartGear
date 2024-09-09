@@ -2,8 +2,8 @@
 from vidgear.gears import VideoGear
 from vidgear.gears import WriteGear
 import cv2
-
-stream = VideoGear(source=1, stabilize = True).start() # To open any valid video stream(for e.g device at 0 index)
+options = {'SMOOTHING_RADIUS': 80}
+stream = VideoGear(source="D:/VIDEO/rec_03.12_07.21.06.avi", stabilize = True,**options).start() # To open any valid video stream(for e.g device at 0 index)
 
 # infinite loop
 while True:
