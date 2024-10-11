@@ -16,10 +16,9 @@
 #define CT3 3
 #define CT4 2
 #define PPR1 1000
-#define GEAR1 160
+#define GEAR1 200
 #define PPR2 1000
-#define GEAR2 400
-#define PULSE_MAX_FREQ 30000
+#define GEAR2 500
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
 float MAX_ACC = 5;
@@ -107,7 +106,7 @@ class CGimbalController
     float  vSpeedFeedback ;
     double hSpeedFeedback ;
     int    control_oldID;
-    int    stimCount;
+    int    stimCount=0,stimFailCount=0;
     unsigned long lastStimByteTime;
     int    pulseMode = 1;
     float  fov;
@@ -241,7 +240,7 @@ void CGimbalController::initGimbal()
   isSetupChanged = true;
   maxAccH = 0.1;
   maxAccV = 0.1;
-  mUserMaxspdH = 60.0; //DPS
+  mUserMaxspdH = 80.0; //DPS
   mUserMaxSpdV = 60.0 ; //DPS
   isStimConnected = false;
   fov = 60;
@@ -302,8 +301,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
   h_ppr = hppr;
   v_ppr = vppr;
-  minPulsePeriodh = 6;//MOTOR_PULSE_CLOCK/(h_ppr);
-  minPulsePeriodv = 6;//MOTOR_PULSE_CLOCK/(v_ppr);
+  minPulsePeriodh = 2;//MOTOR_PULSE_CLOCK/(h_ppr);
+  minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
 
   isSetupChanged = true;
 }
@@ -409,10 +408,17 @@ void CGimbalController::UserUpdate()//
     v_user_speed *= 0.6;
   }
 
-  isStimConnected = (mStimMsgCount > 0);
+
   stimCount = mStimMsgCount;
   mStimMsgCount = 0;
-  //  if(stimCount==0)
+   if(stimCount==0)
+   {
+    stimFailCount++;
+    
+   }
+   else stimFailCount=0;
+  isStimConnected = (stimFailCount <5);
+  if(!isStimConnected)reportDebug("STIM not detected",stimFailCount);
   if (gyroYok > 0)  gyroYok--;
   else    gyroY = 0;
   if (gyroXok > 0)  gyroXok--;
@@ -421,10 +427,11 @@ void CGimbalController::UserUpdate()//
   if (mStabMode == 0)
   {
     // horizontal control value
-    outputSpeedH(h_user_speed);
+    outputSpeedH(h_user_speed*1.5);
     // vertical control value
-    outputSpeedV(v_user_speed);
-    //        Serial.print(h_control + h_control_i );
+    outputSpeedV(v_user_speed*1.3);
+           if(abs(h_user_speed)>0.1)Serial.println(h_user_speed);
+           if(abs(v_user_speed)>0.1)Serial.println(v_user_speed);
     //        Serial.print(' ');
     //        Serial.print(v_control + v_control_i );
     //        Serial.print(' ');
@@ -436,6 +443,7 @@ void CGimbalController::UserUpdate()//
   {
 
     h_control = 0 - gyroY * param_h_p + (h_user_speed + stim_data.y_rate) * param_h_d;
+    h_control*=1.5;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle /4.0) * param_h_i * 60 ;
     outputSpeedH(h_control + h_control_i );
@@ -578,7 +586,7 @@ void CGimbalController::readSensorData()//200 microseconds
             biasGyroX += 0.3 * (sumGyroX / countGyroX - biasGyroX);
             countGyroX = 0;
             sumGyroX = 0;
-            reportDebug("acx ", biasGyroX);
+            reportDebug("biasGyroX: ", biasGyroX);
           }
           gyroX -= biasGyroX;
         }
@@ -651,10 +659,10 @@ double oldSpeeddpsH = 0;
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
   //if(interupt)
-  {
-    oldSpeeddpsH += (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME * (speeddps - oldSpeeddpsH);
-    speeddps = oldSpeeddpsH;
-  }
+  // {
+  //   oldSpeeddpsH += (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME * (speeddps - oldSpeeddpsH);
+  //   speeddps = oldSpeeddpsH;
+  // }
   if (ct11 > 0) {
     hPulseBuff = h_ppr / 120.0 * CONTROL_TIME_STAMP;
   }
@@ -740,8 +748,8 @@ void CGimbalController::setFov(float value)
   if (value > 0.1 && value <= 60.0)
   {
     fov = value;
-    mUserMaxspdH = fov;
-    mUserMaxSpdV = fov;
+    mUserMaxspdH = fov*1.8;
+    mUserMaxSpdV = fov*1.4;
     //        reportDebug("fov changed");
     //        reportDebug(fov);
     //        isSetupChanged =true;
