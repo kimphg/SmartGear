@@ -1,5 +1,5 @@
 import cv2
-from cv2 import TrackerKCF
+# from cv2 import TrackerKCF
 # import torch
 import socket
 # import struct
@@ -10,7 +10,7 @@ from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
 model = YOLO("yolov10s.pt")
-tracker = TrackerKCF.create()
+# tracker = TrackerKCF.create()
 model.to("cuda")
 udp_ip = "127.0.0.1"
 udp_port = 12345
