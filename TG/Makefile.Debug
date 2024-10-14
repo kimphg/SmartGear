@@ -388,6 +388,67 @@ debug\moc_mainwindow.cpp: mainwindow.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtSerialBus\qmodbusreply.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\QQueue \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\qqueue.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\version.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\operations.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\mat.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\defines.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\config.h \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\nonfree.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann_base.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\general.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\matrix.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\params.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\any.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\saving.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\nn_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\result_set.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\all_indices.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dynamic_bitset.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dist.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\heap.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\allocator.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\random.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_single_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kmeans_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\logger.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\composite_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\linear_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\hierarchical_clustering_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_table.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\autotuned_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\ground_truth.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\index_testing.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\timer.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\sampling.h \
+		C:\opencv\opencv2413\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\affine.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv_modules.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\video\video.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\openfabmap.hpp \
+		videostab.h \
 		debug\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\moc.exe
 	C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/phuon/Documents/GitHub/SmartGear/TG/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/mkspecs/win32-msvc -IC:/Users/phuon/Documents/GitHub/SmartGear/TG -IC:/opencv/opencv2413/build/include -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtPrintSupport -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtSerialPort -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtSerialBus -IC:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\8.1\include\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\winrt" mainwindow.h -o debug\moc_mainwindow.cpp
@@ -1446,6 +1507,67 @@ debug\main.obj: main.cpp mainwindow.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtSerialBus\qmodbusreply.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\QQueue \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\qqueue.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\version.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\operations.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\mat.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\defines.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\config.h \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\nonfree.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann_base.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\general.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\matrix.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\params.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\any.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\saving.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\nn_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\result_set.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\all_indices.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dynamic_bitset.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dist.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\heap.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\allocator.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\random.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_single_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kmeans_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\logger.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\composite_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\linear_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\hierarchical_clustering_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_table.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\autotuned_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\ground_truth.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\index_testing.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\timer.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\sampling.h \
+		C:\opencv\opencv2413\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\affine.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv_modules.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\video\video.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\openfabmap.hpp \
+		videostab.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\qcoreapplication.h \
@@ -1597,6 +1719,67 @@ debug\mainwindow.obj: mainwindow.cpp dialogconfig.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtSerialBus\qmodbusreply.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\QQueue \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\qqueue.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\version.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\operations.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\mat.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\core\core_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\defines.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\config.h \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\nonfree.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\nonfree\features2d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\flann_base.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\flann\general.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\matrix.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\params.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\any.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\saving.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\nn_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\result_set.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\all_indices.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dynamic_bitset.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\dist.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\heap.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\allocator.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\random.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kdtree_single_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\kmeans_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\logger.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\composite_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\linear_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\hierarchical_clustering_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\lsh_table.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\autotuned_index.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\ground_truth.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\index_testing.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\timer.h \
+		C:\opencv\opencv2413\build\include\opencv2\flann\sampling.h \
+		C:\opencv\opencv2413\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\core\affine.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\opencv_modules.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\opencv2413\build\include\opencv2\video\video.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\opencv2413\build\include\opencv2\contrib\openfabmap.hpp \
+		videostab.h \
 		ui_mainwindow.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\QVariant \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtGui\QIcon \
@@ -1656,35 +1839,6 @@ debug\mainwindow.obj: mainwindow.cpp dialogconfig.h \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\QtMath \
 		C:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore\qmath.h \
 		kcf\kcf.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\opencv.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\opencv_modules.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\core\core_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\core\types_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\core\core.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\core\version.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\core\operations.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\core\mat.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\flann\miniflann.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\flann\defines.h \
-		C:\opencv\opencv2413\build\include\opencv2\flann\config.h \
-		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\imgproc\types_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\imgproc\imgproc.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\photo\photo.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\photo\photo_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\video\video.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\video\tracking.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\video\background_segm.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\features2d\features2d.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\objdetect\objdetect.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\calib3d\calib3d.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\core\affine.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\ml\ml.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui_c.h \
-		C:\opencv\opencv2413\build\include\opencv2\highgui\highgui.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\contrib\contrib.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\contrib\retina.hpp \
-		C:\opencv\opencv2413\build\include\opencv2\contrib\openfabmap.hpp \
 		kcf\fhog.hpp \
 		kcf\gradientMex.h \
 		UsbDevice.h
