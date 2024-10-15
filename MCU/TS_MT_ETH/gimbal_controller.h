@@ -450,18 +450,20 @@ void CGimbalController::UserUpdate()//
     // h_control*=1.5;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle /3.0) * 1.8 * 60 ;
-    outputSpeedH(h_control + h_control_i );
+    outputSpeedH(0);//h_control + h_control_i );
     //v control calculation    22
 //  Serial.print(' ');
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * 1.575 + (v_user_speed + stim_data.z_rate) * 1.2;
+    v_control = 0 - gyroX * 0.5 + (v_user_speed + stim_data.z_rate*0.2) ;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.8 * 60 ;
+    float v_control_i = (userEle + stim_data.z_angle /3.0) * 0.2 * 60 ;
     v_integrate += (userEle + stim_data.z_angle /3.0);
-    outputSpeedV(v_control + v_control_i +v_integrate*0.1);
+    outputSpeedV(v_control );//+ v_control_i +v_integrate*0.0);
 
+Serial.print(v_control );
+       Serial.print(' ');
      Serial.print(gyroX );
        Serial.print(' ');
        Serial.print(stim_data.z_rate );
@@ -544,13 +546,13 @@ void CGimbalController::readSensorData()//200 microseconds
       //            Serial.println(stim_data.z_angle);
       //            Serial.print('\n');
       //      if (workMode == 0)E_CONTROL.println(stim_data.y_rate);
-      Serial.print(-0.5);
-      Serial.print(" ");
-      Serial.print(0.5);
-      Serial.print(" ");
-      Serial.print(param_h_p);
-      Serial.print(" ");
-      Serial.println( stim_data.z_angle);
+      // Serial.print(-0.5);
+      // Serial.print(" ");
+      // Serial.print(0.5);
+      // Serial.print(" ");
+      // Serial.print(param_h_p);
+      // Serial.print(" ");
+      // Serial.println( stim_data.z_angle);
     }
     lastStimByteTime = timeMicros;
   }
