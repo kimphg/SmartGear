@@ -460,9 +460,13 @@ void CGimbalController::UserUpdate()//
     v_integrate += (userEle + stim_data.z_angle /3.0);
     outputSpeedV(v_control + v_control_i +v_integrate*0.1);
 
-    //  Serial.print(v_control );
-    //    Serial.print(' ');
-    //    Serial.println(v_control_i );
+     Serial.print(gyroX );
+       Serial.print(' ');
+       Serial.print(stim_data.z_rate );
+       Serial.print(' ');
+       Serial.print(v_control_i );
+       Serial.print(' ');
+       Serial.println(v_integrate );
 
   }
   //    modbusLoop();
