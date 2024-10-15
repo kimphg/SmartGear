@@ -15,9 +15,9 @@
 #define CT2 4
 #define CT3 3
 #define CT4 2
-#define PPR1 4000
+#define PPR1 2000
 #define GEAR1 200
-#define PPR2 4000
+#define PPR2 2000
 #define GEAR2 500
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
@@ -123,6 +123,7 @@ class CGimbalController
     int    workMode = 0;
     double h_control = 0, v_control = 0;
     double userEle = 0, userAzi = 0;
+    float v_integrate = 0;
   public:
     int stimCon = 0;
     void setCalib(double hcalib, double vcalib);
@@ -188,6 +189,7 @@ class CGimbalController
       isSetupChanged = true;
       userAngleh = 0;
       userAnglev = 0;
+      v_integrate = 0;
 
     }
     void setFov(float value);
@@ -444,25 +446,29 @@ void CGimbalController::UserUpdate()//
   else if (mStabMode >= 1)
   {
 
-    h_control = 0 - gyroY * param_h_p + (h_user_speed + stim_data.y_rate) * param_h_d;
-    // h_control*=1;
+    h_control = 0 - gyroY * 1.575 + (h_user_speed + stim_data.y_rate) * 1.2;
+    // h_control*=1.5;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
-    double h_control_i = (userAzi + stim_data.y_angle /4.0) * param_h_i * 60 ;
+    double h_control_i = (userAzi + stim_data.y_angle /3.0) * 1.8 * 60 ;
     outputSpeedH(h_control + h_control_i );
     //v control calculation    22
 //  Serial.print(' ');
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * param_v_p + (v_user_speed + stim_data.z_rate) * param_v_d;
+    v_control = 0 - gyroX * 1.575 + (v_user_speed + stim_data.z_rate) * 1.2;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    double v_control_i = (userEle + stim_data.z_angle /3.0) * param_v_i * 60 ;
+    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.8 * 60 ;
+    v_integrate += (userEle + stim_data.z_angle /3.0);
+    outputSpeedV(v_control + v_control_i +v_integrate*0.1);
 
-    outputSpeedV(v_control + v_control_i );
-
-    //  Serial.print(v_control );
-    //    Serial.print(' ');
-    //    Serial.println(v_control_i );
+     Serial.print(gyroX );
+       Serial.print(' ');
+       Serial.print(stim_data.z_rate );
+       Serial.print(' ');
+       Serial.print(v_control_i );
+       Serial.print(' ');
+       Serial.println(v_integrate );
 
   }
   //    modbusLoop();
@@ -538,6 +544,13 @@ void CGimbalController::readSensorData()//200 microseconds
       //            Serial.println(stim_data.z_angle);
       //            Serial.print('\n');
       //      if (workMode == 0)E_CONTROL.println(stim_data.y_rate);
+      Serial.print(-0.5);
+      Serial.print(" ");
+      Serial.print(0.5);
+      Serial.print(" ");
+      Serial.print(param_h_p);
+      Serial.print(" ");
+      Serial.println( stim_data.z_angle);
     }
     lastStimByteTime = timeMicros;
   }
@@ -588,7 +601,7 @@ void CGimbalController::readSensorData()//200 microseconds
             biasGyroX += 0.3 * (sumGyroX / countGyroX - biasGyroX);
             countGyroX = 0;
             sumGyroX = 0;
-            reportDebug("biasGyroX: ", biasGyroX);
+            // reportDebug("biasGyroX: ", biasGyroX);
           }
           gyroX -= biasGyroX;
         }

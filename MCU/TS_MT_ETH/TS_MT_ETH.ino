@@ -238,7 +238,7 @@ bool processPelco() {
   {
     float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
     float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
-    gimbal.setPARAM_P(ph, pv);
+    gimbal.setPARAM_P(ph/10.0, pv/10.0);
     reportDebug("PH:", ph);
     reportDebug("PV:", pv);
   }

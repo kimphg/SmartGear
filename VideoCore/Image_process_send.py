@@ -6,7 +6,7 @@ import socket
 # import pickle
 import time 
 from ultralytics import YOLO
-from vidstab import VidStab
+# from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
 model = YOLO("yolov10s.pt")
@@ -41,9 +41,9 @@ def send_frame(frame,frame_counter, address):
     print(f"Sent frame with size {len(data)} bytes")
 
 # stabilizer = VidStab()
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 # cap = cv2.VideoCapture("D:/VIDEO/rec_03.12_07.05.34.avi")
-cap = cv2.VideoCapture("D:/VIDEO/rec_03.10_01.00.19.avi")
+# cap = cv2.VideoCapture("D:/VIDEO/rec_03.10_01.00.19.avi")
 
 # cap = cv2.VideoCapture("tracking compilation.mp4")
 frame_width = int(cap.get(3)) 
@@ -62,7 +62,7 @@ import math
 count =0
 ret,oldframe = cap.read()
 # cv2.imshow('Original', oldframe)
-oldframe =oldframe.astype(float)
+# oldframe =oldframe.astype(float)
 tracker_running = False
 
 while cap.isOpened():
@@ -140,8 +140,8 @@ while cap.isOpened():
         break
     if cv2.waitKey(10) & 0xFF == ord('t'):
         roi = cv2.selectROI('Original', frame)
-        print(roi)
-        tracker.init(frame,roi)
+        # print(roi)
+        # tracker.init(frame,roi)
         tracker_running = True
 
 # result.release() 
