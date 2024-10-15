@@ -258,8 +258,8 @@ bool processPelco() {
   }
   else if (pelco_input_buff[1] == 0x06) //PPR setup
   {
-    unsigned int hppr = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) * 100;
-    unsigned int vppr = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) * 100;
+    // unsigned int hppr = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) * 100;
+    // unsigned int vppr = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) * 100;
     //        gimbal.setPPR(hppr,vppr);
     reportDebug("PPR not set");
   }

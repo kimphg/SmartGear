@@ -15,9 +15,9 @@
 #define CT2 4
 #define CT3 3
 #define CT4 2
-#define PPR1 1000
+#define PPR1 4000
 #define GEAR1 200
-#define PPR2 1000
+#define PPR2 4000
 #define GEAR2 500
 #define STAB_TRANSFER_TIME 2000.0
 #define CONTROL_TIME_STAMP 0.001
@@ -301,8 +301,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
   h_ppr = hppr;
   v_ppr = vppr;
-  minPulsePeriodh = 2;//MOTOR_PULSE_CLOCK/(h_ppr);
-  minPulsePeriodv = 2;//MOTOR_PULSE_CLOCK/(v_ppr);
+  minPulsePeriodh = 5;//MOTOR_PULSE_CLOCK/(h_ppr);
+  minPulsePeriodv = 5;//MOTOR_PULSE_CLOCK/(v_ppr);
 
   isSetupChanged = true;
 }
@@ -317,11 +317,12 @@ void CGimbalController::setControlSpeed(float hspeed, float vspeed)
 {
   pelco_count++;
 
-  h_user_speed += 0.5 * (hspeed * mUserMaxspdH - h_user_speed);
-  v_user_speed += 0.5 * (vspeed * mUserMaxSpdV - v_user_speed);
+  h_user_speed += 0.2 * (hspeed * mUserMaxspdH - h_user_speed);
+  v_user_speed += 0.2 * (vspeed * mUserMaxSpdV - v_user_speed);
 
   userAlive = 0.3 / CONTROL_TIME_STAMP;
-
+  
+  
 }
 
 void CGimbalController::motorUpdate()
@@ -427,11 +428,12 @@ void CGimbalController::UserUpdate()//
   if (mStabMode == 0)
   {
     // horizontal control value
-    outputSpeedH(h_user_speed*1.5);
+    outputSpeedH(h_user_speed);
     // vertical control value
-    outputSpeedV(v_user_speed*1.3);
-           if(abs(h_user_speed)>0.1)Serial.println(h_user_speed);
-           if(abs(v_user_speed)>0.1)Serial.println(v_user_speed);
+    outputSpeedV(v_user_speed);
+    // Serial.println(v_user_speed);
+          //  if(abs(h_user_speed)>0.1)Serial.println(h_user_speed);
+           
     //        Serial.print(' ');
     //        Serial.print(v_control + v_control_i );
     //        Serial.print(' ');
@@ -443,7 +445,7 @@ void CGimbalController::UserUpdate()//
   {
 
     h_control = 0 - gyroY * param_h_p + (h_user_speed + stim_data.y_rate) * param_h_d;
-    h_control*=1.5;
+    // h_control*=1;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle /4.0) * param_h_i * 60 ;
     outputSpeedH(h_control + h_control_i );
@@ -659,10 +661,10 @@ double oldSpeeddpsH = 0;
 void CGimbalController::outputSpeedH(double speeddps)//speed in degrees per sec
 {
   //if(interupt)
-  // {
-  //   oldSpeeddpsH += (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME * (speeddps - oldSpeeddpsH);
-  //   speeddps = oldSpeeddpsH;
-  // }
+  {
+    oldSpeeddpsH += (STAB_TRANSFER_TIME - interupt) / STAB_TRANSFER_TIME * (speeddps - oldSpeeddpsH);
+    speeddps = oldSpeeddpsH;
+  }
   if (ct11 > 0) {
     hPulseBuff = h_ppr / 120.0 * CONTROL_TIME_STAMP;
   }
