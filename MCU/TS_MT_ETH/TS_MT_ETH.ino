@@ -11,8 +11,8 @@ int msg_count = 0;
 int generalState = 1;
 int buzz = 0;
 int idleCount = 0;
-IPAddress ipRemote1(192, 168, 0, 71);
-IPAddress ipRemote2(192, 168, 0, 73);
+IPAddress ipRemote1(192, 168, 1, 77);
+IPAddress ipRemote2(192, 168, 1, 73);
 void stateReport()
 {
   gimbal.reportStat( idleCount / 1000 );
@@ -48,7 +48,8 @@ void stateReport()
 
 //eth
 unsigned int localPort = 4001;
-char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
+#define UDP_TX_PACKET_MAX_SIZE 100
+char packetBuffer[UDP_TX_PACKET_MAX_SIZE+1];  // buffer to hold incoming packet,
 
 
 EthernetUDP Udp;//eth
@@ -126,11 +127,32 @@ void loop() {
     times = newtimes;
     stateReport();
     //		if (newtimes % 2)digitalWrite(13,HIGH);
-    //		else digitalWrite(13, LOW);
+    //		else 
+    digitalWrite(13, LOW);
   }
 
   idleCount++;
   readSerialdata();
+}
+void processCommand(String command) {
+  // Serial.print(command);
+  Serial.println(command);
+        // Serial.print("\n");
+  std::vector<String> tokens = splitString(command,',');
+  if (tokens.size() >= 2) {
+    if (tokens[1].equals("sync")) {
+        // sbus.syncLossCount=0;
+        // Serial.print("sync");
+      }
+    else{
+      if ((tokens[1].equals("aa"))&&(tokens.size() >= 4)) {
+        
+        // String id = (tokens[2]);
+        // float value = tokens[3].toFloat();
+        // setParam(id,value);
+      }
+    }
+  }
 }
 int freqreduce = 0;
 void readSerialdata()
@@ -140,15 +162,22 @@ void readSerialdata()
   if (freqreduce > 5)
   {
     freqreduce = 0;
-
+    
     int packetSize =  Udp.parsePacket();
-    if(packetSize>=23)packetSize=23;
+    if(packetSize>=UDP_TX_PACKET_MAX_SIZE)packetSize=UDP_TX_PACKET_MAX_SIZE;
     if (packetSize) {
+      // Serial.println("udp");
+      digitalWrite(13,HIGH);
       Udp.read(packetBuffer, packetSize);
-      for (int i = 0; i < packetSize; i++)
-      {
-        readPelco(packetBuffer[i]);
-      }
+      packetBuffer[packetSize]=0;
+      String commandString(packetBuffer);
+      if (commandString.indexOf("$COM")>=0) {
+          processCommand(commandString);
+        }
+      // for (int i = 0; i < packetSize; i++)
+      // {
+      //   readPelco(packetBuffer[i]);
+      // }
       
     }
     if(EthReplyLen>0)

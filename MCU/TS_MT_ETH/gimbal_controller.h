@@ -420,8 +420,17 @@ void CGimbalController::UserUpdate()//
     
    }
    else stimFailCount=0;
-  isStimConnected = (stimFailCount <5);
-  if(!isStimConnected)reportDebug("STIM not detected",stimFailCount);
+  
+  if(isStimConnected)
+  { 
+    isStimConnected = (stimFailCount <5);
+    if(!isStimConnected)reportDebug("STIM disconnected",stimFailCount);
+  }
+  else 
+  {
+    isStimConnected = (stimFailCount <5);
+    if(isStimConnected)reportDebug("STIM connected",stimFailCount);
+  }
   if (gyroYok > 0)  gyroYok--;
   else    gyroY = 0;
   if (gyroXok > 0)  gyroXok--;
@@ -441,15 +450,15 @@ void CGimbalController::UserUpdate()//
     //        Serial.print(' ');
     //        Serial.print(countGyroY);
     //        Serial.print(' ');
-    Serial.print(v_control );
-       Serial.print(' ');
-     Serial.print(gyroX );
-       Serial.print(' ');
-       Serial.print(stim_data.z_rate );
-       Serial.print(' ');
-       Serial.print(0 );
-       Serial.print(' ');
-       Serial.println(0 );
+    // Serial.print(v_control );
+    //    Serial.print(' ');
+    //  Serial.print(gyroX );
+    //    Serial.print(' ');
+    //    Serial.print(stim_data.z_rate );
+    //    Serial.print(' ');
+    //    Serial.print(0 );
+    //    Serial.print(' ');
+    //    Serial.println(0 );
 
   }
   else if (mStabMode >= 1)
