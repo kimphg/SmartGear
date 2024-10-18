@@ -390,6 +390,11 @@ void CGimbalController::motorUpdate()
 }
 int h_user = 0;
 int v_user = 0;
+float signof(float x)
+{
+  if(x>0)return 1;
+  else return -1;
+}
 void CGimbalController::UserUpdate()//
 {
 //  mStabMode = 2;
@@ -441,15 +446,15 @@ void CGimbalController::UserUpdate()//
     //        Serial.print(' ');
     //        Serial.print(countGyroY);
     //        Serial.print(' ');
-    Serial.print(v_control );
-       Serial.print(' ');
-     Serial.print(gyroX );
-       Serial.print(' ');
-       Serial.print(stim_data.z_rate );
-       Serial.print(' ');
-       Serial.print(0 );
-       Serial.print(' ');
-       Serial.println(0 );
+    Serial.print(v_user_speed );
+    Serial.print(' ');
+    Serial.print(gyroX );
+    Serial.print(' ');
+    Serial.print(stim_data.z_rate );
+    Serial.print(' ');
+    Serial.print(stim_data.z_angle);
+    Serial.print(' ');
+    Serial.println(0 );
 
   }
   else if (mStabMode >= 1)
@@ -459,15 +464,15 @@ void CGimbalController::UserUpdate()//
     // h_control*=1.5;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle /3.0) * 1.6 * 60 ;
-    outputSpeedH(h_control + h_control_i );
+    outputSpeedH(0);//h_control + h_control_i );
     //v control calculation    22
 //  Serial.print(' ');
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * 0.495 + (v_user_speed + stim_data.z_rate*0.3) ;
+    v_control = 0 - gyroX * 0.55 + (v_user_speed + stim_data.z_rate*0.4) ;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.7 * 60 ;
+    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.5 * 60 ;
     // v_integrate += (userEle + stim_data.z_angle /3.0);
     outputSpeedV(v_control + v_control_i +v_integrate*0.0);
 
@@ -475,10 +480,10 @@ Serial.print(stim_data.z_rate );
        Serial.print(',');
      Serial.print(gyroX );
        Serial.print(',');
-       Serial.print(v_control_i );
-       Serial.print(',');
-       Serial.print(v_control + v_control_i );
-       Serial.print(',');
+      //  Serial.print(v_control_i );
+      //  Serial.print(',');
+      //  Serial.print(v_control + v_control_i );
+      //  Serial.print(',');
        Serial.println(stim_data.z_angle  );
 
   }
