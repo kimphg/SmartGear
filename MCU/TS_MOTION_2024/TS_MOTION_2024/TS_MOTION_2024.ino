@@ -11,8 +11,8 @@ int msg_count = 0;
 int generalState = 1;
 int buzz = 0;
 int idleCount = 0;
-IPAddress ipRemote1(192, 168, 0, 71);
-IPAddress ipRemote2(192, 168, 0, 73);
+IPAddress ipRemote1(192, 168, 1, 77);
+IPAddress ipRemote2(192, 168, 1, 73);
 void stateReport()
 {
   gimbal.reportStat( idleCount / 1000 );
@@ -48,7 +48,8 @@ void stateReport()
 
 //eth
 unsigned int localPort = 4001;
-char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
+#define UDP_TX_PACKET_MAX_SIZE 100
+char packetBuffer[UDP_TX_PACKET_MAX_SIZE+1];  // buffer to hold incoming packet,
 
 
 EthernetUDP Udp;//eth
@@ -126,11 +127,41 @@ void loop() {
     times = newtimes;
     stateReport();
     //		if (newtimes % 2)digitalWrite(13,HIGH);
-    //		else digitalWrite(13, LOW);
+    //		else 
+    digitalWrite(13, LOW);
   }
 
   idleCount++;
   readSerialdata();
+}
+void processCommand(String command) {
+  // Serial.print(command);
+  
+  
+        // Serial.print("\n");
+  std::vector<String> tokens = splitString(command,',');
+  // Serial.print(tokens[1]);
+  if (tokens.size() >= 2) {
+    if (tokens[1].equals("sync")) {
+        // sbus.syncLossCount=0;
+        // Serial.print("sync");
+      }
+    else
+      if ((tokens[1].equals("set"))&&(tokens.size() ==4)) {
+        // Serial.println(command);
+        gimbal.setParam(tokens[2],tokens[3].toFloat());
+        
+        // String id = (tokens[2]);
+        // float value = tokens[3].toFloat();
+        // setParam(id,value);
+      }
+    
+    else
+    {
+      Serial.print("unknown packet");
+    }
+    // Serial.print("set param packet");
+  }
 }
 int freqreduce = 0;
 void readSerialdata()
@@ -140,15 +171,22 @@ void readSerialdata()
   if (freqreduce > 5)
   {
     freqreduce = 0;
-
+    
     int packetSize =  Udp.parsePacket();
-    if(packetSize>=23)packetSize=23;
+    if(packetSize>=UDP_TX_PACKET_MAX_SIZE)packetSize=UDP_TX_PACKET_MAX_SIZE;
     if (packetSize) {
+      // Serial.println("udp");
+      digitalWrite(13,HIGH);
       Udp.read(packetBuffer, packetSize);
-      for (int i = 0; i < packetSize; i++)
-      {
-        readPelco(packetBuffer[i]);
-      }
+      packetBuffer[packetSize]=0;
+      String commandString(packetBuffer);
+      if (commandString.indexOf("$COM")>=0) {
+          processCommand(commandString);
+        }
+      // for (int i = 0; i < packetSize; i++)
+      // {
+      //   readPelco(packetBuffer[i]);
+      // }
       
     }
     if(EthReplyLen>0)
@@ -236,30 +274,30 @@ bool processPelco() {
   }
   else if (pelco_input_buff[1] == 0x03) //P setup
   {
-    float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
-    float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
-    gimbal.setPARAM_P(ph, pv);
-    reportDebug("PH:", ph);
-    reportDebug("PV:", pv);
+    // float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
+    // float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
+    // gimbal.setPARAM_P(ph/10.0, pv/10.0);
+    // reportDebug("PH:", ph);
+    // reportDebug("PV:", pv);
   }
   else if (pelco_input_buff[1] == 0x04) //I setup
   {
-    float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
-    float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
-    gimbal.setPARAM_I(ph, pv);
-    reportDebug("I set");
+    // float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
+    // float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
+    // gimbal.setPARAM_I(ph, pv);
+    // reportDebug("I set");
   }
   else if (pelco_input_buff[1] == 0x05) //D setup
   {
-    float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
-    float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
-    gimbal.setPARAM_D(ph, pv);
-    reportDebug("D set");
+    // float ph = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) / 65535.0 * 20.0 - 10.0;
+    // float pv = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) / 65535.0 * 20.0 - 10.0;
+    // gimbal.setPARAM_D(ph, pv);
+    // reportDebug("D set");
   }
   else if (pelco_input_buff[1] == 0x06) //PPR setup
   {
-    unsigned int hppr = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) * 100;
-    unsigned int vppr = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) * 100;
+    // unsigned int hppr = ((((unsigned char)pelco_input_buff[2]) << 8) + (unsigned char)pelco_input_buff[3]) * 100;
+    // unsigned int vppr = ((((unsigned char)pelco_input_buff[4]) << 8) + (unsigned char)pelco_input_buff[5]) * 100;
     //        gimbal.setPPR(hppr,vppr);
     reportDebug("PPR not set");
   }

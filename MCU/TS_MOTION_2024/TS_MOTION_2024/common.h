@@ -10,7 +10,7 @@
 byte mac[] = {
  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
-IPAddress ip(192, 168, 1, 7);
+IPAddress ip(192, 168, 0, 7);
 char EthReply[300];        // a string to send back
 char EthReplyLen = 0;
 int com_mode;

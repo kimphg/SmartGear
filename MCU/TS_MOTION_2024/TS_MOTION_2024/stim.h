@@ -5,12 +5,12 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(0.5,0.9,100,0); // Create the Kalman instances
+Kalman kalmanZ(0.3,1.5,100,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
   }
-Kalman kalmanY(0.5,0.9,100,0); // Create the Kalman instances
+Kalman kalmanY(0.3,1.5,100,0); // Create the Kalman instances
 void initKalmanY(double pn,double sn)
 {
   kalmanY.initParams(pn,sn,100,0);
@@ -124,10 +124,12 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             {
               reportDebug("SVEx",x_rate1);
               }
-//            float newval = kalmanY.getFilteredValue(y_rate1)-stim_data->y_bias;
+//            float newval = -stim_data->y_bias;
 //			      stim_data->y_acc = newval - stim_data->y_rate;
             if(abs(y_rate1)<400){
-            			       stim_data->y_rate = y_rate1-stim_data->y_bias;//newval;
+              // Serial.print(y_rate1);
+              // Serial.print(',');
+            			       stim_data->y_rate = kalmanY.getFilteredValue(y_rate1-stim_data->y_bias);//newval;
                         stim_data->y_angle += (stim_data->y_rate/1000.0);
 //                        Serial.print(stim_data->y_rate); 
 //                        Serial.print(' '); 
@@ -141,9 +143,10 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
               reportDebug("SVEy",y_rate1);
               }  
             if(abs(z_rate1)<400){
-//              stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1)-stim_data->z_bias;
+             
             float z_rate_old = stim_data->z_rate;
-            stim_data->z_rate = z_rate1-stim_data->z_bias;
+            // stim_data->z_rate = z_rate1-stim_data->z_bias;
+            stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1-stim_data->z_bias);
            stim_data->z_acc = stim_data->z_rate-z_rate_old;
             
             stim_data->z_angle += (stim_data->z_rate/1000.0);

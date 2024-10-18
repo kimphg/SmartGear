@@ -92,7 +92,10 @@ class CGimbalController
     CGimbalController()
     {
     }
-    float vp=0.56,vi=0.1,vd=0.1;
+    float  param_h_p , param_v_p;
+    float  param_h_i , param_v_i;
+    float  param_h_d , param_v_d;
+    float  vSpeedCalib = 0, hSpeedCalib = 0;
   private:
     int mStabMode;
     int h_abs_pos, v_abs_pos;
@@ -112,14 +115,12 @@ class CGimbalController
     int    pulseMode = 1;
     float  fov;
     int    mGyroCount;
-    float  param_h_p , param_v_p;
-    float  param_h_i , param_v_i;
-    float  param_h_d , param_v_d;
+  
     float  mUserMaxspdH ; //DPS
     float  mUserMaxSpdV ;//DPS
     float  maxAccH, maxAccV;
     bool   isSetupChanged;
-    float  vSpeedCalib = 0, hSpeedCalib = 0;
+    
     //    double sumEv=0,sumEh=0;
     int    workMode = 0;
     double h_control = 0, v_control = 0;
@@ -128,6 +129,50 @@ class CGimbalController
   public:
     int stimCon = 0;
     void setCalib(double hcalib, double vcalib);
+    void setParam(String param,float value)
+    {
+      if(param.equals("vp"))
+        {
+          param_v_p = value;
+        }
+      else if(param.equals("vi"))
+        {
+          param_v_i = value;
+        }
+        else if(param.equals("vd"))
+        {
+          param_v_d = value;
+        }
+        else if(param.equals("hp"))
+        {
+          param_h_p = value;
+        }
+        else if(param.equals("hi"))
+        {
+          param_h_i = value;
+        }
+        else if(param.equals("hd"))
+        {
+          param_h_d = value;
+        }
+        else if(param.equals("vcalib"))
+        {
+          vSpeedCalib = value;
+        }
+        else if(param.equals("hcalib"))
+        {
+          hSpeedCalib = value;
+        }
+        else
+        {
+          reportDebug("Unknown param");
+          return;
+        }
+        // reportDebug("param set");
+        Serial.print(value);
+        Serial.print(' ');
+        isSetupChanged = true;
+    }
     void setCT(int c11, int c12, int c21, int c22);
     bool isStimConnected;
     int  ct11, ct12, ct21, ct22;
@@ -195,11 +240,7 @@ class CGimbalController
     }
     void setFov(float value);
 
-    void setPARAM_P(float valueh, float valuev);
 
-    void setPARAM_I(float valueh, float valuev);
-
-    void setPARAM_D(float valueh, float valuev);
 
   private:
     double hPulseBuff ;
@@ -252,11 +293,11 @@ void CGimbalController::initGimbal()
   h_abs_pos = 0;
   v_abs_pos = 0;
   userAlive = 1;
-  param_h_p = 1.2;
-  param_h_i = 0.5;
+  param_h_p = 0.5;
+  param_h_i = 0.2;
   param_h_d = 0.1;
-  param_v_p = 1.2;
-  param_v_i = 0.5;
+  param_v_p = 0.5;
+  param_v_i = 0.2;
   param_v_d = 0.1;
   pinMode(CT1, INPUT);
   pinMode(CT2, INPUT);
@@ -391,6 +432,11 @@ void CGimbalController::motorUpdate()
 }
 int h_user = 0;
 int v_user = 0;
+float signof(float x)
+{
+  if(x>0)return 1;
+  else return -1;
+}
 void CGimbalController::UserUpdate()//
 {
 //  mStabMode = 2;
@@ -451,15 +497,16 @@ void CGimbalController::UserUpdate()//
     //        Serial.print(' ');
     //        Serial.print(countGyroY);
     //        Serial.print(' ');
-    // Serial.print(v_control );
-    //    Serial.print(' ');
-    //  Serial.print(gyroX );
-    //    Serial.print(' ');
-    //    Serial.print(stim_data.z_rate );
-    //    Serial.print(' ');
-    //    Serial.print(0 );
-    //    Serial.print(' ');
-    //    Serial.println(0 );
+
+    // Serial.print(v_user_speed );
+    // Serial.print(' ');
+    // Serial.print(gyroX );
+    // Serial.print(' ');
+    // Serial.print(stim_data.z_rate );
+    // Serial.print(' ');
+    // Serial.print(stim_data.z_angle);
+    // Serial.print(' ');
+    // Serial.println(0 );
 
   }
   else if (mStabMode >= 1)
@@ -469,15 +516,15 @@ void CGimbalController::UserUpdate()//
     // h_control*=1.5;
     userAzi += h_user_speed * CONTROL_TIME_STAMP / 12.0;
     double h_control_i = (userAzi + stim_data.y_angle /3.0) * 1.6 * 60 ;
-    outputSpeedH(h_control + h_control_i );
+    outputSpeedH(0);//h_control + h_control_i );
     //v control calculation    22
 //  Serial.print(' ');
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * 0.495 + (v_user_speed + stim_data.z_rate*0.3) ;
+    v_control = 0 - gyroX * 0.55 + (v_user_speed + stim_data.z_rate*0.4) ;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.7 * 60 ;
+    float v_control_i = (userEle + stim_data.z_angle /3.0) * 1.5 * 60 ;
     // v_integrate += (userEle + stim_data.z_angle /3.0);
     outputSpeedV(v_control + v_control_i +v_integrate*0.0);
 
@@ -485,10 +532,10 @@ Serial.print(stim_data.z_rate );
        Serial.print(',');
      Serial.print(gyroX );
        Serial.print(',');
-       Serial.print(v_control_i );
-       Serial.print(',');
-       Serial.print(v_control + v_control_i );
-       Serial.print(',');
+      //  Serial.print(v_control_i );
+      //  Serial.print(',');
+      //  Serial.print(v_control + v_control_i );
+      //  Serial.print(',');
        Serial.println(stim_data.z_angle  );
 
   }
@@ -804,28 +851,7 @@ void CGimbalController::setCT(int c11, int c12, int c21, int c22)
   ct22 = c22;
 
 }
-void CGimbalController::setPARAM_P(float valueh, float valuev)
-{
-  param_h_p = valueh;
-  param_v_p = valuev;
-  isSetupChanged = true;
-}
 
-void CGimbalController::setPARAM_I(float valueh, float valuev)
-{
-  param_h_i = valueh;
-  param_v_i = valuev;
-  //    reportDebug("param i updated");
-  isSetupChanged = true;
-}
-
-void CGimbalController::setPARAM_D(float valueh, float valuev)
-{
-  param_h_d = valueh;
-  param_v_d = valuev;
-  //    reportDebug("param d updated");
-  isSetupChanged = true;
-}
 
 void CGimbalController::setPulseMode(int value)
 {
