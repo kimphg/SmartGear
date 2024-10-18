@@ -1,6 +1,7 @@
 #ifndef GIMBAL_CONTROLLER_H
 #define GIMBAL_CONTROLLER_H
-
+#include "kalmano.h"
+Kalman kalmanGyroV(0.3,0.6,100,0); 
 //float resultArray[2000];
 //int resultArrayId=0;
 #define CTRL_DATA_BUF_LEN 50
@@ -293,12 +294,12 @@ void CGimbalController::initGimbal()
   h_abs_pos = 0;
   v_abs_pos = 0;
   userAlive = 1;
-  param_h_p = 0.5;
-  param_h_i = 0.2;
-  param_h_d = 0.1;
-  param_v_p = 0.5;
-  param_v_i = 0.2;
-  param_v_d = 0.1;
+  param_h_p = 0.58;
+  param_h_i = 2.25;
+  param_h_d = 0.06;
+  param_v_p = 0.58;
+  param_v_i = 2.25;
+  param_v_d = 0.06;
   pinMode(CT1, INPUT);
   pinMode(CT2, INPUT);
   pinMode(CT3, INPUT);
@@ -498,15 +499,15 @@ void CGimbalController::UserUpdate()//
     //        Serial.print(countGyroY);
     //        Serial.print(' ');
 
-    // Serial.print(v_user_speed );
-    // Serial.print(' ');
+    Serial.print(v_user_speed );
+    Serial.print(' ');
     // Serial.print(gyroX );
     // Serial.print(' ');
     // Serial.print(stim_data.z_rate );
     // Serial.print(' ');
     // Serial.print(stim_data.z_angle);
     // Serial.print(' ');
-    // Serial.println(0 );
+    Serial.println(0 );
 
   }
   else if (mStabMode >= 1)
@@ -658,7 +659,8 @@ void CGimbalController::readSensorData()//200 microseconds
         if (databyte == cs) //check sum ok
         {
           float vs = bytesToFloat(rawgyroV[19], rawgyroV[20], rawgyroV[21], rawgyroV[22]);
-          gyroX = vs * 100.0;
+           
+          gyroX =kalmanGyroV.getFilteredValue(vs * 100.0);
           if(abs(gyroX)<1){
             sumGyroX += gyroX;
             countGyroX++;

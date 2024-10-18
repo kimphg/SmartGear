@@ -5,7 +5,7 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(0.3,1.5,100,0); // Create the Kalman instances
+Kalman kalmanZ(0.3,1.8,100,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
@@ -116,7 +116,7 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
 //            acc = (z_rate1 - stim_data->z_rate)*1000;
 //            if(abs(acc)>1000)return false;
 
-            if(abs(x_rate1)<400){
+            if(abs(x_rate1)<500){
             stim_data->x_rate = x_rate1;
             stim_data->x_angle += (stim_data->x_rate/1000.0);
             }
@@ -142,7 +142,7 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             {
               reportDebug("SVEy",y_rate1);
               }  
-            if(abs(z_rate1)<400){
+            if(abs(z_rate1)<500){
              
             float z_rate_old = stim_data->z_rate;
             // stim_data->z_rate = z_rate1-stim_data->z_bias;

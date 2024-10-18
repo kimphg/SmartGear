@@ -183,10 +183,14 @@ void readSerialdata()
       if (commandString.indexOf("$COM")>=0) {
           processCommand(commandString);
         }
-      // for (int i = 0; i < packetSize; i++)
-      // {
-      //   readPelco(packetBuffer[i]);
-      // }
+        else
+        {
+          for (int i = 0; i < packetSize; i++)
+      {
+        readPelco(packetBuffer[i]);
+      }
+        }
+      
       
     }
     if(EthReplyLen>0)
