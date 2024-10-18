@@ -11,8 +11,8 @@ int msg_count = 0;
 int generalState = 1;
 int buzz = 0;
 int idleCount = 0;
-IPAddress ipRemote1(192, 168, 1, 77);
-IPAddress ipRemote2(192, 168, 1, 73);
+IPAddress ipRemote1(192, 168, 0, 77);
+IPAddress ipRemote2(192, 168, 0, 73);
 void stateReport()
 {
   gimbal.reportStat( idleCount / 1000 );
