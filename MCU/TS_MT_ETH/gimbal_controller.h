@@ -425,8 +425,17 @@ void CGimbalController::UserUpdate()//
     
    }
    else stimFailCount=0;
-  isStimConnected = (stimFailCount <5);
-  if(!isStimConnected)reportDebug("STIM not detected",stimFailCount);
+  
+  if(isStimConnected)
+  { 
+    isStimConnected = (stimFailCount <5);
+    if(!isStimConnected)reportDebug("STIM disconnected",stimFailCount);
+  }
+  else 
+  {
+    isStimConnected = (stimFailCount <5);
+    if(isStimConnected)reportDebug("STIM connected",stimFailCount);
+  }
   if (gyroYok > 0)  gyroYok--;
   else    gyroY = 0;
   if (gyroXok > 0)  gyroXok--;

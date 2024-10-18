@@ -10,7 +10,7 @@
 byte mac[] = {
  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
-IPAddress ip(192, 168, 0, 7);
+IPAddress ip(192, 168, 1, 7);
 char EthReply[300];        // a string to send back
 char EthReplyLen = 0;
 int com_mode;
@@ -39,6 +39,44 @@ void reportDebug(const char* msg)
   Serial.print("$MSG,");
   Serial.println(msg);
 }
+
+std::vector<String> splitString(String input,char sep)
+{
+  std::vector<String> tokens;
+  if(input.length()<1)return tokens;
+  
+  int last_sep_pos=0;
+  while(1)
+  {
+    int sep_pos = input.indexOf(sep,last_sep_pos);
+    if(sep_pos<0){
+      break;
+    }
+    String token = input.substring(last_sep_pos,sep_pos);
+    last_sep_pos = sep_pos+1;
+    tokens.push_back(token);
+  }
+  // DPRINTLN(tokens.size());
+  // for(unsigned int i=0;i<tokens.size();i++)
+  // {
+  //   DPRINTLN(tokens[i]);
+  // }
+  return tokens;
+}
+
+// bool isPrintable(uint8_t ch)
+// {
+//     if(ch>=0x21&&ch<=0x7e)return true;
+//     if(ch==0x0d||ch==0x0a)return true;
+//     return false;
+// }
+// bool charToString(char S[], String &D)
+// {
+ 
+//  String rc(S);
+//  D = rc;
+ 
+// }
 void reportDebug(const char* msg,float value)
 {
 //  E_CONTROL.print("$MSG,");

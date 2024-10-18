@@ -136,21 +136,30 @@ void loop() {
 }
 void processCommand(String command) {
   // Serial.print(command);
-  Serial.println(command);
+  // Serial.println(command);
+  
         // Serial.print("\n");
   std::vector<String> tokens = splitString(command,',');
+  // Serial.print(tokens[1]);
   if (tokens.size() >= 2) {
     if (tokens[1].equals("sync")) {
         // sbus.syncLossCount=0;
         // Serial.print("sync");
       }
-    else{
-      if ((tokens[1].equals("aa"))&&(tokens.size() >= 4)) {
-        
+    else
+      if ((tokens[1].equals("set"))&&(tokens.size() ==4)) {
+        if((tokens[2].equals("vp"))
+        {
+          gimbal.vp = tokens[2].toFloat();
+        }
         // String id = (tokens[2]);
         // float value = tokens[3].toFloat();
         // setParam(id,value);
       }
+    
+    else
+    {
+      Serial.print("unknown packet");
     }
   }
 }
