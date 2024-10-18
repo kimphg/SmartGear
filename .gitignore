@@ -2,7 +2,5 @@
 *.pdb
 *.obj
 *.ilk
-*.dll
 *.avi
 *.mp4
-*.exe
