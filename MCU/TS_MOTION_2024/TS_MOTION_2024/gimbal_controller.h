@@ -499,15 +499,15 @@ void CGimbalController::UserUpdate()//
     //        Serial.print(countGyroY);
     //        Serial.print(' ');
 
-    Serial.print(v_user_speed );
-    Serial.print(' ');
+    // Serial.print(v_user_speed );
+    // Serial.print(' ');
     // Serial.print(gyroX );
     // Serial.print(' ');
     // Serial.print(stim_data.z_rate );
     // Serial.print(' ');
     // Serial.print(stim_data.z_angle);
     // Serial.print(' ');
-    Serial.println(0 );
+    // Serial.println(0 );
 
   }
   else if (mStabMode >= 1)

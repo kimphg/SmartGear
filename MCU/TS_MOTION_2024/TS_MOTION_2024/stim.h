@@ -5,7 +5,7 @@
 unsigned char mLastStimByte = 0;
 int mStimByteIndex = 0;
 unsigned char stim_input_buff[STIM_DG_BUFF];
-Kalman kalmanZ(0.3,1.8,100,0); // Create the Kalman instances
+Kalman kalmanZ(0.3,5.8,100,0); // Create the Kalman instances
 void initKalmanZ(double pn,double sn)
 {
   kalmanZ.initParams(pn,sn,100,0);
