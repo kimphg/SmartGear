@@ -294,12 +294,12 @@ void CGimbalController::initGimbal()
   h_abs_pos = 0;
   v_abs_pos = 0;
   userAlive = 1;
-  param_h_p = 0.58;
-  param_h_i = 2.25;
-  param_h_d = 0.06;
-  param_v_p = 0.58;
-  param_v_i = 2.25;
-  param_v_d = 0.06;
+  param_h_p = 0.0;
+  param_h_i = 0.0;
+  param_h_d = 0.0;
+  param_v_p = 0.0;
+  param_v_i = 0.0;
+  param_v_d = 0.0;
   pinMode(CT1, INPUT);
   pinMode(CT2, INPUT);
   pinMode(CT3, INPUT);
@@ -523,7 +523,7 @@ void CGimbalController::UserUpdate()//
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * param_v_p + (v_user_speed + stim_data.z_rate*param_v_d) ;
+    v_control = 0 - gyroX * 0.57 + (v_user_speed + stim_data.z_rate*param_v_p+stim_data.z_acc*param_v_d) ;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
     float v_control_i = (userEle + stim_data.z_angle /3.0) * param_v_i * 60 ;
     // v_integrate += (userEle + stim_data.z_angle /3.0);
