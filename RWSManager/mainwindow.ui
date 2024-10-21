@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>857</width>
-    <height>383</height>
+    <width>876</width>
+    <height>323</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,84 +30,112 @@
           <string>Ổn định con quay</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_9">
-          <item row="1" column="2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Hệ số điều khiển vòng hở:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
            <widget class="QLabel" name="label_8">
             <property name="text">
              <string>Tầm:</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Hệ số D:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Hệ số I:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
+          <item row="3" column="1">
            <widget class="QLabel" name="label_7">
             <property name="text">
              <string>Hướng:</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_hp">
+          <item row="5" column="2">
+           <widget class="QLineEdit" name="lineEdit_vp">
             <property name="text">
-             <string>0.5</string>
+             <string>0.59</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Triệt rung 1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEdit_open_loop">
+            <property name="text">
+             <string>0.57</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineEdit_vibration_1">
+            <property name="text">
+             <string>25</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Hệ số D:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="QLineEdit" name="lineEdit_vd">
+            <property name="text">
+             <string>0.18</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
              <string>Hệ số P:</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="lineEdit_hi">
-            <property name="text">
-             <string>0.3</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
+          <item row="9" column="1">
            <widget class="QLineEdit" name="lineEdit_hd">
             <property name="text">
              <string>0.1</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="lineEdit_vp">
+          <item row="8" column="2">
+           <widget class="QLineEdit" name="lineEdit_vi">
+            <property name="text">
+             <string>0.12</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="lineEdit_hp">
             <property name="text">
              <string>0.5</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="2">
-           <widget class="QLineEdit" name="lineEdit_vi">
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Hệ số I:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="lineEdit_hi">
             <property name="text">
              <string>0.3</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="2">
-           <widget class="QLineEdit" name="lineEdit_vd">
-            <property name="text">
-             <string>0.1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3" rowspan="6">
+          <item row="3" column="3" rowspan="7">
            <widget class="QPushButton" name="bt_send_pid">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -120,6 +148,41 @@
             </property>
             <property name="autoExclusive">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Triệt rung 2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_vibration_2">
+            <property name="text">
+             <string>75</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>(số nguyên từ 10-50)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>(số nguyên từ 60-80)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>(0.55-0.59)</string>
             </property>
            </widget>
           </item>
@@ -136,108 +199,15 @@
          <zorder>lineEdit_vp</zorder>
          <zorder>lineEdit_vi</zorder>
          <zorder>lineEdit_vd</zorder>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="groupBox_9">
-         <property name="title">
-          <string>Hiệu chỉnh</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_10">
-          <item row="1" column="2">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Tầm:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Hệ số D:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string>Hệ số I:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_10">
-            <property name="text">
-             <string>Hướng:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_hcalib">
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>Khử độ trôi</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="lineEdit_hi_2">
-            <property name="text">
-             <string>0.3</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="lineEdit_hd_2">
-            <property name="text">
-             <string>0.1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="lineEdit_vcalib">
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="2">
-           <widget class="QLineEdit" name="lineEdit_vi_2">
-            <property name="text">
-             <string>0.3</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="2">
-           <widget class="QLineEdit" name="lineEdit_vd_2">
-            <property name="text">
-             <string>0.1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3" rowspan="6">
-           <widget class="QPushButton" name="bt_send_pid_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Lưu</string>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <zorder>lineEdit_open_loop</zorder>
+         <zorder>label_5</zorder>
+         <zorder>label_6</zorder>
+         <zorder>lineEdit_vibration_1</zorder>
+         <zorder>label_9</zorder>
+         <zorder>lineEdit_vibration_2</zorder>
+         <zorder>label_10</zorder>
+         <zorder>label_11</zorder>
+         <zorder>label_12</zorder>
         </widget>
        </item>
       </layout>
@@ -250,7 +220,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>857</width>
+     <width>876</width>
      <height>20</height>
     </rect>
    </property>

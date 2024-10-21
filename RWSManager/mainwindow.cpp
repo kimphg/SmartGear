@@ -34,6 +34,13 @@ void MainWindow::on_bt_send_pid_clicked()
     setParam("hi",value);
     value = ui->lineEdit_hd->text().toFloat();
     setParam("hd",value);
+    value = ui->lineEdit_open_loop->text().toFloat();
+    setParam("vopl",value);
+    value = ui->lineEdit_vibration_1->text().toFloat();
+    setParam("freq1",value);
+    value = ui->lineEdit_vibration_2->text().toFloat();
+    setParam("freq2",value);
+
 
 }
 void MainWindow::setParam(QString com,float value)
