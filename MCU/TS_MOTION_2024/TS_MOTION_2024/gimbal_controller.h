@@ -115,6 +115,8 @@ class CGimbalController
     float  vSpeedCalib = 0, hSpeedCalib = 0;
   private:
     int mStabMode;
+    int freq1=25,freq2=75;
+    float vopl=0.57;
     int h_abs_pos, v_abs_pos;
     int userAlive;
     double h_user_speed;
@@ -179,6 +181,18 @@ class CGimbalController
         else if(param.equals("hcalib"))
         {
           hSpeedCalib = value;
+        }
+        else if(param.equals("vopl"))
+        {
+          vopl = value;
+        }
+        else if(param.equals("freq1"))
+        {
+          freq1 = value;
+        }
+        else if(param.equals("freq1"))
+        {
+          freq2 = value;
         }
         else
         {
@@ -539,14 +553,14 @@ void CGimbalController::UserUpdate()//
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-float zrate = stim_data.z_rate+getZhistory(25)*0.8+getZhistory(75)*0.4;
+float zrate = stim_data.z_rate+getZhistory(freq1)*0.7+getZhistory(freq2)*0.3;
     float v_control_d = (v_user_speed+zrate)*param_v_d ;
     if(v_control_d>0.1)v_control_d=0.1;
     if(v_control_d<-0.1)v_control_d=-0.1;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
     float v_control_angle = (userEle + stim_data.z_angle /3.0)  * 60 ;
     v_integrate += v_control_angle/60.0;
-    float outputv = 0 - gyroX * 0.57 +v_control_angle*param_v_p + v_integrate*param_v_i+ v_control_d ;
+    float outputv = 0 - gyroX * vopl +v_control_angle*param_v_p + v_integrate*param_v_i+ v_control_d ;
     outputSpeedV(outputv);
 
 Serial.print(stim_data.z_rate );
