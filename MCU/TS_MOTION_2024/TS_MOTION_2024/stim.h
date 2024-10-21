@@ -147,7 +147,7 @@ bool readStim(unsigned char databyte ,unsigned long lastDGMillis , StimData *sti
             float z_rate_old = stim_data->z_rate;
             // stim_data->z_rate = z_rate1-stim_data->z_bias;
             stim_data->z_rate = kalmanZ.getFilteredValue(z_rate1-stim_data->z_bias);
-           stim_data->z_acc = stim_data->z_rate-z_rate_old;
+            stim_data->z_acc = stim_data->z_rate-z_rate_old;
             
             stim_data->z_angle += (stim_data->z_rate/1000.0);
             }

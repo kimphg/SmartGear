@@ -12,7 +12,9 @@ Kalman kalmanGyroV(0.3,0.6,100,0);
 #define PD2 21
 #define PS2 20
 #define CT1 5
-
+#define HISTORY_LENGTH 100
+float stim_z_history[HISTORY_LENGTH];
+int stim_z_history_index = 0; 
 #define CT2 4
 #define CT3 3
 #define CT4 2
@@ -606,6 +608,16 @@ float bytesToFloat(unsigned char  b0, unsigned char  b1, unsigned char b2, unsig
 
   return output;
 }
+void addZhistory(float input)
+{
+  if(stim_z_history_index>=HISTORY_LENGTH)stim_z_history_index=0;
+      stim_z_history[stim_z_history_index] = input;
+      stim_z_history_index++;
+}
+void getZhistory()
+{
+  
+}
 void CGimbalController::readSensorData()//200 microseconds
 {
   //      controlerReport();
@@ -616,6 +628,7 @@ void CGimbalController::readSensorData()//200 microseconds
     {
       mStimMsgCount++;
       mGyroCount++;
+      addZhistory(stim_data.z_rate);
       //stim_data.z_angle
       //            Serial.println(stim_data.z_angle);
       //            Serial.print('\n');
