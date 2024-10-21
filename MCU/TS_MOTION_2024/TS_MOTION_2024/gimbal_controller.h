@@ -15,6 +15,20 @@ Kalman kalmanGyroV(0.3,0.6,100,0);
 #define HISTORY_LENGTH 100
 float stim_z_history[HISTORY_LENGTH];
 int stim_z_history_index = 0; 
+void addZhistory(float input)
+{
+  if(stim_z_history_index>=HISTORY_LENGTH)stim_z_history_index=0;
+      stim_z_history[stim_z_history_index] = input;
+      stim_z_history_index++;
+}
+float getZhistory(int delay)
+{
+  int index = stim_z_history_index-delay;
+  if(index<0)index = HISTORY_LENGTH+index;
+  return stim_z_history[index];
+  
+}
+
 #define CT2 4
 #define CT3 3
 #define CT4 2
@@ -525,7 +539,8 @@ void CGimbalController::UserUpdate()//
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    float v_control_d = (v_user_speed+stim_data.z_rate)*param_v_d ;
+float zrate = stim_data.z_rate+getZhistory(25)*0.8+getZhistory(75)*0.4;
+    float v_control_d = (v_user_speed+zrate)*param_v_d ;
     if(v_control_d>0.1)v_control_d=0.1;
     if(v_control_d<-0.1)v_control_d=-0.1;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
@@ -536,7 +551,7 @@ void CGimbalController::UserUpdate()//
 
 Serial.print(stim_data.z_rate );
        Serial.print(',');
-     Serial.print(gyroX );
+     Serial.print(zrate );
        Serial.print(',');
        Serial.print(v_control_angle*param_v_p);
        Serial.print(',');
@@ -608,16 +623,7 @@ float bytesToFloat(unsigned char  b0, unsigned char  b1, unsigned char b2, unsig
 
   return output;
 }
-void addZhistory(float input)
-{
-  if(stim_z_history_index>=HISTORY_LENGTH)stim_z_history_index=0;
-      stim_z_history[stim_z_history_index] = input;
-      stim_z_history_index++;
-}
-void getZhistory()
-{
-  
-}
+
 void CGimbalController::readSensorData()//200 microseconds
 {
   //      controlerReport();
@@ -629,17 +635,7 @@ void CGimbalController::readSensorData()//200 microseconds
       mStimMsgCount++;
       mGyroCount++;
       addZhistory(stim_data.z_rate);
-      //stim_data.z_angle
-      //            Serial.println(stim_data.z_angle);
-      //            Serial.print('\n');
-      //      if (workMode == 0)E_CONTROL.println(stim_data.y_rate);
-      // Serial.print(-0.5);
-      // Serial.print(" ");
-      // Serial.print(0.5);
-      // Serial.print(" ");
-      // Serial.print(param_h_p);
-      // Serial.print(" ");
-      // Serial.println( stim_data.z_angle);
+
     }
     lastStimByteTime = timeMicros;
   }
@@ -748,7 +744,7 @@ void CGimbalController::readSensorData()//200 microseconds
             countGyroY = 0;
             sumGyroY = 0;
             reportDebug("acy ", biasGyroY);
-            // Serial.println(biasGyroY);
+
           }
           gyroY -= biasGyroY;
         }
