@@ -346,8 +346,8 @@ void CGimbalController::setPPR(unsigned int hppr, unsigned int vppr)
 {
   h_ppr = hppr;
   v_ppr = vppr;
-  minPulsePeriodh = 5;//MOTOR_PULSE_CLOCK/(h_ppr);
-  minPulsePeriodv = 5;//MOTOR_PULSE_CLOCK/(v_ppr);
+  minPulsePeriodh = 3;//MOTOR_PULSE_CLOCK/(h_ppr);
+  minPulsePeriodv = 3;//MOTOR_PULSE_CLOCK/(v_ppr);
 
   isSetupChanged = true;
 }
@@ -523,20 +523,27 @@ void CGimbalController::UserUpdate()//
 //  Serial.print(stim_data.z_rate);
 //  Serial.print(' ');
 //  Serial.println(stim_data.y_rate);
-    v_control = 0 - gyroX * 0.57 + (v_user_speed + stim_data.z_rate*param_v_p+stim_data.z_acc*param_v_d) ;
+    float v_control_d = (v_user_speed+stim_data.z_rate)*param_v_d ;
+    if(v_control_d>0.1)v_control_d=0.1;
+    if(v_control_d<-0.1)v_control_d=-0.1;
     userEle += (v_user_speed) * CONTROL_TIME_STAMP / 12.0;
-    float v_control_i = (userEle + stim_data.z_angle /3.0) * param_v_i * 60 ;
-    // v_integrate += (userEle + stim_data.z_angle /3.0);
-    outputSpeedV(v_control + v_control_i +v_integrate*0.0);
+    float v_control_angle = (userEle + stim_data.z_angle /3.0)  * 60 ;
+    v_integrate += v_control_angle/60.0;
+    float outputv = 0 - gyroX * 0.57 +v_control_angle*param_v_p + v_integrate*param_v_i+ v_control_d ;
+    outputSpeedV(outputv);
 
 Serial.print(stim_data.z_rate );
        Serial.print(',');
      Serial.print(gyroX );
        Serial.print(',');
-      //  Serial.print(v_control_i );
-      //  Serial.print(',');
-      //  Serial.print(v_control + v_control_i );
-      //  Serial.print(',');
+       Serial.print(v_control_angle*param_v_p);
+       Serial.print(',');
+       Serial.print(v_integrate*param_v_i);
+       Serial.print(',');
+       Serial.print(v_control_d);
+       Serial.print(',');
+       Serial.print( outputv );
+       Serial.print(',');
        Serial.println(stim_data.z_angle  );
 
   }
