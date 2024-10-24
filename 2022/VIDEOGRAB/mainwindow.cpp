@@ -1819,3 +1819,13 @@ void MainWindow::on_bt_stab_2_clicked()
 {
     setStimstate(2);
 }
+
+void MainWindow::on_bt_control_focusauto_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_show_setup_2_clicked(bool checked)
+{
+    mControl.setplc(7,checked);
+}

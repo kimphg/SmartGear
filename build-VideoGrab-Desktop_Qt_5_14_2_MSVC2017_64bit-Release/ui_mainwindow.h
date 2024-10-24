@@ -35,6 +35,7 @@ public:
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout;
     QPushButton *pushButton_show_setup;
+    QPushButton *pushButton_show_setup_2;
     QPushButton *bt_control_file_2;
     QPushButton *bt_control_file_3;
     QPushButton *bt_control_file_4;
@@ -208,6 +209,14 @@ public:
 
         verticalLayout->addWidget(pushButton_show_setup);
 
+        pushButton_show_setup_2 = new QPushButton(groupBox_5);
+        pushButton_show_setup_2->setObjectName(QString::fromUtf8("pushButton_show_setup_2"));
+        sizePolicy.setHeightForWidth(pushButton_show_setup_2->sizePolicy().hasHeightForWidth());
+        pushButton_show_setup_2->setSizePolicy(sizePolicy);
+        pushButton_show_setup_2->setCheckable(true);
+
+        verticalLayout->addWidget(pushButton_show_setup_2);
+
         bt_control_file_2 = new QPushButton(groupBox_5);
         bt_control_file_2->setObjectName(QString::fromUtf8("bt_control_file_2"));
         sizePolicy.setHeightForWidth(bt_control_file_2->sizePolicy().hasHeightForWidth());
@@ -290,6 +299,7 @@ public:
         bt_control_focusauto->raise();
         bt_tracksizeup->raise();
         bt_tracksizeup_2->raise();
+        pushButton_show_setup_2->raise();
         groupBox_11 = new QGroupBox(centralwidget);
         groupBox_11->setObjectName(QString::fromUtf8("groupBox_11"));
         groupBox_11->setGeometry(QRect(10, 690, 121, 131));
@@ -932,9 +942,9 @@ public:
 
         view_azi = new QcGaugeWidget(centralwidget);
         view_azi->setObjectName(QString::fromUtf8("view_azi"));
-        view_azi->setGeometry(QRect(950, 610, 180, 180));
+        view_azi->setGeometry(QRect(1090, 830, 180, 180));
         view_azi->setAutoFillBackground(false);
-        view_azi->setStyleSheet(QString::fromUtf8(""));
+        view_azi->setStyleSheet(QString::fromUtf8("background-color: rgb(32, 64, 128); color:rgb(255, 255, 255)"));
         groupBox_angle_limit = new QGroupBox(centralwidget);
         groupBox_angle_limit->setObjectName(QString::fromUtf8("groupBox_angle_limit"));
         groupBox_angle_limit->setGeometry(QRect(1150, 730, 121, 91));
@@ -1071,7 +1081,7 @@ public:
         groupBox_10->raise();
         frame_7->raise();
         groupBox_9->raise();
-        groupBox_8->raise();
+        groupBox_81->raise();
         groupBox_12->raise();
         view_azi->raise();
         groupBox_angle_limit->raise();
@@ -1092,6 +1102,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\304\220K camera:", nullptr));
         pushButton_show_setup->setText(QCoreApplication::translate("MainWindow", "C\303\240i \304\221\341\272\267t", nullptr));
+        pushButton_show_setup_2->setText(QCoreApplication::translate("MainWindow", "B\341\272\255t dao \304\221\341\273\231ng", nullptr));
         bt_control_file_2->setText(QCoreApplication::translate("MainWindow", "Zoom +", nullptr));
         bt_control_file_3->setText(QCoreApplication::translate("MainWindow", "Zoom -", nullptr));
         bt_control_file_4->setText(QCoreApplication::translate("MainWindow", "Focus+", nullptr));

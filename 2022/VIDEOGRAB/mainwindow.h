@@ -200,6 +200,10 @@ private slots:
 
     void on_bt_stab_2_clicked();
 
+    void on_bt_control_focusauto_clicked();
+
+    void on_pushButton_show_setup_2_clicked(bool checked);
+
 private:
     bool isEqualizeHis = false;
     bool nightMode = false;

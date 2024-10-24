@@ -9,9 +9,9 @@ from ultralytics import YOLO
 # from vidstab import VidStab
 # Tải mô hình YOLOv10
 # model = YOLO('best.pt')
-model = YOLO("yolov10s.pt")
+# model = YOLO("yolov10s.pt")
 # tracker = TrackerKCF.create()
-model.to("cuda")
+# model.to("cuda")
 udp_ip = "127.0.0.1"
 udp_port = 12345
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -41,7 +41,7 @@ def send_frame(frame,frame_counter, address):
     print(f"Sent frame with size {len(data)} bytes")
 
 # stabilizer = VidStab()
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 # cap = cv2.VideoCapture("D:/VIDEO/rec_03.12_07.05.34.avi")
 # cap = cv2.VideoCapture("D:/VIDEO/rec_03.10_01.00.19.avi")
 
@@ -73,8 +73,8 @@ while cap.isOpened():
     
     if not ret:
         break
-    if(tracker_running):
-        ok, roi = tracker.update(frame)
+    # if(tracker_running):
+    #     ok, roi = tracker.update(frame)
         
     # frame =frame.astype(float)
     # cv2.accumulate(oldframe,frame)
@@ -97,18 +97,18 @@ while cap.isOpened():
     # y = cv2.Laplacian(y, cv2.CV_8U) 
     img_y_cr_cb_eq = cv2.merge((y, cr, cb))
     frame = cv2.cvtColor(img_y_cr_cb_eq, cv2.COLOR_YCR_CB2BGR)
-    results = model(frame)
-    detections = results[0].boxes
+    # results = model(frame)
+    # detections = results[0].boxes
     # print(model.names)
-    list_classes = {0,2,3,4,8}
+    # list_classes = {0,2,3,4,8}
     
-    for box in detections:
-        x1, y1, x2, y2 = map(int, box.xyxy[0])
-        conf = box.conf[0]
-        cls = int(box.cls[0])
-        if(abs(x1-x2)>20):
-            cv2.rectangle   (frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-            cv2.putText     (frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+    # for box in detections:
+    #     x1, y1, x2, y2 = map(int, box.xyxy[0])
+    #     conf = box.conf[0]
+    #     cls = int(box.cls[0])
+    #     if(abs(x1-x2)>20):
+            # cv2.rectangle   (frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+            # cv2.putText     (frame, model.names[cls], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
     # font which we will be using to display FPS 
     # #  
     if(tracker_running):

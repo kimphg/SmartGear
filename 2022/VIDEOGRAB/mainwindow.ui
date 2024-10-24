@@ -70,6 +70,22 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButton_show_setup_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Bật dao động</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="bt_control_file_2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -224,6 +240,7 @@
     <zorder>bt_control_focusauto</zorder>
     <zorder>bt_tracksizeup</zorder>
     <zorder>bt_tracksizeup_2</zorder>
+    <zorder>pushButton_show_setup_2</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox_11">
     <property name="geometry">
